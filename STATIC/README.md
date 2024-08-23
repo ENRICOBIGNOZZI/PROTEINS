@@ -1,0 +1,1 @@
+#Da scrivere a statica finita

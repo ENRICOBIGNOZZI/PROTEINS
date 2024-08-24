@@ -2,10 +2,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 class CorrelationAnalysis:
-    def __init__(self, u, lambdas, mu):
+    def __init__(self, u, lambdas, mu, sec_struct_data):
         self.u = u # Ensure u is at least 2D
         self.lambdas = np.array(lambdas)
         self.mu = mu
+        self.sec_struct_data=sec_struct_data
 
     def time_correlation(self, i, j, t):
         # No changes made here
@@ -63,6 +64,7 @@ class CorrelationAnalysis:
                 C_ij_0 += ((self.u[i, k] * self.u[j, k] / self.lambdas[k]))
             C_ij_t[idx] = C_ij_t_cost / C_ij_0
         return C_ij_t
+    
     def compute_static_response(self, i, j):
         return self.correlation_static_0( i, j)
 
@@ -212,3 +214,160 @@ class CorrelationAnalysis:
         plt.xlabel('Index j')
         plt.ylabel('Index i')
         plt.show()
+    def compute_time_correlation_residuals(self, t):
+        n = self.u.shape[0]
+        start_idx = int(len(t) * 0.4)
+        end_idx = int(len(t) * 0.6)
+        t_subset = t[start_idx:end_idx]
+        
+        residual_correlation_matrix = np.zeros((n, n))
+        
+        for i in range(n):
+            for j in range(n):
+                C_ij_t = self.time_correlation(i, j, t_subset)
+                residual_correlation_matrix[i, j] = np.mean(C_ij_t)  # Correlation mean over the subset
+        
+        return residual_correlation_matrix
+
+    def plot_time_correlation_residuals(self, t):
+        residual_correlation_matrix = self.compute_time_correlation_residuals(t)
+        plt.figure(figsize=(8, 6))
+        plt.imshow(residual_correlation_matrix, cmap='coolwarm', interpolation='none')
+        plt.colorbar()
+        plt.title('Residual Time Correlation Matrix')
+        plt.xlabel('Index j')
+        plt.ylabel('Index i')
+        plt.show()
+    def compute_residual_correlation_matrix(self, t,i):
+        """Calcola la matrice di correlazione dei residui per tutti i j e per un intervallo di tempo specificato."""
+        n = self.u.shape[0]
+        start_idx = int(len(t) * 0.4)
+        end_idx = int(len(t) * 0.6)
+        t_subset = t[start_idx:end_idx]
+
+        # Inizializza una matrice per le correlazioni temporali
+        residual_correlation_matrix = np.zeros((n, n, len(t_subset)))
+
+        
+        for j in range(n):
+            residual_correlation_matrix[i, j, :] = self.time_correlation(i, j, t_subset)
+        return residual_correlation_matrix
+
+    def compute_residual_time_response_matrix(self, t,i):
+        """Calcola la matrice di risposta al tempo per tutti i j e per un intervallo di tempo specificato."""
+        n = self.u.shape[0]
+        start_idx = int(len(t) * 0.4)
+        end_idx = int(len(t) * 0.6)
+        t_subset = t[start_idx:end_idx]
+
+        # Inizializza una matrice per le risposte temporali
+        time_response_matrix = np.zeros((n, n, len(t_subset)))
+
+        
+        for j in range(n):
+            time_response_matrix[i, j, :] = self.time_response(i, j, t_subset)
+
+        return time_response_matrix
+
+
+
+    def compute_residual_transfer_entropy_matrix(self, t,i):
+        """Calcola la matrice di transfer entropy per tutti i j e per un intervallo di tempo specificato."""
+        n = self.u.shape[0]
+        start_idx = int(len(t) * 0.4)
+        end_idx = int(len(t) * 0.6)
+        t_subset = t[start_idx:end_idx]
+
+        # Inizializza una matrice per le transfer entropy temporali
+        transfer_entropy_matrix = np.zeros((n, n, len(t_subset)))
+
+       
+        for j in range(n):
+            transfer_entropy_matrix[i, j, :] = self.transfer_entropy(i, j, t_subset)
+
+        return transfer_entropy_matrix
+
+    def get_sec_struct_info(self):
+        """Returns a dictionary mapping residue IDs to secondary structure types."""
+        sec_struct_info = {}
+        for _, row in self.sec_struct_data.iterrows():
+            sec_struct_info[row['Residue ID']] = row['Secondary Structure']
+        return sec_struct_info
+
+    def plot_with_secondary_structure_bands(self, i, data_matrix, t, ylabel, title, plot_func):
+        """Generates plots with bands indicating secondary structure types along the x-axis."""
+        sec_struct_info = self.get_sec_struct_info()
+        residue_ids = self.sec_struct_data['Residue ID'].astype(int)
+
+        # Mappa colori per le strutture secondarie
+        colors = {'H': 'red', 'E': 'blue', 'C': 'green'}
+        sec_struct_colors = [colors.get(sec_struct_info.get(rid, 'Unknown'), 'black') for rid in residue_ids]
+
+        plt.figure(figsize=(12, 8))
+        
+        # Plotting the data matrix
+        for idx, time_point in enumerate(t):
+            plt.plot(range(self.u.shape[0]), data_matrix[i, :, idx], marker='o', linestyle='-', alpha=0.7)
+        
+        # Aggiungi fasce colorate per le strutture secondarie
+        current_color = 'black'
+        for idx, resid in enumerate(residue_ids):
+            if sec_struct_colors[idx] != current_color:
+                if idx > 0:
+                    plt.axvspan(start_idx, idx - 0.5, color=current_color, alpha=0.2)
+                current_color = sec_struct_colors[idx]
+                start_idx = idx - 0.5
+        plt.axvspan(start_idx, len(residue_ids) - 0.5, color=current_color, alpha=0.2)
+        
+        # Add legend for secondary structure types
+        handles = [plt.Line2D([0], [0], color=color, lw=4, label=struct)
+                   for struct, color in colors.items()]
+        plt.legend(handles=handles, title='Secondary Structure', loc='upper center', bbox_to_anchor=(0.5, 1.1), ncol=3)
+
+        plt.title(title)
+        plt.xlabel('Index j')
+        plt.ylabel(ylabel)
+        plt.grid(True)
+        plt.show()
+
+    def plot_residual_correlation_vs_j(self, i, t):
+        """Visualizza le correlazioni dei residui in funzione di j per un dato i, in un intervallo di tempo specificato."""
+        residual_correlation_matrix = self.compute_residual_correlation_matrix(t,i)
+        start_idx = int(len(t) * 0.4)
+        end_idx = int(len(t) * 0.6)
+        t_subset = t[start_idx:end_idx]
+
+        self.plot_with_secondary_structure_bands(
+            i, residual_correlation_matrix, t_subset, 
+            f'Correlation with i={i}', 
+            f'Residual Correlation C_ij for i={i} as a function of j over time',
+            self.time_correlation
+        )
+
+    def plot_residual_time_response_vs_j(self, i, t):
+        """Visualizza le risposte al tempo in funzione di j per un dato i, in un intervallo di tempo specificato."""
+        time_response_matrix = self.compute_residual_time_response_matrix(t,i)
+        start_idx = int(len(t) * 0.4)
+        end_idx = int(len(t) * 0.6)
+        t_subset = t[start_idx:end_idx]
+
+        self.plot_with_secondary_structure_bands(
+            i, time_response_matrix, t_subset, 
+            f'Response with i={i}', 
+            f'Time Response R_ij for i={i} as a function of j over time',
+            self.time_response
+        )
+
+    def plot_residual_transfer_entropy_vs_j(self, i, t):
+        """Visualizza la transfer entropy in funzione di j per un dato i, in un intervallo di tempo specificato."""
+        transfer_entropy_matrix = self.compute_residual_transfer_entropy_matrix(t,i)
+        start_idx = int(len(t) * 0.4)
+        end_idx = int(len(t) * 0.6)
+        t_subset = t[start_idx:end_idx]
+
+        self.plot_with_secondary_structure_bands(
+            i, transfer_entropy_matrix, t_subset, 
+            f'Transfer Entropy with i={i}', 
+            f'Transfer Entropy TE_ij for i={i} as a function of j over time',
+            self.transfer_entropy
+        )

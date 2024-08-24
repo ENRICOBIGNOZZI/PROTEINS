@@ -2,7 +2,7 @@ import requests
 import numpy as np
 import pandas as pd
 from Bio.PDB import PDBParser
-
+import mdtraj as md
 class PDBProcessor:
     def __init__(self, pdb_id):
         self.pdb_id = pdb_id
@@ -62,3 +62,19 @@ class PDBProcessor:
 
         return mean_df
     
+
+    def secondary_structure(self):
+        traj = md.load(self.file_pdb)
+        ss = md.compute_dssp(traj)
+        data = []
+        for i, res in enumerate(traj.topology.residues):
+            data.append({
+                'Residue': res.name,
+                'Index': res.index,
+                'Chain Index': res.chain.index,
+                'Secondary Structure': ss[0][i]
+            })
+        df = pd.DataFrame(data)
+        return df
+
+

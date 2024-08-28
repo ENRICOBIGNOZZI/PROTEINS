@@ -20,8 +20,8 @@ concatenated_df = pd.concat([df1['Secondary Structure'], df], axis=1)
 df=concatenated_df.dropna().reset_index(drop=True)
 visualizer = Visualize(df)
 #visualizer.plot_connections_vs_radius()
-#visualizer.calculate_and_print_average_distance()
-G=visualizer.create_and_print_graph(truncated=True, radius=10,plot=False)  # Usa il raggio che preferisci
+media_distanza=visualizer.calculate_and_print_average_distance()
+G=visualizer.create_and_print_graph(truncated=True, radius=media_distanza,plot=False,peso=20)  # Usa il raggio che preferisci
 #G=visualizer.create_and_print_graph(truncated=False, radius=None,plot=True)  # Usa il raggio che preferisci
 # Creiamo un'istanza della classe
 analyzer = GraphMatrixAnalyzer(G)
@@ -41,21 +41,45 @@ k_B = 1  # Boltzmann constant (J/K)
 T = 1  # Temperature (K)
 g = 1  # A constant for simplicity
 mu = 0.1 # Time scaling factor
-t = np.linspace(0.01, 30, 40)  # Time points
+t = np.linspace(0.01, 4.5, 100)  # Time points
 
 # Initialize the analysis class
 analysis = CorrelationAnalysis(u=autovettori,lambdas=autovalori,mu= mu,sec_struct_data=df)
-#analysis.plot_time_correlation_residuals(t)
-analysis.plot_time_correlation(20, 73, t)
-#19-79
-#21-76
-#23-72
-lista=np.array([19,21,23,72,76,79])+1
+#autocorrelations = analysis.compute_autocorrelations(t)
+#normalized_autocorrelations = analysis.normalize_autocorrelations(autocorrelations)
+#tau_values = analysis.compute_tau_values(t, normalized_autocorrelations)
+#analysis.plot_normalized_autocorrelations(t, normalized_autocorrelations, tau_values)
 
-for i in lista:
-    analysis.plot_residual_correlation_vs_j(i=i,t=t)
-    analysis.plot_residual_time_response_vs_j(i=i,t=t)
-    analysis.plot_residual_transfer_entropy_vs_j(i=i,t=t)
+# Media dei tau_ij
+#tau_mean = np.mean(tau_values)
+#print(f"Tempo caratteristico medio: {tau_mean:.2f}")
+#analysis.plot_time_correlation_residuals(t)
+
+
+
+
+analysis.plot_residual_correlation_vs_j(i=24,t=t)
+'''pairs = [(20,70),(23, 70), (24, 71), (25, 72), (26,73),(27,74)]
+analysis.plot_multiple_time_correlations(pairs, t)
+
+lista=np.array([23,24,25,26])
+analysis.plot_residual_correlation_vs_j(i=24,t=t)
+analysis.plot_residual_time_response_vs_j(i=24,t=t)
+analysis.plot_residual_transfer_entropy_vs_j(i=24,t=t)
+analysis.plot_mean_quantity_over_segment(lista, t, quantity='correlation')
+analysis.plot_mean_quantity_over_segment(lista, t, quantity='linear_response')
+analysis.plot_mean_quantity_over_segment(lista, t, quantity='entropy')'''
+
+pairs = [(70,20),(70,23), ( 71,24), ( 72,25), (73,26),(74,27)]
+analysis.plot_multiple_time_correlations(pairs, t)
+lista=np.array([70,71,72,73,74,75,76,77,78,79,80])
+#analysis.plot_residual_correlation_vs_j(i=74,t=t)
+#analysis.plot_residual_time_response_vs_j(i=74,t=t)
+#analysis.plot_residual_transfer_entropy_vs_j(i=74,t=t)
+#analysis.plot_mean_quantity_over_segment(lista, t, quantity='correlation')
+#analysis.plot_mean_quantity_over_segment(lista, t, quantity='linear_response')
+#analysis.plot_mean_quantity_over_segment(lista, t, quantity='entropy')
+
 
 # Extract atomic data and create a DataFrame
 '''df = pdb_processor.extract_atom_data()

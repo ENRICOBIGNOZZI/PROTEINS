@@ -16,8 +16,10 @@ pdb_processor.load_structure()
 # Extract data
 df1 = pdb_processor.secondary_structure()
 df = pdb_processor.extract_atom_data()
-df = df[df['Atom Name'] == 'CA']
+print(df)
 df = df[df['Model ID'] == 0]
+df = df[df['Atom Name'] == 'CA']
+
 
 df = df.reset_index(drop=True)
 concatenated_df = pd.concat([df1['Secondary Structure'], df], axis=1)
@@ -27,26 +29,94 @@ print(df)
 visualizer = Visualize(df)
 raggio=visualizer.calculate_and_print_average_distance()
 #visualizer.plot_connections_vs_radius()
-G = visualizer.create_and_print_graph(truncated=True, radius=raggio, plot=False, peso=20)  # Adjust radius as needed
+G = visualizer.create_and_print_graph(truncated=True, radius=8.0, plot=False, peso=20)  # Adjust radius as needed
 
 # Initialize GraphMatrixAnalyzer
 analyzer = GraphMatrixAnalyzer(G)
+
+# Calcola la matrice di Kirchhoff
+kirchhoff_matrix = analyzer.get_kirchhoff_matrix()
+
+# Calcola autovalori e autovettori
+autovalori, autovettori = np.linalg.eigh(kirchhoff_matrix)
+#analyzer.plot_eigenvalues(autovalori)
+
+# Ordina autovalori e autovettori
+#idx = autovalori.argsort()[::-1]
+#autovalori = autovalori[idx]
+#autovettori = autovettori[:, idx]
+
+# Normalizza gli autovettori
+#autovettori = autovettori / np.linalg.norm(autovettori, axis=0)
+
+# Escludi i primi 6 modi (o 3 per proteine più piccole)
+#autovalori = autovalori[3:]
+#autovettori = autovettori[:, 3:]
+
+# Verifica
+print("Somma degli autovalori:", np.sum(autovalori))
+print("Primi 10 autovalori:", autovalori[:10])
+print("Norma degli autovettori:", np.linalg.norm(autovettori, axis=0))
+
+# Ottieni la matrice di adiacenza
+adjacency_matrix = analyzer.get_adjacency_matrix()
+
+# Plotta la mappa dei contatti
+#analyzer.plot_matrix(adjacency_matrix, title="Mappa dei Contatti della Proteina")
+
+# Se vuoi anche visualizzare la matrice di Kirchhoff
+kirchhoff_matrix = analyzer.get_kirchhoff_matrix()
+#analyzer.plot_matrix(kirchhoff_matrix, title="Matrice di Kirchhoff della Proteina")
+
 pseudo_inverse = analyzer.get_pseudo_inverse()
 adjacency_matrix = analyzer.get_adjacency_matrix()
+
 kirchhoff_matrix = analyzer.get_kirchhoff_matrix()
 eigenvalues = analyzer.get_eigenvalues_adjacency()
 eigenvectors = analyzer.get_eigenvectors_adjacency()
+eigenvectors=eigenvectors.T
+for i in range((kirchhoff_matrix.shape[0])):
+    #for j in range((adjacency_matrix.shape[0])):
+    print(kirchhoff_matrix[i,:])
 
+
+print("somma colonne")
+print("somma colonne")
+print("somma colonne")
+print(sum(kirchhoff_matrix[0,:]))
 # Perform Eigenvalue Decomposition
-autovalori, autovettori = np.linalg.eig(kirchhoff_matrix)  # Ensure kirchhoff_matrix is defined
+autovalori, autovettori = np.linalg.eig(kirchhoff_matrix)
+#np.linalg.eigh(kirchhoff_matrix)  # Usa eigh invece di eig
+autovettori=autovettori#.T
+print(autovettori)
+print(autovettori.T)
+#analyzer.plot_eigenvectors(autovettori[0:1,1:7])
+# Ordina gli autovalori e gli autovettori
+#idx = autovalori.argsort()[::-1]   
+#autovalori = autovalori[idx]
+#autovettori = autovettori[:, idx]
+
+# Normalizza gli autovettori
+#autovettori = autovettori / np.linalg.norm(autovettori, axis=0)
+
+# Aggiungi questi controlli
+print("Somma degli autovalori:", np.sum(autovalori))
+print("Primi 10 autovalori:", autovalori[:10])
+print("Norma degli autovettori:", np.linalg.norm(autovettori, axis=0))
+
+# Verifica della matrice di Kirchhoff
+print("Somma delle righe della matrice di Kirchhoff:", np.sum(kirchhoff_matrix, axis=1))
 
 # Parameters
 k_B = 1  # Boltzmann constant (J/K)
 T = 1  # Temperature (K)
 g = 1  # A constant for simplicity
-mu = 0.1  # Time scaling factor
+mu = 1  # Time scaling factor
 t = np.linspace(0.01, 6, 300)  # Time points
 
+
+plt.hist(autovalori)
+plt.show()
 # Initialize Analysis
 time_correlation = TimeCorrelation(u=autovettori, lambdas=autovalori, mu=mu, sec_struct_data=df)
 autocorrelations = time_correlation.time_correlation(0, 1, t)  # Example indices
@@ -98,17 +168,18 @@ R_ij_t = time_response.time_response(0, 71, t)  # Example indices
 
 matrix_operations = CorrelationMatrixOperations(u=autovettori, lambdas=autovalori, mu=mu, sec_struct_data=df)
 # Perform Correlation Matrix Operations
-correlation_matrix = matrix_operations.compute_static_correlation_matrix()
-positive_matrix, negative_matrix = matrix_operations.split_correlation_matrix(correlation_matrix)
+
+
+#correlation_matrix = matrix_operations.compute_static_correlation_matrix()
+#positive_matrix, negative_matrix = matrix_operations.split_correlation_matrix(correlation_matrix)
 #matrix_operations.plot_correlation_matrix(positive_matrix, 'Correlation Matrix')
 #matrix_operations.plot_correlation_matrix_nan(correlation_matrix, title='Correlation Matrix', positive_only=False)
-
-
+#matrix_operations.plot_correlation_matrix(kirchhoff_matrix, title='Correlation Matrix')
+#matrix_operations.plot_correlation_matrix_nan(kirchhoff_matrix, title='Correlation Matrix', positive_only=False)
 
 residual_analysis = ResidualAnalysis(u=autovettori, lambdas=autovalori, mu=mu, sec_struct_data=df)
 
 # Perform correlation analysis
-
 
 
 
@@ -123,21 +194,20 @@ t=[tau_mean-0.1,tau_mean,tau_mean+0.1,2*tau_mean,3*tau_mean]
 time_idx = 3
 residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'correlation')#'correlation','linear_response','entropy'
 residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'linear_response')
-residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'entropy')'''
-
-
-
+residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'entropy')
+'''
+print(autovettori)
 
 lista = np.array([21,22, 23, 24])
-t=[3*tau_mean]
+t=[0.3]#[tau_mean]
 time_idx = 0
 for i in range(len(lista)):
     residual_analysis.plot_residual_correlation_vs_j(i=lista[i], t=t, time_idx=time_idx)
-    residual_analysis.plot_residual_time_response_vs_j(i=lista[i], t=t, time_idx=time_idx)
+    #residual_analysis.plot_residual_time_response_vs_j(i=lista[i], t=t, time_idx=time_idx)
     residual_analysis.plot_residual_transfer_entropy_vs_j(i=lista[i], t=t, time_idx=time_idx)
 
 residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'correlation')#'correlation','linear_response','entropy'
-residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'linear_response')
+#residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'linear_response')
 residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'entropy')
 
 lista = np.array([71, 72, 73, 74, 75, 76, 77, 78, 79])
@@ -145,12 +215,14 @@ t=[tau_mean]
 time_idx = 0
 for i in range(len(lista)):
     residual_analysis.plot_residual_correlation_vs_j(i=lista[i], t=t, time_idx=time_idx)
-    residual_analysis.plot_residual_time_response_vs_j(i=lista[i], t=t, time_idx=time_idx)
+    #residual_analysis.plot_residual_time_response_vs_j(i=lista[i], t=t, time_idx=time_idx)
     residual_analysis.plot_residual_transfer_entropy_vs_j(i=lista[i], t=t, time_idx=time_idx)
 
 residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'correlation')#'correlation','linear_response','entropy'
-residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'linear_response')
+#residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'linear_response')
 residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'entropy')
+
+
 
 
 

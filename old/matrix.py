@@ -22,7 +22,11 @@ class GraphMatrixAnalyzer:
     def _compute_matrices(self):
         # Calcolare la matrice di adiacenza
         self.adjacency_matrix = nx.adjacency_matrix(self.graph).todense()
-        
+        print(self.adjacency_matrix)
+        print("somma colonne")
+        print("somma colonne")
+        print("somma colonne")
+        print(sum(self.adjacency_matrix.iloc[0,:]))
         # Calcolare la matrice di Kirchhoff (Laplaciano)
         self.kirchhoff_matrix = nx.laplacian_matrix(self.graph).todense()
         

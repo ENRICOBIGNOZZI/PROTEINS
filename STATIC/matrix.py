@@ -20,13 +20,16 @@ class GraphMatrixAnalyzer:
         self._compute_eigenvalues_and_eigenvectors()
 
     def _compute_matrices(self):
-        # Calcolare la matrice di adiacenza
+        # Compute adjacency matrix
         self.adjacency_matrix = nx.adjacency_matrix(self.graph).todense()
         
-        # Calcolare la matrice di Kirchhoff (Laplaciano)
-        self.kirchhoff_matrix = nx.laplacian_matrix(self.graph).todense()
+        # Compute degree matrix
+        degree_matrix = np.diag(np.sum(self.adjacency_matrix, axis=1))
         
-        # Calcolare la pseudo-inversa della matrice di Kirchhoff
+        # Compute Kirchhoff matrix (Laplacian)
+        self.kirchhoff_matrix = degree_matrix - self.adjacency_matrix
+        
+        # Compute pseudo-inverse of Kirchhoff matrix
         self.pseudo_inverse = np.linalg.pinv(self.kirchhoff_matrix)
 
     def _compute_eigenvalues_and_eigenvectors(self):
@@ -67,10 +70,24 @@ class GraphMatrixAnalyzer:
         return self.eigenvectors_pseudo_inverse
 
     def plot_matrix(self, matrix, title="Matrix"):
-        plt.figure(figsize=(8, 6))
-        plt.imshow(matrix, cmap='viridis', interpolation='none')
-        plt.colorbar()
+        plt.figure(figsize=(10, 8))
+        
+        # Create a binary matrix: 1 where connections exist, 0 otherwise
+        binary_matrix = np.where(matrix != 0, 1, 0)
+        
+        # Get the indices of non-zero elements
+        rows, cols = np.where(binary_matrix == 1)
+        
+        # Plot the dots
+        plt.scatter(cols, rows, s=1, c='black')
+        
         plt.title(title)
+        plt.xlabel('Residue Index')
+        plt.ylabel('Residue Index')
+        plt.ylim(-0.5, binary_matrix.shape[0] - 0.5)  # This line sets y-axis from 0 to max
+        plt.xlim(-0.5, binary_matrix.shape[1] - 0.5)
+        plt.gca().invert_yaxis()  # This line inverts the y-axis
+        plt.tight_layout()
         plt.show()
 
     def plot_eigenvalues(self, eigenvalues, title="Autovalori"):

@@ -13,7 +13,7 @@ class BaseCorrelationAnalysis:
         C_ij_t_cost = np.zeros(len(t))
         for idx, z in enumerate(t):
             C_ij_0 = 0
-            for k in range(3, len(self.lambdas)):
+            for k in range(1, len(self.lambdas)):
                 C_ij_t_cost[idx] += ((self.u[i, k] * self.u[j, k] / self.lambdas[k]) * np.exp(-self.mu * self.lambdas[k] * z))
                 C_ij_0 += ((self.u[i, k] * self.u[j, k] / self.lambdas[k]))
         return C_ij_t_cost, C_ij_0
@@ -163,11 +163,12 @@ class CorrelationMatrixOperations(BaseCorrelationAnalysis):
     def plot_correlation_matrix_nan(self, correlation_matrix, title='Correlation Matrix', positive_only=False):
         plt.figure(figsize=(8, 6))
         masked_matrix = np.where(correlation_matrix > 0, correlation_matrix, np.nan) if positive_only else np.where(correlation_matrix < 0, correlation_matrix, np.nan)
-        plt.imshow(masked_matrix, cmap='coolwarm', interpolation='none')
+        plt.imshow(masked_matrix, cmap='coolwarm', interpolation='none',origin='lower')
         plt.colorbar()
         plt.title(title)
         plt.xlabel('Index j')
         plt.ylabel('Index i')
+        #plt.invert_yaxis()
         plt.show()
 
 class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, CorrelationMatrixOperations):
@@ -280,9 +281,10 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
         for idx, z in enumerate(t):
             C_ij_0 = 0
             C_ij_t_cost = 0
-            for k in range(3, len(self.lambdas)):
+            for k in range(1, len(self.lambdas)):
                 C_ij_t_cost += ((self.u[i, k] * self.u[j, k] / self.lambdas[k]) * np.exp(-self.mu * self.lambdas[k] * z))
                 C_ij_0 += ((self.u[i, k] * self.u[j, k] / self.lambdas[k]))
+                #print(k)
             C_ij_t[idx] = C_ij_t_cost
         return C_ij_t
     def time_correlation_3(self, i, j, t):
@@ -291,7 +293,7 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
         for idx, z in enumerate(t):
             C_ij_0 = 0
             C_ij_t_cost = 0
-            for k in range(3, len(self.lambdas)):
+            for k in range(1, len(self.lambdas)):
                 C_ij_t_cost += ((self.u[i, k] * self.u[j, k] / self.lambdas[k]) * np.exp(-self.mu * self.lambdas[k] * z))
                 C_ij_0 += ((self.u[i, k] * self.u[j, k] / self.lambdas[k]))
             C_ij_t[idx] = C_ij_t_cost/C_ij_0 
@@ -306,6 +308,7 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
         t_subset=t
         # Inizializza una matrice per le correlazioni temporali
         residual_correlation_matrix = np.zeros((n, n, len(t_subset)))
+        print( t_subset)
         for j in range(n):
             residual_correlation_matrix[i, j, :] = self.time_correlation_2(i, j, t_subset)
         return residual_correlation_matrix[i,:,:]
@@ -378,5 +381,6 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
         plt.title(title)
         plt.xlabel('Residue Index')
         plt.ylabel(ylabel)
+        plt.ylim(-0.02,0.02)
         plt.grid(True)
         plt.show()

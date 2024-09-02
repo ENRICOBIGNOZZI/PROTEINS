@@ -47,38 +47,32 @@ class Visualize:
         return (1/(x)**2)
     def calculate_weight_covalent(self, residue_id1, residue_id2,peso):
         return peso if abs(residue_id1 - residue_id2) == 1 else 1
-    def create_and_print_graph(self, truncated,radius=None,plot=False,peso=1):
+    def create_and_print_graph(self, truncated, radius=8.0, plot=False, peso=1):
         positions = self.df.loc[:, ['X', 'Y', 'Z']].values
         residue_ids = self.df['Residue ID'].values
         G = nx.Graph()
+        print(len(residue_ids))
+        for i in range(len(residue_ids)):
+            G.add_node(residue_ids[i])
+            for j in range(len(residue_ids)):  # Consider all pairs, not just upper triangle
+                G.add_node(residue_ids[j])
+                if i != j:  # Avoid self-loops
+                    distance = euclidean_distance(positions[i], positions[j])
+                    if distance <= radius:
+                        if abs(residue_ids[i] - residue_ids[j]) == 1:
+                            # Covalent bond
+                            weight = peso
+                        else:
+                            # Non-covalent interaction
+                            weight = 1
+                        G.add_edge(residue_ids[i], residue_ids[j], weight=weight)
 
-        for i in range(len(positions)):
-            for j in range(len(positions)):
-                if i != j:
-                    if truncated:
-                        if euclidean_distance(positions[i], positions[j]) < radius:
-                            weight = self.calculate_weight_covalent(residue_ids[i], residue_ids[j],peso)
-                            G.add_edge(i, j, weight=weight)
-                    else:
-                        weight = self.calculate_weight(euclidean_distance(positions[i], positions[j]),peso)
-                        G.add_edge(i, j, weight=weight)
         if plot:
             plt.figure(figsize=(12, 10))
-            if truncated is not True:
-                pos = {i: (positions[i][0], positions[i][1]) for i in range(len(positions))}
-                nx.draw_networkx_nodes(G, pos, node_size=400, node_color='lightblue')
-
-                nx.draw_networkx_edges(G, pos, edgelist=G.edges(), edge_color='gray')
-                # Definisci le posizioni dei nodi per la visualizzazione
-                
-                nx.draw_networkx_edge_labels(G, pos, edge_labels={(u, v): f'{d["weight"]:.2f}' for u, v, d in G.edges(data=True)})
-                nx.draw_networkx_labels(G, pos, font_size=10, font_family='sans-serif')
-            else:
-                nx.draw(G, with_labels=True, node_size=500, node_color='lightblue', font_size=10, font_weight='bold', edge_color='gray')
-            plt.title("Visualizzazione del Grafo")
+            nx.draw(G, with_labels=True, node_size=500, node_color='lightblue', font_size=10, font_weight='bold', edge_color='gray')
+            plt.title("Protein Contact Map")
             plt.show()
-        #print("Nodi del grafo:", G.nodes())
-        #print("Archi del grafo:", G.edges())
+
         return G
 
 

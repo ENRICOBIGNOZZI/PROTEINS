@@ -104,8 +104,8 @@ class TransferEntropy(BaseCorrelationAnalysis):
         C_ij_0 = self._calculate_correlation_static(i, j)
         C_ij_t = self.time_correlation_instance.time_correlation(i, j, t)
 
-        alpha_ij_t = (C_ii_0 * C_jj_t - C_ij_0 * C_ii_t) ** 2
-        beta_ij_t = (C_ii_0 * C_jj_0) * (C_ii_t - C_ij_t ** 2)
+        alpha_ij_t = (C_ii_0 * C_ij_t - C_ij_0 * C_ii_t) ** 2
+        beta_ij_t = (C_ii_0 * C_jj_0-(C_ij_0**2)) * (C_ii_0**2- C_ii_t ** 2)
 
         ratio = np.clip(alpha_ij_t / beta_ij_t, 0, 1 - 1e-10)
         return -0.5 * np.log(1 - ratio)
@@ -185,13 +185,17 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
                     raise IndexError(f"Time index {time_idx} out of range for time array.")
         residual_correlation_matrix /= len(lista)
         return residual_correlation_matrix
+    
     def compute_residual_transfer_entropy_matrix(self, t, i, time_idx):
         n = self.u.shape[0]
+        print(n)
         transfer_entropy_matrix = np.zeros(n)
         print(t[time_idx:time_idx + 1])
         for j in range(n):
             transfer_entropy_matrix[j] = self.transfer_entropy(i, j, t[time_idx:time_idx + 1])
         return transfer_entropy_matrix
+    
+
     def compute_residual_time_response_matrix(self, t, i, time_idx):
         n = self.u.shape[0]
         time_response_matrix = np.zeros(n)
@@ -289,15 +293,14 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
         return C_ij_t
     def time_correlation_3(self, i, j, t):
         # No changes made here
-        C_ij_t = np.zeros(len(t))
+        Rijt_vector = np.zeros(len(t))
         for idx, z in enumerate(t):
-            C_ij_0 = 0
-            C_ij_t_cost = 0
-            for k in range(1, len(self.lambdas)):
-                C_ij_t_cost += ((self.u[i, k] * self.u[j, k] / self.lambdas[k]) * np.exp(-self.mu * self.lambdas[k] * z))
-                C_ij_0 += ((self.u[i, k] * self.u[j, k] / self.lambdas[k]))
-            C_ij_t[idx] = C_ij_t_cost/C_ij_0 
-        return C_ij_t
+            Rijt = 0
+            for k in range(0, len(self.lambdas)):
+                Rijt += ((self.u[i, k] * self.u[j, k]) * np.exp(-self.mu * self.lambdas[k] * z))
+                #C_ij_0 += ((self.u[i, k] * self.u[j, k] / self.lambdas[k]))
+            Rijt_vector[idx] = Rijt#C_ij_t_cost#/C_ij_0 
+        return Rijt
     
     def compute_residual_correlation_matrix(self, t,i, time_idx):
         """Calcola la matrice di correlazione dei residui per tutti i j e per un intervallo di tempo specificato."""
@@ -381,6 +384,6 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
         plt.title(title)
         plt.xlabel('Residue Index')
         plt.ylabel(ylabel)
-        plt.ylim(-0.02,0.02)
+        #plt.ylim(-0.02,0.02)
         plt.grid(True)
         plt.show()

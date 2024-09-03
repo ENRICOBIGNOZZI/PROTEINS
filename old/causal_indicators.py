@@ -54,13 +54,13 @@ class CorrelationAnalysis:
     def static_transfer_entropy(self, i, j):
         C_ii_0 = self.time_correlation(i, i, np.array([0.0]))[0]
         C_jj_0 = self.time_correlation(j, j, np.array([0.0]))[0]
-        C_ii_t = self.time_correlation(i, i, np.array([0.0]))
-        C_jj_t = self.time_correlation(j, j, np.array([0.0]))
+        C_ii_t = self.time_correlation(i, i, np.array([0.3]))
+        #C_jj_t = self.time_correlation(j, j, np.array([0.0]))
         C_ij_0 = self.time_correlation(i, j, np.array([0.0]))[0]
-        C_ij_t = self.time_correlation(i, j, np.array([0.0]))
+        C_ij_t = self.time_correlation(i, j, np.array([0.3]))
 
-        alpha_ij_t = (C_ii_0 * C_jj_t - C_ij_0 * C_ii_t) ** 2
-        beta_ij_t = (C_ii_0 * C_jj_0) * (C_ii_t - C_ij_t ** 2)
+        alpha_ij_t = (C_ii_0 * C_ij_t - C_ij_0 * C_ii_t) ** 2
+        beta_ij_t = (C_ii_0 * C_jj_0-(C_ij_0**2)) * (C_ii_0**2- C_ii_t ** 2)
 
         ratio = np.clip(alpha_ij_t / beta_ij_t, 0, 1 - 1e-10)
         return -0.5 * np.log(1 - ratio)
@@ -70,7 +70,7 @@ class CorrelationAnalysis:
         for idx, z in enumerate(t):
             C_ij_0 = 0
             C_ij_t_cost = 0
-            for k in range(3, len(self.lambdas)):
+            for k in range(1, len(self.lambdas)):
                 C_ij_t_cost += ((self.u[i, k] * self.u[j, k] / self.lambdas[k]) * np.exp(-self.mu * self.lambdas[k] * z))
                 C_ij_0 += ((self.u[i, k] * self.u[j, k] / self.lambdas[k]))
             C_ij_t[idx] = C_ij_t_cost / C_ij_0

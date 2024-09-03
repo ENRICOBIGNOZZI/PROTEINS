@@ -199,16 +199,17 @@ residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'entropy')
 print(autovettori)
 
 lista = np.array([21,22, 23, 24])
+lista = np.array([20,21,22, 23, 24])
 t=[0.3]#[tau_mean]
 time_idx = 0
 for i in range(len(lista)):
-    residual_analysis.plot_residual_correlation_vs_j(i=lista[i], t=t, time_idx=time_idx)
+    #residual_analysis.plot_residual_correlation_vs_j(i=lista[i], t=t, time_idx=time_idx)
     #residual_analysis.plot_residual_time_response_vs_j(i=lista[i], t=t, time_idx=time_idx)
     residual_analysis.plot_residual_transfer_entropy_vs_j(i=lista[i], t=t, time_idx=time_idx)
 
-residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'correlation')#'correlation','linear_response','entropy'
-#residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'linear_response')
-residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'entropy')
+#residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'correlation')#'correlation','linear_response','entropy'
+residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'linear_response')
+#residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'entropy')
 
 lista = np.array([71, 72, 73, 74, 75, 76, 77, 78, 79])
 t=[tau_mean]

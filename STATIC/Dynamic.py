@@ -58,13 +58,13 @@ positions = df[['X', 'Y', 'Z']].values
 N = positions.shape[0]  # number of residues
 K = kirchhoff_matrix
 r0 = positions  # initial positions
-epsilon_0 = 1.0
+epsilon_0 = 5.0
 omega = 1.0
 dt = 0.01
 T = 0.010
 k_b = 1.0
-gamma = 1.0
-MaxTime = 5.
+gamma = 0.50
+MaxTime = 10.
 
 t, r_history = stochastic_process(r0, K, epsilon_0, omega, dt, T, k_b, gamma, MaxTime)
 
@@ -96,3 +96,16 @@ ax.set_ylabel('Y')
 ax.set_zlabel('Z')
 ax.set_title('Trajectory of Residue 21')
 plt.show()
+
+# Dopo aver creato l'istanza di GraphMatrixAnalyzer
+analyzer = GraphMatrixAnalyzer(G)
+
+# Analizza la stabilità del sistema
+analyzer.analyze_stability()
+
+# Visualizza le frequenze naturali
+analyzer.natural_frequencies()
+
+# Calcola e visualizza i moltiplicatori di Floquet
+T = 2 * np.pi / omega  # Periodo della perturbazione
+analyzer.plot_floquet_multipliers(T)

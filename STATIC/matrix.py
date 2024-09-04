@@ -126,7 +126,56 @@ class GraphMatrixAnalyzer:
         self.plot_eigenvectors(self.get_eigenvectors_kirchhoff(), title="Autovettori della Matrice di Kirchhoff")
         self.plot_eigenvectors(self.get_eigenvectors_pseudo_inverse(), title="Autovettori della Pseudo-inversa della Matrice di Kirchhoff")
 
+    def compute_floquet_multipliers(self, T):
+        """
+        Calcola i moltiplicatori di Floquet.
+        
+        :param T: Periodo della perturbazione
+        :return: Array dei moltiplicatori di Floquet
+        """
+        return np.exp(self.eigenvalues_kirchhoff * T)
 
+    def plot_floquet_multipliers(self, T):
+        """
+        Visualizza i moltiplicatori di Floquet nel piano complesso.
+        
+        :param T: Periodo della perturbazione
+        """
+        multipliers = self.compute_floquet_multipliers(T)
+        plt.figure(figsize=(10, 8))
+        plt.scatter(multipliers.real, multipliers.imag)
+        plt.axhline(y=0, color='r', linestyle='--')
+        plt.axvline(x=0, color='r', linestyle='--')
+        plt.title("Moltiplicatori di Floquet")
+        plt.xlabel("Parte Reale")
+        plt.ylabel("Parte Immaginaria")
+        plt.grid(True)
+        plt.show()
+
+    def analyze_stability(self):
+        """
+        Analizza la stabilità del sistema basandosi sugli autovalori.
+        """
+        stable_modes = np.sum(self.eigenvalues_kirchhoff < 0)
+        unstable_modes = np.sum(self.eigenvalues_kirchhoff > 0)
+        critical_modes = np.sum(np.isclose(self.eigenvalues_kirchhoff, 0))
+        
+        print(f"Modi stabili: {stable_modes}")
+        print(f"Modi instabili: {unstable_modes}")
+        print(f"Modi critici: {critical_modes}")
+
+    def natural_frequencies(self):
+        """
+        Calcola e visualizza le frequenze naturali del sistema.
+        """
+        frequencies = np.sqrt(np.abs(self.eigenvalues_kirchhoff))
+        plt.figure(figsize=(10, 6))
+        plt.plot(frequencies, 'o-')
+        plt.title("Frequenze Naturali del Sistema")
+        plt.xlabel("Indice del Modo")
+        plt.ylabel("Frequenza")
+        plt.grid(True)
+        plt.show()
 
 
 

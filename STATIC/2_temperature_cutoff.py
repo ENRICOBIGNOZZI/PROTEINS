@@ -71,3 +71,39 @@ plt.yticks([0.5, 1.0])
 plt.grid(True)
 plt.tight_layout()
 plt.show()
+
+import scipy.integrate as integrate
+
+# Assicuriamoci che temperatura_radiale sia un array numpy
+temperatura_radiale = np.array(temperatura)
+
+# Funzione da integrare
+def integrando(u, K, T):
+    exp_Ku = np.exp(K * u)
+    return exp_Ku * T[:, np.newaxis] * T[np.newaxis, :] * exp_Ku
+
+# Funzione per calcolare l'integrale
+def calcola_integrale(K, T, limite_inferiore=-100, num_punti=1000):
+    def func(u):
+        return integrando(u, K, T)
+    
+    risultato, _ = integrate.quad_vec(func, limite_inferiore, 0, limit=num_punti)
+    return risultato
+
+# Calcolo dell'integrale
+K = 1.0  # Puoi modificare questo valore secondo le tue necessità
+risultato_integrale = calcola_integrale(K, temperatura_radiale)
+
+print("Dimensioni del risultato dell'integrale:", risultato_integrale.shape)
+print("Primi 5x5 elementi del risultato:")
+print(risultato_integrale[:5, :5])
+
+# Visualizzazione del risultato come heatmap
+plt.figure(figsize=(10, 8))
+plt.imshow(risultato_integrale, cmap='viridis', aspect='auto')
+plt.colorbar(label='Valore dell\'integrale')
+plt.title(f'Heatmap del risultato dell\'integrale (K={K})')
+plt.xlabel('Indice del residuo')
+plt.ylabel('Indice del residuo')
+plt.tight_layout()
+plt.show()

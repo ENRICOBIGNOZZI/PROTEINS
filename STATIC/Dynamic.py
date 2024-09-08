@@ -5,26 +5,24 @@ from Visualize import Visualize
 from matrix import GraphMatrixAnalyzer
 import pandas as pd
 
-def stochastic_process(r, K, epsilon_0, omega, dt, T, k_b, gamma, MaxTime):
-    N = r.shape[0]
+def stochastic_process_1d(K, epsilon_0, omega, dt, T, k_b, gamma, MaxTime, N):
     t = np.arange(0, MaxTime, dt)
-    r_history = np.zeros((len(t), N, 3))
-    r_history[0] = r
+    r_history = np.zeros((len(t), N))
+    r = np.zeros(N)  # Inizializza tutte le posizioni a zero
 
     for n in range(1, len(t)):
         epsilon_t = epsilon_0 * (1 + np.cos(omega * t[n])) / 2
         
-        dH_dr = np.zeros((N, 3))
+        dH_dr = np.zeros(N)
         for i in range(N):
-            for j in range(N):
-                dH_dr[i] = (K[i,j]* r[j])
+            dH_dr[i] = np.sum(K[i, :] * r)
             if i == 20:  # index 20 corresponds to residue 21
                 dH_dr[i] += 2 * epsilon_t * (r[20] - r[75])
             elif i == 75:  # index 75 corresponds to residue 76
                 dH_dr[i] -= 2 * epsilon_t * (r[20] - r[75])
         
-        eta = np.random.normal(0, 1, (N, 3))
-        r = r - dH_dr * dt + np.sqrt(2 * k_b * T * gamma) * eta
+        eta = np.random.normal(0, 1, N)
+        r = r - dH_dr * dt + np.sqrt(2 * k_b * T * gamma * dt) * eta
         r_history[n] = r
 
     return t, r_history
@@ -51,51 +49,50 @@ G = visualizer.create_and_print_graph(truncated=True, radius=8.0, plot=False, pe
 analyzer = GraphMatrixAnalyzer(G)
 kirchhoff_matrix = analyzer.get_kirchhoff_matrix()
 
+def calculate_time_average_x_squared(r_history):
+    return np.mean(r_history**2, axis=0)
 # Extract positions
 positions = df[['X', 'Y', 'Z']].values
 
 # Example usage:
 N = positions.shape[0]  # number of residues
 K = kirchhoff_matrix
-r0 = positions  # initial positions
-epsilon_0 = 0.05
-omega = 0.5
-dt = 0.001
+epsilon_0 =1
+omega = 1
+dt = 0.0001
 T = 1
 k_b = 1
 gamma = 1.
-MaxTime = omega*2*np.pi*5*4
+MaxTime = omega*2*np.pi*5*4*5*2
 
-t, r_history = stochastic_process(r0, K, epsilon_0, omega, dt, T, k_b, gamma, MaxTime)
+t, r_history = stochastic_process_1d(K, epsilon_0, omega, dt, T, k_b, gamma, MaxTime, N)
+time_avg_x_squared = calculate_time_average_x_squared(r_history)
 
-# Select 10 residues to plot, including 20 and 75
-selected_residues = [20, 75]#[10, 20, 30, 40, 50, 60, 70, 75, 80, 90]
+# Plot the time average of x(t)^2 for each residue
+plt.figure(figsize=(12, 6))
+plt.plot(range(1, N+1), time_avg_x_squared, 'b-')
+plt.xlabel('Residue Number')
+plt.ylabel('Time Average of x(t)^2')
+plt.title('Time Average of x(t)^2 for Each Residue')
+plt.tight_layout()
+plt.show()
+# Select residues to plot, including 20 and 75
+selected_residues = [20, 75]  # You can add more if needed
 
 # Plot the positions of selected residues over time
 plt.figure(figsize=(12, 8))
 
-for i, residue in enumerate(selected_residues):
-    plt.plot(t, r_history[:, residue, 0], label=f'Residue {residue+1} (X)')
-    #plt.plot(t, r_history[:, residue, 1], label=f'Residue {residue+1} (Y)')
-    #plt.plot(t, r_history[:, residue, 2], label=f'Residue {residue+1} (Z)')
+for residue in selected_residues:
+    plt.plot(t, r_history[:, residue], label=f'Residue {residue+1}')
 
 plt.xlabel('Time')
-plt.ylabel('Coordinate')
-plt.title('Coordinates of Selected Residues over Time')
-plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+plt.ylabel('Displacement')
+plt.title('Displacements of Selected Residues over Time (1D)')
+plt.legend()
 plt.tight_layout()
 plt.show()
 
-# Plot the trajectory of a specific residue (e.g., residue 21)
-residue_index = 20  # Index 20 corresponds to residue 21
-fig = plt.figure(figsize=(10, 10))
-ax = fig.add_subplot(111, projection='3d')
-ax.plot(r_history[:, residue_index, 0], r_history[:, residue_index, 1], r_history[:, residue_index, 2])
-ax.set_xlabel('X')
-ax.set_ylabel('Y')
-ax.set_zlabel('Z')
-ax.set_title('Trajectory of Residue 21')
-plt.show()
+# Plot the t
 
 # Dopo aver creato l'istanza di GraphMatrixAnalyzer
 analyzer = GraphMatrixAnalyzer(G)

@@ -74,21 +74,12 @@ kirchhoff_matrix = analyzer.get_kirchhoff_matrix()
 eigenvalues = analyzer.get_eigenvalues_adjacency()
 eigenvectors = analyzer.get_eigenvectors_adjacency()
 eigenvectors=eigenvectors.T
-for i in range((kirchhoff_matrix.shape[0])):
-    #for j in range((adjacency_matrix.shape[0])):
-    print(kirchhoff_matrix[i,:])
 
-
-print("somma colonne")
-print("somma colonne")
-print("somma colonne")
-print(sum(kirchhoff_matrix[0,:]))
 # Perform Eigenvalue Decomposition
 autovalori, autovettori = np.linalg.eig(kirchhoff_matrix)
 #np.linalg.eigh(kirchhoff_matrix)  # Usa eigh invece di eig
 autovettori=autovettori#.T
-print(autovettori)
-print(autovettori.T)
+
 #analyzer.plot_eigenvectors(autovettori[0:1,1:7])
 # Ordina gli autovalori e gli autovettori
 #idx = autovalori.argsort()[::-1]   
@@ -98,15 +89,7 @@ print(autovettori.T)
 # Normalizza gli autovettori
 #autovettori = autovettori / np.linalg.norm(autovettori, axis=0)
 
-# Aggiungi questi controlli
-print("Somma degli autovalori:", np.sum(autovalori))
-print("Primi 10 autovalori:", autovalori[:10])
-print("Norma degli autovettori:", np.linalg.norm(autovettori, axis=0))
 
-# Verifica della matrice di Kirchhoff
-print("Somma delle righe della matrice di Kirchhoff:", np.sum(kirchhoff_matrix, axis=1))
-
-# Parameters
 k_B = 1  # Boltzmann constant (J/K)
 T = 1  # Temperature (K)
 g = 1  # A constant for simplicity
@@ -114,8 +97,6 @@ mu = 1  # Time scaling factor
 t = np.linspace(0.01, 6, 300)  # Time points
 
 
-plt.hist(autovalori)
-plt.show()
 # Initialize Analysis
 time_correlation = TimeCorrelation(u=autovettori, lambdas=autovalori, mu=mu, sec_struct_data=df)
 autocorrelations = time_correlation.time_correlation(0, 1, t)  # Example indices
@@ -195,15 +176,22 @@ residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'correlatio
 residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'linear_response')
 residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'entropy')
 '''
-print(autovettori)
+def calcola_distanza(residuo1, residuo2, df):
+    coord1 = df.loc[df['Residue ID'] == residuo1, ['X', 'Y', 'Z']].values[0]
+    coord2 = df.loc[df['Residue ID'] == residuo2, ['X', 'Y', 'Z']].values[0]
+    distanza = np.linalg.norm(coord1 - coord2)
+    return distanza
 
+# Calcola la distanza tra il residuo 20 e il 40
+distanza_20_40 = calcola_distanza(20, 40, df)
+print(f"Distanza tra il residuo 20 e il 40: {distanza_20_40:.2f}")
 lista = np.array([21,22, 23, 24])
 lista = np.array([20,21,22, 23, 24])
 t=[0.3]#[tau_mean]
 time_idx = 0
 for i in range(len(lista)):
-    #residual_analysis.plot_residual_correlation_vs_j(i=lista[i], t=t, time_idx=time_idx)
-    #residual_analysis.plot_residual_time_response_vs_j(i=lista[i], t=t, time_idx=time_idx)
+    residual_analysis.plot_residual_correlation_vs_j(i=lista[i], t=t, time_idx=time_idx)
+    residual_analysis.plot_residual_time_response_vs_j(i=lista[i], t=t, time_idx=time_idx)
     residual_analysis.plot_residual_transfer_entropy_vs_j(i=lista[i], t=t, time_idx=time_idx)
 
 #residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'correlation')#'correlation','linear_response','entropy'

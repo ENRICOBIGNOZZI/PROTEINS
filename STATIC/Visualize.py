@@ -50,7 +50,7 @@ class Visualize:
     def create_and_print_graph(self, truncated, radius=8.0, plot=False, peso=1):
         positions = self.df.loc[:, ['X', 'Y', 'Z']].values
         residue_ids = self.df['Residue ID'].values
-        chain_ids = self.df['Chain ID'].values  # Add this line to get chain IDs
+        
         G = nx.Graph()
         print(len(residue_ids))
         for i in range(len(residue_ids)):
@@ -60,16 +60,29 @@ class Visualize:
                 if i != j:  # Avoid self-loops
                     distance = euclidean_distance(positions[i], positions[j])
                     if distance <= radius:
-                        if chain_ids[i] != chain_ids[j]:
-                            # Different chains, assign weight 0
+                        if i==95 and j==94:  # Corretto l'operatore
+                            #print("sono dentro")
+                            #print(residue_ids[i])
+
+                            
+                            # Covalent bond
+                            weight = 0
+                        elif i==94 and j==95:  # Corretto l'operatore
+                            #print("sono dentro")
+                            #print(residue_ids[i])
+
+                            
+                            # Covalent bond
                             weight = 0
                         elif abs(residue_ids[i] - residue_ids[j]) == 1:
+                            
                             # Covalent bond
                             weight = peso
                         else:
                             # Non-covalent interaction
                             weight = 1
                         G.add_edge(residue_ids[i], residue_ids[j], weight=weight)
+                        
 
         if plot:
             plt.figure(figsize=(12, 10))

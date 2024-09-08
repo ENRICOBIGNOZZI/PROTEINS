@@ -58,25 +58,25 @@ positions = df[['X', 'Y', 'Z']].values
 N = positions.shape[0]  # number of residues
 K = kirchhoff_matrix
 r0 = positions  # initial positions
-epsilon_0 = 5.0
-omega = 1.0
-dt = 0.01
-T = 0.010
-k_b = 1.0
-gamma = 0.50
-MaxTime = 10.
+epsilon_0 = 0.05
+omega = 0.5
+dt = 0.001
+T = 1
+k_b = 1
+gamma = 1.
+MaxTime = omega*2*np.pi*5*4
 
 t, r_history = stochastic_process(r0, K, epsilon_0, omega, dt, T, k_b, gamma, MaxTime)
 
 # Select 10 residues to plot, including 20 and 75
-selected_residues = [20,  50, 75,80]#[10, 20, 30, 40, 50, 60, 70, 75, 80, 90]
+selected_residues = [20, 75]#[10, 20, 30, 40, 50, 60, 70, 75, 80, 90]
 
 # Plot the positions of selected residues over time
 plt.figure(figsize=(12, 8))
 
 for i, residue in enumerate(selected_residues):
-    #plt.plot(t, r_history[:, residue, 0], label=f'Residue {residue+1} (X)')
-    plt.plot(t, r_history[:, residue, 1], label=f'Residue {residue+1} (Y)')
+    plt.plot(t, r_history[:, residue, 0], label=f'Residue {residue+1} (X)')
+    #plt.plot(t, r_history[:, residue, 1], label=f'Residue {residue+1} (Y)')
     #plt.plot(t, r_history[:, residue, 2], label=f'Residue {residue+1} (Z)')
 
 plt.xlabel('Time')

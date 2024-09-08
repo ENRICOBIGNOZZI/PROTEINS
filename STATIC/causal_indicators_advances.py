@@ -172,6 +172,84 @@ class CorrelationMatrixOperations(BaseCorrelationAnalysis):
         plt.show()
 
 class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, CorrelationMatrixOperations):
+    def compute_mean_first_passage_time_matrix(self,adjacency_matrix):
+        n = self.u.shape[0]
+        T = np.zeros((n, n))
+        
+        # Calculate degrees (d_z)
+        degrees = np.sum(adjacency_matrix, axis=1)
+        print(degrees)
+        # Calculate R matrix
+        R = np.zeros((n, n))
+        for i in range(n):
+            for j in range(n):
+                R[i, j] = np.sum( 1/ self.lambdas[1:] * (self.u[i, 1:] - self.u[j, 1:])**2)
+        
+        # Calculate T matrix (MFPT)
+        for i in range(n):
+            for j in range(n):
+                T[i, j] = 0.5 * np.sum(degrees * (R[i, j] + R[:, j] - R[i, :]))
+        
+        return T
+
+    def plot_mfpt_matrix(self,adjacency_matrix):
+        T = self.compute_mean_first_passage_time_matrix(adjacency_matrix)
+        '''plt.figure(figsize=(10, 8))
+        plt.imshow(T, cmap='viridis', interpolation='nearest')
+        plt.colorbar(label='Mean First Passage Time')
+        plt.title('Mean First Passage Time Matrix')
+        plt.xlabel('Target Node j')
+        plt.ylabel('Starting Node i')
+        plt.show()'''
+
+    def analyze_mfpt(self, adjacency_matrix):
+        T = self.compute_mean_first_passage_time_matrix(adjacency_matrix)
+        
+        # Focus on residues 5 to 90
+        #start_residue, end_residue = 0, 9
+        T_subset = T
+        
+        # Flatten the matrix and remove zeros and diagonal elements
+        flat_T = T_subset[~np.eye(T_subset.shape[0], dtype=bool)].flatten()
+        non_zero_T = flat_T[flat_T != 0]
+        
+        # Sort the non-zero values
+        sorted_T = np.sort(non_zero_T)
+        
+        # Calculate the 10th percentile as a threshold for "short" passage times
+        threshold = np.percentile(sorted_T, 20)
+        
+        # Plot the distribution of lower MFPT values
+        plt.figure(figsize=(10, 6))
+        plt.hist(non_zero_T[non_zero_T <= threshold], bins=50, edgecolor='black')
+        plt.title('Distribution of Lower Mean First Passage Time Values (Residues)')
+        plt.xlabel('Mean First Passage Time')
+        plt.ylabel('Frequency')
+        plt.axvline(threshold, color='r', linestyle='--', label='10th percentile')
+        plt.legend()
+        plt.show()
+        
+        # Highlight zones with shorter passage times in the MFPT matrix
+        plt.figure(figsize=(10, 8))
+        masked_T = np.ma.masked_where(T_subset > threshold, T_subset)
+        plt.imshow(masked_T, cmap='viridis', interpolation='nearest', origin='lower')
+        plt.colorbar(label='Mean First Passage Time')
+        plt.title('Mean First Passage Time Matrix (Residues, Highlighting Shorter Times)')
+        plt.xlabel('Target Residue')
+        plt.ylabel('Starting Residue')
+        
+        # Adjust tick labels to show actual residue numbers
+        #plt.xticks(range(0, end_residue-start_residue+1, 10), range(start_residue, end_residue+1, 10))
+        #plt.yticks(range(0, end_residue-start_residue+1, 10), range(start_residue, end_residue+1, 10))
+        
+        plt.show()
+        
+        # Print some statistics
+        print(f"10th percentile (threshold) of MFPT: {threshold:.4f}")
+        print(f"Minimum non-zero MFPT: {np.min(non_zero_T):.4f}")
+        print(f"Maximum MFPT: {np.max(non_zero_T):.4f}")
+        print(f"Average MFPT: {np.mean(non_zero_T):.4f}")
+
     def compute_mean_correlation_over_segment(self, lista, t, time_idx):
         n = self.u.shape[0]
         residual_correlation_matrix = np.zeros((n, 1))

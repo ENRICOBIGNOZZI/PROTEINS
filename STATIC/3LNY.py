@@ -106,8 +106,8 @@ normalized_autocorrelations = autocorrelations / autocorrelations[0]  # Normaliz
 #t = np.array([0.20, 0.25, 0.30, 0.35])
 
 # Calcola le autocorrelazioni e normalizzale
-normalized_autocorrelations = np.zeros((97, len(t)))
-for i in range(97):
+normalized_autocorrelations = np.zeros((94, len(t)))
+for i in range(94):
     C_ii_t = time_correlation.time_correlation(i, i, t)
     normalized_autocorrelations[i, :] = time_correlation.normalize_autocorrelations(C_ii_t)
 

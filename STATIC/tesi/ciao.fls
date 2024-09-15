@@ -55,33 +55,7 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
 OUTPUT ciao.pdf
 INPUT /usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map
-INPUT ./images/Residual Correlation C_ij for i=22 as a function of j at time index 0.png
-INPUT ./images/Residual Correlation C_ij for i=22 as a function of j at time index 0.png
-INPUT ./images/Residual Correlation C_ij for i=22 as a function of j at time index 0.png
-INPUT ./images/Residual Correlation C_ij for i=22 as a function of j at time index 0.png
-INPUT ./images/Residual Correlation C_ij for i=22 as a function of j at time index 0.png
-INPUT ./images/Time Response R_ij for i=22 as a function of j at time index 0.png
-INPUT ./images/Time Response R_ij for i=22 as a function of j at time index 0.png
-INPUT ./images/Time Response R_ij for i=22 as a function of j at time index 0.png
-INPUT ./images/Time Response R_ij for i=22 as a function of j at time index 0.png
-INPUT ./images/Time Response R_ij for i=22 as a function of j at time index 0.png
-INPUT ./images/Transfer Entropy TE_ij for i=22 as a function of j at time index 0.png
-INPUT ./images/Transfer Entropy TE_ij for i=22 as a function of j at time index 0.png
-INPUT ./images/Transfer Entropy TE_ij for i=22 as a function of j at time index 0.png
-INPUT ./images/Transfer Entropy TE_ij for i=22 as a function of j at time index 0.png
-INPUT ./images/Transfer Entropy TE_ij for i=22 as a function of j at time index 0.png
-INPUT ./images/Residual Correlation C_ij for i=22 as a function of j at time index 0.png
-INPUT ./images/Residual Correlation C_ij for i=22 as a function of j at time index 0.png
-INPUT ./images/Residual Correlation C_ij for i=22 as a function of j at time index 0.png
-INPUT ./images/Residual Correlation C_ij for i=22 as a function of j at time index 0.png
-INPUT ./images/Time Response R_ij for i=22 as a function of j at time index 0.png
-INPUT ./images/Time Response R_ij for i=22 as a function of j at time index 0.png
-INPUT ./images/Time Response R_ij for i=22 as a function of j at time index 0.png
-INPUT ./images/Time Response R_ij for i=22 as a function of j at time index 0.png
-INPUT ./images/Transfer Entropy TE_ij for i=22 as a function of j at time index 0.png
-INPUT ./images/Transfer Entropy TE_ij for i=22 as a function of j at time index 0.png
-INPUT ./images/Transfer Entropy TE_ij for i=22 as a function of j at time index 0.png
-INPUT ./images/Transfer Entropy TE_ij for i=22 as a function of j at time index 0.png
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT ciao.aux
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
@@ -95,3 +69,4 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pf
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb

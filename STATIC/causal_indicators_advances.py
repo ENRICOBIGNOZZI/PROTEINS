@@ -106,7 +106,7 @@ class TimeCorrelation(BaseCorrelationAnalysis):
             os.makedirs('images')
 
         # Save the figure in the 'images' directory
-        plt.savefig(f'{self.name}images/Time Correlation between {i} and {j}.png')
+        plt.savefig(f'images/{self.name}Time Correlation between {i} and {j}.png')
 
 class TransferEntropy(BaseCorrelationAnalysis):
     def __init__(self, u, lambdas, mu, sec_struct_data,stringa):
@@ -264,7 +264,7 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
             os.makedirs('images')
 
         # Save the figure
-        plt.savefig(f'images/{self.name}{self.name}Distribution of Lower Mean First Passage Time Values (Residues).png')
+        plt.savefig(f'images/{self.name}Distribution of Lower Mean First Passage Time Values (Residues).png')
         
         # Highlight zones with shorter passage times in the MFPT matrix
         plt.figure(figsize=(10, 8))

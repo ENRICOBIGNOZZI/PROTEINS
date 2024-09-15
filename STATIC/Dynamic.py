@@ -63,7 +63,7 @@ dt = 0.0001
 T = 1
 k_b = 1
 gamma = 1.
-MaxTime = omega*2*np.pi*5*4*5*2
+MaxTime = omega*2*np.pi*5*4*5*10
 
 t, r_history = stochastic_process_1d(K, epsilon_0, omega, dt, T, k_b, gamma, MaxTime, N)
 time_avg_x_squared = calculate_time_average_x_squared(r_history)

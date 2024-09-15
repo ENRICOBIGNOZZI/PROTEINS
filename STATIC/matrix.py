@@ -2,7 +2,8 @@ import numpy as np
 import networkx as nx
 from scipy.linalg import eigh
 import matplotlib.pyplot as plt
-
+import matplotlib.patches as patches
+import os
 class GraphMatrixAnalyzer:
     def __init__(self, graph):
         self.graph = graph
@@ -68,9 +69,10 @@ class GraphMatrixAnalyzer:
 
     def get_eigenvectors_pseudo_inverse(self):
         return self.eigenvectors_pseudo_inverse
+    
 
-    def plot_matrix(self, matrix, title="Matrix"):
-        plt.figure(figsize=(10, 8))
+    def plot_matrix(self, matrix, secondary_structure, nome,title="Matrix"):
+        fig, ax = plt.subplots(figsize=(10, 10))
         
         # Create a binary matrix: 1 where connections exist, 0 otherwise
         binary_matrix = np.where(matrix != 0, 1, 0)
@@ -79,16 +81,50 @@ class GraphMatrixAnalyzer:
         rows, cols = np.where(binary_matrix == 1)
         
         # Plot the dots
-        plt.scatter(cols, rows, s=1, c='black')
+        ax.scatter(cols, rows, s=10, c='black')
+
+        # Add rectangles
+        rectangle1 = patches.Rectangle((19, 71), 5, 9, linewidth=1, edgecolor='r', facecolor='none')
+        rectangle2 = patches.Rectangle((71, 19), 9, 5, linewidth=1, edgecolor='r', facecolor='none')
+        ax.add_patch(rectangle1)
+        ax.add_patch(rectangle2)
         
-        plt.title(title)
-        plt.xlabel('Residue Index')
-        plt.ylabel('Residue Index')
-        plt.ylim(-0.5, binary_matrix.shape[0] - 0.5)  # This line sets y-axis from 0 to max
-        plt.xlim(-0.5, binary_matrix.shape[1] - 0.5)
-        plt.gca().invert_yaxis()  # This line inverts the y-axis
+        # Create segments on x and y axes based on secondary structure
+        start = 0
+        current_structure = secondary_structure[0]
+        if len(secondary_structure) >= 2:
+            current_structure = current_structure[0]
+        
+        for i, structure in enumerate(secondary_structure):
+            if len(structure) >= 2:
+                structure = structure[0]
+           
+            if structure != current_structure:
+                color = 'red' if current_structure == 'H' else 'blue' if current_structure == 'E' else 'green'
+                ax.plot([start, i], [0, 0], color=color, linewidth=5)
+                ax.plot([0, 0], [start, i], color=color, linewidth=5)
+                #ax.text((start+i)/2, -0.5, current_structure, ha='center', va='top')
+                #ax.text(-0.5, (start+i)/2, current_structure, ha='right', va='center')
+                ax.text((start+i)/2, 0, current_structure, ha='center', va='top')
+                ax.text(0, (start+i)/2, current_structure, ha='right', va='center')
+                start = i
+                current_structure = structure
+        color = 'red' if current_structure == 'H' else 'blue' if current_structure == 'E' else 'green'
+        ax.plot([start, i+1], [0, 0], color=color, linewidth=5)
+        ax.plot([0, 0], [start, i+1], color=color, linewidth=5)
+        ax.text((start+i+1)/2, 0, current_structure, ha='center', va='top')
+        ax.text(0, (start+i+1)/2, current_structure, ha='right', va='center')
+        ax.set_title(title)
+        ax.set_xlabel('Residue Index')
+        ax.set_ylabel('Residue Index')
+        ax.set_ylim(0, binary_matrix.shape[0])  # This line sets y-axis from 0 to max
+        ax.set_xlim(0, binary_matrix.shape[1] )
+        
         plt.tight_layout()
-        plt.show()
+        if not os.path.exists('images'):
+            os.makedirs('images')
+        # Save the figure in the 'images' directory
+        plt.savefig(f'images/{nome}_{title}.png')
 
     def plot_eigenvalues(self, eigenvalues, title="Autovalori"):
         plt.figure(figsize=(10, 6))

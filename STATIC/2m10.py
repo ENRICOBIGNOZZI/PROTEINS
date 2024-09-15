@@ -8,8 +8,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 import matplotlib.lines as mlines
+from beta_functions import analyze_b_factors
+from secondary_structure import analyze_secondary_structure_transfer_entropy
+from multiple_time_response import plot_time_response_multiple
+raggio=8.0
 # Initialize PDBProcessor
 stringa="2m10"
+
 pdb_processor = PDBProcessor(pdb_id="2m10")
 pdb_processor.download_pdb()
 pdb_processor.load_structure()
@@ -30,15 +35,16 @@ print(df)
 visualizer = Visualize(df)
 raggio=visualizer.calculate_and_print_average_distance()
 #visualizer.plot_connections_vs_radius()
-G = visualizer.create_and_print_graph(truncated=True, radius=8.0, plot=False, peso=20)  # Adjust radius as needed
+G = visualizer.create_and_print_graph(truncated=True, radius=raggio, plot=False, peso=20)  # Adjust radius as needed
 # Assumendo che G sia il tuo grafo
 
 # Initialize GraphMatrixAnalyzer
 analyzer = GraphMatrixAnalyzer(G)
-
+concatenated_df = pd.concat([df1['Secondary Structure'], df], axis=1)
+df = concatenated_df.dropna().reset_index(drop=True)
 # Calcola la matrice di Kirchhoff
 kirchhoff_matrix = analyzer.get_kirchhoff_matrix()
-
+predicted_b_factors, correlation, rmsd = analyze_b_factors(df, analyzer,name=stringa)
 # Calcola autovalori e autovettori
 autovalori, autovettori = np.linalg.eigh(kirchhoff_matrix)
 #analyzer.plot_eigenvalues(autovalori)
@@ -60,12 +66,14 @@ autovalori, autovettori = np.linalg.eigh(kirchhoff_matrix)
 # Ottieni la matrice di adiacenza
 adjacency_matrix = analyzer.get_adjacency_matrix()
 # Plotta la mappa dei contatti
-#analyzer.plot_matrix(adjacency_matrix, title="Mappa dei Contatti della Proteina")
+
 
 # Se vuoi anche visualizzare la matrice di Kirchhoff
 kirchhoff_matrix = analyzer.get_kirchhoff_matrix()
-#analyzer.plot_matrix(kirchhoff_matrix, title="Matrice di Kirchhoff della Proteina")
+secondary_structure = df['Secondary Structure'].values
 
+analyzer.plot_matrix(kirchhoff_matrix, secondary_structure, title="Matrice di Kirchhoff della Proteina",nome=stringa)
+predicted_b_factors, correlation, rmsd = analyze_b_factors(df, analyzer,name=stringa)
 pseudo_inverse = analyzer.get_pseudo_inverse()
 adjacency_matrix = analyzer.get_adjacency_matrix()
 
@@ -93,7 +101,7 @@ k_B = 1  # Boltzmann constant (J/K)
 T = 1  # Temperature (K)
 g = 1  # A constant for simplicity
 mu = 1  # Time scaling factor
-t = np.linspace(0.01, 6, 300)  # Time points
+t = np.linspace(0.01, 0.5, 300)    # Time points
 
 # Initialize Analysis
 time_correlation = TimeCorrelation(u=autovettori, lambdas=autovalori, mu=mu, sec_struct_data=df,stringa=stringa)
@@ -116,8 +124,7 @@ print(f"Tempo caratteristico medio: {tau_mean:.4f}")
 #time_correlation.plot_autocorrelation_fits(t, normalized_autocorrelations)
 
 
-
-#time_correlation.plot_time_correlation(0, 1, t)
+time_correlation.plot_time_correlation(20, 70, t)
 
 
 
@@ -125,7 +132,9 @@ print(f"Tempo caratteristico medio: {tau_mean:.4f}")
 
 transfer_entropy = TransferEntropy(u=autovettori, lambdas=autovalori, mu=mu, sec_struct_data=df,stringa=stringa)
 TE_ij = transfer_entropy.transfer_entropy(0, 1, t)  # Example indices
-#transfer_entropy.plot_transfer_entropy(0, 1, t)
+transfer_entropy.plot_transfer_entropy(20, 70, t)
+
+
 
 
 
@@ -137,7 +146,7 @@ time_response = TimeResponse(u=autovettori, lambdas=autovalori, mu=mu, sec_struc
 # Perform Time Response analysis
 R_ij_t = time_response.time_response(0, 71, t)  # Example indices
 
-#time_response.plot_time_response(1, 71, t)
+time_response.plot_time_response(20, 70, t)
 
 
 
@@ -185,7 +194,7 @@ distanza_20_40 = calcola_distanza(20, 40, df)
 print(f"Distanza tra il residuo 20 e il 40: {distanza_20_40:.2f}")
 lista = np.array([21,22, 23, 24])
 lista = np.array([20,21,22, 23, 24])
-t=[0.3]#[tau_mean]
+t=[tau_mean]#[tau_mean]
 time_idx = 0
 for i in range(len(lista)):
     residual_analysis.plot_residual_correlation_vs_j(i=lista[i], t=t, time_idx=time_idx)
@@ -207,3 +216,11 @@ for i in range(len(lista)):
 residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'correlation')#'correlation','linear_response','entropy'
 #residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'linear_response')
 residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'entropy')
+te_matrix, segments = analyze_secondary_structure_transfer_entropy(stringa, raggio, tau_mean)
+
+
+residue_pairs = [(20, 24), (20, 40), (20, 75)]
+t = np.linspace(0.01, 0.5, 300)  
+# Plotta la risposta nel tempo per tutte le coppie
+plot_time_response_multiple(time_response, residue_pairs, t, 'Time Response for Selected Residue Pairs',name=stringa)
+

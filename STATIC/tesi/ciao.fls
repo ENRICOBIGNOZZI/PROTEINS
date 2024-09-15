@@ -23,6 +23,8 @@ INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/graphics-def/pdftex.def
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/graphics-def/pdftex.def
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/graphics-def/pdftex.def
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/float/float.sty
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/float/float.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT ./ciao.aux
@@ -55,7 +57,66 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
 OUTPUT ciao.pdf
 INPUT /usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
+INPUT ./images/2m0zResidual Correlation C_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/2m0zResidual Correlation C_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/2m0zResidual Correlation C_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/2m0zResidual Correlation C_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/2m0zResidual Correlation C_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/2m0zTime Response R_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/2m0zTime Response R_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/2m0zTime Response R_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/2m0zTime Response R_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/2m0zTime Response R_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/2m0zTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/2m0zTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/2m0zTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/2m0zTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/2m0zTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/2m10Residual Correlation C_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/2m10Residual Correlation C_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/2m10Residual Correlation C_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/2m10Residual Correlation C_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/2m10Residual Correlation C_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/2m10Time Response R_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/2m10Time Response R_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/2m10Time Response R_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/2m10Time Response R_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/2m10Time Response R_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/2m10Transfer Entropy TE_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/2m10Transfer Entropy TE_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/2m10Transfer Entropy TE_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/2m10Transfer Entropy TE_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/2m10Transfer Entropy TE_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/3LNXResidual Correlation C_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/3LNXResidual Correlation C_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/3LNXResidual Correlation C_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/3LNXResidual Correlation C_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/3LNXResidual Correlation C_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/3LNXTime Response R_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/3LNXTime Response R_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/3LNXTime Response R_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/3LNXTime Response R_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/3LNXTime Response R_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/3LNXTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/3LNXTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/3LNXTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/3LNXTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/3LNXTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/3LNYResidual Correlation C_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/3LNYResidual Correlation C_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/3LNYResidual Correlation C_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/3LNYResidual Correlation C_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/3LNYResidual Correlation C_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/3LNYTime Response R_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/3LNYTime Response R_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/3LNYTime Response R_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/3LNYTime Response R_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/3LNYTime Response R_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/3LNYTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/3LNYTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/3LNYTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/3LNYTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/3LNYTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png
 INPUT ciao.aux
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
@@ -69,4 +130,3 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pf
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.15)  15 SEP 2024 20:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.15)  15 SEP 2024 20:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -41,10 +41,17 @@ File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen142
 \Gin@req@width=\dimen143
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count268
+\float@exts=\toks18
+\float@box=\box52
+\@float@everytoks=\toks19
+\@floatcapt=\box53
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count268
-\l__pdf_internal_box=\box52
+\l__color_backend_stack_int=\count269
+\l__pdf_internal_box=\box54
 ) (./ciao.aux)
 \openout1 = `ciao.aux'.
 
@@ -64,17 +71,17 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
 LaTeX Font Info:    ... okay on input line 8.
  (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count269
+\scratchcounter=\count270
 \scratchdimen=\dimen144
-\scratchbox=\box53
-\nofMPsegments=\count270
-\nofMParguments=\count271
-\everyMPshowfont=\toks18
-\MPscratchCnt=\count272
+\scratchbox=\box55
+\nofMPsegments=\count271
+\nofMParguments=\count272
+\everyMPshowfont=\toks20
+\MPscratchCnt=\count273
 \MPscratchDim=\dimen145
-\MPnumerator=\count273
-\makeMPintoPDFobject=\count274
-\everyMPtoPDFconversion=\toks19
+\MPnumerator=\count274
+\makeMPintoPDFobject=\count275
+\everyMPtoPDFconversion=\toks21
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -96,276 +103,99 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 [1
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-/Users/enrico/Desktop/TESI/PROTEINS/STATIC/tesi/ciao.tex:71: Missing $ inserted.
-<inserted text> 
-                $
-l.71 images/2m10Residual Correlation C_
-                                       ij for i=22 as a function of j at tim...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-/Users/enrico/Desktop/TESI/PROTEINS/STATIC/tesi/ciao.tex:72: Missing $ inserted.
-<inserted text> 
-                $
-l.72 \section
-             {2M0Z}
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-Overfull \hbox (25.87921pt too wide) in paragraph at lines 71--72
-[]\OT1/cmr/m/n/10 images/2m10Residual Cor-re-la-tion C$[]\OML/cmm/m/it/10 jfori \OT1/cmr/m/n/10 = 22\OML/cmm/m/it/10 asafunctionofjattimeindex\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :png$ 
- []
-
-
-LaTeX Warning: File `images/2m0zResidual Correlation C_ij for i=22 as a function of j at time index 0.png' not found on input line 75.
-
-
-/Users/enrico/Desktop/TESI/PROTEINS/STATIC/tesi/ciao.tex:75: Package pdftex.def Error: File `images/2m0zResidual Correlation C_ij for i=22 as a function of j at time index 0.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.75 ...22 as a function of j at time index 0.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: File `images/2m0zTime Response R_ij for i=22 as a function of j at time index 0.png' not found on input line 80.
-
-
-/Users/enrico/Desktop/TESI/PROTEINS/STATIC/tesi/ciao.tex:80: Package pdftex.def Error: File `images/2m0zTime Response R_ij for i=22 as a function of j at time index 0.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.80 ...22 as a function of j at time index 0.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: File `images/2m0zTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png' not found on input line 86.
-
-
-/Users/enrico/Desktop/TESI/PROTEINS/STATIC/tesi/ciao.tex:86: Package pdftex.def Error: File `images/2m0zTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.86 ...22 as a function of j at time index 0.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: File `images/2m10Residual Correlation C_ij for i=22 as a function of j at time index 0.png' not found on input line 95.
-
-
-/Users/enrico/Desktop/TESI/PROTEINS/STATIC/tesi/ciao.tex:95: Package pdftex.def Error: File `images/2m10Residual Correlation C_ij for i=22 as a function of j at time index 0.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.95 ...22 as a function of j at time index 0.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: File `images/2m10Time Response R_ij for i=22 as a function of j at time index 0.png' not found on input line 100.
-
-
-/Users/enrico/Desktop/TESI/PROTEINS/STATIC/tesi/ciao.tex:100: Package pdftex.def Error: File `images/2m10Time Response R_ij for i=22 as a function of j at time index 0.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.100 ...2 as a function of j at time index 0.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: File `images/2m10Transfer Entropy TE_ij for i=22 as a function of j at time index 0.png' not found on input line 106.
-
-
-/Users/enrico/Desktop/TESI/PROTEINS/STATIC/tesi/ciao.tex:106: Package pdftex.def Error: File `images/2m10Transfer Entropy TE_ij for i=22 as a function of j at time index 0.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.106 ...2 as a function of j at time index 0.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: File `images/3LNXResidual Correlation C_ij for i=22 as a function of j at time index 0.png' not found on input line 112.
-
-
-/Users/enrico/Desktop/TESI/PROTEINS/STATIC/tesi/ciao.tex:112: Package pdftex.def Error: File `images/3LNXResidual Correlation C_ij for i=22 as a function of j at time index 0.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.112 ...2 as a function of j at time index 0.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: File `images/3LNXTime Response R_ij for i=22 as a function of j at time index 0.png' not found on input line 117.
-
-
-/Users/enrico/Desktop/TESI/PROTEINS/STATIC/tesi/ciao.tex:117: Package pdftex.def Error: File `images/3LNXTime Response R_ij for i=22 as a function of j at time index 0.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.117 ...2 as a function of j at time index 0.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: File `images/3LNXTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png' not found on input line 123.
-
-
-/Users/enrico/Desktop/TESI/PROTEINS/STATIC/tesi/ciao.tex:123: Package pdftex.def Error: File `images/3LNXTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.123 ...2 as a function of j at time index 0.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: File `images/3LNYResidual Correlation C_ij for i=22 as a function of j at time index 0.png' not found on input line 129.
-
-
-/Users/enrico/Desktop/TESI/PROTEINS/STATIC/tesi/ciao.tex:129: Package pdftex.def Error: File `images/3LNYResidual Correlation C_ij for i=22 as a function of j at time index 0.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.129 ...2 as a function of j at time index 0.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: File `images/3LNYTime Response R_ij for i=22 as a function of j at time index 0.png' not found on input line 134.
-
-
-/Users/enrico/Desktop/TESI/PROTEINS/STATIC/tesi/ciao.tex:134: Package pdftex.def Error: File `images/3LNYTime Response R_ij for i=22 as a function of j at time index 0.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.134 ...2 as a function of j at time index 0.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: File `images/3LNYTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png' not found on input line 140.
-
-
-/Users/enrico/Desktop/TESI/PROTEINS/STATIC/tesi/ciao.tex:140: Package pdftex.def Error: File `images/3LNYTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.140 ...2 as a function of j at time index 0.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-
-[2]
-
-[3]
-
-[4]
-
-[5]
-
-[6]
-
-[7]
-
-[8] (./ciao.aux)
+<images/2m0zResidual Correlation C_ij for i=22 as a function of j at time index 0.png, id=14, 867.24pt x 578.16pt>
+File: images/2m0zResidual Correlation C_ij for i=22 as a function of j at time index 0.png Graphic file (type png)
+<use images/2m0zResidual Correlation C_ij for i=22 as a function of j at time index 0.png>
+Package pdftex.def Info: images/2m0zResidual Correlation C_ij for i=22 as a function of j at time index 0.png  used on input line 73.
+(pdftex.def)             Requested size: 172.5pt x 114.99477pt.
+<images/2m0zTime Response R_ij for i=22 as a function of j at time index 0.png, id=16, 867.24pt x 578.16pt>
+File: images/2m0zTime Response R_ij for i=22 as a function of j at time index 0.png Graphic file (type png)
+<use images/2m0zTime Response R_ij for i=22 as a function of j at time index 0.png>
+Package pdftex.def Info: images/2m0zTime Response R_ij for i=22 as a function of j at time index 0.png  used on input line 78.
+(pdftex.def)             Requested size: 172.5pt x 114.99477pt.
+
+
+[2 <./images/2m0zResidual Correlation C_ij for i=22 as a function of j at time index 0.png>]
+<images/2m0zTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png, id=25, 867.24pt x 578.16pt>
+File: images/2m0zTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png Graphic file (type png)
+<use images/2m0zTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png>
+Package pdftex.def Info: images/2m0zTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png  used on input line 84.
+(pdftex.def)             Requested size: 172.5pt x 114.99477pt.
+<images/2m10Residual Correlation C_ij for i=22 as a function of j at time index 0.png, id=26, 867.24pt x 578.16pt>
+File: images/2m10Residual Correlation C_ij for i=22 as a function of j at time index 0.png Graphic file (type png)
+<use images/2m10Residual Correlation C_ij for i=22 as a function of j at time index 0.png>
+Package pdftex.def Info: images/2m10Residual Correlation C_ij for i=22 as a function of j at time index 0.png  used on input line 91.
+(pdftex.def)             Requested size: 172.5pt x 114.99477pt.
+<images/2m10Time Response R_ij for i=22 as a function of j at time index 0.png, id=27, 867.24pt x 578.16pt>
+File: images/2m10Time Response R_ij for i=22 as a function of j at time index 0.png Graphic file (type png)
+<use images/2m10Time Response R_ij for i=22 as a function of j at time index 0.png>
+Package pdftex.def Info: images/2m10Time Response R_ij for i=22 as a function of j at time index 0.png  used on input line 96.
+(pdftex.def)             Requested size: 172.5pt x 114.99477pt.
+
+
+[3 <./images/2m0zTime Response R_ij for i=22 as a function of j at time index 0.png> <./images/2m0zTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png> <./images/2m10Residual Correlation C_ij for i=22 as a function of j at time index 0.png>]
+<images/2m10Transfer Entropy TE_ij for i=22 as a function of j at time index 0.png, id=34, 867.24pt x 578.16pt>
+File: images/2m10Transfer Entropy TE_ij for i=22 as a function of j at time index 0.png Graphic file (type png)
+<use images/2m10Transfer Entropy TE_ij for i=22 as a function of j at time index 0.png>
+Package pdftex.def Info: images/2m10Transfer Entropy TE_ij for i=22 as a function of j at time index 0.png  used on input line 102.
+(pdftex.def)             Requested size: 172.5pt x 114.99477pt.
+<images/3LNXResidual Correlation C_ij for i=22 as a function of j at time index 0.png, id=35, 867.24pt x 578.16pt>
+File: images/3LNXResidual Correlation C_ij for i=22 as a function of j at time index 0.png Graphic file (type png)
+<use images/3LNXResidual Correlation C_ij for i=22 as a function of j at time index 0.png>
+Package pdftex.def Info: images/3LNXResidual Correlation C_ij for i=22 as a function of j at time index 0.png  used on input line 108.
+(pdftex.def)             Requested size: 172.5pt x 114.99477pt.
+<images/3LNXTime Response R_ij for i=22 as a function of j at time index 0.png, id=36, 867.24pt x 578.16pt>
+File: images/3LNXTime Response R_ij for i=22 as a function of j at time index 0.png Graphic file (type png)
+<use images/3LNXTime Response R_ij for i=22 as a function of j at time index 0.png>
+Package pdftex.def Info: images/3LNXTime Response R_ij for i=22 as a function of j at time index 0.png  used on input line 113.
+(pdftex.def)             Requested size: 172.5pt x 114.99477pt.
+
+
+[4 <./images/2m10Time Response R_ij for i=22 as a function of j at time index 0.png> <./images/2m10Transfer Entropy TE_ij for i=22 as a function of j at time index 0.png> <./images/3LNXResidual Correlation C_ij for i=22 as a function of j at time index 0.png>]
+<images/3LNXTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png, id=43, 867.24pt x 578.16pt>
+File: images/3LNXTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png Graphic file (type png)
+<use images/3LNXTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png>
+Package pdftex.def Info: images/3LNXTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png  used on input line 119.
+(pdftex.def)             Requested size: 172.5pt x 114.99477pt.
+<images/3LNYResidual Correlation C_ij for i=22 as a function of j at time index 0.png, id=44, 867.24pt x 578.16pt>
+File: images/3LNYResidual Correlation C_ij for i=22 as a function of j at time index 0.png Graphic file (type png)
+<use images/3LNYResidual Correlation C_ij for i=22 as a function of j at time index 0.png>
+Package pdftex.def Info: images/3LNYResidual Correlation C_ij for i=22 as a function of j at time index 0.png  used on input line 125.
+(pdftex.def)             Requested size: 172.5pt x 114.99477pt.
+<images/3LNYTime Response R_ij for i=22 as a function of j at time index 0.png, id=45, 867.24pt x 578.16pt>
+File: images/3LNYTime Response R_ij for i=22 as a function of j at time index 0.png Graphic file (type png)
+<use images/3LNYTime Response R_ij for i=22 as a function of j at time index 0.png>
+Package pdftex.def Info: images/3LNYTime Response R_ij for i=22 as a function of j at time index 0.png  used on input line 130.
+(pdftex.def)             Requested size: 172.5pt x 114.99477pt.
+
+
+[5 <./images/3LNXTime Response R_ij for i=22 as a function of j at time index 0.png> <./images/3LNXTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png> <./images/3LNYResidual Correlation C_ij for i=22 as a function of j at time index 0.png>]
+<images/3LNYTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png, id=52, 867.24pt x 578.16pt>
+File: images/3LNYTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png Graphic file (type png)
+<use images/3LNYTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png>
+Package pdftex.def Info: images/3LNYTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png  used on input line 136.
+(pdftex.def)             Requested size: 172.5pt x 114.99477pt.
+
+
+[6 <./images/3LNYTime Response R_ij for i=22 as a function of j at time index 0.png> <./images/3LNYTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png>] (./ciao.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 1669 strings out of 473579
- 54198 string characters out of 5728228
- 412535 words of memory out of 5000000
- 24599 multiletter control sequences out of 15000+600000
- 562804 words of font info for 52 fonts, out of 8000000 for 9000
+ 1473 strings out of 473579
+ 30966 string characters out of 5728228
+ 411837 words of memory out of 5000000
+ 24400 multiletter control sequences out of 15000+600000
+ 562636 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,6n,65p,458b,284s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on ciao.pdf (8 pages, 158757 bytes).
+ 57i,6n,65p,458b,230s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on ciao.pdf (6 pages, 971618 bytes).
 PDF statistics:
- 96 PDF objects out of 1000 (max. 8388607)
- 59 compressed objects within 1 object stream
+ 108 PDF objects out of 1000 (max. 8388607)
+ 51 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

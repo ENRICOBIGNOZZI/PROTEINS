@@ -8,6 +8,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 import matplotlib.lines as mlines
+from beta_functions import analyze_b_factors
+from secondary_structure import analyze_secondary_structure_transfer_entropy
+from multiple_time_response import plot_time_response_multiple
+raggio=8.0
 # Initialize PDBProcessor
 stringa="3LNY"
 pdb_processor = PDBProcessor(pdb_id="3LNY")#2m07
@@ -31,14 +35,14 @@ print( df['Residue ID'].values)
 visualizer = Visualize(df)
 raggio=visualizer.calculate_and_print_average_distance()
 #visualizer.plot_connections_vs_radius()
-G = visualizer.create_and_print_graph(truncated=True, radius=8.0, plot=False, peso=20)  # Adjust radius as needed
+G = visualizer.create_and_print_graph(truncated=True, radius=raggio, plot=False, peso=20)  # Adjust radius as needed
 
 # Initialize GraphMatrixAnalyzer
 analyzer = GraphMatrixAnalyzer(G)
 
 # Calcola la matrice di Kirchhoff
 kirchhoff_matrix = analyzer.get_kirchhoff_matrix()
-
+predicted_b_factors, correlation, rmsd = analyze_b_factors(df, analyzer,name=stringa)
 # Calcola autovalori e autovettori
 autovalori, autovettori = np.linalg.eigh(kirchhoff_matrix)
 print(autovalori.shape)
@@ -61,12 +65,9 @@ print(autovettori.shape)
 # Ottieni la matrice di adiacenza
 adjacency_matrix = analyzer.get_adjacency_matrix()
 
-# Plotta la mappa dei contatti
-analyzer.plot_matrix(adjacency_matrix, title="Mappa dei Contatti della Proteina")
 
 # Se vuoi anche visualizzare la matrice di Kirchhoff
 kirchhoff_matrix = analyzer.get_kirchhoff_matrix()
-analyzer.plot_matrix(kirchhoff_matrix, title="Matrice di Kirchhoff della Proteina")
 
 pseudo_inverse = analyzer.get_pseudo_inverse()
 adjacency_matrix = analyzer.get_adjacency_matrix()
@@ -76,6 +77,9 @@ eigenvalues = analyzer.get_eigenvalues_adjacency()
 eigenvectors = analyzer.get_eigenvectors_adjacency()
 eigenvectors=eigenvectors.T
 
+secondary_structure = df['Secondary Structure'].values
+
+analyzer.plot_matrix(kirchhoff_matrix, secondary_structure, title="Matrice di Kirchhoff della Proteina",nome=stringa)
 
 
 # Perform Eigenvalue Decomposition
@@ -98,7 +102,7 @@ k_B = 1  # Boltzmann constant (J/K)
 T = 1  # Temperature (K)
 g = 1  # A constant for simplicity
 mu = 1  # Time scaling factor
-t = np.linspace(0.01, 6, 300)  # Time points
+t = np.linspace(0.01, 0.5, 300)  # Time points
 # Initialize Analysis
 time_correlation = TimeCorrelation(u=autovettori, lambdas=autovalori, mu=mu, sec_struct_data=df,stringa=stringa)
 autocorrelations = time_correlation.time_correlation(0, 1, t)  # Example indices
@@ -106,8 +110,8 @@ normalized_autocorrelations = autocorrelations / autocorrelations[0]  # Normaliz
 #t = np.array([0.20, 0.25, 0.30, 0.35])
 
 # Calcola le autocorrelazioni e normalizzale
-normalized_autocorrelations = np.zeros((94, len(t)))
-for i in range(94):
+normalized_autocorrelations = np.zeros((97, len(t)))
+for i in range(97):
     C_ii_t = time_correlation.time_correlation(i, i, t)
     normalized_autocorrelations[i, :] = time_correlation.normalize_autocorrelations(C_ii_t)
 
@@ -144,7 +148,44 @@ R_ij_t = time_response.time_response(0, 71, t)  # Example indices
 #time_response.plot_time_response(1, 71, t)
 
 
+# Calcola e stampa i tempi caratteristici
+tau_mean, taus = time_correlation.estimate_tau(t, normalized_autocorrelations)
+print(f"Tempo caratteristico medio: {tau_mean:.4f}")
+tau_mean, taus = time_correlation.estimate_tau_2(t, normalized_autocorrelations)
+print(f"Tempo caratteristico medio: {tau_mean:.4f}")
+#time_correlation.plot_tau_histogram( t, normalized_autocorrelations)
+#time_correlation.plot_autocorrelation_fits(t, normalized_autocorrelations)
 
+
+
+time_correlation.plot_time_correlation(20, 70, t)
+
+
+
+
+
+transfer_entropy = TransferEntropy(u=autovettori, lambdas=autovalori, mu=mu, sec_struct_data=df,stringa=stringa)
+TE_ij = transfer_entropy.transfer_entropy(0, 1, t)  # Example indices
+transfer_entropy.plot_transfer_entropy(20, 70, t)
+
+
+
+
+
+
+
+time_response = TimeResponse(u=autovettori, lambdas=autovalori, mu=mu, sec_struct_data=df,stringa=stringa)
+# Perform Time Response analysis
+R_ij_t = time_response.time_response(0, 71, t)  # Example indices
+
+time_response.plot_time_response(20, 70, t)
+
+
+
+
+
+
+matrix_operations = CorrelationMatrixOperations(u=autovettori, lambdas=autovalori, mu=mu, sec_struct_data=df,stringa=stringa)
 
 
 
@@ -189,7 +230,7 @@ distanza_20_40 = calcola_distanza(20, 40, df)
 print(f"Distanza tra il residuo 20 e il 40: {distanza_20_40:.2f}")
 lista = np.array([21,22, 23, 24])
 lista = np.array([20,21,22, 23, 24])
-t=[0.3]#[tau_mean]
+t=[tau_mean]#[tau_mean]
 time_idx = 0
 for i in range(len(lista)):
     residual_analysis.plot_residual_correlation_vs_j(i=lista[i], t=t, time_idx=time_idx)
@@ -213,6 +254,10 @@ residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'correlatio
 residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'entropy')
 
 
+te_matrix, segments = analyze_secondary_structure_transfer_entropy(stringa, raggio, tau_mean)
 
 
 
+residue_pairs = [(20, 24), (20, 40), (20, 75)]
+t = np.linspace(0.01, 0.5, 300)  
+plot_time_response_multiple(time_response, residue_pairs, t, 'Time Response for Selected Residue Pairs',name=stringa)

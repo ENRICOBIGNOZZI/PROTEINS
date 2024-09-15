@@ -10,6 +10,7 @@ from Downlaod_data import PDBProcessor
 import pandas as pd
 import optuna
 from optuna.trial import Trial
+import matplotlib.pyplot as plt  # Assicurati di importare matplotlib
 
 # Load protein data (2m10)
 pdb_processor = PDBProcessor(pdb_id="2m10")
@@ -140,5 +141,17 @@ for i, (u, v, data) in enumerate(G_with_weights.edges(data=True)):
         print(f"Edge ({u}, {v}): weight = {data['weight']}")
     else:
         break
+
+# Plot dei legami del nodo 0
+edges_to_plot = [(0, v) for u, v in G_with_weights.edges() if u == 0 or v == 0]
+
+# Creazione del grafico
+plt.figure(figsize=(8, 6))
+pos = nx.spring_layout(G_with_weights)  # Posizione dei nodi
+nx.draw(G_with_weights, pos, with_labels=True, node_color='lightblue', node_size=500, font_size=10)
+nx.draw_networkx_edges(G_with_weights, pos, edgelist=edges_to_plot, edge_color='red', width=2)
+
+plt.title("Edges of Node 0 with Other Nodes")
+plt.show()
 
 # Here you can add code to save or visualize the graph with weights

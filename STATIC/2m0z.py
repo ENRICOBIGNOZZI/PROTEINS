@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 import matplotlib.lines as mlines
 # Initialize PDBProcessor
+stringa="2m0z"
 pdb_processor = PDBProcessor(pdb_id="2m0z")
 pdb_processor.download_pdb()
 pdb_processor.load_structure()
@@ -98,7 +99,7 @@ t = np.linspace(0.01, 6, 300)  # Time points
 
 
 # Initialize Analysis
-time_correlation = TimeCorrelation(u=autovettori, lambdas=autovalori, mu=mu, sec_struct_data=df)
+time_correlation = TimeCorrelation(u=autovettori, lambdas=autovalori, mu=mu, sec_struct_data=df,stringa=stringa)
 autocorrelations = time_correlation.time_correlation(0, 1, t)  # Example indices
 normalized_autocorrelations = autocorrelations / autocorrelations[0]  # Normalize example
 #t = np.array([0.20, 0.25, 0.30, 0.35])
@@ -125,7 +126,7 @@ print(f"Tempo caratteristico medio: {tau_mean:.4f}")
 
 
 
-transfer_entropy = TransferEntropy(u=autovettori, lambdas=autovalori, mu=mu, sec_struct_data=df)
+transfer_entropy = TransferEntropy(u=autovettori, lambdas=autovalori, mu=mu, sec_struct_data=df,stringa=stringa)
 TE_ij = transfer_entropy.transfer_entropy(0, 1, t)  # Example indices
 #transfer_entropy.plot_transfer_entropy(0, 1, t)
 
@@ -135,7 +136,7 @@ TE_ij = transfer_entropy.transfer_entropy(0, 1, t)  # Example indices
 
 
 
-time_response = TimeResponse(u=autovettori, lambdas=autovalori, mu=mu, sec_struct_data=df)
+time_response = TimeResponse(u=autovettori, lambdas=autovalori, mu=mu, sec_struct_data=df,stringa=stringa)
 # Perform Time Response analysis
 R_ij_t = time_response.time_response(0, 71, t)  # Example indices
 
@@ -146,7 +147,7 @@ R_ij_t = time_response.time_response(0, 71, t)  # Example indices
 
 
 
-matrix_operations = CorrelationMatrixOperations(u=autovettori, lambdas=autovalori, mu=mu, sec_struct_data=df)
+matrix_operations = CorrelationMatrixOperations(u=autovettori, lambdas=autovalori, mu=mu, sec_struct_data=df,stringa=stringa)
 # Perform Correlation Matrix Operations
 
 
@@ -157,7 +158,7 @@ matrix_operations = CorrelationMatrixOperations(u=autovettori, lambdas=autovalor
 #matrix_operations.plot_correlation_matrix(kirchhoff_matrix, title='Correlation Matrix')
 #matrix_operations.plot_correlation_matrix_nan(kirchhoff_matrix, title='Correlation Matrix', positive_only=False)
 
-residual_analysis = ResidualAnalysis(u=autovettori, lambdas=autovalori, mu=mu, sec_struct_data=df)
+residual_analysis = ResidualAnalysis(u=autovettori, lambdas=autovalori, mu=mu, sec_struct_data=df,stringa=stringa)
 
 # Perform correlation analysis
 

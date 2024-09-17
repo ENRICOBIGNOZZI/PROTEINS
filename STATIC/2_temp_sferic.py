@@ -4,6 +4,8 @@ from Downlaod_data import PDBProcessor
 from Visualize import Visualize
 from matrix import GraphMatrixAnalyzer
 import pandas as pd
+import os
+stringa="2m10"
 pdb_processor = PDBProcessor(pdb_id="2m10")
 pdb_processor.download_pdb()
 pdb_processor.load_structure()
@@ -57,20 +59,14 @@ plt.xlabel('Numero del residuo')
 plt.ylabel('Temperatura')
 plt.grid(True)
 plt.tight_layout()
-plt.show()
+if not os.path.exists('images'):
+    os.makedirs('images')
+
+# Save the figure
+plt.savefig(f'images/{stringa}_2_temperature_sferic.png')
 
 # Grafico 3D della proteina colorata per temperatura
-fig = plt.figure(figsize=(10, 10))
-ax = fig.add_subplot(111, projection='3d')
-scatter = ax.scatter(df['X'], df['Y'], df['Z'], c=temperatura_radiale, cmap='coolwarm')
-ax.set_xlabel('X')
-ax.set_ylabel('Y')
-ax.set_zlabel('Z')
-plt.colorbar(scatter, label='Temperatura')
-plt.title('Struttura 3D della proteina colorata per temperatura radiale')
-plt.tight_layout()
-plt.show()
-# ... existing code ...
+
 
 import scipy.integrate as integrate
 
@@ -106,4 +102,8 @@ plt.title(f'Heatmap del risultato dell\'integrale (K={K})')
 plt.xlabel('Indice del residuo')
 plt.ylabel('Indice del residuo')
 plt.tight_layout()
-plt.show()
+if not os.path.exists('images'):
+    os.makedirs('images')
+
+# Save the figure
+plt.savefig(f'images/{stringa}_2_temperature_correlation_sferic.png')

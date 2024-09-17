@@ -4,7 +4,7 @@ from Downlaod_data import PDBProcessor
 from Visualize import Visualize
 from matrix import GraphMatrixAnalyzer
 import pandas as pd
-
+import os
 def stochastic_process_1d(K, epsilon_0, omega, dt, T, k_b, gamma, MaxTime, N):
     t = np.arange(0, MaxTime, dt)
     r_history = np.zeros((len(t), N))
@@ -26,7 +26,7 @@ def stochastic_process_1d(K, epsilon_0, omega, dt, T, k_b, gamma, MaxTime, N):
         r_history[n] = r
 
     return t, r_history
-
+stringa="2m10"
 pdb_processor = PDBProcessor(pdb_id="2m10")
 pdb_processor.download_pdb()
 pdb_processor.load_structure()
@@ -57,13 +57,13 @@ positions = df[['X', 'Y', 'Z']].values
 # Example usage:
 N = positions.shape[0]  # number of residues
 K = kirchhoff_matrix
-epsilon_0 =1
+epsilon_0 =0.0001
 omega = 1
-dt = 0.0001
+dt = 0.001
 T = 1
 k_b = 1
 gamma = 1.
-MaxTime = omega*2*np.pi*5*4*5*10
+MaxTime = 2*np.pi*5
 
 t, r_history = stochastic_process_1d(K, epsilon_0, omega, dt, T, k_b, gamma, MaxTime, N)
 time_avg_x_squared = calculate_time_average_x_squared(r_history)
@@ -75,7 +75,12 @@ plt.xlabel('Residue Number')
 plt.ylabel('Time Average of x(t)^2')
 plt.title('Time Average of x(t)^2 for Each Residue')
 plt.tight_layout()
-plt.show()
+if not os.path.exists('images'):
+    os.makedirs('images')
+
+# Save the figure
+plt.savefig(f'images/{stringa}_Stima beta factors.png')
+
 # Select residues to plot, including 20 and 75
 selected_residues = [20, 75]  # You can add more if needed
 
@@ -90,7 +95,11 @@ plt.ylabel('Displacement')
 plt.title('Displacements of Selected Residues over Time (1D)')
 plt.legend()
 plt.tight_layout()
-plt.show()
+if not os.path.exists('images'):
+    os.makedirs('images')
+
+# Save the figure
+plt.savefig(f'images/{stringa}_Processo_stocastico.png')
 
 # Plot the t
 

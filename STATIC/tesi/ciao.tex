@@ -64,7 +64,18 @@ Risolvi l'equazione differenziale:
     \end{equation}
 
 
-
+\section{Cross-Entropy}
+\begin{equation}
+    TE_{j \rightarrow i}(t) = \left\langle \log \frac{P[x_i(t) | x_i(0), x_j(0)]}{P[x_i(t) | x_i(0)]} \right\rangle
+    \end{equation}
+        
+\begin{equation}
+    T_{j \rightarrow i}(t) = - \frac{1}{2} \ln \left( 1 - \frac{\alpha_{ij}(t)}{\beta_{ij}(t)} \right)
+    \end{equation}
+\begin{equation}
+    \alpha_{ij}(t) = [C_{ii}(0) C_{ij}(t) - C_{ij}(0) C_{ii}(t)]^2
+    \end{equation}
+        
 
 
 \section{2M0Z}
@@ -84,7 +95,27 @@ Risolvi l'equazione differenziale:
     \includegraphics[width=0.5\textwidth]{"images/2m0zTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png"}
     \caption{Transfer Entropy}
 \end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{"images/2m0zMultiple_time_resposne.png"}
+    \caption{Multiple time response}
+\end{figure}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{"images/2m0zConfronto tra Fattori B Reali e Predetti.png"}
+    \caption{B factors}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{"images/2m0z_Matrice di Kirchhoff della Proteina.png"}
+    \caption{Kirchhoff}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{"images/2m0zanalyze_secondary_structure_transfer_entropy.png"}
+    \caption{Secodnaria Structure}
+\end{figure}
 \section{2M10}
 \begin{figure}[H]
     \centering                            
@@ -101,6 +132,27 @@ Risolvi l'equazione differenziale:
     \centering
     \includegraphics[width=0.5\textwidth]{"images/2m10Transfer Entropy TE_ij for i=22 as a function of j at time index 0.png"}
     \caption{Transfer Entropy}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{"images/2m10Multiple_time_resposne.png"}
+    \caption{Multiple time response}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{"images/2m10Confronto tra Fattori B Reali e Predetti.png"}
+    \caption{B factors}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{"images/2m10_Matrice di Kirchhoff della Proteina.png"}
+    \caption{Kirchhoff}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{"images/2m10analyze_secondary_structure_transfer_entropy.png"}
+    \caption{Transfer struttura Secondaria}
 \end{figure}
 \section{3LNX}
 \begin{figure}[H]
@@ -119,6 +171,27 @@ Risolvi l'equazione differenziale:
     \includegraphics[width=0.5\textwidth]{"images/3LNXTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png"}
     \caption{Transfer Entropy}
 \end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{"images/3LNXMultiple_time_resposne.png"}
+    \caption{Multiple time response}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{"images/3LNXConfronto tra Fattori B Reali e Predetti.png"}
+    \caption{B factors}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{"images/3LNX_Matrice di Kirchhoff della Proteina.png"}
+    \caption{Kirchhoff}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{"images/3LNXanalyze_secondary_structure_transfer_entropy.png"}
+    \caption{Secondaria}
+\end{figure}
 \section{3LNY}
 \begin{figure}[H]
     \centering
@@ -136,4 +209,87 @@ Risolvi l'equazione differenziale:
     \includegraphics[width=0.5\textwidth]{"images/3LNYTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png"}
     \caption{Transfer Entropy}
 \end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{"images/3LNYMultiple_time_resposne.png"}
+    \caption{Multiple time response}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{"images/3LNYConfronto tra Fattori B Reali e Predetti.png"}
+    \caption{B factors}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{"images/3LNY_Matrice di Kirchhoff della Proteina.png"}
+    \caption{Kirchhoff}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{"images/2m10analyze_secondary_structure_transfer_entropy.png"}
+    \caption{Seocndaria}
+\end{figure}
+\section{Dinamica}
+\begin{equation}
+    \gamma \dot{x}_i = -g \sum_j K_{ij} x_j + \epsilon(t) (r_{21} - r_{76}) \delta_{i,21} - \epsilon(t) (r_{21} - r_{76}) \delta_{i,76} + \sqrt{2 \gamma k_B T} \xi_i(t)
+    \end{equation}
+Ora posso simulare il moto Time dependent di ogni atomo e vedere come si propagano le vibrazioni.
+Gli autovalori sono smere le frequeze naturali del sistema.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{"images/2m10_Processo_stocastico.png"}
+    \caption{Seocndaria}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{"images/2m10_Stima beta factors.png"}
+    \caption{Seocndaria}
+\end{figure}
+\section{Gradienete di temperature}
+\begin{equation}
+    \boldsymbol{\gamma}_i \dot{x}_i = -g \sum_j K_{ij} x_j  + \sqrt{2 \boldsymbol{\gamma}_i k_B \boldsymbol{T}_i} \xi_i(t)
+    \end{equation}
+Gamma e T sono diventati vettori.
+Se la risolvi ottieni:
+\begin{equation}
+    \sum_{u} \exp\left( \sum_j K_{ij} u_j \right) \cdot \beta \cdot \beta^{\top} \cdot \exp\left( \sum_s K_{is} u_s \right)
+    \end{equation}
+Ora hai diversi modi di scegliere i valori di T:
+\section{Troncamento Tmeperatura}
+se sono sotto 5 legami allora ho temperatura bassa.
+Se sono sopra allora ho temperatura piu' alta.
+Posso prendere banalmente 2 valori 0,1 .
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{"images/2m10_2_temperature_contact_cutoff.png"}
+    \caption{ Temperatura Troncamento }
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{"images/2m10_2_temperature_correlation_cutoff.png"}
+    \caption{ Temperatura Troncamento  }
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{"images/2m10_2_temperature_cutoff.png"}
+    \caption{ Temperatura Troncamento  }
+\end{figure}
+
+\section{Temperatura radiale}
+T(r)=T_0+(Tb-T0)/R*r
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{"images/2m10_2_temperature_sferic.png"}
+    \caption{Temperatura Radiale}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{"images/2m10_2_temperature_correlation_sferic.png"}
+    \caption{Correlazione Radiale}
+\end{figure}
 \end{document}
+

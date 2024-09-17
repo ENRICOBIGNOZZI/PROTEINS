@@ -42,6 +42,8 @@ G = visualizer.create_and_print_graph(truncated=True, radius=raggio, plot=False,
 analyzer = GraphMatrixAnalyzer(G)
 concatenated_df = pd.concat([df1['Secondary Structure'], df], axis=1)
 df = concatenated_df.dropna().reset_index(drop=True)
+
+df = df.T.drop_duplicates().T
 # Calcola la matrice di Kirchhoff
 kirchhoff_matrix = analyzer.get_kirchhoff_matrix()
 predicted_b_factors, correlation, rmsd = analyze_b_factors(df, analyzer,name=stringa)
@@ -83,6 +85,7 @@ secondary_structure = df['Secondary Structure'].values
 
 analyzer.plot_matrix(kirchhoff_matrix, secondary_structure, title="Matrice di Kirchhoff della Proteina",nome=stringa)
 
+df = df.T.drop_duplicates().T
 
 
 # Perform Eigenvalue Decomposition
@@ -103,7 +106,7 @@ autovalori, autovettori = np.linalg.eig(kirchhoff_matrix)
 secondary_structure = df['Secondary Structure'].values
 
 analyzer.plot_matrix(kirchhoff_matrix, secondary_structure, title="Matrice di Kirchhoff della Proteina",nome=stringa)
-
+df = df.T.drop_duplicates().T
 
 # Parameters
 k_B = 1  # Boltzmann constant (J/K)
@@ -136,7 +139,7 @@ print(f"Tempo caratteristico medio: {tau_mean:.4f}")
 #time_correlation.plot_time_correlation(0, 1, t)
 
 
-
+df = df.T.drop_duplicates().T
 
 
 transfer_entropy = TransferEntropy(u=autovettori, lambdas=autovalori, mu=mu, sec_struct_data=df,stringa=stringa)
@@ -197,7 +200,6 @@ time_response.plot_time_response(20, 70, t)
 matrix_operations = CorrelationMatrixOperations(u=autovettori, lambdas=autovalori, mu=mu, sec_struct_data=df,stringa=stringa)
 
 
-matrix_operations = CorrelationMatrixOperations(u=autovettori, lambdas=autovalori, mu=mu, sec_struct_data=df,stringa=stringa)
 # Perform Correlation Matrix Operations
 
 

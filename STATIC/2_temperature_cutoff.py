@@ -4,6 +4,8 @@ from Downlaod_data import PDBProcessor
 from Visualize import Visualize
 from matrix import GraphMatrixAnalyzer
 import pandas as pd
+import os
+stringa="2m10"
 pdb_processor = PDBProcessor(pdb_id="2m10")
 pdb_processor.download_pdb()
 pdb_processor.load_structure()
@@ -59,7 +61,11 @@ plt.xlabel('Numero del residuo')
 plt.ylabel('Numero di contatti')
 plt.grid(True)
 plt.tight_layout()
-plt.show()
+if not os.path.exists('images'):
+    os.makedirs('images')
+
+# Save the figure
+plt.savefig(f'images/{stringa}_2_temperature_contact_cutoff.png')
 
 # Grafico della temperatura
 plt.figure(figsize=(12, 6))
@@ -70,7 +76,11 @@ plt.ylabel('Temperatura')
 plt.yticks([0.5, 1.0])
 plt.grid(True)
 plt.tight_layout()
-plt.show()
+if not os.path.exists('images'):
+    os.makedirs('images')
+
+# Save the figure
+plt.savefig(f'images/{stringa}_2_temperature_cutoff.png')
 
 import scipy.integrate as integrate
 
@@ -106,4 +116,8 @@ plt.title(f'Heatmap del risultato dell\'integrale (K={K})')
 plt.xlabel('Indice del residuo')
 plt.ylabel('Indice del residuo')
 plt.tight_layout()
-plt.show()
+if not os.path.exists('images'):
+    os.makedirs('images')
+
+# Save the figure
+plt.savefig(f'images/{stringa}_2_temperature_correlation_cutoff.png')

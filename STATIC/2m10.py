@@ -31,6 +31,8 @@ df = df.reset_index(drop=True)
 concatenated_df = pd.concat([df1['Secondary Structure'], df], axis=1)
 df = concatenated_df.dropna().reset_index(drop=True)
 print(df)
+
+df = df.T.drop_duplicates().T
 # Initialize Visualize and analyze graph
 visualizer = Visualize(df)
 raggio=visualizer.calculate_and_print_average_distance()
@@ -42,6 +44,8 @@ G = visualizer.create_and_print_graph(truncated=True, radius=raggio, plot=False,
 analyzer = GraphMatrixAnalyzer(G)
 concatenated_df = pd.concat([df1['Secondary Structure'], df], axis=1)
 df = concatenated_df.dropna().reset_index(drop=True)
+
+df = df.T.drop_duplicates().T
 # Calcola la matrice di Kirchhoff
 kirchhoff_matrix = analyzer.get_kirchhoff_matrix()
 predicted_b_factors, correlation, rmsd = analyze_b_factors(df, analyzer,name=stringa)
@@ -104,6 +108,10 @@ mu = 1  # Time scaling factor
 t = np.linspace(0.01, 0.5, 300)    # Time points
 
 # Initialize Analysis
+
+df = df.T.drop_duplicates().T
+print("qui")
+print(df)
 time_correlation = TimeCorrelation(u=autovettori, lambdas=autovalori, mu=mu, sec_struct_data=df,stringa=stringa)
 autocorrelations = time_correlation.time_correlation(0, 1, t)  # Example indices
 normalized_autocorrelations = autocorrelations / autocorrelations[0]  # Normalize example
@@ -183,15 +191,7 @@ residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'correlatio
 residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'linear_response')
 residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'entropy')
 '''
-def calcola_distanza(residuo1, residuo2, df):
-    coord1 = df.loc[df['Residue ID'] == residuo1, ['X', 'Y', 'Z']].values[0]
-    coord2 = df.loc[df['Residue ID'] == residuo2, ['X', 'Y', 'Z']].values[0]
-    distanza = np.linalg.norm(coord1 - coord2)
-    return distanza
 
-# Calcola la distanza tra il residuo 20 e il 40
-distanza_20_40 = calcola_distanza(20, 40, df)
-print(f"Distanza tra il residuo 20 e il 40: {distanza_20_40:.2f}")
 lista = np.array([21,22, 23, 24])
 lista = np.array([20,21,22, 23, 24])
 t=[tau_mean]#[tau_mean]

@@ -27,9 +27,6 @@ INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/float/float.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/float/float.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-INPUT ./ciao.aux
-INPUT ./ciao.aux
-INPUT ciao.aux
 OUTPUT ciao.aux
 INPUT /usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -72,6 +69,26 @@ INPUT ./images/2m0zTransfer Entropy TE_ij for i=22 as a function of j at time in
 INPUT ./images/2m0zTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png
 INPUT ./images/2m0zTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png
 INPUT ./images/2m0zTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/2m0zMultiple_time_resposne.png
+INPUT ./images/2m0zMultiple_time_resposne.png
+INPUT ./images/2m0zMultiple_time_resposne.png
+INPUT ./images/2m0zMultiple_time_resposne.png
+INPUT ./images/2m0zMultiple_time_resposne.png
+INPUT ./images/2m0zConfronto tra Fattori B Reali e Predetti.png
+INPUT ./images/2m0zConfronto tra Fattori B Reali e Predetti.png
+INPUT ./images/2m0zConfronto tra Fattori B Reali e Predetti.png
+INPUT ./images/2m0zConfronto tra Fattori B Reali e Predetti.png
+INPUT ./images/2m0zConfronto tra Fattori B Reali e Predetti.png
+INPUT ./images/2m0z_Matrice di Kirchhoff della Proteina.png
+INPUT ./images/2m0z_Matrice di Kirchhoff della Proteina.png
+INPUT ./images/2m0z_Matrice di Kirchhoff della Proteina.png
+INPUT ./images/2m0z_Matrice di Kirchhoff della Proteina.png
+INPUT ./images/2m0z_Matrice di Kirchhoff della Proteina.png
+INPUT ./images/2m0zanalyze_secondary_structure_transfer_entropy.png
+INPUT ./images/2m0zanalyze_secondary_structure_transfer_entropy.png
+INPUT ./images/2m0zanalyze_secondary_structure_transfer_entropy.png
+INPUT ./images/2m0zanalyze_secondary_structure_transfer_entropy.png
+INPUT ./images/2m0zanalyze_secondary_structure_transfer_entropy.png
 INPUT ./images/2m10Residual Correlation C_ij for i=22 as a function of j at time index 0.png
 INPUT ./images/2m10Residual Correlation C_ij for i=22 as a function of j at time index 0.png
 INPUT ./images/2m10Residual Correlation C_ij for i=22 as a function of j at time index 0.png
@@ -87,6 +104,26 @@ INPUT ./images/2m10Transfer Entropy TE_ij for i=22 as a function of j at time in
 INPUT ./images/2m10Transfer Entropy TE_ij for i=22 as a function of j at time index 0.png
 INPUT ./images/2m10Transfer Entropy TE_ij for i=22 as a function of j at time index 0.png
 INPUT ./images/2m10Transfer Entropy TE_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/2m10Multiple_time_resposne.png
+INPUT ./images/2m10Multiple_time_resposne.png
+INPUT ./images/2m10Multiple_time_resposne.png
+INPUT ./images/2m10Multiple_time_resposne.png
+INPUT ./images/2m10Multiple_time_resposne.png
+INPUT ./images/2m10Confronto tra Fattori B Reali e Predetti.png
+INPUT ./images/2m10Confronto tra Fattori B Reali e Predetti.png
+INPUT ./images/2m10Confronto tra Fattori B Reali e Predetti.png
+INPUT ./images/2m10Confronto tra Fattori B Reali e Predetti.png
+INPUT ./images/2m10Confronto tra Fattori B Reali e Predetti.png
+INPUT ./images/2m10_Matrice di Kirchhoff della Proteina.png
+INPUT ./images/2m10_Matrice di Kirchhoff della Proteina.png
+INPUT ./images/2m10_Matrice di Kirchhoff della Proteina.png
+INPUT ./images/2m10_Matrice di Kirchhoff della Proteina.png
+INPUT ./images/2m10_Matrice di Kirchhoff della Proteina.png
+INPUT ./images/2m10analyze_secondary_structure_transfer_entropy.png
+INPUT ./images/2m10analyze_secondary_structure_transfer_entropy.png
+INPUT ./images/2m10analyze_secondary_structure_transfer_entropy.png
+INPUT ./images/2m10analyze_secondary_structure_transfer_entropy.png
+INPUT ./images/2m10analyze_secondary_structure_transfer_entropy.png
 INPUT ./images/3LNXResidual Correlation C_ij for i=22 as a function of j at time index 0.png
 INPUT ./images/3LNXResidual Correlation C_ij for i=22 as a function of j at time index 0.png
 INPUT ./images/3LNXResidual Correlation C_ij for i=22 as a function of j at time index 0.png
@@ -102,6 +139,26 @@ INPUT ./images/3LNXTransfer Entropy TE_ij for i=22 as a function of j at time in
 INPUT ./images/3LNXTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png
 INPUT ./images/3LNXTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png
 INPUT ./images/3LNXTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/3LNXMultiple_time_resposne.png
+INPUT ./images/3LNXMultiple_time_resposne.png
+INPUT ./images/3LNXMultiple_time_resposne.png
+INPUT ./images/3LNXMultiple_time_resposne.png
+INPUT ./images/3LNXMultiple_time_resposne.png
+INPUT ./images/3LNXConfronto tra Fattori B Reali e Predetti.png
+INPUT ./images/3LNXConfronto tra Fattori B Reali e Predetti.png
+INPUT ./images/3LNXConfronto tra Fattori B Reali e Predetti.png
+INPUT ./images/3LNXConfronto tra Fattori B Reali e Predetti.png
+INPUT ./images/3LNXConfronto tra Fattori B Reali e Predetti.png
+INPUT ./images/3LNX_Matrice di Kirchhoff della Proteina.png
+INPUT ./images/3LNX_Matrice di Kirchhoff della Proteina.png
+INPUT ./images/3LNX_Matrice di Kirchhoff della Proteina.png
+INPUT ./images/3LNX_Matrice di Kirchhoff della Proteina.png
+INPUT ./images/3LNX_Matrice di Kirchhoff della Proteina.png
+INPUT ./images/3LNXanalyze_secondary_structure_transfer_entropy.png
+INPUT ./images/3LNXanalyze_secondary_structure_transfer_entropy.png
+INPUT ./images/3LNXanalyze_secondary_structure_transfer_entropy.png
+INPUT ./images/3LNXanalyze_secondary_structure_transfer_entropy.png
+INPUT ./images/3LNXanalyze_secondary_structure_transfer_entropy.png
 INPUT ./images/3LNYResidual Correlation C_ij for i=22 as a function of j at time index 0.png
 INPUT ./images/3LNYResidual Correlation C_ij for i=22 as a function of j at time index 0.png
 INPUT ./images/3LNYResidual Correlation C_ij for i=22 as a function of j at time index 0.png
@@ -117,6 +174,60 @@ INPUT ./images/3LNYTransfer Entropy TE_ij for i=22 as a function of j at time in
 INPUT ./images/3LNYTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png
 INPUT ./images/3LNYTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png
 INPUT ./images/3LNYTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png
+INPUT ./images/3LNYMultiple_time_resposne.png
+INPUT ./images/3LNYMultiple_time_resposne.png
+INPUT ./images/3LNYMultiple_time_resposne.png
+INPUT ./images/3LNYMultiple_time_resposne.png
+INPUT ./images/3LNYMultiple_time_resposne.png
+INPUT ./images/3LNYConfronto tra Fattori B Reali e Predetti.png
+INPUT ./images/3LNYConfronto tra Fattori B Reali e Predetti.png
+INPUT ./images/3LNYConfronto tra Fattori B Reali e Predetti.png
+INPUT ./images/3LNYConfronto tra Fattori B Reali e Predetti.png
+INPUT ./images/3LNYConfronto tra Fattori B Reali e Predetti.png
+INPUT ./images/3LNY_Matrice di Kirchhoff della Proteina.png
+INPUT ./images/3LNY_Matrice di Kirchhoff della Proteina.png
+INPUT ./images/3LNY_Matrice di Kirchhoff della Proteina.png
+INPUT ./images/3LNY_Matrice di Kirchhoff della Proteina.png
+INPUT ./images/3LNY_Matrice di Kirchhoff della Proteina.png
+INPUT ./images/2m10analyze_secondary_structure_transfer_entropy.png
+INPUT ./images/2m10analyze_secondary_structure_transfer_entropy.png
+INPUT ./images/2m10analyze_secondary_structure_transfer_entropy.png
+INPUT ./images/2m10analyze_secondary_structure_transfer_entropy.png
+INPUT ./images/2m10_Processo_stocastico.png
+INPUT ./images/2m10_Processo_stocastico.png
+INPUT ./images/2m10_Processo_stocastico.png
+INPUT ./images/2m10_Processo_stocastico.png
+INPUT ./images/2m10_Processo_stocastico.png
+INPUT ./images/2m10_Stima beta factors.png
+INPUT ./images/2m10_Stima beta factors.png
+INPUT ./images/2m10_Stima beta factors.png
+INPUT ./images/2m10_Stima beta factors.png
+INPUT ./images/2m10_Stima beta factors.png
+INPUT ./images/2m10_2_temperature_contact_cutoff.png
+INPUT ./images/2m10_2_temperature_contact_cutoff.png
+INPUT ./images/2m10_2_temperature_contact_cutoff.png
+INPUT ./images/2m10_2_temperature_contact_cutoff.png
+INPUT ./images/2m10_2_temperature_contact_cutoff.png
+INPUT ./images/2m10_2_temperature_correlation_cutoff.png
+INPUT ./images/2m10_2_temperature_correlation_cutoff.png
+INPUT ./images/2m10_2_temperature_correlation_cutoff.png
+INPUT ./images/2m10_2_temperature_correlation_cutoff.png
+INPUT ./images/2m10_2_temperature_correlation_cutoff.png
+INPUT ./images/2m10_2_temperature_cutoff.png
+INPUT ./images/2m10_2_temperature_cutoff.png
+INPUT ./images/2m10_2_temperature_cutoff.png
+INPUT ./images/2m10_2_temperature_cutoff.png
+INPUT ./images/2m10_2_temperature_cutoff.png
+INPUT ./images/2m10_2_temperature_sferic.png
+INPUT ./images/2m10_2_temperature_sferic.png
+INPUT ./images/2m10_2_temperature_sferic.png
+INPUT ./images/2m10_2_temperature_sferic.png
+INPUT ./images/2m10_2_temperature_sferic.png
+INPUT ./images/2m10_2_temperature_correlation_sferic.png
+INPUT ./images/2m10_2_temperature_correlation_sferic.png
+INPUT ./images/2m10_2_temperature_correlation_sferic.png
+INPUT ./images/2m10_2_temperature_correlation_sferic.png
+INPUT ./images/2m10_2_temperature_correlation_sferic.png
 INPUT ciao.aux
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb

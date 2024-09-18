@@ -87,11 +87,11 @@ def analyze_secondary_structure_transfer_entropy(pdb_id, radius=8.0, tau_mean=No
     plt.xticks(rotation=45, ha='right')
     plt.yticks(rotation=0)
     plt.tight_layout()
-    if not os.path.exists('images'):
-        os.makedirs('images')
+    if not os.path.exists(f'images/{pdb_id}/struttura_secondaria/'):
+        os.makedirs(f'images/{pdb_id}/struttura_secondaria/')
 
     # Save the figure in the 'images' directory
-    plt.savefig(f'images/{pdb_id}analyze_secondary_structure_transfer_entropy.png')
+    plt.savefig(f'images/{pdb_id}/struttura_secondaria/analyze_secondary_structure_transfer_entropy.png')
 
     # Identify main donors and acceptors
     donor_scores = np.nansum(te_matrix, axis=1)  # Usa nansum per ignorare i NaN

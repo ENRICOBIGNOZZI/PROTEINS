@@ -124,6 +124,7 @@ class TransferEntropy(BaseCorrelationAnalysis):
         C_ii_0 = self._calculate_correlation_static(i, i)
         C_jj_0 = self._calculate_correlation_static(j, j)
         C_ii_t = self.time_correlation_instance.time_correlation(i, i, t)
+
         C_jj_t = self.time_correlation_instance.time_correlation(j, j, t)
         C_ij_0 = self._calculate_correlation_static(i, j)
         C_ij_t = self.time_correlation_instance.time_correlation(i, j, t)
@@ -234,7 +235,24 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
                 T[i, j] = 0.5 * np.sum(degrees * (R[i, j] + R[:, j] - R[i, :]))
         
         return T
-
+    def compute_mean_first_passage_time_matrix_accettore(self,adjacency_matrix):
+        n = self.u.shape[0]
+        T = np.zeros((n, n))
+        
+        # Calculate degrees (d_z)
+        degrees = np.sum(adjacency_matrix, axis=1)
+        # Calculate R matrix
+        R = np.zeros((n, n))
+        for i in range(n):
+            for j in range(n):
+                R[i, j] = np.sum( 1/ self.lambdas[1:] * (self.u[i, 1:] - self.u[j, 1:])**2)
+        
+        # Calculate T matrix (MFPT)
+        for i in range(n):
+            for j in range(n):
+                T[i, j] = 0.5 * np.sum(degrees * (R[j, i] + R[:, i] - R[j, :]))
+        
+        return T
     def plot_mfpt_matrix(self,adjacency_matrix):
         T = self.compute_mean_first_passage_time_matrix(adjacency_matrix)
         '''plt.figure(figsize=(10, 8))
@@ -309,19 +327,23 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
             for j in range(n):
                 # Assumiamo che t sia un array di tempi e time_idx sia l'indice del tempo
                 if time_idx < len(t):
-                    residual_correlation_matrix[j] += self.time_correlation(i, j, t[time_idx:time_idx+1])[0]
+                    residual_correlation_matrix[j] += self.time_correlation(i, j, t)[0]
                 else:
                     raise IndexError(f"Time index {time_idx} out of range for time array.")
         residual_correlation_matrix /= len(lista)
         return residual_correlation_matrix
     
-    def compute_residual_transfer_entropy_matrix(self, t, i, time_idx):
+    def compute_residual_transfer_entropy_matrix_donatore(self, t, i, time_idx):
         n = self.u.shape[0]
-        print(n)
         transfer_entropy_matrix = np.zeros(n)
-        print(t[time_idx:time_idx + 1])
         for j in range(n):
-            transfer_entropy_matrix[j] = self.transfer_entropy(i, j, t[time_idx:time_idx + 1])
+            transfer_entropy_matrix[j] = self.transfer_entropy(i, j, t)
+        return transfer_entropy_matrix
+    def compute_residual_transfer_entropy_matrix_accettore(self, t, i, time_idx):
+        n = self.u.shape[0]
+        transfer_entropy_matrix = np.zeros(n)
+        for j in range(n):
+            transfer_entropy_matrix[j] = self.transfer_entropy(j, i, t)
         return transfer_entropy_matrix
     
 
@@ -329,7 +351,7 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
         n = self.u.shape[0]
         time_response_matrix = np.zeros(n)
         for j in range(n):
-            time_response_matrix[j] = self.time_response(i, j, t[time_idx:time_idx+1])
+            time_response_matrix[j] = self.time_response(i, j, t)
         print(time_response_matrix)
         return time_response_matrix
     

@@ -11,6 +11,81 @@ import matplotlib.lines as mlines
 from beta_functions import analyze_b_factors
 from secondary_structure import analyze_secondary_structure_transfer_entropy
 from multiple_time_response import plot_time_response_multiple
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.patches as patches
+import os
+
+def plot_correlation_matrix(self, matrix, secondary_structure, nome, title="Correlation Matrix"):
+    fig, ax = plt.subplots(figsize=(10, 10))
+    
+    # Crea una matrice binaria per correlazioni positive e negative
+    pos_matrix = np.where(matrix > 0, 1, 0)
+    neg_matrix = np.where(matrix < 0, 1, 0)
+    
+    # Indici degli elementi non zero per le correlazioni positive e negative
+    pos_rows, pos_cols = np.where(pos_matrix == 1)
+    neg_rows, neg_cols = np.where(neg_matrix == 1)
+    
+    # Plot dei punti: verde per correlazioni positive, viola per correlazioni negative
+    ax.scatter(pos_cols, pos_rows, s=30, c='green', label='Positive Correlation')  # Correlazioni positive in verde
+    ax.scatter(neg_cols, neg_rows, s=30, c='purple', label='Negative Correlation')  # Correlazioni negative in viola
+
+    # Aggiungi i rettangoli come indicato nel codice originale
+    rectangle1 = patches.Rectangle((19, 71), 5, 9, linewidth=2, edgecolor='r', facecolor='none')
+    rectangle2 = patches.Rectangle((71, 19), 9, 5, linewidth=2, edgecolor='r', facecolor='none')
+    ax.add_patch(rectangle1)
+    ax.add_patch(rectangle2)
+    
+    # Creazione delle sezioni per la struttura secondaria sugli assi x e y
+    start = 0
+    current_structure = secondary_structure[0] if len(secondary_structure) >= 2 else secondary_structure[0]
+    
+    for i, structure in enumerate(secondary_structure):
+        if len(structure) >= 2:
+            structure = structure[0]
+        
+        if structure != current_structure:
+            if current_structure == 'H' or current_structure == 'E':  # Solo per Elica e Foglietto Beta
+                color = 'red' if current_structure == 'H' else 'blue'
+                ax.plot([start, i], [0, 0], color=color, linewidth=8)
+                ax.plot([0, 0], [start, i], color=color, linewidth=8)
+                ax.text((start+i)/2, -0.5, current_structure, ha='center', va='top', fontsize=12, fontweight='bold')
+                ax.text(-0.5, (start+i)/2, current_structure, ha='right', va='center', fontsize=12, fontweight='bold')
+            start = i
+            current_structure = structure
+    if current_structure == 'H' or current_structure == 'E':
+        color = 'red' if current_structure == 'H' else 'blue'
+        ax.plot([start, i+1], [0, 0], color=color, linewidth=8)
+        ax.plot([0, 0], [start, i+1], color=color, linewidth=8)
+        ax.text((start+i+1)/2, -0.5, current_structure, ha='center', va='top', fontsize=12, fontweight='bold')
+        ax.text(-0.5, (start+i+1)/2, current_structure, ha='right', va='center', fontsize=12, fontweight='bold')
+    
+    # Aggiungi la legenda per correlazioni positive e negative, eliche e foglietti Beta
+    handles = [
+        patches.Patch(color='green', label='Positive Correlation'),
+        patches.Patch(color='purple', label='Negative Correlation'),
+        patches.Patch(color='red', label='Helix'),
+        patches.Patch(color='blue', label='Beta Sheet')
+    ]
+    ax.legend(handles=handles, loc='upper right')
+    
+    ax.set_title(title)
+    ax.set_xlabel('Residue Index')
+    ax.set_ylabel('Residue Index')
+    ax.set_ylim(0, matrix.shape[0])
+    ax.set_xlim(0, matrix.shape[1])
+    
+    plt.tight_layout()
+    
+    # Creazione delle cartelle per salvare le immagini se non esistono
+    if not os.path.exists(f'images/{nome}/correlazioni/'):
+        os.makedirs(f'images/{nome}/correlazioni/')
+    
+    # Salva la figura nella directory 'images'
+    plt.savefig(f'images/{nome}/correlazioni/{title}.png')
+    plt.show()
+
 raggio=8.0
 # Initialize PDBProcessor
 stringa="3LNY"

@@ -75,11 +75,11 @@ plt.xlabel('Residue Number')
 plt.ylabel('Time Average of x(t)^2')
 plt.title('Time Average of x(t)^2 for Each Residue')
 plt.tight_layout()
-if not os.path.exists('images'):
-    os.makedirs('images')
+if not os.path.exists(f'images/{stringa}/dynamic/'):
+    os.makedirs(f'images/{stringa}/dynamic/')
 
 # Save the figure
-plt.savefig(f'images/{stringa}_Stima beta factors.png')
+plt.savefig(f'images/{stringa}/dynamic/Stima beta factors.png')
 
 # Select residues to plot, including 20 and 75
 selected_residues = [20, 75]  # You can add more if needed
@@ -95,11 +95,11 @@ plt.ylabel('Displacement')
 plt.title('Displacements of Selected Residues over Time (1D)')
 plt.legend()
 plt.tight_layout()
-if not os.path.exists('images'):
-    os.makedirs('images')
+if not os.path.exists(f'images/{stringa}/dynamic/'):
+    os.makedirs(f'images/{stringa}/dynamic/')
 
 # Save the figure
-plt.savefig(f'images/{stringa}_Processo_stocastico.png')
+plt.savefig(f'images/{stringa}/dynamic/Processo_stocastico.png')
 
 # Plot the t
 

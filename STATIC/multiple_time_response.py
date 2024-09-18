@@ -12,8 +12,8 @@ def plot_time_response_multiple(time_response, residue_pairs, t, title,name):
     plt.title(title)
     plt.legend()
     plt.grid(True)
-    if not os.path.exists('images'):
-        os.makedirs('images')
+    if not os.path.exists(f'images/{name}/Multiple_time_resposne/'):
+        os.makedirs(f'images/{name}/Multiple_time_resposne/')
 
     # Save the figure in the 'images' directory
-    plt.savefig(f'images/{name}Multiple_time_resposne.png')
+    plt.savefig(f'images/{name}/Multiple_time_resposne/risposte.png')

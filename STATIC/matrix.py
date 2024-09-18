@@ -71,7 +71,9 @@ class GraphMatrixAnalyzer:
         return self.eigenvectors_pseudo_inverse
     
 
-    def plot_matrix(self, matrix, secondary_structure, nome,title="Matrix"):
+
+
+    def plot_matrix(self, matrix, secondary_structure, nome, title="Matrix"):
         fig, ax = plt.subplots(figsize=(10, 10))
         
         # Create a binary matrix: 1 where connections exist, 0 otherwise
@@ -81,11 +83,11 @@ class GraphMatrixAnalyzer:
         rows, cols = np.where(binary_matrix == 1)
         
         # Plot the dots
-        ax.scatter(cols, rows, s=10, c='black')
+        ax.scatter(cols, rows, s=30, c='black')  # Increase dot size
 
         # Add rectangles
-        rectangle1 = patches.Rectangle((19, 71), 5, 9, linewidth=1, edgecolor='r', facecolor='none')
-        rectangle2 = patches.Rectangle((71, 19), 9, 5, linewidth=1, edgecolor='r', facecolor='none')
+        rectangle1 = patches.Rectangle((19, 71), 5, 9, linewidth=2, edgecolor='r', facecolor='none')
+        rectangle2 = patches.Rectangle((71, 19), 9, 5, linewidth=2, edgecolor='r', facecolor='none')
         ax.add_patch(rectangle1)
         ax.add_patch(rectangle2)
         
@@ -98,33 +100,42 @@ class GraphMatrixAnalyzer:
         for i, structure in enumerate(secondary_structure):
             if len(structure) >= 2:
                 structure = structure[0]
-           
+        
             if structure != current_structure:
-                color = 'red' if current_structure == 'H' else 'blue' if current_structure == 'E' else 'green'
-                ax.plot([start, i], [0, 0], color=color, linewidth=5)
-                ax.plot([0, 0], [start, i], color=color, linewidth=5)
-                #ax.text((start+i)/2, -0.5, current_structure, ha='center', va='top')
-                #ax.text(-0.5, (start+i)/2, current_structure, ha='right', va='center')
-                ax.text((start+i)/2, 0, current_structure, ha='center', va='top')
-                ax.text(0, (start+i)/2, current_structure, ha='right', va='center')
+                if current_structure == 'H' or current_structure == 'E':  # Plot only for Helix and Beta Sheet
+                    color = 'red' if current_structure == 'H' else 'blue'
+                    ax.plot([start, i], [0, 0], color=color, linewidth=8)  # Increase line thickness
+                    ax.plot([0, 0], [start, i], color=color, linewidth=8)  # Increase line thickness
+                    ax.text((start+i)/2, -0.5, current_structure, ha='center', va='top', fontsize=12, fontweight='bold')
+                    ax.text(-0.5, (start+i)/2, current_structure, ha='right', va='center', fontsize=12, fontweight='bold')
                 start = i
                 current_structure = structure
-        color = 'red' if current_structure == 'H' else 'blue' if current_structure == 'E' else 'green'
-        ax.plot([start, i+1], [0, 0], color=color, linewidth=5)
-        ax.plot([0, 0], [start, i+1], color=color, linewidth=5)
-        ax.text((start+i+1)/2, 0, current_structure, ha='center', va='top')
-        ax.text(0, (start+i+1)/2, current_structure, ha='right', va='center')
+        if current_structure == 'H' or current_structure == 'E':  # Plot final segment if it is Helix or Beta Sheet
+            color = 'red' if current_structure == 'H' else 'blue'
+            ax.plot([start, i+1], [0, 0], color=color, linewidth=8)  # Increase line thickness
+            ax.plot([0, 0], [start, i+1], color=color, linewidth=8)  # Increase line thickness
+            ax.text((start+i+1)/2, -0.5, current_structure, ha='center', va='top', fontsize=12, fontweight='bold')
+            ax.text(-0.5, (start+i+1)/2, current_structure, ha='right', va='center', fontsize=12, fontweight='bold')
+        
+        # Add legend for Helix and Beta Sheet only
+        handles = [
+            patches.Patch(color='red', label='Helix'),
+            patches.Patch(color='blue', label='Beta Sheet')
+        ]
+        ax.legend(handles=handles, loc='upper right')
+        
         ax.set_title(title)
         ax.set_xlabel('Residue Index')
         ax.set_ylabel('Residue Index')
-        ax.set_ylim(0, binary_matrix.shape[0])  # This line sets y-axis from 0 to max
-        ax.set_xlim(0, binary_matrix.shape[1] )
+        ax.set_ylim(0, binary_matrix.shape[0])
+        ax.set_xlim(0, binary_matrix.shape[1])
         
         plt.tight_layout()
-        if not os.path.exists('images'):
-            os.makedirs('images')
+        if not os.path.exists(f'images/{nome}/contatti/'):
+            os.makedirs(f'images/{nome}/contatti/')
         # Save the figure in the 'images' directory
-        plt.savefig(f'images/{nome}_{title}.png')
+        plt.savefig(f'images/{nome}/contatti/{title}.png')
+
 
     def plot_eigenvalues(self, eigenvalues, title="Autovalori"):
         plt.figure(figsize=(10, 6))

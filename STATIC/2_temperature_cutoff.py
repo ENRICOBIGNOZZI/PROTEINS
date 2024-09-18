@@ -54,18 +54,56 @@ print("Numero di residui con temperatura 1.0:", np.sum(temperatura == 1.0))
 # Grafico dei contatti
 residui = range(1, len(contatti) + 1)
 
-plt.figure(figsize=(12, 6))
+
+def plot_with_secondary_structure(matrix, sec_struct_data,name):
+    sec_struct_info = sec_struct_data['Secondary Structure']
+    residue_ids = sec_struct_data['Residue ID'].astype(int)
+
+    colors = {'H': 'red', 'E': 'blue', 'C': 'green'}
+    sec_struct_colors = [colors.get(sec_struct_info.get(rid, 'Unknown'), 'black') for rid in residue_ids]
+
+    plt.figure(figsize=(12, 8))
+    plt.plot(range(len(matrix)), matrix, marker='o', linestyle='-', alpha=0.7)
+
+    # Plot the secondary structure bands
+    current_color = 'black'
+    start_idx = 0
+    for idx, resid in enumerate(residue_ids):
+        if sec_struct_colors[idx] != current_color:
+            if idx > 0:
+                plt.axvspan(start_idx, idx, color=current_color, alpha=0.2)
+            current_color = sec_struct_colors[idx]
+            start_idx = idx 
+    
+    # Plot the last segment
+    plt.axvspan(start_idx, len(residue_ids), color=current_color, alpha=0.2)
+
+    # Create custom legend handles
+    handles = [mlines.Line2D([0], [0], color=color, lw=4, label=struct) for struct, color in colors.items()]
+    plt.legend(handles=handles, title='Secondary Structure', loc='upper center', bbox_to_anchor=(0.5, 1.1), ncol=3)
+    
+    plt.xlabel('Residue Index')
+    plt.ylabel('Numbers of contacts')
+    #plt.ylim(-0.02,0.02)
+    plt.grid(True)
+    if not os.path.exists(f'images/{stringa}/2_temperature_cutoff/'):
+        os.makedirs(f'images/{stringa}/2_temperature_cutoff/')
+    # Save the figure
+    plt.savefig(f'images/{stringa}/2_temperature_cutoff/numero_di_contatti.png')
+
+plot_with_secondary_structure(contatti,sec_struct_data)
+'''plt.figure(figsize=(12, 6))
 plt.plot(residui, contatti, marker='o')
 plt.title('Grafico dei contatti al variare del residuo')
 plt.xlabel('Numero del residuo')
 plt.ylabel('Numero di contatti')
 plt.grid(True)
 plt.tight_layout()
-if not os.path.exists('images'):
-    os.makedirs('images')
+if not os.path.exists(f'images/{stringa}/2_temperature_cutoff/'):
+    os.makedirs(f'images/{stringa}/2_temperature_cutoff/')
 
 # Save the figure
-plt.savefig(f'images/{stringa}_2_temperature_contact_cutoff.png')
+plt.savefig(f'images/{stringa}/2_temperature_cutoff/contact_map.png')'''
 
 # Grafico della temperatura
 plt.figure(figsize=(12, 6))
@@ -76,11 +114,11 @@ plt.ylabel('Temperatura')
 plt.yticks([0.5, 1.0])
 plt.grid(True)
 plt.tight_layout()
-if not os.path.exists('images'):
-    os.makedirs('images')
+if not os.path.exists(f'images/{stringa}/2_temperature_cutoff/'):
+    os.makedirs(f'images/{stringa}/2_temperature_cutoff/')
 
 # Save the figure
-plt.savefig(f'images/{stringa}_2_temperature_cutoff.png')
+plt.savefig(f'images/{stringa}/2_temperature_cutoff/temperatures.png')
 
 import scipy.integrate as integrate
 
@@ -116,8 +154,8 @@ plt.title(f'Heatmap del risultato dell\'integrale (K={K})')
 plt.xlabel('Indice del residuo')
 plt.ylabel('Indice del residuo')
 plt.tight_layout()
-if not os.path.exists('images'):
-    os.makedirs('images')
+if not os.path.exists(f'images/{stringa}/2_temperature_cutoff/'):
+    os.makedirs(f'images/{stringa}/2_temperature_cutoff/')
 
 # Save the figure
-plt.savefig(f'images/{stringa}_2_temperature_correlation_cutoff.png')
+plt.savefig(f'images/{stringa}/2_temperature_cutoff/correlation.png')

@@ -59,11 +59,12 @@ plt.xlabel('Numero del residuo')
 plt.ylabel('Temperatura')
 plt.grid(True)
 plt.tight_layout()
-if not os.path.exists('images'):
-    os.makedirs('images')
+if not os.path.exists(f'images/{stringa}/2_temperature_sferical/'):
+    os.makedirs(f'images/{stringa}/2_temperature_sferical/')
+
 
 # Save the figure
-plt.savefig(f'images/{stringa}_2_temperature_sferic.png')
+plt.savefig(f'images/{stringa}/2_temperature_sferical/temperature_sferic.png')
 
 # Grafico 3D della proteina colorata per temperatura
 
@@ -102,8 +103,8 @@ plt.title(f'Heatmap del risultato dell\'integrale (K={K})')
 plt.xlabel('Indice del residuo')
 plt.ylabel('Indice del residuo')
 plt.tight_layout()
-if not os.path.exists('images'):
-    os.makedirs('images')
+if not os.path.exists(f'images/{stringa}/2_temperature_sferical/'):
+    os.makedirs(f'images/{stringa}/2_temperature_sferical/')
 
 # Save the figure
-plt.savefig(f'images/{stringa}_2_temperature_correlation_sferic.png')
+plt.savefig(f'images/{stringa}/2_temperature_sferical/correlation.png')

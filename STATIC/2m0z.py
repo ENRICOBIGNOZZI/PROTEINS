@@ -33,7 +33,7 @@ print(df)
 visualizer = Visualize(df)
 raggio=visualizer.calculate_and_print_average_distance()
 #visualizer.plot_connections_vs_radius()
-G = visualizer.create_and_print_graph(truncated=True, radius=raggio, plot=False, peso=20)  # Adjust radius as needed
+G = visualizer.create_and_print_graph(truncated=True, radius=8, plot=False, peso=20)  # Adjust radius as needed
 
 # Initialize GraphMatrixAnalyzer
 analyzer = GraphMatrixAnalyzer(G)
@@ -206,7 +206,7 @@ residual_analysis = ResidualAnalysis(u=autovettori, lambdas=autovalori, mu=mu, s
 
 # Perform correlation analysis
 
-
+residual_analysis.analyze_mfpt(adjacency_matrix )
 
 # Definisci i punti temporali
 #pairs = [(70, 20), (70, 23), (71, 24), (72, 25), (73, 26), (74, 27)]
@@ -232,7 +232,11 @@ distanza_20_40 = calcola_distanza(20, 40, df)
 print(f"Distanza tra il residuo 20 e il 40: {distanza_20_40:.2f}")
 lista = np.array([21,22, 23, 24])
 lista = np.array([20,21,22, 23, 24])
-t=[tau_mean]#[tau_mean]
+#t=[tau_mean]#[tau_mean]+0.1
+t=[0.2]
+
+print("tau")
+print(t)
 time_idx = 0
 for i in range(len(lista)):
     residual_analysis.plot_residual_correlation_vs_j(i=lista[i], t=t, time_idx=time_idx)
@@ -244,7 +248,8 @@ residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'linear_res
 #residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'entropy')
 
 lista = np.array([71, 72, 73, 74, 75, 76, 77, 78, 79])
-t=[tau_mean]
+#t=[tau_mean]
+t=[0.2]
 time_idx = 0
 for i in range(len(lista)):
     residual_analysis.plot_residual_correlation_vs_j(i=lista[i], t=t, time_idx=time_idx)

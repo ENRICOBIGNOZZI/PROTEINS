@@ -37,7 +37,8 @@ df = df.T.drop_duplicates().T
 visualizer = Visualize(df)
 raggio=visualizer.calculate_and_print_average_distance()
 #visualizer.plot_connections_vs_radius()
-G = visualizer.create_and_print_graph(truncated=True, radius=raggio, plot=False, peso=20)  # Adjust radius as needed
+raggio=8
+G = visualizer.create_and_print_graph(truncated=True, radius=8, plot=False, peso=20)  # Adjust radius as needed
 # Assumendo che G sia il tuo grafo
 
 # Initialize GraphMatrixAnalyzer

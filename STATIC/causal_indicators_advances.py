@@ -248,7 +248,7 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
         
         # Sort the non-zero values
         sorted_T = np.sort(non_zero_T)
-        
+        print(sorted_T)
         # Calculate the 10th percentile as a threshold for "short" passage times
         threshold = np.percentile(sorted_T, 10)
         
@@ -260,11 +260,11 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
         plt.ylabel('Frequency')
         plt.axvline(threshold, color='r', linestyle='--', label='10th percentile')
         plt.legend()
-        if not os.path.exists('images'):
-            os.makedirs('images')
+        if not os.path.exists(f'images/{self.name}/first_time/'):
+            os.makedirs(f'images/{self.name}/first_time/')
 
         # Save the figure
-        plt.savefig(f'images/{self.name}Distribution of Lower Mean First Passage Time Values (Residues).png')
+        plt.savefig(f'images/{self.name}/first_time/Distribution of Lower Mean First Passage Time Values (Residues).png')
         
         # Highlight zones with shorter passage times in the MFPT matrix
         plt.figure(figsize=(10, 8))
@@ -279,11 +279,11 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
         #plt.xticks(range(0, end_residue-start_residue+1, 10), range(start_residue, end_residue+1, 10))
         #plt.yticks(range(0, end_residue-start_residue+1, 10), range(start_residue, end_residue+1, 10))
         
-        if not os.path.exists('images'):
-            os.makedirs('images')
+        if not os.path.exists(f'images/{self.name}/first_time/'):
+            os.makedirs(f'images/{self.name}/first_time/')
 
         # Save the figure
-        plt.savefig(f'images/{self.name}Mean First Passage Time Matrix.png')
+        plt.savefig(f'images/{self.name}/first_time/Mean First Passage Time Matrix.png')
         
         # Print some statistics
         print(f"10th percentile (threshold) of MFPT: {threshold:.4f}")

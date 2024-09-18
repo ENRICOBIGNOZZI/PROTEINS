@@ -25,8 +25,17 @@ class BaseCorrelationAnalysis:
 
 class TimeCorrelation(BaseCorrelationAnalysis):
     def time_correlation(self, i, j, t):
-        C_ij_t_cost, _ = self._calculate_correlation_cost(i, j, t)
-        return C_ij_t_cost
+        # No changes made here
+        C_ij_t = np.zeros(len(t))
+        for idx, z in enumerate(t):
+            C_ij_0 = 0
+            C_ij_t_cost = 0
+            for k in range(1, len(self.lambdas)):
+                C_ij_t_cost += ((self.u[i, k] * self.u[j, k] / self.lambdas[k]) * np.exp(-self.mu * self.lambdas[k] * z))
+                C_ij_0 += ((self.u[i, k] * self.u[j, k] / self.lambdas[k]))
+                #print(k)
+            C_ij_t[idx] = C_ij_t_cost
+        return C_ij_t
     def normalize_autocorrelations(self, C_ii_t):
         C_ii_0 = C_ii_t[0]  # Primo valore di C_ii_t
         return C_ii_t / C_ii_0
@@ -56,11 +65,11 @@ class TimeCorrelation(BaseCorrelationAnalysis):
         plt.grid(True, alpha=0.3)
     
         # Check if the 'images' directory exists, if not, create it
-        if not os.path.exists('images'):
-            os.makedirs('images')
+        if not os.path.exists(f'images/{self.name}/'):
+            os.makedirs(f'images/{self.name}/')
 
         # Save the figure in the 'images' directory
-        plt.savefig(f'images/{self.name}tau_histogram.png')
+        plt.savefig(f'images/{self.name}/tau_histogram.png')
 
     def estimate_tau(self, t, normalized_autocorrelations):
         def exp_fit(t, tau):
@@ -86,11 +95,11 @@ class TimeCorrelation(BaseCorrelationAnalysis):
         plt.title('Autocorrelation and Fits')
         plt.legend()
         plt.grid(True)
-        if not os.path.exists('images'):
-            os.makedirs('images')
+        if not os.path.exists(f'images/{self.name}/'):
+            os.makedirs(f'images/{self.name}/')
 
         # Save the figure in the 'images' directory
-        plt.savefig(f'images/{self.name}autocorrelation_fits.png')
+        plt.savefig(f'images/{self.name}/autocorrelation_fits.png')
         
 
     def plot_time_correlation(self, i, j, t):
@@ -102,11 +111,9 @@ class TimeCorrelation(BaseCorrelationAnalysis):
         plt.title(f'Time Correlation between {i} and {j}')
         plt.legend()
         plt.grid(True)
-        if not os.path.exists('images'):
-            os.makedirs('images')
-
-        # Save the figure in the 'images' directory
-        plt.savefig(f'images/{self.name}Time Correlation between {i} and {j}.png')
+        if not os.path.exists(f'images/{self.name}/Time_indicators/'):
+            os.makedirs(f'images/{self.name}/Time_indicators/')
+        plt.savefig(f'images/{self.name}/Time_indicators/Time Correlation between {i} and {j}.png')
 
 class TransferEntropy(BaseCorrelationAnalysis):
     def __init__(self, u, lambdas, mu, sec_struct_data,stringa):
@@ -136,17 +143,22 @@ class TransferEntropy(BaseCorrelationAnalysis):
         plt.title(f'Transfer Entropy from {i} to {j}')
         plt.legend()
         plt.grid(True)
-        if not os.path.exists('images'):
-            os.makedirs('images')
-
-        # Save the figure in the 'images' directory
-        plt.savefig(f'images/{self.name}Transfer Entropy from {i} to {j}.png')
+        if not os.path.exists(f'images/{self.name}/Time_indicators/'):
+            os.makedirs(f'images/{self.name}/Time_indicators/')
+        plt.savefig(f'images/{self.name}/Time_indicators/Transfer Entropy from {i} to {j}.png')
 
 class TimeResponse(BaseCorrelationAnalysis):
     def time_response(self, i, j, t):
-        C_ij_t_cost, C_ij_0 = self._calculate_correlation_cost(i, j, t)
-        return C_ij_t_cost / C_ij_0
-
+        # No changes made here
+        Rijt_vector = np.zeros(len(t))
+        for idx, z in enumerate(t):
+            Rijt = 0
+            for k in range(0, len(self.lambdas)):
+                Rijt += ((self.u[i, k] * self.u[j, k]) * np.exp(-self.mu * self.lambdas[k] * z))
+                #C_ij_0 += ((self.u[i, k] * self.u[j, k] / self.lambdas[k]))
+            Rijt_vector[idx] = Rijt#C_ij_t_cost#/C_ij_0 
+        return Rijt
+ 
     def plot_time_response(self, i, j, t):
         R_ij_t = self.time_response(i, j, t)
         plt.figure(figsize=(8, 6))
@@ -156,11 +168,9 @@ class TimeResponse(BaseCorrelationAnalysis):
         plt.title(f'Time Response between {i} and {j}')
         plt.legend()
         plt.grid(True)
-        if not os.path.exists('images'):
-            os.makedirs('images')
-
-        # Save the figure in the 'images' directory
-        plt.savefig(f'images/{self.name}Time Response between {i} and {j}.png')
+        if not os.path.exists(f'images/{self.name}/Time_indicators/'):
+            os.makedirs(f'images/{self.name}/Time_indicators/')
+        plt.savefig(f'images/{self.name}/Time_indicators/Time Response between {i} and {j}.png')
 
 class CorrelationMatrixOperations(BaseCorrelationAnalysis):
     def compute_static_correlation_matrix(self):
@@ -183,11 +193,11 @@ class CorrelationMatrixOperations(BaseCorrelationAnalysis):
         plt.title(title)
         plt.xlabel('Index j')
         plt.ylabel('Index i')
-        if not os.path.exists('images'):
-            os.makedirs('images')
+        if not os.path.exists(f'images/{self.name}/Matrici/'):
+            os.makedirs(f'images/{self.name}/Matrici/')
 
         # Save the figure in the 'images' directory
-        plt.savefig(f'images/{self.name}Correlation Matrix.png')
+        plt.savefig(f'images/{self.name}/Matrici/Correlation Matrix.png')
 
     def plot_correlation_matrix_nan(self, correlation_matrix, title='Correlation Matrix', positive_only=False):
         plt.figure(figsize=(8, 6))
@@ -198,11 +208,11 @@ class CorrelationMatrixOperations(BaseCorrelationAnalysis):
         plt.xlabel('Index j')
         plt.ylabel('Index i')
         #plt.invert_yaxis()
-        if not os.path.exists('images'):
-            os.makedirs('images')
+        if not os.path.exists(f'images/{self.name}/Matrici/'):
+            os.makedirs(f'images/{self.name}/Matrici/')
 
         # Save the figure
-        plt.savefig(f'images/{self.name}{title}.png')
+        plt.savefig(f'images/{self.name}/Matrici/Correlation MatrixNan.png')
 
 class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, CorrelationMatrixOperations):
     def compute_mean_first_passage_time_matrix(self,adjacency_matrix):
@@ -396,11 +406,11 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
         plt.ylabel(ylabel)
         plt.grid(True)
         plt.tight_layout()
-        if not os.path.exists('images'):
-            os.makedirs('images')
+        if not os.path.exists(f'images/{self.name}/StrutturaSecondaria/'):
+            os.makedirs(f'images/{self.name}/StrutturaSecondaria/')
 
         # Save the figure
-        plt.savefig(f'images/{self.name}{title}.png')
+        plt.savefig(f'images/{self.name}/StrutturaSecondaria/{title}.png')
 
     def time_correlation_2(self, i, j, t):
         # No changes made here
@@ -476,7 +486,12 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
         plt.title('Time Correlation for Multiple Pairs')
         plt.legend()
         plt.grid(True)
-        plt.savefig(f'images/{self.name}TimeCorrelationforMultiplePairs.png')
+        if not os.path.exists(f'images/{self.name}/Time_indicators/'):#/Time_indicators
+            os.makedirs(f'images/{self.name}/Time_indicators/')
+
+        plt.savefig(f'images/{self.name}/Time_indicators/TimeCorrelationforMultiplePairs.png')
+        # Save the figure
+
     def _plot_with_secondary_structure(self, matrix, ylabel, title):
         sec_struct_info = self.sec_struct_data['Secondary Structure']
         residue_ids = self.sec_struct_data['Residue ID'].astype(int)
@@ -503,15 +518,13 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
         # Create custom legend handles
         handles = [mlines.Line2D([0], [0], color=color, lw=4, label=struct) for struct, color in colors.items()]
         plt.legend(handles=handles, title='Secondary Structure', loc='upper center', bbox_to_anchor=(0.5, 1.1), ncol=3)
-
         plt.title(title)
         plt.xlabel('Residue Index')
         plt.ylabel(ylabel)
         #plt.ylim(-0.02,0.02)
         plt.grid(True)
-        if not os.path.exists('images'):
-            os.makedirs('images')
-
+        if not os.path.exists(f'images/{self.name}/Time_indicators/'):
+            os.makedirs(f'images/{self.name}/Time_indicators/')
         # Save the figure
-        plt.savefig(f'images/{self.name}{title}.png')
+        plt.savefig(f'images/{self.name}/Time_indicators/{title}.png')
         

@@ -234,7 +234,6 @@ lista = np.array([21,22, 23, 24])
 lista = np.array([20,21,22, 23, 24])
 #t=[tau_mean]#[tau_mean]+0.1
 t=[0.2]
-
 print("tau")
 print(t)
 time_idx = 0

@@ -47,9 +47,73 @@ print("Centro di massa:", centro_massa)
 print("Raggio massimo:", R)
 print("Primi 5 valori di distanza:", distanze[:5])
 print("Primi 5 valori di temperatura radiale:", temperatura_radiale[:5])
+def calculate_Cij(u, Q,lambdaa, i,j,s,t):
+    Cij = np.zeros((u.shape[0], u.shape[0]))
+    if s>t:
+        for k in range(1,u.shape[0]):
+            for p in range(1,u.shape[0]):
+                Cij[i][j] += ((u[i][k] * Q[k][p] * u[j][p]) / (lambdaa[k] + lambdaa[p]))*np.exp(-lambdaa[p]*(s-t))
+    if s<t:
+        for k in range(1,u.shape[0]):
+            for p in range(1,u.shape[0]):
+                Cij[i][j] += ((u[i][k] * Q[k][p] * u[j][p]) / (lambdaa[k] + lambdaa[p]))*np.exp(-lambdaa[k]*(t-s))
+    return Cij
 
+import numpy as np
+
+def calculate_Q(U, B):
+    B_transpose = np.transpose(B)
+    U_transpose = np.transpose(U)
+    Q = np.dot(U, np.dot(B, np.dot(B_transpose, U_transpose)))
+    return Q
+
+eigenvalues, eigenvectors = np.linalg.eig(kirchhoff_matrix)
+
+Q=calculate_Q(  eigenvectors,temperatura_radiale)
+print(Q)
+print(Q.shape)
+Cij=calculate_Cij(eigenvectors, Q, eigenvalues, i=20,j=70,s=0,t=1)
+print(Cij)
+print(Cij.shape)
 # Grafico della temperatura radiale
-residui = range(1, len(temperatura_radiale) + 1)
+
+def calculate_Cij_matrix(u, Q, lambdaa, s, t):
+    Cij = np.zeros((u.shape[0], u.shape[0]))
+    for i in range(u.shape[0]):
+        for j in range(u.shape[0]):
+            if s>t:
+                for k in range(1,u.shape[0]):
+                    for p in range(1,u.shape[0]):
+                        Cij[i][j] += ((u[i][k] * Q[k][p] * u[j][p]) / (lambdaa[k] + lambdaa[p]))*np.exp(-lambdaa[p]*(s-t))
+            if s<t:
+                for k in range(1,u.shape[0]):
+                    for p in range(1,u.shape[0]):
+                        Cij[i][j] += ((u[i][k] * Q[k][p] * u[j][p]) / (lambdaa[k] + lambdaa[p]))*np.exp(-lambdaa[k]*(t-s))
+    return Cij
+def calculate_Cij_matrix_static(u, Q, lambdaa):#questa è quella corretta
+   
+   
+    print(np.dot(u,np.dot(Q,u)))
+    print(np.dot(u,np.dot(Q,u)).shape)
+    print(np.sum(lambdaa + lambdaa))
+    print(np.sum(lambdaa + lambdaa).shape)
+    Cij= np.dot(u,np.dot(Q,u))/ np.sum(lambdaa + lambdaa)
+    return Cij
+# Calcola la matrice Cij per tutti gli ij
+#Cij_matrix = calculate_Cij_matrix(eigenvectors, Q, eigenvalues, s=0, t=1)
+
+Cij_matrix = calculate_Cij_matrix_static(eigenvectors, Q, eigenvalues)
+print(Cij_matrix)
+print(Cij_matrix.shape)
+# Crea un plot della matrice di correlazione
+plt.figure(figsize=(10, 10))
+plt.imshow(Cij_matrix, cmap='hot', interpolation='nearest')
+plt.colorbar(label='Correlation')
+plt.title('Correlation Matrix')
+plt.show()
+
+
+'''residui = range(1, len(temperatura_radiale) + 1)
 
 plt.figure(figsize=(12, 6))
 plt.scatter(residui, temperatura_radiale, c=temperatura_radiale, cmap='coolwarm', marker='o')
@@ -107,4 +171,6 @@ if not os.path.exists(f'images/{stringa}/2_temperature_sferical/'):
     os.makedirs(f'images/{stringa}/2_temperature_sferical/')
 
 # Save the figure
-plt.savefig(f'images/{stringa}/2_temperature_sferical/correlation.png')
+plt.savefig(f'images/{stringa}/2_temperature_sferical/correlation.png')'''
+
+

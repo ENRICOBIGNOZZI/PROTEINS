@@ -9,10 +9,17 @@ def stochastic_process_1d(K, epsilon_0, omega, dt, T, k_b, gamma, MaxTime, N):
     t = np.arange(0, MaxTime, dt)
     r_history = np.zeros((len(t), N))
     r = np.zeros(N)  # Inizializza tutte le posizioni a zero
-
+    epsilon= np.zeros((len(t), N))
+    p=0
     for n in range(1, len(t)):
         epsilon_t = epsilon_0 * (1 + np.cos(omega * t[n])) / 2
+        if epsilon_t==0:
+            p+=1
+            print(p)
+        #if epsilon_t<=0.0001 and epsilon_t>=-0.0001:
+        #    print("periodo")
         
+
         dH_dr = np.zeros(N)
         for i in range(N):
             dH_dr[i] = np.sum(K[i, :] * r)
@@ -24,8 +31,10 @@ def stochastic_process_1d(K, epsilon_0, omega, dt, T, k_b, gamma, MaxTime, N):
         eta = np.random.normal(0, 1, N)
         r = r - dH_dr * dt + np.sqrt(2 * k_b * T * gamma * dt) * eta
         r_history[n] = r
+        epsilon[n]=epsilon_t
 
-    return t, r_history
+
+    return t, r_history,epsilon
 stringa="2m10"
 pdb_processor = PDBProcessor(pdb_id="2m10")
 pdb_processor.download_pdb()
@@ -57,17 +66,53 @@ positions = df[['X', 'Y', 'Z']].values
 # Example usage:
 N = positions.shape[0]  # number of residues
 K = kirchhoff_matrix
-epsilon_0 =0.0001
-omega = 1
-dt = 0.001
+epsilon_0 =0.1
+omega = 2*np.pi
+dt = 0.01
 T = 1
 k_b = 1
 gamma = 1.
-MaxTime = 2*np.pi*5
+MaxTime =5.1#25*4
 
-t, r_history = stochastic_process_1d(K, epsilon_0, omega, dt, T, k_b, gamma, MaxTime, N)
+t, r_history,epsilon = stochastic_process_1d(K, epsilon_0, omega, dt, T, k_b, gamma, MaxTime, N)
 time_avg_x_squared = calculate_time_average_x_squared(r_history)
+# Estrai le traiettorie dei due residui
+residue1_trajectory = r_history[:, 20]
+residue2_trajectory = r_history[:, 75]
 
+
+# Calcola la media di ogni traiettoria
+mean1 = np.mean(epsilon)
+mean2 = np.mean(epsilon)
+
+# Sottrai la media da ogni traiettoria
+residue1_trajectory -= mean1
+residue2_trajectory -= mean2
+
+# Inizializza un array vuoto per la correlazione
+correlation = np.zeros_like(epsilon)
+
+# Calcola la correlazione
+for i in range(len(epsilon)):
+    for j in range(len(epsilon) - i):
+        correlation[i] += epsilon[j] * epsilon[i + j]
+
+# Normalizza la correlazione per avere valori tra -1 e 1
+correlation = correlation / np.max(correlation)
+
+# Plotta la correlazione
+plt.figure(figsize=(12, 6))
+plt.plot(correlation)
+plt.xlabel('Time Lag')
+plt.ylabel('Correlation')
+plt.title('Correlation between Residue 21 and Residue 76')
+plt.tight_layout()
+
+if not os.path.exists(f'images/{stringa}/dynamic/'):
+    os.makedirs(f'images/{stringa}/dynamic/')
+
+# Salva la figura
+plt.savefig(f'images/{stringa}/dynamic/Correlation.png')
 # Plot the time average of x(t)^2 for each residue
 plt.figure(figsize=(12, 6))
 plt.plot(range(1, N+1), time_avg_x_squared, 'b-')

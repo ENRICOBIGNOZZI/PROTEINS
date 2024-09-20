@@ -124,7 +124,7 @@ class GraphMatrixAnalyzer:
         ]
         ax.legend(handles=handles, loc='upper right')
         
-        ax.set_title(title)
+        #ax.set_title(title)
         ax.set_xlabel('Residue Index')
         ax.set_ylabel('Residue Index')
         ax.set_ylim(0, binary_matrix.shape[0])

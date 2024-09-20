@@ -3,6 +3,11 @@ import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 import matplotlib.lines as mlines
 import os
+import matplotlib.pyplot as plt
+import matplotlib.lines as mlines
+import matplotlib.patches as mpatches
+import matplotlib.lines as mlines
+import matplotlib.patches as mpatches
 class BaseCorrelationAnalysis:
     def __init__(self, u, lambdas, mu, sec_struct_data,stringa):
         self.u = u  # Ensure u is at least 2D
@@ -61,15 +66,15 @@ class TimeCorrelation(BaseCorrelationAnalysis):
         plt.hist(tau_values, bins=bins, edgecolor='black')
         plt.xlabel('Tau (time to reach 1/e)')
         plt.ylabel('Frequency')
-        plt.title('Histogram of Tau Values')
+        #plt.title('Histogram of Tau Values')
         plt.grid(True, alpha=0.3)
     
         # Check if the 'images' directory exists, if not, create it
-        if not os.path.exists(f'images/{self.name}/'):
-            os.makedirs(f'images/{self.name}/')
+        if not os.path.exists(f'images/{self.name}/Stima_tau/'):
+            os.makedirs(f'images/{self.name}/Stima_tau/')
 
         # Save the figure in the 'images' directory
-        plt.savefig(f'images/{self.name}/tau_histogram.png')
+        plt.savefig(f'images/{self.name}/Stima_tau/tau_histogram.png')
 
     def estimate_tau(self, t, normalized_autocorrelations):
         def exp_fit(t, tau):
@@ -92,14 +97,14 @@ class TimeCorrelation(BaseCorrelationAnalysis):
             plt.plot(t, np.exp(-t / tau_estimated), '--', label=f'Fit Residuo {i}')
         plt.xlabel('Time')
         plt.ylabel('Normalized Autocorrelation')
-        plt.title('Autocorrelation and Fits')
+        #plt.title('Autocorrelation and Fits')
         plt.legend()
         plt.grid(True)
-        if not os.path.exists(f'images/{self.name}/'):
-            os.makedirs(f'images/{self.name}/')
+        if not os.path.exists(f'images/{self.name}/Stima_tau/'):
+            os.makedirs(f'images/{self.name}/Stima_tau/')
 
         # Save the figure in the 'images' directory
-        plt.savefig(f'images/{self.name}/autocorrelation_fits.png')
+        plt.savefig(f'images/{self.name}/Stima_tau/autocorrelation_fits.png')
         
 
     def plot_time_correlation(self, i, j, t):
@@ -108,7 +113,7 @@ class TimeCorrelation(BaseCorrelationAnalysis):
         plt.plot(t, C_ij_t, label=f'Time Correlation C({i},{j})')
         plt.xlabel('Time')
         plt.ylabel('Correlation')
-        plt.title(f'Time Correlation between {i} and {j}')
+        #plt.title(f'Time Correlation between {i} and {j}')
         plt.legend()
         plt.grid(True)
         if not os.path.exists(f'images/{self.name}/Time_indicators/'):
@@ -132,6 +137,7 @@ class TransferEntropy(BaseCorrelationAnalysis):
         alpha_ij_t = (C_ii_0 * C_ij_t - C_ij_0 * C_ii_t) ** 2
         beta_ij_t = (C_ii_0 * C_jj_0-(C_ij_0**2)) * (C_ii_0**2- C_ii_t ** 2)
 
+
         ratio = np.clip(alpha_ij_t / beta_ij_t, 0, 1 - 1e-10)
         return -0.5 * np.log(1 - ratio)
 
@@ -141,7 +147,7 @@ class TransferEntropy(BaseCorrelationAnalysis):
         plt.plot(t, TE_ij, label=f'Transfer Entropy TE({i}->{j})')
         plt.xlabel('Time')
         plt.ylabel('Transfer Entropy')
-        plt.title(f'Transfer Entropy from {i} to {j}')
+        #plt.title(f'Transfer Entropy from {i} to {j}')
         plt.legend()
         plt.grid(True)
         if not os.path.exists(f'images/{self.name}/Time_indicators/'):
@@ -158,15 +164,16 @@ class TimeResponse(BaseCorrelationAnalysis):
                 Rijt += ((self.u[i, k] * self.u[j, k]) * np.exp(-self.mu * self.lambdas[k] * z))
                 #C_ij_0 += ((self.u[i, k] * self.u[j, k] / self.lambdas[k]))
             Rijt_vector[idx] = Rijt#C_ij_t_cost#/C_ij_0 
-        return Rijt
+        return Rijt_vector
  
     def plot_time_response(self, i, j, t):
         R_ij_t = self.time_response(i, j, t)
+
         plt.figure(figsize=(8, 6))
         plt.plot(t, R_ij_t, label=f'Time Response R({i},{j})')
         plt.xlabel('Time')
         plt.ylabel('Response')
-        plt.title(f'Time Response between {i} and {j}')
+        #plt.title(f'Time Response between {i} and {j}')
         plt.legend()
         plt.grid(True)
         if not os.path.exists(f'images/{self.name}/Time_indicators/'):
@@ -187,25 +194,52 @@ class CorrelationMatrixOperations(BaseCorrelationAnalysis):
         negative_matrix = np.where(correlation_matrix < 0, correlation_matrix, 0)
         return positive_matrix, negative_matrix
 
-    def plot_correlation_matrix(self, correlation_matrix, title='Correlation Matrix'):
-        plt.figure(figsize=(8, 6))
-        plt.imshow(correlation_matrix, cmap='coolwarm', interpolation='none')
-        plt.colorbar()
-        plt.title(title)
-        plt.xlabel('Index j')
-        plt.ylabel('Index i')
-        if not os.path.exists(f'images/{self.name}/Matrici/'):
-            os.makedirs(f'images/{self.name}/Matrici/')
 
-        # Save the figure in the 'images' directory
-        plt.savefig(f'images/{self.name}/Matrici/Correlation Matrix.png')
-
-    def plot_correlation_matrix_nan(self, correlation_matrix, title='Correlation Matrix', positive_only=False):
+    def plot_correlation_matrix_nan(self, correlation_matrix,secondary_structure, title='Correlation Matrix', positive_only=False):
         plt.figure(figsize=(8, 6))
         masked_matrix = np.where(correlation_matrix > 0, correlation_matrix, np.nan) if positive_only else np.where(correlation_matrix < 0, correlation_matrix, np.nan)
         plt.imshow(masked_matrix, cmap='coolwarm', interpolation='none',origin='lower')
+        rectangle1 = patches.Rectangle((19, 71), 5, 9, linewidth=2, edgecolor='r', facecolor='none')
+        rectangle2 = patches.Rectangle((71, 19), 9, 5, linewidth=2, edgecolor='r', facecolor='none')
+        plt.add_patch(rectangle1)
+        plt.add_patch(rectangle2)
+
+        # Create segments on x and y axes based on secondary structure
+        start = 0
+        current_structure = secondary_structure[0]
+        if len(secondary_structure) >= 2:
+            current_structure = current_structure[0]
+
+        for i, structure in enumerate(secondary_structure):
+            if len(structure) >= 2:
+                structure = structure[0]
+
+            if structure != current_structure:
+                if current_structure == 'H' or current_structure == 'E':  # Plot only for Helix and Beta Sheet
+                    color = 'red' if current_structure == 'H' else 'blue'
+                    plt.plot([start, i], [0, 0], color=color, linewidth=8)  # Increase line thickness
+                    plt.plot([0, 0], [start, i], color=color, linewidth=8)  # Increase line thickness
+                    plt.text((start+i)/2, -0.5, current_structure, ha='center', va='top', fontsize=12, fontweight='bold')
+                    plt.text(-0.5, (start+i)/2, current_structure, ha='right', va='center', fontsize=12, fontweight='bold')
+                start = i
+                current_structure = structure
+        if current_structure == 'H' or current_structure == 'E':  # Plot final segment if it is Helix or Beta Sheet
+            color = 'red' if current_structure == 'H' else 'blue'
+            plt.plot([start, i+1], [0, 0], color=color, linewidth=8)  # Increase line thickness
+            plt.plot([0, 0], [start, i+1], color=color, linewidth=8)  # Increase line thickness
+            plt.text((start+i+1)/2, -0.5, current_structure, ha='center', va='top', fontsize=12, fontweight='bold')
+            plt.text(-0.5, (start+i+1)/2, current_structure, ha='right', va='center', fontsize=12, fontweight='bold')
+
+        # Add legend for Helix and Beta Sheet only
+        handles = [
+            patches.Patch(color='red', label='Helix'),
+            patches.Patch(color='blue', label='Beta Sheet')
+        ]
+        plt.legend(handles=handles, loc='upper right')
+
+
         plt.colorbar()
-        plt.title(title)
+        #plt.title(title)
         plt.xlabel('Index j')
         plt.ylabel('Index i')
         #plt.invert_yaxis()
@@ -213,7 +247,8 @@ class CorrelationMatrixOperations(BaseCorrelationAnalysis):
             os.makedirs(f'images/{self.name}/Matrici/')
 
         # Save the figure
-        plt.savefig(f'images/{self.name}/Matrici/Correlation MatrixNan.png')
+        plt.savefig(f'images/{self.name}/Matrici/Correlation MatrixNan_{positive_only}.png')
+
 
 class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, CorrelationMatrixOperations):
     def compute_mean_first_passage_time_matrix(self,adjacency_matrix):
@@ -222,7 +257,6 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
         
         # Calculate degrees (d_z)
         degrees = np.sum(adjacency_matrix, axis=1)
-        print(degrees)
         # Calculate R matrix
         R = np.zeros((n, n))
         for i in range(n):
@@ -276,14 +310,14 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
         
         # Sort the non-zero values
         sorted_T = np.sort(non_zero_T)
-        print(sorted_T)
+
         # Calculate the 10th percentile as a threshold for "short" passage times
         threshold = np.percentile(sorted_T, 10)
         
         # Plot the distribution of lower MFPT values
         plt.figure(figsize=(10, 6))
         plt.hist(non_zero_T[non_zero_T <= threshold], bins=50, edgecolor='black')
-        plt.title('Distribution of Lower Mean First Passage Time Values (Residues)')
+        #plt.title('Distribution of Lower Mean First Passage Time Values (Residues)')
         plt.xlabel('Mean First Passage Time')
         plt.ylabel('Frequency')
         plt.axvline(threshold, color='r', linestyle='--', label='10th percentile')
@@ -299,7 +333,7 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
         masked_T = np.ma.masked_where(T_subset > threshold, T_subset)
         plt.imshow(masked_T, cmap='viridis', interpolation='nearest', origin='lower')
         plt.colorbar(label='Mean First Passage Time')
-        plt.title('Mean First Passage Time Matrix (Residues, Highlighting Shorter Times)')
+        #plt.title('Mean First Passage Time Matrix (Residues, Highlighting Shorter Times)')
         plt.xlabel('Target Residue')
         plt.ylabel('Starting Residue')
         
@@ -337,13 +371,19 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
         n = self.u.shape[0]
         transfer_entropy_matrix = np.zeros(n)
         for j in range(n):
-            transfer_entropy_matrix[j] = self.transfer_entropy(i, j, t)
+            if j==i:
+                transfer_entropy_matrix[j]=0
+            else:
+                transfer_entropy_matrix[j] = self.transfer_entropy(j, i, t)
         return transfer_entropy_matrix
     def compute_residual_transfer_entropy_matrix_accettore(self, t, i, time_idx):
         n = self.u.shape[0]
         transfer_entropy_matrix = np.zeros(n)
         for j in range(n):
-            transfer_entropy_matrix[j] = self.transfer_entropy(j, i, t)
+            if j==i:
+                transfer_entropy_matrix[j]=0
+            else:
+                transfer_entropy_matrix[j] = self.transfer_entropy(j, i, t)
         return transfer_entropy_matrix
     
 
@@ -352,7 +392,7 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
         time_response_matrix = np.zeros(n)
         for j in range(n):
             time_response_matrix[j] = self.time_response(i, j, t)
-        print(time_response_matrix)
+
         return time_response_matrix
     
 
@@ -368,9 +408,9 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
                 self.compute_residual_response_matrix(t, i, time_idx)
                 for i in lista
             ], axis=0)
-        elif quantity == 'entropy':
+        elif quantity == 'entropy_accettore':
             mean_quantity_matrix = np.mean([
-                self.compute_residual_transfer_entropy_matrix(t, i, time_idx)
+                self.compute_residual_transfer_entropy_matrix_accettore(t, i, time_idx)
                 for i in lista
             ], axis=0)
         else:
@@ -423,7 +463,7 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
         # Add secondary structure legend
         plt.legend(handles=handles, title='Secondary Structure', loc='upper center', bbox_to_anchor=(0.5, 1.1), ncol=3)
 
-        plt.title(title)
+        #plt.title(title)
         plt.xlabel('Residue Index')
         plt.ylabel(ylabel)
         plt.grid(True)
@@ -466,7 +506,7 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
         t_subset=t
         # Inizializza una matrice per le correlazioni temporali
         residual_correlation_matrix = np.zeros((n, n, len(t_subset)))
-        print( t_subset)
+
         for j in range(n):
             residual_correlation_matrix[i, j, :] = self.time_correlation_2(i, j, t_subset)
         return residual_correlation_matrix[i,:,:]
@@ -492,9 +532,13 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
         time_response_matrix = self.compute_residual_response_matrix(t, i, time_idx)
         self._plot_with_secondary_structure(time_response_matrix, f'Response with i={i}', f'Time Response R_ij for i={i} as a function of j at time index {time_idx}')
 
-    def plot_residual_transfer_entropy_vs_j(self, i, t, time_idx):
-        transfer_entropy_matrix = self.compute_residual_transfer_entropy_matrix(t, i, time_idx)
+    def plot_residual_transfer_entropy_vs_j_accettore(self, i, t, time_idx):
+        transfer_entropy_matrix = self.compute_residual_transfer_entropy_matrix_accettore(t, i, time_idx)
         self._plot_with_secondary_structure(transfer_entropy_matrix, f'Transfer Entropy with i={i}', f'Transfer Entropy TE_ij for i={i} as a function of j at time index {time_idx}')
+
+    def plot_residual_transfer_entropy_vs_j_donatore(self, i, t, time_idx):
+        transfer_entropy_matrix = self.compute_residual_transfer_entropy_matrix_donatore(t, i, time_idx)
+        self._plot_with_secondary_structure(transfer_entropy_matrix, f'Transfer Entropy with i={i}', f'Transfer Entropy TE_ji for i={i} as a function of j at time index {time_idx}')
 
     def plot_multiple_time_correlations(self, pairs, t):
         plt.figure(figsize=(12, 8))
@@ -505,7 +549,7 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
         
         plt.xlabel('Time')
         plt.ylabel('Correlation')
-        plt.title('Time Correlation for Multiple Pairs')
+        #plt.title('Time Correlation for Multiple Pairs')
         plt.legend()
         plt.grid(True)
         if not os.path.exists(f'images/{self.name}/Time_indicators/'):#/Time_indicators
@@ -514,39 +558,59 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
         plt.savefig(f'images/{self.name}/Time_indicators/TimeCorrelationforMultiplePairs.png')
         # Save the figure
 
+
+
+
+
+
     def _plot_with_secondary_structure(self, matrix, ylabel, title):
         sec_struct_info = self.sec_struct_data['Secondary Structure']
         residue_ids = self.sec_struct_data['Residue ID'].astype(int)
 
-        colors = {'H': 'red', 'E': 'blue', 'C': 'green'}
-        sec_struct_colors = [colors.get(sec_struct_info.get(rid, 'Unknown'), 'black') for rid in residue_ids]
+        # Colors only for 'H' (alpha-helix) and 'E' (beta-sheet)
+        colors = {'H': 'red', 'E': 'blue'}
+        sec_struct_colors = ['white'] * len(residue_ids)  # Default to white for all residues
+
+        # Assign colors to residues based on their secondary structure
+        for idx, rid in enumerate(residue_ids):
+            struct = sec_struct_info.get(rid, 'C')  # Default to 'C' if not found
+            if struct in colors:
+                sec_struct_colors[idx] = colors[struct]
 
         plt.figure(figsize=(12, 8))
         plt.plot(range(len(matrix)), matrix, marker='o', linestyle='-', alpha=0.7)
 
         # Plot the secondary structure bands
-        current_color = 'black'
+        current_color = 'white'
         start_idx = 0
         for idx, resid in enumerate(residue_ids):
             if sec_struct_colors[idx] != current_color:
-                if idx > 0:
+                if idx > 0 and current_color in colors.values():
                     plt.axvspan(start_idx, idx, color=current_color, alpha=0.2)
                 current_color = sec_struct_colors[idx]
-                start_idx = idx 
-        
-        # Plot the last segment
-        plt.axvspan(start_idx, len(residue_ids), color=current_color, alpha=0.2)
+                start_idx = idx
 
-        # Create custom legend handles
-        handles = [mlines.Line2D([0], [0], color=color, lw=4, label=struct) for struct, color in colors.items()]
-        plt.legend(handles=handles, title='Secondary Structure', loc='upper center', bbox_to_anchor=(0.5, 1.1), ncol=3)
-        plt.title(title)
+        # Plot the last segment
+        if current_color in colors.values():
+            plt.axvspan(start_idx, len(residue_ids), color=current_color, alpha=0.2)
+        legend_handles = [
+            mpatches.Patch(color='red', label='Helix (H)', alpha=0.2),  # Alpha uniforme
+            mpatches.Patch(color='blue', label='Beta sheet (E)', alpha=0.2)  # Alpha uniforme
+        ]
+        plt.legend(handles=legend_handles, loc='upper right')
+        # Create custom legend handles only for 'H' and 'E'
+        handles = [mlines.Line2D([0], [0], color=color, lw=4, label=struct, alpha=0.2) for struct, color in colors.items()]
+    
+        plt.legend(handles=handles, title='Secondary Structure', loc='upper center', bbox_to_anchor=(0.5, 1.1), ncol=2)
+
         plt.xlabel('Residue Index')
         plt.ylabel(ylabel)
-        #plt.ylim(-0.02,0.02)
         plt.grid(True)
+
         if not os.path.exists(f'images/{self.name}/Time_indicators/'):
             os.makedirs(f'images/{self.name}/Time_indicators/')
+        
         # Save the figure
         plt.savefig(f'images/{self.name}/Time_indicators/{title}.png')
+
         

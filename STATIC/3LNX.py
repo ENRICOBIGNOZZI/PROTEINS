@@ -76,14 +76,15 @@ matrix_operations = CorrelationMatrixOperations(u=autovettori, lambdas=autovalor
 
 correlation_matrix = matrix_operations.compute_static_correlation_matrix()
 positive_matrix, negative_matrix = matrix_operations.split_correlation_matrix(correlation_matrix)
-matrix_operations.plot_correlation_matrix_nan(correlation_matrix, title='Correlation Matrix', positive_only=False)
-matrix_operations.plot_correlation_matrix_nan(correlation_matrix, title='Correlation Matrix', positive_only=True)
+
+matrix_operations.plot_correlation_matrix_nan(correlation_matrix, kirchhoff_matrix,secondary_structure, positive_only=False)
+matrix_operations.plot_correlation_matrix_nan(correlation_matrix,kirchhoff_matrix, secondary_structure, positive_only=True)
 #matrix_operations.plot_correlation_matrix(kirchhoff_matrix, title='Correlation Matrix')
 #matrix_operations.plot_correlation_matrix_nan(kirchhoff_matrix, title='Correlation Matrix', positive_only=False)
 
 residual_analysis = ResidualAnalysis(u=autovettori, lambdas=autovalori, mu=mu, sec_struct_data=df,stringa=stringa)
 lista = np.array([20,21,22, 23, 24])
-t=[tau_mean]
+t=[tau_mean-1/2*tau_mean,tau_mean,tau_mean+1/2*tau_mean]
 time_idx = 0
 for i in range(len(lista)):
     residual_analysis.plot_residual_correlation_vs_j(i=lista[i], t=t, time_idx=time_idx)
@@ -96,7 +97,7 @@ for i in range(len(lista)):
 #residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'entropy')
 
 lista = np.array([71, 72, 73, 74, 75, 76, 77, 78, 79])
-t=[tau_mean]
+t=[tau_mean-1/2*tau_mean,tau_mean,tau_mean+1/2*tau_mean]
 time_idx = 0
 for i in range(len(lista)):
     residual_analysis.plot_residual_correlation_vs_j(i=lista[i], t=t, time_idx=time_idx)

@@ -73,31 +73,16 @@ Q=calculate_Q(  eigenvectors,temperatura_radiale)
 print(Q)
 print(Q.shape)
 Cij=calculate_Cij(eigenvectors, Q, eigenvalues, i=20,j=70,s=0,t=1)
-print(Cij)
-print(Cij.shape)
-# Grafico della temperatura radiale
 
-def calculate_Cij_matrix(u, Q, lambdaa, s, t):
-    Cij = np.zeros((u.shape[0], u.shape[0]))
-    for i in range(u.shape[0]):
-        for j in range(u.shape[0]):
-            if s>t:
-                for k in range(1,u.shape[0]):
-                    for p in range(1,u.shape[0]):
-                        Cij[i][j] += ((u[i][k] * Q[k][p] * u[j][p]) / (lambdaa[k] + lambdaa[p]))*np.exp(-lambdaa[p]*(s-t))
-            if s<t:
-                for k in range(1,u.shape[0]):
-                    for p in range(1,u.shape[0]):
-                        Cij[i][j] += ((u[i][k] * Q[k][p] * u[j][p]) / (lambdaa[k] + lambdaa[p]))*np.exp(-lambdaa[k]*(t-s))
-    return Cij
-def calculate_Cij_matrix_static(u, Q, lambdaa):#questa è quella corretta
-   
-   
+def calculate_Cij_matrix_static(u, Q, lambdaa,t,s):#questa è quella corretta
     print(np.dot(u,np.dot(Q,u)))
     print(np.dot(u,np.dot(Q,u)).shape)
     print(np.sum(lambdaa + lambdaa))
     print(np.sum(lambdaa + lambdaa).shape)
-    Cij= np.dot(u,np.dot(Q,u))/ np.sum(lambdaa + lambdaa)
+    if t>s
+        Cij= np.dot(u,np.dot(Q,u))/ np.sum(lambdaa + lambdaa)*np.exp(-lambdaa*(t-s))
+    else:
+        Cij= np.dot(u,np.dot(Q,u))/ np.sum(lambdaa + lambdaa)*np.exp(-lambdaa*(s-t))
     return Cij
 # Calcola la matrice Cij per tutti gli ij
 #Cij_matrix = calculate_Cij_matrix(eigenvectors, Q, eigenvalues, s=0, t=1)

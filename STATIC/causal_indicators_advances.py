@@ -317,7 +317,7 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
         plt.ylabel('Starting Node i')
         plt.show()'''
 
-    def analyze_mfpt(self, adjacency_matrix):
+    def analyze_mfpt(self, adjacency_matrix, kirchhoff_matrix, secondary_structure):
         T = self.compute_mean_first_passage_time_matrix(adjacency_matrix)
         
         # Focus on residues 5 to 90
@@ -351,8 +351,52 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
         # Highlight zones with shorter passage times in the MFPT matrix
         plt.figure(figsize=(10, 8))
         masked_T = np.ma.masked_where(T_subset > threshold, T_subset)
+
         plt.imshow(masked_T, cmap='viridis', interpolation='nearest', origin='lower')
         plt.colorbar(label='Mean First Passage Time')
+        binary_matrix = np.where(kirchhoff_matrix != 0, 1, 0)
+        rows, cols = np.where(binary_matrix == 1)
+
+        # Plotta i punti della matrice di Kirchhoff
+        plt.scatter(cols, rows, color='black', alpha=0.4, s=10, zorder=2)
+
+        # Aggiungi rettangoli o patch (esempio)
+        rectangle1 = mpatches.Rectangle((19, 71), 5, 9, linewidth=2, edgecolor='r', facecolor='none')
+        rectangle2 = mpatches.Rectangle((71, 19), 9, 5, linewidth=2, edgecolor='r', facecolor='none')
+        plt.gca().add_patch(rectangle1)
+        plt.gca().add_patch(rectangle2)
+
+        # Segnamenti su assi x e y basati sulla struttura secondaria
+        start = 0
+        current_structure = secondary_structure[0][0] if len(secondary_structure) >= 2 else secondary_structure[0]
+
+        for i, structure in enumerate(secondary_structure):
+            structure = structure[0] if len(structure) >= 2 else structure
+
+            if structure != current_structure:
+                if current_structure == 'H' or current_structure == 'E':  # Plot solo per eliche e foglietti beta
+                    color = 'red' if current_structure == 'H' else 'blue'
+                    plt.plot([start, i], [-0.5, -0.5], color=color, linewidth=8)  # Riga orizzontale (sopra)
+                    plt.plot([-0.5, -0.5], [start, i], color=color, linewidth=8)  # Riga verticale (a sinistra)
+                    plt.text((start + i) / 2, -1, current_structure, ha='center', va='top', fontsize=12, fontweight='bold')  # Etichetta in basso
+                    plt.text(-1, (start + i) / 2, current_structure, ha='right', va='center', fontsize=12, fontweight='bold')  # Etichetta a sinistra
+                start = i
+                current_structure = structure
+
+        # Plot per l'ultimo segmento
+        if current_structure == 'H' or current_structure == 'E':
+            color = 'red' if current_structure == 'H' else 'blue'
+            plt.plot([start, i + 1], [-0.5, -0.5], color=color, linewidth=8)
+            plt.plot([-0.5, -0.5], [start, i + 1], color=color, linewidth=8)
+            plt.text((start + i + 1) / 2, -1, current_structure, ha='center', va='top', fontsize=12, fontweight='bold')
+            plt.text(-1, (start + i + 1) / 2, current_structure, ha='right', va='center', fontsize=12, fontweight='bold')
+
+        # Aggiungi legenda per Helix e Beta Sheet
+        handles = [
+            mpatches.Patch(color='red', label='Helix'),
+            mpatches.Patch(color='blue', label='Beta Sheet')
+        ]
+        plt.legend(handles=handles, loc='upper right')
         #plt.title('Mean First Passage Time Matrix (Residues, Highlighting Shorter Times)')
         plt.xlabel('Target Residue')
         plt.ylabel('Starting Residue')
@@ -547,16 +591,12 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
     
     def plot_residual_correlation_vs_j(self, i, t, time_idx):
         residual_correlation_matrix = self.compute_residual_correlation_matrix(t, i, time_idx)
-        print("inzio correlation")
-        print(residual_correlation_matrix.shape)
-        print("fine correlation")
+        
         self._plot_with_secondary_structure(residual_correlation_matrix, f'Correlation with i={i}', f'Residual Correlation C_ij for i={i} as a function of j at time index {time_idx}')
 
     def plot_residual_time_response_vs_j(self, i, t, time_idx):
         time_response_matrix = self.compute_residual_response_matrix(t, i, time_idx)
-        print("inzio")
-        print(time_response_matrix.shape)
-        print("fine")
+        
         self._plot_with_secondary_structure(time_response_matrix, f'Response with i={i}', f'Time Response R_ij for i={i} as a function of j at time index {time_idx}')
 
     def plot_residual_transfer_entropy_vs_j_accettore(self, i, t, time_idx):

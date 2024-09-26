@@ -136,6 +136,7 @@ def compare_b_factors_with_sec_structure(actual_b_factors, predicted_b_factors, 
 
     
     plt.tight_layout()
+    plt.legend()
 
     if not os.path.exists(f'images/{name}/beta_factors/'):
         os.makedirs(f'images/{name}/beta_factors/')

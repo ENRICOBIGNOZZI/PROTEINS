@@ -110,10 +110,10 @@ for i in range(len(lista)):
 #residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'entropy')
 te_matrix, segments = analyze_secondary_structure_transfer_entropy(stringa, raggio, tau_mean)
 
-residue_pairs = [(20, 24), (20, 40), (20, 75)]
-t = np.linspace(0.01, 0.5, 300)  
+residue_pairs = [(20, 24),(20, 30), (20, 60), (20, 75)]
+t = np.linspace(0., 2, 300) 
 plot_time_response_multiple(time_response, residue_pairs, t, 'Time Response for Selected Residue Pairs',name=stringa)
 
 
-
+residual_analysis.analyze_mfpt(adjacency_matrix,kirchhoff_matrix, secondary_structure )
 

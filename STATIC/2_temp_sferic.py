@@ -4,9 +4,7 @@ from Downlaod_data import PDBProcessor
 from Visualize import Visualize
 from matrix import GraphMatrixAnalyzer
 import pandas as pd
-import matplotlib.pyplot as plt
 import matplotlib.patches as patches
-import os
 import os
 import matplotlib.lines as mlines
 import matplotlib.patches as mpatches
@@ -38,22 +36,25 @@ centro_massa = df[['X', 'Y', 'Z']].mean().values
 distanze = np.sqrt(((df[['X', 'Y', 'Z']] - centro_massa) ** 2).sum(axis=1))
 
 # Parametri per la temperatura radiale
-T0 = 0.5  # Temperatura al centro
-Tb = 1.0  # Temperatura al bordo
+T0 = 1  # Temperatura al centro
+Tb = 2  # Temperatura al bordo
 R = distanze.max()  # Raggio massimo
 
 # Calcolo della temperatura radiale
 temperatura_radiale = T0 + (Tb - T0) / R * distanze
 
 def calculate_Q(U, B):
+
     B_transpose = np.transpose(B)
     U_transpose = np.transpose(U)
+    
     Q = np.dot(U, np.dot(B, np.dot(B_transpose, U_transpose)))
     return Q
 
 eigenvalues, eigenvectors = np.linalg.eig(kirchhoff_matrix)
-
-Q=calculate_Q(  eigenvectors,temperatura_radiale)
+eigenvalues = eigenvalues[1:]
+eigenvectors = eigenvectors[1:, 1:]
+Q=calculate_Q(eigenvectors,temperatura_radiale[1:])
 
 
 
@@ -145,12 +146,6 @@ import scipy.integrate as integrate
 
 # Assicuriamoci che temperatura_radiale sia un array numpy
 temperatura_radiale = np.array(temperatura_radiale)
-
-
-# Funzione per calcolare l'integrale
-
-
-# Calcolo dell'integrale
 K = 1.0  # Puoi modificare questo valore secondo le tue necessità
 
 def calculate_Cij_matrix_static(u, Q, lambdaa,t,s):#questa è quella corretta
@@ -159,10 +154,8 @@ def calculate_Cij_matrix_static(u, Q, lambdaa,t,s):#questa è quella corretta
     else:
         Cij= np.dot(u,np.dot(Q,u))/ np.sum(lambdaa + lambdaa)*np.exp(-lambdaa*(s-t))
     return Cij
-# Calcola la matrice Cij per tutti gli ij
-#Cij_matrix = calculate_Cij_matrix(eigenvectors, Q, eigenvalues, s=0, t=1)
 
-t=0.1
+t=0.22
 s=0
 Cij_matrix = calculate_Cij_matrix_static(eigenvectors, Q, eigenvalues,t,s)
 plot_matrix( Cij_matrix ,  df['Secondary Structure'].values, stringa, title="Matrix_sferic_temperature")
@@ -175,26 +168,35 @@ if not os.path.exists(f'images/{stringa}/2_temperature_sferical/'):
 plt.savefig(f'images/{stringa}/2_temperature_sferical/correlation.png')'''
 
 
-def plot_residual_correlation_vs_j(self, i, t, time_idx):
-    residual_correlation_matrix = self.compute_residual_correlation_matrix(t, i, time_idx)
-    print("inzio correlation")
-    print(residual_correlation_matrix.shape)
-    print("fine correlation")
-    self._plot_with_secondary_structure(residual_correlation_matrix, f'Correlation with i={i}', f'Residual Correlation C_ij for i={i} as a function of j at time index {time_idx}')
-def compute_residual_correlation_matrix(self, t,i, time_idx):
-    """Calcola la matrice di correlazione dei residui per tutti i j e per un intervallo di tempo specificato."""
-    n = self.u.shape[0]
-    t_subset=t
-    # Inizializza una matrice per le correlazioni temporali
-    residual_correlation_matrix = np.zeros((n, n, len(t_subset)))
+def plot_residual_correlation_vs_j(df, i, t, time_idx,nome):
+    s=0
+    kirchhoff_matrix = analyzer.get_kirchhoff_matrix()
+    
+    df[['X', 'Y', 'Z']] = df[['X', 'Y', 'Z']].apply(pd.to_numeric, errors='coerce')
+    centro_massa = df[['X', 'Y', 'Z']].mean().values
+    distanze = np.sqrt(((df[['X', 'Y', 'Z']] - centro_massa) ** 2).sum(axis=1))
 
-    for j in range(n):
-        residual_correlation_matrix[i, j, :] = self.time_correlation_2(i, j, t_subset)
-    return residual_correlation_matrix[i,:,:]
+    # Parametri per la temperatura radiale
+    T0 = 1  # Temperatura al centro
+    Tb = 2  # Temperatura al bordo
+    R = distanze.max()  # Raggio massimo
 
-def _plot_with_secondary_structure(self, matrix, ylabel, title):
-        sec_struct_info = self.sec_struct_data['Secondary Structure']
-        residue_ids = self.sec_struct_data['Residue ID'].astype(int)
+    # Calcolo della temperatura radiale
+    temperatura_radiale = T0 + (Tb - T0) / R * distanze
+    eigenvalues, eigenvectors = np.linalg.eig(kirchhoff_matrix)
+    eigenvalues=eigenvalues[1:]
+    eigenvectors = eigenvectors[1:, 1:]
+    Q=calculate_Q(eigenvectors,temperatura_radiale[1:])
+    for k in t:
+        residual_correlation_matrix = calculate_Cij_matrix_static(eigenvectors, Q, eigenvalues,k,s)
+    residual_correlation_matrix=residual_correlation_matrix[i,:]
+    _plot_with_secondary_structure(df,residual_correlation_matrix, f'Correlation with i={i}',nome, f'Residual Correlation with 2 temperature C_ij for i={i} as a function of j at time index {time_idx}')
+
+
+
+def _plot_with_secondary_structure(sec_struct_data, matrix, ylabel, name, title):
+        sec_struct_info = sec_struct_data['Secondary Structure']
+        residue_ids = sec_struct_data['Residue ID'].astype(int)
 
         # Colors only for 'H' (alpha-helix) and 'E' (beta-sheet)
         colors = {'H': 'red', 'E': 'blue'}
@@ -236,8 +238,15 @@ def _plot_with_secondary_structure(self, matrix, ylabel, title):
         plt.ylabel(ylabel)
         plt.grid(True)
 
-        if not os.path.exists(f'images/{self.name}/Time_indicators/'):
-            os.makedirs(f'images/{self.name}/Time_indicators/')
+        if not os.path.exists(f'images/{name}/2_temperature_sferical/'):
+            os.makedirs(f'images/{name}/2_temperature_sferical/')
         
         # Save the figure
-        plt.savefig(f'images/{self.name}/Time_indicators/{title}.png')
+        plt.savefig(f'images/{name}/2_temperature_sferical/{title}.png')
+
+
+lista = np.array([20,21,22, 23, 24])
+t=[0.5]
+time_idx = 0
+for i in range(len(lista)):
+    plot_residual_correlation_vs_j(df=df,i=lista[i], t=t, time_idx=time_idx,nome=stringa)

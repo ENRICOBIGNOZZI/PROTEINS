@@ -73,11 +73,11 @@ class TimeCorrelation(BaseCorrelationAnalysis):
         #plt.grid(True, alpha=0.3)
     
         # Check if the 'images' directory exists, if not, create it
-        if not os.path.exists(f'images/{self.name}/2_temperature_sferical/Stima_tau/'):
-            os.makedirs(f'images/{self.name}/2_temperature_sferical/Stima_tau/')
+        if not os.path.exists(f'images/{self.name}/2_temperature_cutoff/Stima_tau/'):
+            os.makedirs(f'images/{self.name}/2_temperature_cutoff/Stima_tau/')
 
         # Save the figure in the 'images' directory
-        plt.savefig(f'images/{self.name}/2_temperature_sferical/Stima_tau/tau_histogram.png')
+        plt.savefig(f'images/{self.name}/2_temperature_cutoff/Stima_tau/tau_histogram.png')
 
 
 
@@ -92,9 +92,9 @@ class TimeCorrelation(BaseCorrelationAnalysis):
         #plt.title('Autocorrelation and Fits')
         #plt.legend()
         plt.grid(True)
-        if not os.path.exists(f'images/{self.name}/2_temperature_sferical/Stima_tau/'):
-            os.makedirs(f'images/{self.name}/2_temperature_sferical/Stima_tau/')
-        plt.savefig(f'images/{self.name}/2_temperature_sferical/Stima_tau/autocorrelation_fits.png')
+        if not os.path.exists(f'images/{self.name}/2_temperature_cutoff/Stima_tau/'):
+            os.makedirs(f'images/{self.name}/2_temperature_cutoff/Stima_tau/')
+        plt.savefig(f'images/{self.name}/2_temperature_cutoff/Stima_tau/autocorrelation_fits.png')
         
 
     def plot_time_correlation(self, i, j, t):
@@ -106,15 +106,15 @@ class TimeCorrelation(BaseCorrelationAnalysis):
         #plt.title(f'Time Correlation between {i} and {j}')
         plt.legend()
         plt.grid(True)
-        if not os.path.exists(f'images/{self.name}/2_temperature_sferical/'):
-            os.makedirs(f'images/{self.name}/2_temperature_sferical/')
-        plt.savefig(f'images/{self.name}/2_temperature_sferical/Time Correlation C({i},{j}).png')
+        if not os.path.exists(f'images/{self.name}/2_temperature_cutoff/'):
+            os.makedirs(f'images/{self.name}/2_temperature_cutoff/')
+        plt.savefig(f'images/{self.name}/2_temperature_cutoff/Time Correlation C({i},{j}).png')
 
 
 def plot_residual_correlation_vs_j(df, i, t,s, time_idx,nome,Q,lambdaa,U):
     correlation_i=np.zeros((len(lambdaa),len(t)))
     a=0
-    z=t-s
+    z=np.array(t)-np.array(s)
     for tau in z:
         sum_result = 0.0
         for j in range(0,len(lambdaa)): 
@@ -178,11 +178,11 @@ def _plot_with_secondary_structure(sec_struct_data, matrix, ylabel, name, title)
         plt.ylabel(ylabel)
         plt.grid(True)
 
-        if not os.path.exists(f'images/{name}/2_temperature_sferical/'):
-            os.makedirs(f'images/{name}/2_temperature_sferical/')
+        if not os.path.exists(f'images/{name}/2_temperature_cutoff/'):
+            os.makedirs(f'images/{name}/2_temperature_cutoff/')
         
         # Save the figure
-        plt.savefig(f'images/{name}/2_temperature_sferical/{title}.png')
+        plt.savefig(f'images/{name}/2_temperature_cutoff/{title}.png')
 def plot_matrix( matrix, secondary_structure, nome, title="Matrix"):
     binary_matrix=matrix
     fig, ax = plt.subplots(figsize=(10, 10))
@@ -245,9 +245,9 @@ def plot_matrix( matrix, secondary_structure, nome, title="Matrix"):
     ax.set_xlim(0, binary_matrix.shape[1])
     
     plt.tight_layout()
-    if not os.path.exists(f'images/{stringa}/2_temperature_sferical/'):
-        os.makedirs(f'images/{stringa}/2_temperature_sferical/')
-    plt.savefig(f'images/{stringa}/2_temperature_sferical/{nome}.png')
+    if not os.path.exists(f'images/{stringa}/2_temperature_cutoff/'):
+        os.makedirs(f'images/{stringa}/2_temperature_cutoff/')
+    plt.savefig(f'images/{stringa}/2_temperature_cutoff/{nome}.png')
 
 
 stringa="3LNX"
@@ -273,18 +273,26 @@ raggio=visualizer.calculate_and_print_average_distance()
 G = visualizer.create_and_print_graph(truncated=True, radius=8.0, plot=False, peso=1)  # Adjust radius as needed
 analyzer = GraphMatrixAnalyzer(G)
 kirchhoff_matrix = analyzer.get_kirchhoff_matrix()
-df[['X', 'Y', 'Z']] = df[['X', 'Y', 'Z']].apply(pd.to_numeric, errors='coerce')
-centro_massa = df[['X', 'Y', 'Z']].mean().values
-distanze = np.sqrt(((df[['X', 'Y', 'Z']] - centro_massa) ** 2).sum(axis=1))
+contatti_diagonale = kirchhoff_matrix.diagonal()
+contatti_somma_righe = kirchhoff_matrix.sum(axis=1)
+contatti = contatti_diagonale/2
+temperatura = np.where(contatti >= 5, 0.5, 1.0)
+residui= np.arange(1, len(temperatura)+1)
+plt.figure(figsize=(12, 6))
+plt.plot(residui, temperatura, marker='o')
+plt.title('Grafico della temperatura al variare del residuo')
+plt.xlabel('Numero del residuo')
+plt.ylabel('Temperatura')
+plt.yticks([0.5, 1.0])
+plt.grid(True)
+plt.tight_layout()
+if not os.path.exists(f'images/{stringa}/2_temperature_cutoff/'):
+    os.makedirs(f'images/{stringa}/2_temperature_cutoff/')
 
-# Parametri per la temperatura radiale
-T0 = 0.5  # Temperatura al centro
-Tb = 1  # Temperatura al bordo
-R = distanze.max()  # Raggio massimo
+# Save the figure
+plt.savefig(f'images/{stringa}/2_temperature_cutoff/temperatures.png')
 
-# Calcolo della temperatura radiale
-temperatura_radiale = T0 + (Tb - T0) / R * distanze
-B=np.sqrt(temperatura_radiale.values)
+B=np.sqrt(temperatura)
 lambdaa, U = np.linalg.eig(kirchhoff_matrix)
 Q = U @ np.outer(B, B) @ U.T
 t = np.linspace(0., 2, 300)  # Time points
@@ -306,7 +314,7 @@ time_correlation.plot_autocorrelation_fits(t, normalized_autocorrelations)
 
 lista = np.array([20,21,22, 23, 24])
 t=[tau_mean-1/2*tau_mean,tau_mean,tau_mean+1/2*tau_mean]
-s=[0,0,0,0]
+s=[0,0,0]
 time_idx = 0
 for i in range(len(lista)):
     plot_residual_correlation_vs_j(df=df,i=lista[i], t=t,s=s, time_idx=time_idx,nome=stringa,Q=Q,lambdaa=lambdaa,U=U)

@@ -83,6 +83,8 @@ matrix_operations.plot_correlation_matrix_nan(correlation_matrix,kirchhoff_matri
 #matrix_operations.plot_correlation_matrix_nan(kirchhoff_matrix, title='Correlation Matrix', positive_only=False)
 
 residual_analysis = ResidualAnalysis(u=autovettori, lambdas=autovalori, mu=mu, sec_struct_data=df,stringa=stringa)
+residual_analysis.analyze_mfpt(adjacency_matrix,kirchhoff_matrix, secondary_structure )
+
 lista = np.array([20,21,22, 23, 24])
 t=[tau_mean-1/2*tau_mean,tau_mean,tau_mean+1/2*tau_mean]
 time_idx = 0
@@ -91,7 +93,7 @@ for i in range(len(lista)):
     residual_analysis.plot_residual_time_response_vs_j(i=lista[i], t=t, time_idx=time_idx)
     residual_analysis.plot_residual_transfer_entropy_vs_j_accettore(i=lista[i], t=t, time_idx=time_idx)
     residual_analysis.plot_residual_transfer_entropy_vs_j_donatore(i=lista[i], t=t, time_idx=time_idx)
-
+    residual_analysis.plot_time_matrix(i=lista[i],adjacency_matrix=adjacency_matrix)
 #residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'correlation')#'correlation','linear_response','entropy'
 #residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'linear_response')
 #residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'entropy')
@@ -104,6 +106,7 @@ for i in range(len(lista)):
     residual_analysis.plot_residual_time_response_vs_j(i=lista[i], t=t, time_idx=time_idx)
     residual_analysis.plot_residual_transfer_entropy_vs_j_accettore(i=lista[i], t=t, time_idx=time_idx)
     residual_analysis.plot_residual_transfer_entropy_vs_j_donatore(i=lista[i], t=t, time_idx=time_idx)
+    residual_analysis.plot_time_matrix(i=lista[i],adjacency_matrix=adjacency_matrix)
 
 #residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'correlation')#'correlation','linear_response','entropy'
 #residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'linear_response')
@@ -117,3 +120,4 @@ plot_time_response_multiple(time_response, residue_pairs, t, 'Time Response for 
 
 residual_analysis.analyze_mfpt(adjacency_matrix,kirchhoff_matrix, secondary_structure )
 
+ 

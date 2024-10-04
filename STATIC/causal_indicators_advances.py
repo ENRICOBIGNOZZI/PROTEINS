@@ -544,6 +544,41 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
         
         return Rijt_vector
     
+
+    def calcolo_tempi(self, adjacency_matrix, i, j):
+        T = self.compute_mean_first_passage_time_matrix(adjacency_matrix)
+
+        # Rimuoviamo la diagonale per evitare i passaggi a se stessi
+        T_no_diag = np.copy(T)
+        np.fill_diagonal(T_no_diag, np.nan)
+
+        # Prendere solo i valori non nulli (dopo aver ignorato la diagonale)
+        non_zero_T = T_no_diag[~np.isnan(T_no_diag)]
+        
+        # Ordinare i tempi non nulli
+        sorted_T = np.sort(non_zero_T)
+        
+        # Trovare la soglia del 10% più basso
+        threshold = np.percentile(sorted_T, 100)
+        
+        # Creare una matrice "tempi" preservando la struttura di T
+        tempi = np.where(T_no_diag <= threshold, T_no_diag, np.nan)
+
+        
+        # Restituiamo il valore di tempi[i, j], gestendo eventuali NaN
+        final = tempi[i, j]        
+        return final
+
+
+    def compute_tempi_matrix(self,i,adjacency_matrix):
+        """Calcola la matrice di correlazione dei residui per tutti i j e per un intervallo di tempo specificato."""
+        n = self.u.shape[0]
+        residual_correlation_matrix = np.zeros((n, n))
+        for j in range(n):
+            residual_correlation_matrix[i, j] = self.calcolo_tempi(adjacency_matrix,i, j)
+        return residual_correlation_matrix[i,:]
+    
+
     def compute_residual_correlation_matrix(self, t,i, time_idx):
         """Calcola la matrice di correlazione dei residui per tutti i j e per un intervallo di tempo specificato."""
         n = self.u.shape[0]
@@ -586,9 +621,11 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
             else:
                 transfer_entropy_matrix[i,j,:] = self.transfer_entropy(i, j, t_subset)
         return transfer_entropy_matrix[i,:,:]
-    
-    
-    
+
+    def plot_time_matrix(self, i,adjacency_matrix):
+        residual_correlation_matrix = self.compute_tempi_matrix(i,adjacency_matrix)
+        self._plot_with_secondary_structure(residual_correlation_matrix, f'First mean time with i={i}', f'First mean time for i={i} as a function of j')
+
     def plot_residual_correlation_vs_j(self, i, t, time_idx):
         residual_correlation_matrix = self.compute_residual_correlation_matrix(t, i, time_idx)
         

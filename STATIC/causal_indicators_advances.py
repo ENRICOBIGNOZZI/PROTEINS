@@ -569,14 +569,22 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
         final = tempi[i, j]        
         return final
 
+    def compute_tempi_matrix_j_i(self,i,adjacency_matrix):
+        """Calcola la matrice di correlazione dei residui per tutti i j e per un intervallo di tempo specificato."""
+        n = self.u.shape[0]
+        residual_correlation_matrix = np.zeros((n, n))
+        for j in range(n):
+            residual_correlation_matrix[i, j] = self.calcolo_tempi(adjacency_matrix,j, i)
+        return 1/residual_correlation_matrix[i,:]
+    
 
-    def compute_tempi_matrix(self,i,adjacency_matrix):
+    def compute_tempi_matrix_i_j(self,i,adjacency_matrix):
         """Calcola la matrice di correlazione dei residui per tutti i j e per un intervallo di tempo specificato."""
         n = self.u.shape[0]
         residual_correlation_matrix = np.zeros((n, n))
         for j in range(n):
             residual_correlation_matrix[i, j] = self.calcolo_tempi(adjacency_matrix,i, j)
-        return residual_correlation_matrix[i,:]
+        return 1/residual_correlation_matrix[i,:]
     
 
     def compute_residual_correlation_matrix(self, t,i, time_idx):
@@ -597,7 +605,6 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
         residual_correlation_matrix = np.zeros((n, n, len(t_subset)))
         for j in range(n):
             residual_correlation_matrix[i, j, :] = self.time_correlation_3(i, j, t_subset)
-        print(residual_correlation_matrix[i,:,:].shape)
         return residual_correlation_matrix[i,:,:]
     
     def compute_residual_transfer_entropy_matrix_donatore(self, t, i, time_idx):
@@ -622,9 +629,82 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
                 transfer_entropy_matrix[i,j,:] = self.transfer_entropy(i, j, t_subset)
         return transfer_entropy_matrix[i,:,:]
 
-    def plot_time_matrix(self, i,adjacency_matrix):
-        residual_correlation_matrix = self.compute_tempi_matrix(i,adjacency_matrix)
-        self._plot_with_secondary_structure(residual_correlation_matrix, f'First mean time with i={i}', f'First mean time for i={i} as a function of j')
+    def plot_time_matrix_i_j(self, i,adjacency_matrix):
+        residual_correlation_matrix = self.compute_tempi_matrix_i_j(i,adjacency_matrix)
+        self._plot_with_secondary_structure(residual_correlation_matrix, f'Inverse first mean time with i={i}', f'Inverse first mean time for i={i} as a function of j')
+    
+    
+    def plot_time_matrix_i_j_plus_response(self, i,adjacency_matrix,t):
+        residual_correlation_matrix = self.compute_tempi_matrix_i_j(i,adjacency_matrix)
+        residual_correlation_matrix_2 = self.compute_residual_response_matrix(t, i,0)
+        self._plot_with_secondary_structure_and_overlay(residual_correlation_matrix,residual_correlation_matrix_2 , f'Inverse first mean time and response with i={i}', f'Inverse first mean time and response for i={i} as a function of j')
+    def plot_time_matrix_j_i_plus_response(self, i,adjacency_matrix,t):
+        residual_correlation_matrix = self.compute_tempi_matrix_j_i(i,adjacency_matrix)
+        residual_correlation_matrix_2 = self.compute_residual_response_matrix(t, i,0)
+        self._plot_with_secondary_structure_and_overlay(residual_correlation_matrix,residual_correlation_matrix_2 , f'Inverse first mean time and response with i={i}', f'Inverse first mean time and response for i={i} as a function of j')
+
+    def _plot_with_secondary_structure_and_overlay(self, matrix, overlay_matrix, ylabel, title):
+        sec_struct_info = self.sec_struct_data['Secondary Structure']
+        residue_ids = self.sec_struct_data['Residue ID'].astype(int)
+
+        # Colors only for 'H' (alpha-helix) and 'E' (beta-sheet)
+        colors = {'H': 'red', 'E': 'blue'}
+        sec_struct_colors = ['white'] * len(residue_ids)  # Default to white for all residues
+
+        # Assign colors to residues based on their secondary structure
+        for idx, rid in enumerate(residue_ids):
+            struct = sec_struct_info.get(rid, 'C')  # Default to 'C' if not found
+            if struct in colors:
+                sec_struct_colors[idx] = colors[struct]
+
+        plt.figure(figsize=(12, 8))
+        
+        # Plot the primary matrix
+        plt.plot(range(len(matrix)), matrix, marker='o', linestyle='-', alpha=0.7, label='Matrix')
+
+        # Plot the secondary matrix as an overlay with different style
+        plt.plot(range(len(overlay_matrix)), overlay_matrix, marker='x', linestyle='--', color='green', alpha=0.7, label='Overlay Matrix')
+
+        # Plot the secondary structure bands
+        current_color = 'white'
+        start_idx = 0
+        for idx, resid in enumerate(residue_ids):
+            if sec_struct_colors[idx] != current_color:
+                if idx > 0 and current_color in colors.values():
+                    plt.axvspan(start_idx, idx, color=current_color, alpha=0.2)
+                current_color = sec_struct_colors[idx]
+                start_idx = idx
+
+        # Plot the last segment
+        if current_color in colors.values():
+            plt.axvspan(start_idx, len(residue_ids), color=current_color, alpha=0.2)
+
+        # Create legend for secondary structure
+        legend_handles = [
+            mpatches.Patch(color='red', label='Helix (H)', alpha=0.2),
+            mpatches.Patch(color='blue', label='Beta sheet (E)', alpha=0.2)
+        ]
+        plt.legend(handles=legend_handles, loc='upper right')
+
+        # Create custom legend handles for matrices
+        handles = [mlines.Line2D([0], [0], color='green', lw=2, linestyle='--', marker='x', label='Overlay Matrix'),
+                mlines.Line2D([0], [0], color='black', lw=2, linestyle='-', marker='o', label='Matrix')]
+        
+        plt.legend(handles=handles + legend_handles, title='Structures and Data', loc='upper center', bbox_to_anchor=(0.5, 1.1), ncol=2)
+
+        plt.xlabel('Residue Index')
+        plt.ylabel(ylabel)
+        plt.grid(True)
+
+        if not os.path.exists(f'images/{self.name}/Time_indicators/'):
+            os.makedirs(f'images/{self.name}/Time_indicators/')
+        
+        # Save the figure
+        plt.savefig(f'images/{self.name}/Time_indicators/{title}.png')
+
+    def plot_time_matrix_j_i(self, i,adjacency_matrix):
+        residual_correlation_matrix = self.compute_tempi_matrix_j_i(i,adjacency_matrix)
+        self._plot_with_secondary_structure(residual_correlation_matrix, f'Inverse first mean time with i={i}', f'Inverse first mean time for i={i} as a function of j')
 
     def plot_residual_correlation_vs_j(self, i, t, time_idx):
         residual_correlation_matrix = self.compute_residual_correlation_matrix(t, i, time_idx)

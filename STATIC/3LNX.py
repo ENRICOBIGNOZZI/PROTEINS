@@ -93,7 +93,9 @@ for i in range(len(lista)):
     residual_analysis.plot_residual_time_response_vs_j(i=lista[i], t=t, time_idx=time_idx)
     residual_analysis.plot_residual_transfer_entropy_vs_j_accettore(i=lista[i], t=t, time_idx=time_idx)
     residual_analysis.plot_residual_transfer_entropy_vs_j_donatore(i=lista[i], t=t, time_idx=time_idx)
-    residual_analysis.plot_time_matrix(i=lista[i],adjacency_matrix=adjacency_matrix)
+    residual_analysis.plot_time_matrix_i_j(i=lista[i],adjacency_matrix=adjacency_matrix)
+    residual_analysis.plot_time_matrix_j_i(i=lista[i],adjacency_matrix=adjacency_matrix)
+    residual_analysis.plot_time_matrix_i_j_plus_response(i=lista[i],adjacency_matrix=adjacency_matrix,t=t)
 #residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'correlation')#'correlation','linear_response','entropy'
 #residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'linear_response')
 #residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'entropy')
@@ -106,14 +108,16 @@ for i in range(len(lista)):
     residual_analysis.plot_residual_time_response_vs_j(i=lista[i], t=t, time_idx=time_idx)
     residual_analysis.plot_residual_transfer_entropy_vs_j_accettore(i=lista[i], t=t, time_idx=time_idx)
     residual_analysis.plot_residual_transfer_entropy_vs_j_donatore(i=lista[i], t=t, time_idx=time_idx)
-    residual_analysis.plot_time_matrix(i=lista[i],adjacency_matrix=adjacency_matrix)
+    residual_analysis.plot_time_matrix_i_j(i=lista[i],adjacency_matrix=adjacency_matrix)
+    residual_analysis.plot_time_matrix_j_i(i=lista[i],adjacency_matrix=adjacency_matrix)
+    residual_analysis.plot_time_matrix_i_j_plus_response(i=lista[i],adjacency_matrix=adjacency_matrix,t=t)
 
 #residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'correlation')#'correlation','linear_response','entropy'
 #residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'linear_response')
 #residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'entropy')
 te_matrix, segments = analyze_secondary_structure_transfer_entropy(stringa, raggio, tau_mean)
 
-residue_pairs = [(20, 24),(20, 30), (20, 60), (20, 75)]
+residue_pairs = [(20, 24),(20, 30), (20, 60), (20, 75),(20,72),(24,72),(14,44)]
 t = np.linspace(0., 2, 300) 
 plot_time_response_multiple(time_response, residue_pairs, t, 'Time Response for Selected Residue Pairs',name=stringa)
 

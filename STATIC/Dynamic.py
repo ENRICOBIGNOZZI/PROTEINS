@@ -15,32 +15,40 @@ import matplotlib.patches as mpatches
 def stochastic_process_1d(K, epsilon_0, omega, dt, T, k_b, gamma, MaxTime, N,distance):
     t = np.arange(0, MaxTime, dt)
     r_history = np.zeros((len(t), N))
-    r = np.zeros(N)  # Inizializza tutte le posizioni a zero
+    r = np.zeros( N)
     epsilon= np.zeros((len(t), N))
-    p=0
+    #p=0
     for n in range(1, len(t)):
-        epsilon_t = epsilon_0 * (1 - np.cos(omega * t[n])) / 2
-        if epsilon_t==0:
-            p+=1
-            print(p)
-        if epsilon_t<=0.0001 and epsilon_t>=-0.0001:
-            print("periodo")
+        epsilon_t = epsilon_0 * (1 - np.cos(omega * t[n])) #/ 2
+        #if epsilon_t==0:
+        #    p+=1
+            #print(p)
+        #if epsilon_t<=0.0001 and epsilon_t>=-0.0001:
+            #print("periodo")
         
 
         dH_dr = np.zeros(N)
+        
         for i in range(N):
             dH_dr[i] = np.sum(K[i, :] * r)
+            #print(r[20] - r[75])
+            # print(2 * epsilon_t )
+            #print(np.sum(K[i, :] * r))
             if i == 20:  # index 20 corresponds to residue 21
-                dH_dr[i] += 2 * epsilon_t * distance#(r[20] - r[75])
+                dH_dr[i] -=  epsilon_t * (r[20] - r[75])
             elif i == 75:  # index 75 corresponds to residue 76
-                dH_dr[i] -= 2 * epsilon_t * distance#(r[20] - r[75])
-
-        eta = np.random.normal(0, 1, N)
+                dH_dr[i] +=  epsilon_t * (r[20] - r[75])
+       
+        eta = np.random.normal(0, 0.1, N)
+        #print("rumore",np.sqrt(2 * k_b * T * gamma * dt) * eta[20])
+        #print("epsilon",2 * epsilon_t * (r[20] - r[75]))
+        
+        #print("K", np.sum(K[i, :] * r))
         r = r - dH_dr * dt + np.sqrt(2 * k_b * T * gamma * dt) * eta
         r_history[n] = r
         epsilon[n]=epsilon_t
 
-
+    #print(np.max(epsilon))
     return t, r_history,epsilon
 stringa="3LNX"
 pdb_processor = PDBProcessor(pdb_id="3LNX")#2m07
@@ -65,7 +73,35 @@ raggio=visualizer.calculate_and_print_average_distance()
 G = visualizer.create_and_print_graph(truncated=True, radius=8.0, plot=False, peso=20)  # Adjust radius as needed
 analyzer = GraphMatrixAnalyzer(G)
 kirchhoff_matrix = analyzer.get_kirchhoff_matrix()
+autovalori, autovettori = np.linalg.eig(kirchhoff_matrix)
 
+# Ordina gli autovalori
+autovalori_ordinati = np.sort(autovalori)
+
+# Crea il grafico degli autovalori
+'''plt.figure(figsize=(10, 6))
+plt.plot(autovalori_ordinati, 'bo-', markersize=8, label='Autovalori')
+plt.title('Autovalori della Matrice di Kirchhoff')
+plt.xlabel('Indice degli Autovalori')
+plt.ylabel('Valore degli Autovalori')
+plt.axhline(0, color='red', linestyle='--', linewidth=1)  # Linea orizzontale a zero
+plt.grid(True)
+plt.legend()
+plt.show()
+num_autovettori_da_visualizzare = min(5, autovettori.shape[1])  # Visualizza al massimo 5 autovettori
+
+# Creazione del grafico
+plt.figure(figsize=(12, 8))
+for i in range(num_autovettori_da_visualizzare):
+    plt.plot(autovettori[:, i], marker='o', label=f'Autovettore {i+1}')
+
+plt.title('Autovettori della Matrice di Kirchhoff')
+plt.xlabel('Indice')
+plt.ylabel('Valore dell\'Autovettore')
+plt.axhline(0, color='red', linestyle='--', linewidth=1)  # Linea orizzontale a zero
+plt.grid(True)
+plt.legend()
+plt.show()'''
 def calculate_time_average_x_squared(r_history):
     return np.mean(r_history**2, axis=0)
 # Extract positions
@@ -79,50 +115,89 @@ distance = np.linalg.norm(position_20 - position_75)
 # Example usage:
 N = positions.shape[0]  # number of residues
 K = kirchhoff_matrix
-epsilon_0 =0.1#0.1
+epsilon_0 =2.5#0.1
 omega = 2*np.pi
-dt = 0.01
-T = 1
+dt = 0.00001#0.00001
+T = 0.001
 k_b = 1
 gamma = 1.
-MaxTime =1000.1#25*4
+MaxTime =10#*np.pi*5#5.1#25*4
 
 t, r_history,epsilon = stochastic_process_1d(K, epsilon_0, omega, dt, T, k_b, gamma, MaxTime, N,distance)
 time_avg_x_squared = calculate_time_average_x_squared(r_history)
-# Estrai le traiettorie dei due residui
+# Calculate the modulus of the displacement (dx)
+dx = np.linalg.norm(r_history, axis=1)
+
+# Plotting the intensity of the modulus of dx as a function of time
+'''plt.figure(figsize=(10, 6))
+plt.plot(t, dx, label='Intensity of |dx|', color='b')
+plt.title('Intensity of Modulus of Displacement (|dx|) vs Time')
+plt.xlabel('Time')
+plt.ylabel('Intensity of |dx|')
+plt.grid(True)
+plt.legend()
+plt.show()'''
+def autocorrelation(x):
+    result = np.correlate(x, x, mode='full')
+    return result[result.size // 2:]
+
+r_21_history = r_history[:, 20]  # Storia di r[20]
+autocorr = autocorrelation(r_21_history)
+
+# Normalizzazione dell'autocorrelazione
+autocorr /= autocorr[0]
+
+# Plot della correlazione
+plt.plot(autocorr)
+plt.title("Autocorrelazione di r[20] (Residuo 21)")
+plt.xlabel("Lag (tau)")
+plt.ylabel("Autocorrelazione")
+plt.show()
+# Calcola la correlazione tra le traiettorie dei due residui
 residue1_trajectory = r_history[:, 20]
 residue2_trajectory = r_history[:, 75]
 
-#epsilon=epsilon[:int(len(epsilon)*0.3)]
 # Calcola la media di ogni traiettoria
-mean1 = np.mean(epsilon)
-mean2 = np.mean(epsilon)
+mean1 = np.mean(residue1_trajectory)
+mean2 = np.mean(residue2_trajectory)
 
 # Sottrai la media da ogni traiettoria
 residue1_trajectory -= mean1
 residue2_trajectory -= mean2
 
-# Inizializza un array vuoto per la correlazione
-correlation = np.zeros_like(epsilon)
-
-# Calcola la correlazione
-for i in range(int(len(epsilon))):
-    for j in range(int(len(epsilon)) - i):
-        correlation[i] += epsilon[j] * epsilon[i + j]
+# Calcola la correlazione utilizzando np.correlate
+correlation = np.correlate(residue1_trajectory, residue2_trajectory, mode='full')
 
 # Normalizza la correlazione per avere valori tra -1 e 1
-correlation = correlation / np.max(correlation)
+correlation = correlation / np.max(np.abs(correlation))
 
-# Plotta la correlazione
+cos_signal = 1 - np.cos(omega * t)
+
+# Plotta la correlazione e il segnale basato su 1 - cos(omega * t) con lo stesso asse temporale
 plt.figure(figsize=(12, 6))
-plt.plot(correlation)
-plt.xlabel('Time Lag')
-plt.ylabel('Correlation')
-plt.title('Correlation between Residue 21 and Residue 76')
+
+# Plotta la correlazione tra i residui
+plt.plot(t[:len(correlation)], correlation[:len(t)], label='Correlation (Residue 21 vs Residue 76)', color='b')
+
+# Plotta il segnale 1 - cos(omega * t)
+plt.plot(t, cos_signal, label='Signal: 1 - cos(omega * t)', color='r', linestyle='--')
+
+# Imposta etichette e titolo
+plt.xlabel('Time')
+plt.ylabel('Value')
+plt.title('Correlation between Residue 21 and Residue 76 and Signal (1 - cos(omega * t))')
+plt.legend()
+
+# Imposta il layout e salva il plot
 plt.tight_layout()
+
+# Crea la directory se non esiste
 if not os.path.exists(f'images/{stringa}/dynamic/'):
     os.makedirs(f'images/{stringa}/dynamic/')
-plt.savefig(f'images/{stringa}/dynamic/Correlation.png')
+
+# Salva la figura
+plt.savefig(f'images/{stringa}/dynamic/Correlation_and_Cosine_Signal.png')
+plt.show()
 
 
 def compare_b_factors_with_sec_structure(actual_b_factors, predicted_b_factors, sec_struct_data, name):
@@ -217,54 +292,6 @@ correlation,rmsd=compare_b_factors_with_sec_structure(df['B-Factor'].values, tim
 
 import numpy as np
 import matplotlib.pyplot as plt
-
-# Estrai le traiettorie dei due residui
-residue1_trajectory = r_history[:, 20]
-residue2_trajectory = r_history[:, 75]
-
-# Calcola la media di ogni traiettoria
-mean1 = np.mean(residue1_trajectory)
-mean2 = np.mean(residue2_trajectory)
-
-# Sottrai la media da ogni traiettoria
-residue1_trajectory -= mean1
-residue2_trajectory -= mean2
-
-# Inizializza un array vuoto per la covarianza
-covariance = np.zeros_like(residue1_trajectory)
-
-# Calcola la covarianza
-for i in range(len(residue1_trajectory)):
-    for j in range(len(residue2_trajectory) - i):
-        covariance[i] += residue1_trajectory[j] * residue2_trajectory[i + j]
-
-# Normalizza la covarianza per avere valori tra -1 e 1
-covariance = covariance / (len(residue1_trajectory) - 1)
-
-# Crea un array di tempi
-time = np.arange(len(residue1_trajectory))
-
-# Calcola 1-cos(2*pi*t)
-cos_func = 1 - np.cos(2 * np.pi * time*dt)
-
-# Plotta la covarianza
-plt.figure(figsize=(12, 6))
-plt.plot(covariance, label='Covariance')
-
-plt.xlabel('Time Lag')
-#plt.plot(cos_func, label='1-cos(2*pi*t)')
-plt.xlabel('Time Lag')
-plt.ylabel('Value')
-plt.title('Covariance between Residue 21 and Residue 76 and 1-cos(2*pi*t)')
-plt.legend()
-plt.tight_layout()
-
-if not os.path.exists(f'images/{stringa}/dynamic/'):
-    os.makedirs(f'images/{stringa}/dynamic/')
-
-# Salva la figura
-plt.savefig(f'images/{stringa}/dynamic/Covariance.png')
-
 
 
 

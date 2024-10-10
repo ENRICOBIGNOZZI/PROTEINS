@@ -121,16 +121,6 @@ class TimeCorrelation(BaseCorrelationAnalysis):
             else:
                 transfer_entropy_matrix[i,j,:] = self.transfer_entropy(i, j, t_subset)
         return transfer_entropy_matrix[i,:,:]
-    def compute_residual_transfer_entropy_matrix_donatore(self, t, i, time_idx):
-        n = self.u.shape[0]
-        t_subset=t
-        transfer_entropy_matrix =  np.zeros((n, n, len(t_subset)))
-        for j in range(n):
-            if j==i:
-                transfer_entropy_matrix[i, j, :]=0
-            else:
-                transfer_entropy_matrix[i, j, :] = self.transfer_entropy(j, i, t_subset)
-        return transfer_entropy_matrix[i,:,:]
     
     def transfer_entropy(self, i, j, t):
         C_ii_0 = self.time_correlation(i, i,t=[0])
@@ -149,10 +139,6 @@ class TimeCorrelation(BaseCorrelationAnalysis):
     def plot_residual_transfer_entropy_vs_j_accettore(self, i, t, time_idx,nome):
         transfer_entropy_matrix = self.compute_residual_transfer_entropy_matrix_accettore(t, i, time_idx)
         _plot_with_secondary_structure(df,transfer_entropy_matrix, f'Transfer Entropy with i={i}',nome, f'Transfer Entropy TE_ij for i={i} as a function of j ')
-
-    def plot_residual_transfer_entropy_vs_j_donatore(self, i, t, time_idx,nome):
-        transfer_entropy_matrix = self.compute_residual_transfer_entropy_matrix_donatore(t, i, time_idx)
-        _plot_with_secondary_structure(df,transfer_entropy_matrix, f'Transfer Entropy with i={i}',nome, f'Transfer Entropy TE_ji for i={i} as a function of j')
 
 
 
@@ -412,7 +398,7 @@ contatti_diagonale = kirchhoff_matrix.diagonal()
 
 contatti_somma_righe = kirchhoff_matrix.sum(axis=1)
 contatti = contatti_diagonale/2
-temperatura = np.where(contatti >= 5, 0.5, 1)
+temperatura = np.where(contatti >= 5, 1, 1)
 G = visualizer.create_and_print_graph(truncated=True, radius=8.0, plot=False, peso=20)  # Adjust radius as needed
 analyzer = GraphMatrixAnalyzer(G)
 kirchhoff_matrix = analyzer.get_kirchhoff_matrix()
@@ -433,79 +419,12 @@ plt.savefig(f'images/{stringa}/2_temperature_cutoff/temperatures.png')
 
 B=np.sqrt(temperatura)
 B = np.diag(B)
-
+B[0, 0] = 100
+print(B)
 lambdaa, U = np.linalg.eig(kirchhoff_matrix)
 BBT = B @ B.T
 Q = U @ BBT  @ U.T
 
 
+Z
 
-# Definisci il range di tempo per le autocorrelazioni back e forward
-t_back = np.linspace(-2, 0, 300)  # Time points per autocorrelazione back
-t_forward = np.linspace(0., 2, 300)  # Time points per autocorrelazione forward
-
-# Indici di esempio (aggiungere qui altri indici se necessario)
-indices = [(20, 75), (20, 38), (20, 21)]
-
-# Inizializza la figura
-plt.figure(figsize=(12, 6))
-
-# Calcola e plottare le autocorrelazioni per ogni coppia di indici
-for i, j in indices:
-    # Calcola le autocorrelazioni back e forward
-    time_correlation_back = TimeCorrelation(u=U, lambdas=lambdaa, mu=0, sec_struct_data=df, stringa=stringa, Q=Q)
-    autocorrelations_back = time_correlation_back.time_correlation(i, j, t_back)
-
-    time_correlation_forward = TimeCorrelation(u=U, lambdas=lambdaa, mu=0, sec_struct_data=df, stringa=stringa, Q=Q)
-    autocorrelations_forward = time_correlation_forward.time_correlation(i, j, t_forward)
-
-    # Plottiamo le autocorrelazioni
-    plt.plot(t_back, autocorrelations_back, label=f'Autocorrelazione Backward ({i}, {j})', linestyle='-', color='blue')
-    plt.plot(t_forward, autocorrelations_forward, label=f'Autocorrelazione Forward ({i}, {j})', linestyle='--', color='orange')
-
-# Aggiungi titoli e etichette
-plt.title('Autocorrelazione Forward e Backward per diversi indici')
-plt.xlabel('Tempo')
-plt.ylabel('Autocorrelazione')
-plt.legend()
-plt.grid()
-
-# Creazione della directory se non esiste
-output_dir = f'images/{stringa}/2_temperature_cutoff/Time_correlations/'
-if not os.path.exists(output_dir):
-    os.makedirs(output_dir)
-
-# Salva il grafico
-plt.savefig(f'{output_dir}/correlation_combined.png')
-
-# Chiudi il grafico
-plt.close()
-
-t = np.linspace(0., 2, 300)  # Time points
-time_correlation = TimeCorrelation(u = U, lambdas=lambdaa, mu=0, sec_struct_data=df,stringa=stringa,Q=Q)
-autocorrelations = time_correlation.time_correlation(20, 75, t)  # Example indices
-
-normalized_autocorrelations = autocorrelations / autocorrelations[0]  # Normalize example
-
-
-
-
-
-#plot_beta_factors(df, stringa,Q,lambdaa,U)
-normalized_autocorrelations = np.zeros((94, len(t)))
-for i in range(94):
-    C_ii_t = time_correlation.time_correlation(i, i, t)
-    normalized_autocorrelations[i, :] = time_correlation.normalize_autocorrelations(C_ii_t)
-tau_mean, taus = time_correlation.estimate_tau_2(t, normalized_autocorrelations)
-print(f"Tempo caratteristico medio: {tau_mean:.4f}")
-time_correlation.plot_tau_histogram( t, normalized_autocorrelations)
-time_correlation.plot_autocorrelation_fits(t, normalized_autocorrelations)
-
-lista = np.array([20,21,22, 23, 24])
-t=[tau_mean-1/2*tau_mean,tau_mean,tau_mean+1/2*tau_mean]
-s=[0,0,0]
-time_idx = 0
-for i in range(len(lista)):
-    plot_residual_correlation_vs_j(df=df,i=lista[i], t=t,s=s, time_idx=time_idx,nome=stringa,Q=Q,lambdaa=lambdaa,U=U)
-    time_correlation.plot_residual_transfer_entropy_vs_j_accettore(lista[i],t, time_idx,stringa)
-    time_correlation.plot_residual_transfer_entropy_vs_j_donatore(lista[i], t, time_idx,stringa)

@@ -19,6 +19,7 @@ class BaseCorrelationAnalysis:
         self.name=stringa
         self.Q=Q
 
+
 class TimeCorrelation(BaseCorrelationAnalysis):
 
     def time_correlation(self, i, j, t):
@@ -110,6 +111,36 @@ class TimeCorrelation(BaseCorrelationAnalysis):
             os.makedirs(f'images/{self.name}/2_temperature_cutoff/')
         plt.savefig(f'images/{self.name}/2_temperature_cutoff/Time Correlation C({i},{j}).png')
 
+    def compute_residual_transfer_entropy_matrix_accettore(self, t, i, time_idx):
+        n = self.u.shape[0]
+        t_subset=t
+        transfer_entropy_matrix =  np.zeros((n, n, len(t_subset)))
+        for j in range(n):
+            if j==i:
+                transfer_entropy_matrix[i, j, :]=0
+            else:
+                transfer_entropy_matrix[i,j,:] = self.transfer_entropy(i, j, t_subset)
+        return transfer_entropy_matrix[i,:,:]
+    
+    def transfer_entropy(self, i, j, t):
+        C_ii_0 = self.time_correlation(i, i,t=0)
+        C_jj_0 = self.time_correlation(j, j,t=0)
+        C_ii_t = self.time_correlation(i, i, t)
+
+        C_ij_0 = self.time_correlation(i, j,t=0)
+        C_ij_t = self.time_correlation(i, j, t)
+
+        alpha_ij_t = (C_ii_0 * C_ij_t - C_ij_0 * C_ii_t) ** 2
+        beta_ij_t = (C_ii_0 * C_jj_0-(C_ij_0**2)) * (C_ii_0**2- C_ii_t ** 2)
+
+
+        ratio = np.clip(alpha_ij_t / beta_ij_t, 0, 1 - 1e-10)
+        return -0.5 * np.log(1 - ratio)
+    def plot_residual_transfer_entropy_vs_j_accettore(self, i, t, time_idx):
+        transfer_entropy_matrix = self.compute_residual_transfer_entropy_matrix_accettore(t, i, time_idx)
+        self._plot_with_secondary_structure(transfer_entropy_matrix, f'Transfer Entropy with i={i}', f'Transfer Entropy TE_ij for i={i} as a function of j at time index {time_idx}')
+
+
 
 def plot_residual_correlation_vs_j(df, i, t,s, time_idx,nome,Q,lambdaa,U):
     correlation_i=np.zeros((len(lambdaa),len(t)))
@@ -128,9 +159,25 @@ def plot_residual_correlation_vs_j(df, i, t,s, time_idx,nome,Q,lambdaa,U):
                     sum_result += term
             correlation_i[j,a] = sum_result
         a+=1
-   
-        
+            
     _plot_with_secondary_structure(df,correlation_i, f'Correlation with i={i}',nome, f'Residual Correlation with 2 temperature C_ij for i={i} as a function of j at time index {time_idx}')
+
+
+
+def plot_beta_factors(df, nome,Q,lambdaa,U):
+    correlation =np.zeros((len(lambdaa),len(lambdaa)))
+    for i in range(0,len(lambdaa)):
+        for j in range(0,len(lambdaa)): 
+            sum_result = 0.0
+            for k in range(1,len(lambdaa)):
+                for p in range(1,len(lambdaa)):
+                    term = (U[i, k] * Q[k, p] * U[j, p]) / (lambdaa[k] + lambdaa[p])
+                    sum_result += term
+            correlation[i][j] = sum_result
+
+    
+    diagonale = np.diagonal(correlation)
+    _plot_with_secondary_structure(df,diagonale , 'Beta factors Cutoff' ,nome, 'Beta factors Cutoff')
 
 
 
@@ -186,20 +233,8 @@ def _plot_with_secondary_structure(sec_struct_data, matrix, ylabel, name, title)
 def plot_matrix( matrix, secondary_structure, nome, title="Matrix"):
     binary_matrix=matrix
     fig, ax = plt.subplots(figsize=(10, 10))
-    
-    # Create a binary matrix: 1 where connections exist, 0 otherwise
-    
-    
-    # Get the indices of non-zero elements
-    
-    
-    # Plot the dots
     cax = ax.imshow(matrix, cmap='viridis')
-
-    # Aggiunta della barra del colore (opzionale)
     fig.colorbar(cax)
-
-    # Add rectangles
     rectangle1 = patches.Rectangle((19, 71), 5, 9, linewidth=2, edgecolor='r', facecolor='none')
     rectangle2 = patches.Rectangle((71, 19), 9, 5, linewidth=2, edgecolor='r', facecolor='none')
     ax.add_patch(rectangle1)
@@ -270,13 +305,15 @@ visualizer = Visualize(df)
 
 raggio=visualizer.calculate_and_print_average_distance()
 #visualizer.plot_connections_vs_radius()
-G = visualizer.create_and_print_graph(truncated=True, radius=8.0, plot=False, peso=1)  # Adjust radius as needed
+G = visualizer.create_and_print_graph(truncated=True, radius=8.0, plot=False, peso=20)  # Adjust radius as needed
 analyzer = GraphMatrixAnalyzer(G)
 kirchhoff_matrix = analyzer.get_kirchhoff_matrix()
 contatti_diagonale = kirchhoff_matrix.diagonal()
+
+
 contatti_somma_righe = kirchhoff_matrix.sum(axis=1)
 contatti = contatti_diagonale/2
-temperatura = np.where(contatti >= 5, 0.5, 1.0)
+temperatura = np.where(contatti >= 5, 1, 1)
 residui= np.arange(1, len(temperatura)+1)
 plt.figure(figsize=(12, 6))
 plt.plot(residui, temperatura, marker='o')
@@ -297,12 +334,20 @@ lambdaa, U = np.linalg.eig(kirchhoff_matrix)
 Q = U @ np.outer(B, B) @ U.T
 t = np.linspace(0., 2, 300)  # Time points
 time_correlation = TimeCorrelation(u = U, lambdas=lambdaa, mu=0, sec_struct_data=df,stringa=stringa,Q=Q)
-autocorrelations = time_correlation.time_correlation(0, 1, t)  # Example indices
-time_correlation.plot_time_correlation(0, 1, t)
+autocorrelations = time_correlation.time_correlation(20, 75, t)  # Example indices
+time_correlation.plot_time_correlation(20, 75, t)
+
+t = np.linspace(-2, 0, 300)  # Time points
+time_correlation = TimeCorrelation(u = U, lambdas=lambdaa, mu=0, sec_struct_data=df,stringa=stringa,Q=Q)
+autocorrelations = time_correlation.time_correlation(20, 75, t)  # Example indices
+time_correlation.plot_time_correlation(20, 75, t)
 normalized_autocorrelations = autocorrelations / autocorrelations[0]  # Normalize example
 
 
 
+
+
+plot_beta_factors(df, stringa,Q,lambdaa,U)
 normalized_autocorrelations = np.zeros((94, len(t)))
 for i in range(94):
     C_ii_t = time_correlation.time_correlation(i, i, t)
@@ -318,3 +363,4 @@ s=[0,0,0]
 time_idx = 0
 for i in range(len(lista)):
     plot_residual_correlation_vs_j(df=df,i=lista[i], t=t,s=s, time_idx=time_idx,nome=stringa,Q=Q,lambdaa=lambdaa,U=U)
+    time_correlation.plot_residual_transfer_entropy_vs_j_accettore(lista[i],t, time_idx)

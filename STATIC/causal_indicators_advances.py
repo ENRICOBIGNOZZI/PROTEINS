@@ -618,6 +618,8 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
                 transfer_entropy_matrix[i, j, :] = self.transfer_entropy(j, i, t_subset)
         return transfer_entropy_matrix[i,:,:]
     
+
+    
     def compute_residual_transfer_entropy_matrix_accettore(self, t, i, time_idx):
         n = self.u.shape[0]
         t_subset=t

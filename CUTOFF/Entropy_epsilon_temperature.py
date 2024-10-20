@@ -47,10 +47,101 @@ def plot_residual_correlation_vs_j(df, i, t, s, time_idx, nome, Q, lambdaa, U, c
 
     # Plot the main matrix with the specified label
     plt.plot(range(len(correlation_i)), correlation_i, marker='o', linestyle='-', alpha=0.7, color=color, label=label)
+
+
+def transfer_entropy(C,C_statica, i, j):
+    C_ii_0 = C_statica[i, i]
+    C_jj_0 = C_statica[j, j]
+    C_ii_t = C[i, i]
+    C_ij_0 = C_statica[i, j]
+    C_ij_t = C[i, j]
+    alpha_ij_t = (C_ii_0 * C_ij_t - C_ij_0 * C_ii_t) ** 2
+    beta_ij_t = (C_ii_0 * C_jj_0-(C_ij_0**2)) * (C_ii_0**2- C_ii_t ** 2)
+    ratio = np.clip(alpha_ij_t / beta_ij_t, 0, 1 - 1e-10)
+    return -0.5 * np.log(1 - ratio)
+
+def plot_residual_transfer_entropy_vs_j_accettore(df, i, t, s, time_idx, nome, Q, lambdaa, U, color, label=None):
+    correlation_i = np.zeros((len(lambdaa),len(lambdaa)))
+    correlation_i_zero = np.zeros((len(lambdaa),len(lambdaa)))
+    z = np.array(t) - np.array(s)
+    
+    for tau in z:
+        for i in range(len(lambdaa)):
+            for j in range(len(lambdaa)):
+                sum_result = 0.0
+                for k in range(1, len(lambdaa)):
+                    for p in range(1, len(lambdaa)):
+                        term = (U[i, k] * Q[k, p] * U[j, p]) / (lambdaa[k] + lambdaa[p])
+                        if tau > 0:
+                            term *= np.exp(-lambdaa[k] * tau)
+                        else:
+                            term *= np.exp(lambdaa[p] * tau)
+                        sum_result += term
+                correlation_i[i][j] = sum_result
+    for tau in z:
+        for i in range(len(lambdaa)):
+            for j in range(len(lambdaa)):
+                sum_result = 0.0
+                for k in range(1, len(lambdaa)):
+                    for p in range(1, len(lambdaa)):
+                        term = (U[i, k] * Q[k, p] * U[j, p]) / (lambdaa[k] + lambdaa[p])
+                        
+                        sum_result += term
+                correlation_i_zero[i][j] = sum_result
+
+    i=24
+    transfer_entropy_matrix =  np.zeros(len(lambdaa))
+    for j in range(len(lambdaa)):
+        if j==i:
+            transfer_entropy_matrix[j]=0
+        else:
+            transfer_entropy_matrix[j] = transfer_entropy(correlation_i,correlation_i_zero,i, j)
+
+    
+    # Plot the main matrix with the specified label
+    plt.plot(range(len(transfer_entropy_matrix)), transfer_entropy_matrix, marker='o', linestyle='-', alpha=0.7, color=color, label=label)
     
     # Call the secondary structure plotting function
     
+def plot_residual_transfer_entropy_vs_j_donatore(df, i, t, s, time_idx, nome, Q, lambdaa, U, color, label=None):
+    correlation_i = np.zeros((len(lambdaa)))
+    correlation_i_zero = np.zeros((len(lambdaa)))
+    z = np.array(t) - np.array(s)
+    
+    for tau in z:
+        for j in range(len(lambdaa)):
+            sum_result = 0.0
+            for k in range(1, len(lambdaa)):
+                for p in range(1, len(lambdaa)):
+                    term = (U[i, k] * Q[k, p] * U[j, p]) / (lambdaa[k] + lambdaa[p])
+                    if tau > 0:
+                        term *= np.exp(-lambdaa[k] * tau)
+                    else:
+                        term *= np.exp(lambdaa[p] * tau)
+                    sum_result += term
+            correlation_i[j] = sum_result
+    for tau in z:
+        for j in range(len(lambdaa)):
+            sum_result = 0.0
+            for k in range(1, len(lambdaa)):
+                for p in range(1, len(lambdaa)):
+                    term = (U[i, k] * Q[k, p] * U[j, p]) / (lambdaa[k] + lambdaa[p])
+                    
+                    sum_result += term
+            correlation_i_zero[j] = sum_result
 
+    i=24
+    transfer_entropy_matrix =  np.zeros(len(lambdaa))
+    for j in range(len(lambdaa)):
+        if j==i:
+            transfer_entropy_matrix[j]=0
+        else:
+            transfer_entropy_matrix[j] = transfer_entropy(correlation_i,correlation_i_zero,j, i)
+
+    
+    # Plot the main matrix with the specified label
+    plt.plot(range(len(transfer_entropy_matrix)), transfer_entropy_matrix, marker='o', linestyle='-', alpha=0.7, color=color, label=label)
+    
 def _plot_secondary_structure(sec_struct_data):
     sec_struct_info = sec_struct_data['Secondary Structure']
     residue_ids = sec_struct_data['Residue ID'].astype(int)
@@ -89,7 +180,7 @@ def main_plot(df, kirchhoff_matrix, contatti, t, s, time_idx, nome, lista):
     legend_handles = []
     secondary_colors = {'H': 'red', 'E': 'blue'}  # Colors for secondary structures
 
-    for epsilon in [0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 0.0]:
+    for epsilon in [1,0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 0.0]:
         # Definisco la temperatura con la variazione di epsilon
         temperatura = np.where(contatti >= 5, epsilon, 1)
 
@@ -107,9 +198,10 @@ def main_plot(df, kirchhoff_matrix, contatti, t, s, time_idx, nome, lista):
         # Ciclo for per generare i plot sovrapposti
         for i in lista:  # O il numero desiderato di iterazioni
             color = plt.cm.viridis((epsilon + 0.1) / 1.0)  # Get a color based on epsilon
-            label = f'Epsilon = {epsilon}'
-            plot_residual_correlation_vs_j(df, i, t, s, time_idx, nome, Q, lambdaa, U, color=color, label=label)
-
+            label = f'Temperature = {epsilon}'
+            #plot_residual_correlation_vs_j(df, i, t, s, time_idx, nome, Q, lambdaa, U, color=color, label=label)
+            plot_residual_transfer_entropy_vs_j_accettore(df, i, t, s, time_idx, nome, Q, lambdaa, U, color=color, label=label)
+            #time_correlation.plot_residual_transfer_entropy_vs_j_donatore(i, t, time_idx,stringa)
             # Add to legend handles only once
             if label not in [h.get_label() for h in legend_handles]:
                 legend_handles.append(plt.Line2D([0], [0], marker='o', color='w', markerfacecolor=color, label=label))
@@ -126,7 +218,7 @@ def main_plot(df, kirchhoff_matrix, contatti, t, s, time_idx, nome, lista):
     plt.ylabel('Correlation')
     plt.title('Combined Correlation Plots')
     plt.grid(True)
-    plt.savefig(f'images/{nome}/2_temperature_cutoff/combined_correlation_plots_epsilon.png')
+    plt.savefig(f'images/{nome}/2_temperature_cutoff/combined_TEij_plots_epsilon.png')
     plt.show()
 
 # Esempio di chiamata della funzione

@@ -414,7 +414,7 @@ contatti_somma_righe = kirchhoff_matrix.sum(axis=1)
 contatti = contatti_diagonale/2
 
 
-temperatura = np.where(contatti >= 5, 0.9, 1)
+temperatura = np.where(contatti >= 5, 0.01, 1)
 G = visualizer.create_and_print_graph(truncated=True, radius=8.0, plot=False, peso=20)  # Adjust radius as needed
 analyzer = GraphMatrixAnalyzer(G)
 kirchhoff_matrix = analyzer.get_kirchhoff_matrix()

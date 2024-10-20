@@ -96,8 +96,10 @@ for i in range(len(lista)):
     residual_analysis.plot_time_matrix_i_j(i=lista[i],adjacency_matrix=adjacency_matrix)
     residual_analysis.plot_time_matrix_j_i(i=lista[i],adjacency_matrix=adjacency_matrix)
     residual_analysis.plot_time_matrix_i_j_plus_response(i=lista[i],adjacency_matrix=adjacency_matrix,t=t)
+
+
 #residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'correlation')#'correlation','linear_response','entropy'
-#residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'linear_response')
+residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'linear_response')
 #residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'entropy')
 
 lista = np.array([71, 72, 73, 74, 75, 76, 77, 78, 79])
@@ -113,7 +115,7 @@ for i in range(len(lista)):
     residual_analysis.plot_time_matrix_i_j_plus_response(i=lista[i],adjacency_matrix=adjacency_matrix,t=t)
 
 #residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'correlation')#'correlation','linear_response','entropy'
-#residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'linear_response')
+residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'linear_response')
 #residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'entropy')
 te_matrix, segments = analyze_secondary_structure_transfer_entropy(stringa, raggio, tau_mean)
 

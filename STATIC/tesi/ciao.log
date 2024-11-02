@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.15)  17 SEP 2024 08:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.15)  26 OCT 2024 14:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/enrico/Desktop/TESI/PROTEINS/STATIC/tesi/ciao.tex
-(/Users/enrico/Desktop/TESI/PROTEINS/STATIC/tesi/ciao.tex
+**/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex
+(/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
 (/usr/local/texlive/2024/texmf-dist/tex/latex/base/article.cls
@@ -285,7 +285,7 @@ Package pdftex.def Info: images/2m10_Stima beta factors.png  used on input line 
 
 
 [12 <./images/3LNY_Matrice di Kirchhoff della Proteina.png>]
-/Users/enrico/Desktop/TESI/PROTEINS/STATIC/tesi/ciao.tex:253: Undefined control sequence.
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:253: Undefined control sequence.
 l.253     \boldsymbol
                      {\gamma}_i \dot{x}_i = -g \sum_j K_{ij} x_j  + \sqrt{2 ...
 The control sequence at the end of the top line
@@ -294,7 +294,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-/Users/enrico/Desktop/TESI/PROTEINS/STATIC/tesi/ciao.tex:253: Undefined control sequence.
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:253: Undefined control sequence.
 l.253 ... \sum_j K_{ij} x_j  + \sqrt{2 \boldsymbol
                                                   {\gamma}_i k_B \boldsymbol...
 The control sequence at the end of the top line
@@ -303,7 +303,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-/Users/enrico/Desktop/TESI/PROTEINS/STATIC/tesi/ciao.tex:253: Undefined control sequence.
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:253: Undefined control sequence.
 l.253 ...t{2 \boldsymbol{\gamma}_i k_B \boldsymbol
                                                   {T}_i} \xi_i(t)
 The control sequence at the end of the top line
@@ -331,7 +331,7 @@ File: images/2m10_2_temperature_cutoff.png Graphic file (type png)
 Package pdftex.def Info: images/2m10_2_temperature_cutoff.png  used on input line 277.
 (pdftex.def)             Requested size: 172.5pt x 86.24606pt.
 
-/Users/enrico/Desktop/TESI/PROTEINS/STATIC/tesi/ciao.tex:282: Missing $ inserted.
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:282: Missing $ inserted.
 <inserted text> 
                 $
 l.282 T(r)=T_
@@ -339,7 +339,7 @@ l.282 T(r)=T_
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-/Users/enrico/Desktop/TESI/PROTEINS/STATIC/tesi/ciao.tex:283: Missing $ inserted.
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:283: Missing $ inserted.
 <inserted text> 
                 $
 l.283 
@@ -360,26 +360,339 @@ Package pdftex.def Info: images/2m10_2_temperature_correlation_sferic.png  used 
 
 
 [14 <./images/2m10_2_temperature_contact_cutoff.png> <./images/2m10_2_temperature_correlation_cutoff.png> <./images/2m10_2_temperature_cutoff.png>]
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:313: You can't use `macro parameter character #' in vertical mode.
+l.313 #
+       ## Passaggio agli autovettori
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
 
-[15 <./images/2m10_2_temperature_sferic.png> <./images/2m10_2_temperature_correlation_sferic.png>] (./ciao.aux)
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:313: You can't use `macro parameter character #' in vertical mode.
+l.313 ##
+        # Passaggio agli autovettori
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:313: You can't use `macro parameter character #' in vertical mode.
+l.313 ###
+          Passaggio agli autovettori
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+
+[15 <./images/2m10_2_temperature_sferic.png> <./images/2m10_2_temperature_correlation_sferic.png>]
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:332: You can't use `macro parameter character #' in vertical mode.
+l.332 #
+       ## Soluzione dell'equazione differenziale per \( Q_k(t) \)
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:332: You can't use `macro parameter character #' in vertical mode.
+l.332 ##
+        # Soluzione dell'equazione differenziale per \( Q_k(t) \)
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:332: You can't use `macro parameter character #' in vertical mode.
+l.332 ###
+          Soluzione dell'equazione differenziale per \( Q_k(t) \)
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:337: Undefined control sequence.
+l.337 Q_k(t) = Q_k^{\text
+                         {det}}(t) + Q_k^{\text{rumore}}(t)
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:337: Undefined control sequence.
+l.337 Q_k(t) = Q_k^{\text{det}}(t) + Q_k^{\text
+                                               {rumore}}(t)
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:343: Undefined control sequence.
+l.343    Q_k^{\text
+                   {det}}(t) = C_k \left( \frac{1 - e^{-\lambda_k t}}{\lambd...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:349: Undefined control sequence.
+l.349    Q_k^{\text
+                   {rumore}}(t) = \sqrt{2 k_B T} \int_0^t e^{-\lambda_k (t -...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:352: You can't use `macro parameter character #' in vertical mode.
+l.352    #
+          ## Calcolo della correlazione \(\langle x_i(t) x_j(s) \rangle\)
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:352: You can't use `macro parameter character #' in vertical mode.
+l.352    ##
+           # Calcolo della correlazione \(\langle x_i(t) x_j(s) \rangle\)
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:352: You can't use `macro parameter character #' in vertical mode.
+l.352    ###
+             Calcolo della correlazione \(\langle x_i(t) x_j(s) \rangle\)
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:363: Undefined control sequence.
+l.363 ..._k(t) Q_l(s) \rangle = \langle Q_k^{\text
+                                                  {det}}(t) Q_l^{\text{det}}...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:363: Undefined control sequence.
+l.363 ... = \langle Q_k^{\text{det}}(t) Q_l^{\text
+                                                  {det}}(s) \rangle + \langl...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:363: Undefined control sequence.
+l.363 ...ext{det}}(s) \rangle + \langle Q_k^{\text
+                                                  {rumore}}(t) Q_l^{\text{ru...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:363: Undefined control sequence.
+l.363 ...\langle Q_k^{\text{rumore}}(t) Q_l^{\text
+                                                  {rumore}}(s) \rangle.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:366: You can't use `macro parameter character #' in vertical mode.
+l.366    #
+          ### Contributo deterministico
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:366: You can't use `macro parameter character #' in vertical mode.
+l.366    ##
+           ## Contributo deterministico
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:366: You can't use `macro parameter character #' in vertical mode.
+l.366    ###
+            # Contributo deterministico
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:366: You can't use `macro parameter character #' in vertical mode.
+l.366    ####
+              Contributo deterministico
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:371: Undefined control sequence.
+l.371    \langle Q_k^{\text
+                           {det}}(t) Q_k^{\text{det}}(s) \rangle = C_k^2 \le...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:371: Undefined control sequence.
+l.371    \langle Q_k^{\text{det}}(t) Q_k^{\text
+                                               {det}}(s) \rangle = C_k^2 \le...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:388: You can't use `macro parameter character #' in vertical mode.
+l.388    #
+          ### Contributo stocastico
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:388: You can't use `macro parameter character #' in vertical mode.
+l.388    ##
+           ## Contributo stocastico
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:388: You can't use `macro parameter character #' in vertical mode.
+l.388    ###
+            # Contributo stocastico
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:388: You can't use `macro parameter character #' in vertical mode.
+l.388    ####
+              Contributo stocastico
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:393: Undefined control sequence.
+l.393    \langle Q_k^{\text
+                           {rumore}}(t) Q_k^{\text{rumore}}(s) \rangle = \fr...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:393: Undefined control sequence.
+l.393    \langle Q_k^{\text{rumore}}(t) Q_k^{\text
+                                                  {rumore}}(s) \rangle = \fr...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+
+[16]
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:396: You can't use `macro parameter character #' in vertical mode.
+l.396    #
+          ## Risultato finale
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:396: You can't use `macro parameter character #' in vertical mode.
+l.396    ##
+           # Risultato finale
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+/Users/enrico/PROTEINS/STATIC/tesi/ciao.tex:396: You can't use `macro parameter character #' in vertical mode.
+l.396    ###
+             Risultato finale
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+Overfull \hbox (3.16151pt too wide) in paragraph at lines 398--399
+[]\OT1/cmr/m/n/10 Combinando i ter-mini, ot-te-ni-amo la cor-re-lazione me-dia fi-nale per $\OMS/cmsy/m/n/10 h\OML/cmm/m/it/10 x[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 x[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 i$\OT1/cmr/m/n/10 : 
+ []
+
+
+Overfull \hbox (108.49953pt too wide) detected at line 402
+\OMS/cmsy/m/n/10 h\OML/cmm/m/it/10 x[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 x[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 i \OT1/cmr/m/n/10 = [] \OML/cmm/m/it/10 V[]V[] [] :
+ []
+
+
+Overfull \hbox (6.92442pt too wide) in paragraph at lines 404--409
+\OT1/cmr/m/n/10 coseno, - $\OML/cmm/m/it/10 C[]h[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t; s\OT1/cmr/m/n/10 ) [](\OML/cmm/m/it/10 !\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 s\OT1/cmr/m/n/10 ))$: com-po-nente os-cil-la-to-ria con seno, - $[]\OML/cmm/m/it/10 e[]$\OT1/cmr/m/n/10 :
+ []
+
+
+
+[17]
+Overfull \hbox (333.2244pt too wide) detected at line 463
+\OML/cmm/m/it/10 S \OT1/cmr/m/n/10 = [] [] \OML/cmm/m/it/10 :
+ []
+
+
+Overfull \hbox (2.3331pt too wide) in paragraph at lines 471--472
+[]\OT1/cmr/bx/n/10 Condizioni di Equi-lib-rio\OT1/cmr/m/n/10 : Se il sis-tema ^^Re in equi-lib-rio ter-mico, potremmo
+ []
+
+
+
+[18]
+Overfull \hbox (55.6288pt too wide) detected at line 540
+[] \OT1/cmr/m/n/10 = [][] [] \OML/cmm/m/it/10 e[] dx \OT1/cmr/m/n/10 + 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 5 [][] [] \OML/cmm/m/it/10 e[] dx:
+ []
+
+
+
+[19{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+
+[20]
+
+[21] (./ciao.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 1649 strings out of 473579
- 40570 string characters out of 5728228
- 411837 words of memory out of 5000000
- 24576 multiletter control sequences out of 15000+600000
- 562636 words of font info for 51 fonts, out of 8000000 for 9000
+ 1663 strings out of 473579
+ 40764 string characters out of 5728228
+ 415837 words of memory out of 5000000
+ 24586 multiletter control sequences out of 15000+600000
+ 563899 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,7n,65p,458b,230s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on ciao.pdf (15 pages, 2913497 bytes).
+ 57i,7n,65p,459b,230s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on ciao.pdf (21 pages, 2983915 bytes).
 PDF statistics:
- 182 PDF objects out of 1000 (max. 8388607)
- 72 compressed objects within 1 object stream
+ 228 PDF objects out of 1000 (max. 8388607)
+ 101 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  171 words of extra memory for PDF output out of 10000 (max. 10000000)
 

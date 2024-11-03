@@ -221,21 +221,33 @@ def stochastic_process_1d(K, epsilon_0, omega, dt, T, k_b, gamma, MaxTime, N):
         epsilon[n]=epsilon_t
     S_derivata=np.cumsum(dt*np.sum(F*dx_dt,axis=1))/ t
     return t, r_history,epsilon,S_derivata
+
 def z(p,autovalori,gamma):
     return autovalori[p]/gamma
 
-def A(p,t,omega):
-    return (z(p,autovalori,gamma)**2+omega**2-(z(p,autovalori,gamma)**2)*np.cos(omega*t)-omega*z(p,autovalori,gamma)*np.sin(omega*t))/(z(p,autovalori,gamma)*(z(p,autovalori,gamma)**2+omega**2)**2)
+def A(p,t,omega,gamma):
+    return ((z(p,autovalori,gamma)**2)+omega**2-(z(p,autovalori,gamma)**2)*np.cos(omega*t)-omega*z(p,autovalori,gamma)*np.sin(omega*t))/(z(p,autovalori,gamma)*((z(p,autovalori,gamma)**2)+omega**2))
 def C(p,autovettori,gamma):
     return (autovettori[20,p]-autovettori[75,p])/gamma
-def teoretical_C_i_j(autovalori,autovettori,i,j,gamma,k_b,T,s,t): 
+def C_transp(p,autovettori,gamma):
+    return (autovettori[p,20]-autovettori[p,75])/gamma
+def teoretical_C_i_j(autovalori,autovettori,i,j,gamma,k_b,T,s,t,omega,epsilon_0): 
     esponenziale=0
     oscillatorio=0
     for k in range(1,len(autovalori)):
-        esponenziale+=(2*k_b*T*np.exp(-autovalori[k]/gamma*np.abs(t-s))/autovalori[k])*autovettori[i,k]*autovettori[j,k]
+        
         for p in range(1,len(autovalori)):
-            oscillatorio+=autovettori[i,k]*autovettori[j,p]*A(p,s,omega)*A(k,t,omega)*C(p,autovettori,gamma)*C(k,autovettori,gamma)/(gamma**2)
-    return esponenziale+oscillatorio
+            if k==p:
+                esponenziale+=2*k_b*T*np.exp(-((autovalori[k])/gamma)*np.abs(t-s))/(autovalori[k])*autovettori[i,k]*autovettori[p,j]
+            oscillatorio+=epsilon_0*epsilon_0*autovettori[i,k]*autovettori[p,j]*A(p,s,omega,gamma)*A(k,t,omega,gamma)*C_transp(p,autovettori,gamma)*C(k,autovettori,gamma)/(gamma**2)
+   
+    return +oscillatorio+esponenziale#+oscillatorio
+
+def teoretical_C_i_j_TIME(autovalori,autovettori,i,j,gamma,k_b,T,s,t,omega,epsilon_0): 
+    CIJ=np.zeros(len(t))
+    for f in range(len(t)):
+        CIJ[f]=teoretical_C_i_j(autovalori,autovettori,i,j,gamma,k_b,T,s,t[f],omega,epsilon_0)
+    return CIJ
 
 
 
@@ -262,8 +274,6 @@ df = df.loc[:,~df.T.duplicated()]
 df = concatenated_df.dropna().reset_index(drop=True)
 df = df.T.drop_duplicates().T
 visualizer = Visualize(df)
-# Initialize Visualize and analyze graph
-visualizer = Visualize(df)
 raggio=visualizer.calculate_and_print_average_distance()
 #visualizer.plot_connections_vs_radius()
 G = visualizer.create_and_print_graph(truncated=True, radius=8.0, plot=False, peso=20)  # Adjust radius as needed
@@ -276,37 +286,43 @@ autovalori_ordinati = np.sort(autovalori)
 positions = df[['X', 'Y', 'Z']].values
 N = positions.shape[0]  # number of residues
 K = kirchhoff_matrix
-epsilon_0 =0.0001#0.5#0.1
+epsilon_0 =1#0.5#0.1
 omega = 2*np.pi
-dt =0.001 #0.01#0.0001
-T =0.0001
+dt =0.01 #0.01#0.0001
+T =0.1
 k_b = 1
 gamma = 1.
-MaxTime =10#*np.pi*5#5.1#25*4
+MaxTime =8##*np.pi*5#5.1#25*4
+CIJ_T=teoretical_C_i_j_TIME(autovalori=autovalori,autovettori=autovettori,i=20,j=20,gamma=gamma,k_b=k_b,T=T,s=0,t=np.arange(0, MaxTime, dt),omega=omega,epsilon_0=epsilon_0)
 
 t, r_history,epsilon,S = stochastic_process_1d(K, epsilon_0, omega, dt, T, k_b, gamma, MaxTime, N)
+plt.figure(figsize=(12, 6))
 plt.plot(S)
 plt.title("Entropy production")
 plt.xlabel("time")
 plt.ylabel("Entropy production")
 if not os.path.exists(f'images/{stringa}/dynamic/'):
     os.makedirs(f'images/{stringa}/dynamic/')
-
 plt.savefig(f'images/{stringa}/dynamic/Enropy_production.png')
+
 time_avg_x_squared = calculate_time_average_x_squared(r_history)
-r_21_history = r_history[:, 55]  # Storia di r[20]
+r_21_history = r_history[:, 20]  # Storia di r[20]
 autocorr = autocorrelation(r_21_history)
 autocorr /= autocorr[0]
+CIJ_T/= CIJ_T[0]
+plt.figure(figsize=(12, 6))
 # Plot della correlazione
-plt.plot(autocorr)
-plt.title("Autocorrelazione di Residuo 56")
+plt.plot(autocorr, label="Autocorrelazione di Residuo")
+plt.plot(CIJ_T[:len(autocorr)], label="Autocorrelazione Teorica")
+plt.title("Autocorrelazione di Residuo 20")
 plt.xlabel("Lag (tau)")
 plt.ylabel("Autocorrelazione")
+plt.legend()  # Aggiunge la legenda
+
 if not os.path.exists(f'images/{stringa}/dynamic/'):
     os.makedirs(f'images/{stringa}/dynamic/')
+plt.savefig(f'images/{stringa}/dynamic/AutoCorrelation_and_Cosine_Signal_20_vs_Teorico.png')
 
-# Salva la figura
-plt.savefig(f'images/{stringa}/dynamic/AutoCorrelation_and_Cosine_Signal_56.png')
 
 # Calcola la correlazione tra le traiettorie dei due residui
 residue1_trajectory = r_history[:, 20]#r_history[:, 20]
@@ -330,14 +346,16 @@ correlation = correlation[midpoint:]
 
 # Normalizza la correlazione per avere valori tra -1 e 1
 correlation = correlation /correlation[0]#np.max(np.abs(correlation))#correlation[0]
+print(correlation.shape)
 #correlation =correlation[::-1]
 
 cos_signal = 1 - np.cos(omega * t)
 
+
 # Plotta la correlazione e il segnale basato su 1 - cos(omega * t) con lo stesso asse temporale
 plt.figure(figsize=(12, 6))
-
-# Plotta la correlazione tra i residui
+CIJ_T=teoretical_C_i_j_TIME(autovalori=autovalori,autovettori=autovettori,i=20,j=75,gamma=gamma,k_b=k_b,T=T,s=0,t=np.arange(0, MaxTime, dt),omega=omega,epsilon_0=epsilon_0)
+plt.plot((CIJ_T/CIJ_T[0])[:correlation.shape[0]], label="Autocorrelazione Teorica")
 plt.plot(correlation, label='Correlation (Residue 21 vs Residue 76) davvero', color='b')
 
 # Plotta il segnale 1 - cos(omega * t)
@@ -387,7 +405,8 @@ cos_signal = 1 - np.cos(omega * t)
 
 # Plotta la correlazione e il segnale basato su 1 - cos(omega * t) con lo stesso asse temporale
 plt.figure(figsize=(12, 6))
-
+CIJ_T=teoretical_C_i_j_TIME(autovalori=autovalori,autovettori=autovettori,i=20,j=75,gamma=gamma,k_b=k_b,T=T,s=0,t=np.arange(0, MaxTime, dt),omega=omega,epsilon_0=epsilon_0)
+plt.plot((CIJ_T/CIJ_T[0])[:correlation.shape[0]], label="Autocorrelazione Teorica")
 # Plotta la correlazione tra i residui
 plt.plot(correlation, label='Correlation (Residue 31 vs Residue 51) davvero', color='b')
 

@@ -58,23 +58,29 @@ class Visualize:
             for j in range(len(residue_ids)):  # Consider all pairs, not just upper triangle
                 G.add_node(residue_ids[j])
                 if i != j:  # Avoid self-loops
+                    if i==0 and j==5:
+                        print("sono dentro")
+                        print("sono dentro")
+                        print("sono dentro")
+                        print("sono dentro")
+                        print(euclidean_distance(positions[i], positions[j]))
                     distance = euclidean_distance(positions[i], positions[j])
                     if distance <= radius:
-                        if i==95 and j==94:  # Corretto l'operatore
+                        #if i==95 and j==94:  # Corretto l'operatore
                             #print("sono dentro")
                             #print(residue_ids[i])
 
                             
                             # Covalent bond
-                            weight = 0
-                        elif i==94 and j==95:  # Corretto l'operatore
+                            #weight = 0
+                        #elif i==94 and j==95:  # Corretto l'operatore
                             #print("sono dentro")
                             #print(residue_ids[i])
 
                             
                             # Covalent bond
-                            weight = 0
-                        elif abs(residue_ids[i] - residue_ids[j]) == 1:
+                            #weight = 0
+                        if abs(residue_ids[i] - residue_ids[j]) == 1:
                             
                             # Covalent bond
                             weight = peso

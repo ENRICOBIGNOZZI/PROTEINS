@@ -18,6 +18,12 @@ def build_graph_number_of_connections(df):
         for i in range(len(positions)):
             for j in range(len(positions)):
                 if i != j:
+                    if i==0 and j==5:
+                        print("sono dentro")
+                        print("sono dentro")
+                        print("sono dentro")
+                        print("sono dentro")
+                        print(euclidean_distance(positions[i], positions[j]))
                     if euclidean_distance(positions[i], positions[j]) < r:
                         N += 1
         numero_connessioni.append(N)

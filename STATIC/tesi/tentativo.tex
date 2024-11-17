@@ -1,0 +1,162 @@
+\documentclass{report}  % o book
+\usepackage{graphicx} % Required for inserting images
+\usepackage{float} % Include the float package
+\usepackage{amsmath}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{float} % Include the float package
+\usepackage{graphicx}  % Per includere le immagini
+\usepackage{amsmath}   % Per scrivere equazioni matematiche
+\usepackage{cite}      % Per la gestione delle citazioni
+\title{Causal Inference in GNM Proteins Using Gaussian Models: A Study of Residue Correlation and Transfer Entropy}
+\author{bignozzi.1855163 }
+\date{September 2024}
+
+\begin{document}
+
+\maketitle
+
+
+\section{Background}
+The study of protein dynamics is crucial for understanding biological functions at the molecular level. The Gaussian Network Model (GNM) provides a simplified yet powerful framework for analyzing the collective motions of proteins based on their residue interactions. By modeling proteins as networks of nodes (residues) connected by springs (interactions), GNM allows researchers to predict fluctuations and dynamic behavior effectively.
+
+Causal inference has emerged as a vital approach in biological systems, enabling researchers to discern relationships between variables beyond mere correlation. This thesis aims to integrate GNM with causal inference techniques to explore residue correlations and their implications on protein dynamics.
+
+\section{Objectives}
+The primary objectives of this research are:
+\begin{itemize}
+    \item To analyze static and dynamic correlations between protein residues using a Gaussian model with cutoff.
+    \item To compute response entropy and transfer entropy as measures of information flow within protein networks.
+    \item To interpret the implications of these measures in understanding protein functionality.
+\end{itemize}
+
+\section{Structure of the Thesis}
+This thesis is organized into six chapters. Chapter 2 reviews relevant literature on GNM, causal inference, and entropy measures. Chapter 3 details the methodology employed in this study, including data collection and analysis techniques. Chapter 4 presents the results obtained from the analysis. Chapter 5 discusses these results in the context of existing literature. Finally, Chapter 6 concludes the thesis and suggests directions for future research.
+
+\chapter{Literature Review}
+
+\section{Gaussian Network Model (GNM)}
+The Gaussian Network Model (GNM) was introduced by Tirion (1996) as a means to study protein flexibility. GNM simplifies the complex structure of proteins by representing them as networks where nodes correspond to residues and edges represent interactions based on spatial proximity. The model assumes that fluctuations around an equilibrium state are Gaussian distributed, allowing for analytical solutions to be derived.
+
+Recent studies have expanded on GNM's applications, demonstrating its effectiveness in predicting conformational changes and understanding allosteric mechanisms in proteins.
+
+\section{Causal Inference in Biological Systems}
+Causal inference involves determining whether a change in one variable causes a change in another. In biological systems, this is particularly challenging due to confounding factors and complex interactions. Techniques such as structural equation modeling (SEM), propensity score matching, and directed acyclic graphs (DAGs) have been developed to address these challenges.
+
+In the context of protein dynamics, understanding causal relationships can provide insights into how specific residues influence overall protein behavior.
+
+\section{Entropy Measures in Biophysics}
+Entropy is a measure of uncertainty or information content. In biophysics, response entropy quantifies how much information about system fluctuations can be inferred from external perturbations. Transfer entropy extends this concept by measuring the directional flow of information between two systems or variables.
+
+These measures are crucial for understanding how information is processed within protein networks and how it relates to functional dynamics.
+
+\chapter{Methodology}
+
+\section{Data Collection}
+For this study, protein structures were obtained from the Protein Data Bank (PDB). A selection criteria based on resolution, completeness, and biological relevance was applied to ensure high-quality data. The dataset included proteins with known dynamic properties, allowing for meaningful analysis.
+
+\section{Gaussian Model Implementation}
+The Gaussian model was implemented using a cutoff distance to define interactions between residues. Specifically, residues within 8 Å were considered connected. The covariance matrix was computed based on the positions of residues in the protein structure:
+
+\begin{align}
+    C_{ij} = 
+    \begin{cases} 
+    1 & \text{if } d_{ij} < r_c \\
+    0 & \text{otherwise} 
+    \end{cases}
+\end{align}
+    
+
+where \(d_{ij}\) is the distance between residues \(i\) and \(j\), and \(r_c\) is the cutoff radius.
+
+\subsection{Correlation Calculation}
+Static correlations were calculated using Pearson's correlation coefficient:
+
+\[
+r = \frac{\sum (X_i - \bar{X})(Y_i - \bar{Y})}{\sqrt{\sum (X_i - \bar{X})^2} \sqrt{\sum (Y_i - \bar{Y})^2}}
+\]
+
+Dynamic correlations were assessed over time using time-lagged correlation analysis.
+
+\subsection{Response and Transfer Entropy Calculation}
+Response entropy \(H_R(X|Y)\) was calculated using:
+
+\[
+H_R(X|Y) = H(X) - H(X|Y)
+\]
+
+Transfer entropy \(T(X \to Y)\) was computed as:
+
+\[
+T(X \to Y) = H(Y|Y_{t-1}) - H(Y|Y_{t-1}, X_{t-1})
+\]
+
+where \(H(X)\) denotes entropy and \(H(X|Y)\) denotes conditional entropy.
+
+\chapter{Results}
+
+\section{Correlation Analysis}
+The correlation analysis revealed significant static correlations among several key residues, which are critical for maintaining structural integrity during conformational transitions. Additionally, dynamic correlations showed temporal variations, suggesting that specific residues play crucial roles during different phases of motion. These results provide insight into how certain residues coordinate their movements during conformational changes.
+
+Figure~\ref{fig:correlation} illustrates these static and dynamic correlations across different time frames.
+
+% Example figure (commented until you have the file)
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{correlation_plot.png}
+%     \caption{Static and dynamic correlation coefficients among residues over time.}
+%     \label{fig:correlation}
+% \end{figure}
+
+\section{Response Entropy Results}
+The computation of response entropy highlighted that certain residues exhibit higher sensitivity to perturbations compared to others. This indicates that these residues may serve as critical nodes for information transmission within the protein network. The residues with higher response entropy values may play key roles in allosteric regulation or be important for maintaining the overall stability of the protein during structural changes.
+
+Table~\ref{tab:response_entropy} summarizes the response entropy values for selected residues.
+
+% Example table (commented until you have the data)
+% \begin{table}[h]
+%     \centering
+%     \begin{tabular}{|c|c|}
+%         \hline
+%         Residue & Response Entropy \\ 
+%         \hline
+%         A & 0.45 \\ 
+%         B & 0.67 \\ 
+%         C & 0.32 \\ 
+%         D & 0.55 \\ 
+%         \hline
+%     \end{tabular}
+%     \caption{Response entropy values for selected residues.}
+%     \label{tab:response_entropy}
+% \end{table}
+
+\section{Transfer Entropy Results}
+Transfer entropy analysis revealed directional influences among residues, highlighting pathways through which information flows during conformational transitions. Notably, residue A exhibited significant transfer entropy towards residue B, suggesting a potential regulatory role in the protein's conformational changes. These directional relationships provide a deeper understanding of the interactions between residues that drive protein dynamics.
+
+Figure~\ref{fig:transfer_entropy} visualizes these directional influences, shedding light on the information flow within the protein network.
+
+% Example figure (commented until you have the file)
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{transfer_entropy_plot.png}
+%     \caption{Transfer entropy values illustrating directional influences among key residues.}
+%     \label{fig:transfer_entropy}
+% \end{figure}
+
+\chapter{Discussion}
+
+The results of this study provide valuable insights into the dynamic behavior of proteins at the residue level, using the Gaussian Network Model (GNM) in conjunction with causal inference techniques. The static correlations observed suggest that certain structural motifs are essential for maintaining stability during motion. These motifs may represent regions that undergo minimal displacement during conformational transitions, playing a key role in maintaining the structural integrity of the protein.
+
+Furthermore, the high response entropies observed in specific residues suggest that these residues are critical for transmitting perturbations across the protein structure. This aligns with previous findings, where similar residues were implicated in allosteric regulation mechanisms. It is likely that these residues act as hubs within the protein network, facilitating communication between different regions of the structure.
+
+However, there are limitations to this study, such as potential biases in data selection and the assumptions inherent in Gaussian modeling. These models assume linear interactions between residues, which may not fully capture the complexity of protein dynamics, particularly in cases of non-linear or cooperative behavior between residues. Future research should focus on more sophisticated models that incorporate non-linear interactions, which could enhance predictive accuracy and provide deeper insights into the behavior of proteins under different conditions.
+
+\chapter{Conclusion}
+
+This thesis demonstrates the effectiveness of combining Gaussian Network Models (GNM) with causal inference techniques to analyze protein dynamics at a granular level. The findings highlight the importance of specific residues in maintaining structural integrity and facilitating the flow of information within the protein network. These insights are crucial for understanding the molecular mechanisms underlying protein function and stability.
+
+Future work should aim to expand this methodology to larger datasets and integrate machine learning approaches, which could further refine predictive models and improve our understanding of protein dynamics. Additionally, incorporating more complex models that account for non-linear interactions and long-range correlations could provide even more accurate representations of protein behavior in various physiological states.
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

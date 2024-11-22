@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.15)  21 NOV 2024 17:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.15)  22 NOV 2024 17:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1148,7 +1148,7 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 LaTeX Warning: Unused global option(s):
     [Lau,binding=0.6cm].
 
-(./ciao.aux)
+No file ciao.aux.
 \openout1 = `ciao.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
@@ -1169,7 +1169,6 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 58.
 LaTeX Font Info:    ... okay on input line 58.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 58.
 LaTeX Font Info:    ... okay on input line 58.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1457,29 +1456,8 @@ No file ciao.toc.
 
 
 ]
-
-[2]
-Overfull \hbox (11.25725pt too wide) in paragraph at lines 140--141
-[]\T1/lmr/m/n/10.95 (-20) Entrambi i mod-elli hanno con-tribuito a chiarire i mec-ca-n-ismi di base dell'allostericità,
- []
-
-
-LaTeX Warning: File `allostericity_dynamics.png' not found on input line 147.
-
-
-/Users/enrico/PROTEINS/tesi/ciao.tex:147: Package pdftex.def Error: File `allostericity_dynamics.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.147 ....8\textwidth]{allostericity_dynamics.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 147.
-(/usr/local/texlive/2024/texmf-dist/tex/latex/lm/t1lmtt.fd
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 126.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 Package microtype Info: Loading generic protrusion settings for font family
@@ -1488,67 +1466,86 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+[2]
 
+[3]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 158.
+(Font)              <10.95> on input line 173.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 158.
+(Font)              <8> on input line 173.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 158.
+(Font)              <6> on input line 173.
 
 
-[3{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
+[4{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
 
-[4]
+LaTeX Warning: File `allostericity_dynamics.png' not found on input line 196.
 
-[5{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
+
+/Users/enrico/PROTEINS/tesi/ciao.tex:196: Package pdftex.def Error: File `allostericity_dynamics.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.196 ....8\textwidth]{allostericity_dynamics.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+
+[5]
 
 [6]
 
 [7]
+
+[8]
+
+[9]
 Chapter 1.
 
 
-[8
+[10
 
-{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
-
-[9]
-
-[10]
+]
 
 [11]
+
+[12]
+
+[13]
 Chapter 2.
 
 
-[12
+[14
 
 ]
 
-[13]
+[15]
 
-[14]
+[16]
 Chapter 3.
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 428.
+(hyperref)                than one, level fixed on input line 489.
 
 
 
-[15
+[17
 
 ]
 
-[16]
-
-[17]
-
 [18]
-/Users/enrico/PROTEINS/tesi/ciao.tex:554: Missing \endgroup inserted.
+
+[19]
+
+[20]
+/Users/enrico/PROTEINS/tesi/ciao.tex:615: Missing \endgroup inserted.
 <inserted text> 
                 \endgroup 
-l.554 TE_{j \to i}(t) = \left\langle \log \frac
+l.615 TE_{j \to i}(t) = \left\langle \log \frac
                                                {P[x_i(t) | x_i(0), x_j(0)]}{...
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1556,10 +1553,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:554: Missing } inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:615: Missing } inserted.
 <inserted text> 
                 }
-l.554 TE_{j \to i}(t) = \left\langle \log \frac
+l.615 TE_{j \to i}(t) = \left\langle \log \frac
                                                {P[x_i(t) | x_i(0), x_j(0)]}{...
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1567,10 +1564,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:554: Missing } inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:615: Missing } inserted.
 <inserted text> 
                 }
-l.554 TE_{j \to i}(t) = \left\langle \log \frac
+l.615 TE_{j \to i}(t) = \left\langle \log \frac
                                                {P[x_i(t) | x_i(0), x_j(0)]}{...
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1578,10 +1575,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:554: Missing delimiter (. inserted).
+/Users/enrico/PROTEINS/tesi/ciao.tex:615: Missing delimiter (. inserted).
 <to be read again> 
                    \endgroup 
-l.554 TE_{j \to i}(t) = \left\langle \log \frac
+l.615 TE_{j \to i}(t) = \left\langle \log \frac
                                                {P[x_i(t) | x_i(0), x_j(0)]}{...
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1590,10 +1587,10 @@ braces don't get unbalanced. Otherwise just proceed.
 Acceptable delimiters are characters whose \delcode is
 nonnegative, or you can use `\delimiter <delimiter code>'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:554: Missing \right. inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:615: Missing \right. inserted.
 <inserted text> 
                 \right .
-l.554 TE_{j \to i}(t) = \left\langle \log \frac
+l.615 TE_{j \to i}(t) = \left\langle \log \frac
                                                {P[x_i(t) | x_i(0), x_j(0)]}{...
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1601,10 +1598,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:554: Missing $ inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:615: Missing $ inserted.
 <inserted text> 
                 $
-l.554 TE_{j \to i}(t) = \left\langle \log \frac
+l.615 TE_{j \to i}(t) = \left\langle \log \frac
                                                {P[x_i(t) | x_i(0), x_j(0)]}{...
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1612,26 +1609,26 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:554: Display math should end with $$.
+/Users/enrico/PROTEINS/tesi/ciao.tex:615: Display math should end with $$.
 <to be read again> 
                    \endgroup 
-l.554 TE_{j \to i}(t) = \left\langle \log \frac
+l.615 TE_{j \to i}(t) = \left\langle \log \frac
                                                {P[x_i(t) | x_i(0), x_j(0)]}{...
 The `$' that I just saw supposedly matches a previous `$$'.
 So I shall assume that you typed `$$' both times.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:554: Missing $ inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:615: Missing $ inserted.
 <inserted text> 
                 $
-l.554 TE_{j \to i}(t) = \left\langle \log \frac
+l.615 TE_{j \to i}(t) = \left\langle \log \frac
                                                {P[x_i(t) | x_i(0), x_j(0)]}{...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:554: Extra }, or forgotten $.
+/Users/enrico/PROTEINS/tesi/ciao.tex:615: Extra }, or forgotten $.
 \@genfrac ...begingroup #4\endgroup #2#3\relax #5}
                                                   }
-l.554 TE_{j \to i}(t) = \left\langle \log \frac
+l.615 TE_{j \to i}(t) = \left\langle \log \frac
                                                {P[x_i(t) | x_i(0), x_j(0)]}{...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1639,10 +1636,10 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:554: Extra }, or forgotten $.
+/Users/enrico/PROTEINS/tesi/ciao.tex:615: Extra }, or forgotten $.
 \@genfrac ...egingroup #4\endgroup #2#3\relax #5}}
                                                   
-l.554 TE_{j \to i}(t) = \left\langle \log \frac
+l.615 TE_{j \to i}(t) = \left\langle \log \frac
                                                {P[x_i(t) | x_i(0), x_j(0)]}{...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1650,17 +1647,17 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:554: Extra \right.
+/Users/enrico/PROTEINS/tesi/ciao.tex:615: Extra \right.
 \rangle ->\delimiter "526930B 
                               
-l.554 ..._j(0)]}{P[x_i(t) | x_i(0)]} \right\rangle
+l.615 ..._j(0)]}{P[x_i(t) | x_i(0)]} \right\rangle
                                                   ,
 I'm ignoring a \right that had no matching \left.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:555: You can't use `\eqno' in math mode.
+/Users/enrico/PROTEINS/tesi/ciao.tex:616: You can't use `\eqno' in math mode.
 \veqno ->\@kernel@eqno 
                        \aftergroup \ignorespaces 
-l.555 \end{equation}
+l.616 \end{equation}
                     
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -1668,22 +1665,22 @@ If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:555: LaTeX Error: \begin{document} ended by \end{equation}.
+/Users/enrico/PROTEINS/tesi/ciao.tex:616: LaTeX Error: \begin{document} ended by \end{equation}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.555 \end{equation}
+l.616 \end{equation}
                     
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:555: Missing $ inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:616: Missing $ inserted.
 <inserted text> 
                 $
-l.555 \end{equation}
+l.616 \end{equation}
                     
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1691,31 +1688,31 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:555: Extra \endgroup.
+/Users/enrico/PROTEINS/tesi/ciao.tex:616: Extra \endgroup.
 <recently read> \endgroup 
                           
-l.555 \end{equation}
+l.616 \end{equation}
                     
 Things are pretty mixed up, but I think the worst is over.
-
-
-
-[19]
-
-[20]
-Overfull \hbox (12.58072pt too wide) in paragraph at lines 589--590
-\T1/lmr/m/n/10.95 (-20) Tali in-for-mazioni sono es-sen-ziali per com-pren-dere fenomeni com-p-lessi come l'allostericità,
- []
 
 
 
 [21]
 
 [22]
-/Users/enrico/PROTEINS/tesi/ciao.tex:694: Missing \endgroup inserted.
+Overfull \hbox (12.58072pt too wide) in paragraph at lines 650--651
+\T1/lmr/m/n/10.95 (-20) Tali in-for-mazioni sono es-sen-ziali per com-pren-dere fenomeni com-p-lessi come l'allostericità,
+ []
+
+
+
+[23]
+
+[24]
+/Users/enrico/PROTEINS/tesi/ciao.tex:755: Missing \endgroup inserted.
 <inserted text> 
                 \endgroup 
-l.694 TE_{j \to i}(t) = \left\langle \log \frac
+l.755 TE_{j \to i}(t) = \left\langle \log \frac
                                                {P[x_i(t) | x_i(0), x_j(0)]}{...
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1723,10 +1720,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:694: Missing } inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:755: Missing } inserted.
 <inserted text> 
                 }
-l.694 TE_{j \to i}(t) = \left\langle \log \frac
+l.755 TE_{j \to i}(t) = \left\langle \log \frac
                                                {P[x_i(t) | x_i(0), x_j(0)]}{...
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1734,10 +1731,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:694: Missing } inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:755: Missing } inserted.
 <inserted text> 
                 }
-l.694 TE_{j \to i}(t) = \left\langle \log \frac
+l.755 TE_{j \to i}(t) = \left\langle \log \frac
                                                {P[x_i(t) | x_i(0), x_j(0)]}{...
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1745,10 +1742,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:694: Missing delimiter (. inserted).
+/Users/enrico/PROTEINS/tesi/ciao.tex:755: Missing delimiter (. inserted).
 <to be read again> 
                    \endgroup 
-l.694 TE_{j \to i}(t) = \left\langle \log \frac
+l.755 TE_{j \to i}(t) = \left\langle \log \frac
                                                {P[x_i(t) | x_i(0), x_j(0)]}{...
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1757,10 +1754,10 @@ braces don't get unbalanced. Otherwise just proceed.
 Acceptable delimiters are characters whose \delcode is
 nonnegative, or you can use `\delimiter <delimiter code>'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:694: Missing \right. inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:755: Missing \right. inserted.
 <inserted text> 
                 \right .
-l.694 TE_{j \to i}(t) = \left\langle \log \frac
+l.755 TE_{j \to i}(t) = \left\langle \log \frac
                                                {P[x_i(t) | x_i(0), x_j(0)]}{...
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1768,10 +1765,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:694: Missing $ inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:755: Missing $ inserted.
 <inserted text> 
                 $
-l.694 TE_{j \to i}(t) = \left\langle \log \frac
+l.755 TE_{j \to i}(t) = \left\langle \log \frac
                                                {P[x_i(t) | x_i(0), x_j(0)]}{...
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1779,26 +1776,26 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:694: Display math should end with $$.
+/Users/enrico/PROTEINS/tesi/ciao.tex:755: Display math should end with $$.
 <to be read again> 
                    \endgroup 
-l.694 TE_{j \to i}(t) = \left\langle \log \frac
+l.755 TE_{j \to i}(t) = \left\langle \log \frac
                                                {P[x_i(t) | x_i(0), x_j(0)]}{...
 The `$' that I just saw supposedly matches a previous `$$'.
 So I shall assume that you typed `$$' both times.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:694: Missing $ inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:755: Missing $ inserted.
 <inserted text> 
                 $
-l.694 TE_{j \to i}(t) = \left\langle \log \frac
+l.755 TE_{j \to i}(t) = \left\langle \log \frac
                                                {P[x_i(t) | x_i(0), x_j(0)]}{...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:694: Extra }, or forgotten $.
+/Users/enrico/PROTEINS/tesi/ciao.tex:755: Extra }, or forgotten $.
 \@genfrac ...begingroup #4\endgroup #2#3\relax #5}
                                                   }
-l.694 TE_{j \to i}(t) = \left\langle \log \frac
+l.755 TE_{j \to i}(t) = \left\langle \log \frac
                                                {P[x_i(t) | x_i(0), x_j(0)]}{...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1806,10 +1803,10 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:694: Extra }, or forgotten $.
+/Users/enrico/PROTEINS/tesi/ciao.tex:755: Extra }, or forgotten $.
 \@genfrac ...egingroup #4\endgroup #2#3\relax #5}}
                                                   
-l.694 TE_{j \to i}(t) = \left\langle \log \frac
+l.755 TE_{j \to i}(t) = \left\langle \log \frac
                                                {P[x_i(t) | x_i(0), x_j(0)]}{...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1817,17 +1814,17 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:694: Extra \right.
+/Users/enrico/PROTEINS/tesi/ciao.tex:755: Extra \right.
 \rangle ->\delimiter "526930B 
                               
-l.694 ..._j(0)]}{P[x_i(t) | x_i(0)]} \right\rangle
+l.755 ..._j(0)]}{P[x_i(t) | x_i(0)]} \right\rangle
                                                   .
 I'm ignoring a \right that had no matching \left.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:695: You can't use `\eqno' in math mode.
+/Users/enrico/PROTEINS/tesi/ciao.tex:756: You can't use `\eqno' in math mode.
 \veqno ->\@kernel@eqno 
                        \aftergroup \ignorespaces 
-l.695 \end{equation}
+l.756 \end{equation}
                     
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -1835,22 +1832,22 @@ If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:695: LaTeX Error: \begin{document} ended by \end{equation}.
+/Users/enrico/PROTEINS/tesi/ciao.tex:756: LaTeX Error: \begin{document} ended by \end{equation}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.695 \end{equation}
+l.756 \end{equation}
                     
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:695: Missing $ inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:756: Missing $ inserted.
 <inserted text> 
                 $
-l.695 \end{equation}
+l.756 \end{equation}
                     
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1858,17 +1855,17 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:695: Extra \endgroup.
+/Users/enrico/PROTEINS/tesi/ciao.tex:756: Extra \endgroup.
 <recently read> \endgroup 
                           
-l.695 \end{equation}
+l.756 \end{equation}
                     
 Things are pretty mixed up, but I think the worst is over.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:698: Missing delimiter (. inserted).
+/Users/enrico/PROTEINS/tesi/ciao.tex:759: Missing delimiter (. inserted).
 <to be read again> 
                    \right 
-l.698 TE_{j \to i}(t) = -\frac{1}{2} \ln \left
+l.759 TE_{j \to i}(t) = -\frac{1}{2} \ln \left
                                               ( 1 - \frac{\alpha_{ij}(t)}{\b...
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1879,17 +1876,17 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 
 
 
-[23]
-
-[24]
-
 [25]
 
 [26]
-/Users/enrico/PROTEINS/tesi/ciao.tex:869: Missing \endgroup inserted.
+
+[27]
+
+[28]
+/Users/enrico/PROTEINS/tesi/ciao.tex:930: Missing \endgroup inserted.
 <inserted text> 
                 \endgroup 
-l.869 ...ightarrow i}(t) = \left\langle \log \frac
+l.930 ...ightarrow i}(t) = \left\langle \log \frac
                                                   {P[x_i(t) | x_i(0), x_j(0)...
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1897,10 +1894,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:869: Missing } inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:930: Missing } inserted.
 <inserted text> 
                 }
-l.869 ...ightarrow i}(t) = \left\langle \log \frac
+l.930 ...ightarrow i}(t) = \left\langle \log \frac
                                                   {P[x_i(t) | x_i(0), x_j(0)...
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1908,10 +1905,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:869: Missing } inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:930: Missing } inserted.
 <inserted text> 
                 }
-l.869 ...ightarrow i}(t) = \left\langle \log \frac
+l.930 ...ightarrow i}(t) = \left\langle \log \frac
                                                   {P[x_i(t) | x_i(0), x_j(0)...
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1919,10 +1916,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:869: Missing delimiter (. inserted).
+/Users/enrico/PROTEINS/tesi/ciao.tex:930: Missing delimiter (. inserted).
 <to be read again> 
                    \endgroup 
-l.869 ...ightarrow i}(t) = \left\langle \log \frac
+l.930 ...ightarrow i}(t) = \left\langle \log \frac
                                                   {P[x_i(t) | x_i(0), x_j(0)...
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -1931,10 +1928,10 @@ braces don't get unbalanced. Otherwise just proceed.
 Acceptable delimiters are characters whose \delcode is
 nonnegative, or you can use `\delimiter <delimiter code>'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:869: Missing \right. inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:930: Missing \right. inserted.
 <inserted text> 
                 \right .
-l.869 ...ightarrow i}(t) = \left\langle \log \frac
+l.930 ...ightarrow i}(t) = \left\langle \log \frac
                                                   {P[x_i(t) | x_i(0), x_j(0)...
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1942,10 +1939,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:869: Missing $ inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:930: Missing $ inserted.
 <inserted text> 
                 $
-l.869 ...ightarrow i}(t) = \left\langle \log \frac
+l.930 ...ightarrow i}(t) = \left\langle \log \frac
                                                   {P[x_i(t) | x_i(0), x_j(0)...
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1953,26 +1950,26 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:869: Display math should end with $$.
+/Users/enrico/PROTEINS/tesi/ciao.tex:930: Display math should end with $$.
 <to be read again> 
                    \endgroup 
-l.869 ...ightarrow i}(t) = \left\langle \log \frac
+l.930 ...ightarrow i}(t) = \left\langle \log \frac
                                                   {P[x_i(t) | x_i(0), x_j(0)...
 The `$' that I just saw supposedly matches a previous `$$'.
 So I shall assume that you typed `$$' both times.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:869: Missing $ inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:930: Missing $ inserted.
 <inserted text> 
                 $
-l.869 ...ightarrow i}(t) = \left\langle \log \frac
+l.930 ...ightarrow i}(t) = \left\langle \log \frac
                                                   {P[x_i(t) | x_i(0), x_j(0)...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:869: Extra }, or forgotten $.
+/Users/enrico/PROTEINS/tesi/ciao.tex:930: Extra }, or forgotten $.
 \@genfrac ...begingroup #4\endgroup #2#3\relax #5}
                                                   }
-l.869 ...ightarrow i}(t) = \left\langle \log \frac
+l.930 ...ightarrow i}(t) = \left\langle \log \frac
                                                   {P[x_i(t) | x_i(0), x_j(0)...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1980,10 +1977,10 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:869: Extra }, or forgotten $.
+/Users/enrico/PROTEINS/tesi/ciao.tex:930: Extra }, or forgotten $.
 \@genfrac ...egingroup #4\endgroup #2#3\relax #5}}
                                                   
-l.869 ...ightarrow i}(t) = \left\langle \log \frac
+l.930 ...ightarrow i}(t) = \left\langle \log \frac
                                                   {P[x_i(t) | x_i(0), x_j(0)...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1991,17 +1988,17 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:869: Extra \right.
+/Users/enrico/PROTEINS/tesi/ciao.tex:930: Extra \right.
 \rangle ->\delimiter "526930B 
                               
-l.869 ..._j(0)]}{P[x_i(t) | x_i(0)]} \right\rangle
+l.930 ..._j(0)]}{P[x_i(t) | x_i(0)]} \right\rangle
                                                   
 I'm ignoring a \right that had no matching \left.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:870: You can't use `\eqno' in math mode.
+/Users/enrico/PROTEINS/tesi/ciao.tex:931: You can't use `\eqno' in math mode.
 \veqno ->\@kernel@eqno 
                        \aftergroup \ignorespaces 
-l.870     \end{equation}
+l.931     \end{equation}
                         
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -2009,22 +2006,22 @@ If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:870: LaTeX Error: \begin{document} ended by \end{equation}.
+/Users/enrico/PROTEINS/tesi/ciao.tex:931: LaTeX Error: \begin{document} ended by \end{equation}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.870     \end{equation}
+l.931     \end{equation}
                         
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:870: Missing $ inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:931: Missing $ inserted.
 <inserted text> 
                 $
-l.870     \end{equation}
+l.931     \end{equation}
                         
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2032,20 +2029,20 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:870: Extra \endgroup.
+/Users/enrico/PROTEINS/tesi/ciao.tex:931: Extra \endgroup.
 <recently read> \endgroup 
                           
-l.870     \end{equation}
+l.931     \end{equation}
                         
 Things are pretty mixed up, but I think the worst is over.
 
 
 
-[27]
-/Users/enrico/PROTEINS/tesi/ciao.tex:873: Missing delimiter (. inserted).
+[29]
+/Users/enrico/PROTEINS/tesi/ciao.tex:934: Missing delimiter (. inserted).
 <to be read again> 
                    \right 
-l.873 ...ightarrow i}(t) = - \frac{1}{2} \ln \left
+l.934 ...ightarrow i}(t) = - \frac{1}{2} \ln \left
                                                   ( 1 - \frac{\alpha_{ij}(t)...
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -2054,189 +2051,189 @@ braces don't get unbalanced. Otherwise just proceed.
 Acceptable delimiters are characters whose \delcode is
 nonnegative, or you can use `\delimiter <delimiter code>'.
 
-<images/2m0zResidual Correlation C_ij for i=22 as a function of j at time index 0.png, id=318, 867.24pt x 578.16pt>
+<images/2m0zResidual Correlation C_ij for i=22 as a function of j at time index 0.png, id=337, 867.24pt x 578.16pt>
 File: images/2m0zResidual Correlation C_ij for i=22 as a function of j at time index 0.png Graphic file (type png)
 <use images/2m0zResidual Correlation C_ij for i=22 as a function of j at time index 0.png>
-Package pdftex.def Info: images/2m0zResidual Correlation C_ij for i=22 as a function of j at time index 0.png  used on input line 884.
+Package pdftex.def Info: images/2m0zResidual Correlation C_ij for i=22 as a function of j at time index 0.png  used on input line 945.
 (pdftex.def)             Requested size: 198.0pt x 131.99475pt.
-<images/2m0zTime Response R_ij for i=22 as a function of j at time index 0.png, id=320, 867.24pt x 578.16pt>
+<images/2m0zTime Response R_ij for i=22 as a function of j at time index 0.png, id=339, 867.24pt x 578.16pt>
 File: images/2m0zTime Response R_ij for i=22 as a function of j at time index 0.png Graphic file (type png)
 <use images/2m0zTime Response R_ij for i=22 as a function of j at time index 0.png>
-Package pdftex.def Info: images/2m0zTime Response R_ij for i=22 as a function of j at time index 0.png  used on input line 889.
+Package pdftex.def Info: images/2m0zTime Response R_ij for i=22 as a function of j at time index 0.png  used on input line 950.
 (pdftex.def)             Requested size: 198.0pt x 131.99475pt.
-<images/2m0zTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png, id=321, 867.24pt x 578.16pt>
+<images/2m0zTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png, id=340, 867.24pt x 578.16pt>
 File: images/2m0zTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png Graphic file (type png)
 <use images/2m0zTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png>
-Package pdftex.def Info: images/2m0zTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png  used on input line 895.
+Package pdftex.def Info: images/2m0zTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png  used on input line 956.
 (pdftex.def)             Requested size: 198.0pt x 131.99475pt.
-<images/2m0zMultiple_time_resposne.png, id=322, 867.24pt x 578.16pt>
+<images/2m0zMultiple_time_resposne.png, id=341, 867.24pt x 578.16pt>
 File: images/2m0zMultiple_time_resposne.png Graphic file (type png)
 <use images/2m0zMultiple_time_resposne.png>
-Package pdftex.def Info: images/2m0zMultiple_time_resposne.png  used on input line 900.
+Package pdftex.def Info: images/2m0zMultiple_time_resposne.png  used on input line 961.
 (pdftex.def)             Requested size: 198.0pt x 131.99475pt.
 
 
-[28 <./images/2m0zResidual Correlation C_ij for i=22 as a function of j at time index 0.png> <./images/2m0zTime Response R_ij for i=22 as a function of j at time index 0.png>]
-<images/2m0zConfronto tra Fattori B Reali e Predetti.png, id=336, 867.24pt x 433.62pt>
+[30 <./images/2m0zResidual Correlation C_ij for i=22 as a function of j at time index 0.png> <./images/2m0zTime Response R_ij for i=22 as a function of j at time index 0.png>]
+<images/2m0zConfronto tra Fattori B Reali e Predetti.png, id=355, 867.24pt x 433.62pt>
 File: images/2m0zConfronto tra Fattori B Reali e Predetti.png Graphic file (type png)
 <use images/2m0zConfronto tra Fattori B Reali e Predetti.png>
-Package pdftex.def Info: images/2m0zConfronto tra Fattori B Reali e Predetti.png  used on input line 906.
+Package pdftex.def Info: images/2m0zConfronto tra Fattori B Reali e Predetti.png  used on input line 967.
 (pdftex.def)             Requested size: 198.0pt x 98.99606pt.
-<images/2m0z_Matrice di Kirchhoff della Proteina.png, id=337, 722.7pt x 722.7pt>
+<images/2m0z_Matrice di Kirchhoff della Proteina.png, id=356, 722.7pt x 722.7pt>
 File: images/2m0z_Matrice di Kirchhoff della Proteina.png Graphic file (type png)
 <use images/2m0z_Matrice di Kirchhoff della Proteina.png>
-Package pdftex.def Info: images/2m0z_Matrice di Kirchhoff della Proteina.png  used on input line 911.
+Package pdftex.def Info: images/2m0z_Matrice di Kirchhoff della Proteina.png  used on input line 972.
 (pdftex.def)             Requested size: 198.0pt x 197.99875pt.
-<images/2m0zanalyze_secondary_structure_transfer_entropy.png, id=338, 867.24pt x 722.7pt>
+<images/2m0zanalyze_secondary_structure_transfer_entropy.png, id=357, 867.24pt x 722.7pt>
 File: images/2m0zanalyze_secondary_structure_transfer_entropy.png Graphic file (type png)
 <use images/2m0zanalyze_secondary_structure_transfer_entropy.png>
-Package pdftex.def Info: images/2m0zanalyze_secondary_structure_transfer_entropy.png  used on input line 916.
+Package pdftex.def Info: images/2m0zanalyze_secondary_structure_transfer_entropy.png  used on input line 977.
 (pdftex.def)             Requested size: 198.0pt x 164.99344pt.
 
 
-[29 <./images/2m0zTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png> <./images/2m0zMultiple_time_resposne.png> <./images/2m0zConfronto tra Fattori B Reali e Predetti.png>]
-<images/2m10Residual Correlation C_ij for i=22 as a function of j at time index 0.png, id=349, 867.24pt x 578.16pt>
+[31 <./images/2m0zTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png> <./images/2m0zMultiple_time_resposne.png> <./images/2m0zConfronto tra Fattori B Reali e Predetti.png>]
+<images/2m10Residual Correlation C_ij for i=22 as a function of j at time index 0.png, id=369, 867.24pt x 578.16pt>
 File: images/2m10Residual Correlation C_ij for i=22 as a function of j at time index 0.png Graphic file (type png)
 <use images/2m10Residual Correlation C_ij for i=22 as a function of j at time index 0.png>
-Package pdftex.def Info: images/2m10Residual Correlation C_ij for i=22 as a function of j at time index 0.png  used on input line 922.
+Package pdftex.def Info: images/2m10Residual Correlation C_ij for i=22 as a function of j at time index 0.png  used on input line 983.
 (pdftex.def)             Requested size: 198.0pt x 131.99475pt.
-<images/2m10Time Response R_ij for i=22 as a function of j at time index 0.png, id=350, 867.24pt x 578.16pt>
+<images/2m10Time Response R_ij for i=22 as a function of j at time index 0.png, id=370, 867.24pt x 578.16pt>
 File: images/2m10Time Response R_ij for i=22 as a function of j at time index 0.png Graphic file (type png)
 <use images/2m10Time Response R_ij for i=22 as a function of j at time index 0.png>
-Package pdftex.def Info: images/2m10Time Response R_ij for i=22 as a function of j at time index 0.png  used on input line 927.
+Package pdftex.def Info: images/2m10Time Response R_ij for i=22 as a function of j at time index 0.png  used on input line 988.
 (pdftex.def)             Requested size: 198.0pt x 131.99475pt.
 
 
-[30 <./images/2m0z_Matrice di Kirchhoff della Proteina.png> <./images/2m0zanalyze_secondary_structure_transfer_entropy.png> <./images/2m10Residual Correlation C_ij for i=22 as a function of j at time index 0.png>]
-<images/2m10Transfer Entropy TE_ij for i=22 as a function of j at time index 0.png, id=362, 867.24pt x 578.16pt>
+[32 <./images/2m0z_Matrice di Kirchhoff della Proteina.png> <./images/2m0zanalyze_secondary_structure_transfer_entropy.png> <./images/2m10Residual Correlation C_ij for i=22 as a function of j at time index 0.png>]
+<images/2m10Transfer Entropy TE_ij for i=22 as a function of j at time index 0.png, id=382, 867.24pt x 578.16pt>
 File: images/2m10Transfer Entropy TE_ij for i=22 as a function of j at time index 0.png Graphic file (type png)
 <use images/2m10Transfer Entropy TE_ij for i=22 as a function of j at time index 0.png>
-Package pdftex.def Info: images/2m10Transfer Entropy TE_ij for i=22 as a function of j at time index 0.png  used on input line 933.
+Package pdftex.def Info: images/2m10Transfer Entropy TE_ij for i=22 as a function of j at time index 0.png  used on input line 994.
 (pdftex.def)             Requested size: 198.0pt x 131.99475pt.
-<images/2m10Multiple_time_resposne.png, id=363, 867.24pt x 578.16pt>
+<images/2m10Multiple_time_resposne.png, id=383, 867.24pt x 578.16pt>
 File: images/2m10Multiple_time_resposne.png Graphic file (type png)
 <use images/2m10Multiple_time_resposne.png>
-Package pdftex.def Info: images/2m10Multiple_time_resposne.png  used on input line 938.
+Package pdftex.def Info: images/2m10Multiple_time_resposne.png  used on input line 999.
 (pdftex.def)             Requested size: 198.0pt x 131.99475pt.
-<images/2m10Confronto tra Fattori B Reali e Predetti.png, id=364, 867.24pt x 433.62pt>
+<images/2m10Confronto tra Fattori B Reali e Predetti.png, id=384, 867.24pt x 433.62pt>
 File: images/2m10Confronto tra Fattori B Reali e Predetti.png Graphic file (type png)
 <use images/2m10Confronto tra Fattori B Reali e Predetti.png>
-Package pdftex.def Info: images/2m10Confronto tra Fattori B Reali e Predetti.png  used on input line 944.
+Package pdftex.def Info: images/2m10Confronto tra Fattori B Reali e Predetti.png  used on input line 1005.
 (pdftex.def)             Requested size: 198.0pt x 98.99606pt.
-<images/2m10_Matrice di Kirchhoff della Proteina.png, id=365, 722.7pt x 722.7pt>
+<images/2m10_Matrice di Kirchhoff della Proteina.png, id=385, 722.7pt x 722.7pt>
 File: images/2m10_Matrice di Kirchhoff della Proteina.png Graphic file (type png)
 <use images/2m10_Matrice di Kirchhoff della Proteina.png>
-Package pdftex.def Info: images/2m10_Matrice di Kirchhoff della Proteina.png  used on input line 949.
+Package pdftex.def Info: images/2m10_Matrice di Kirchhoff della Proteina.png  used on input line 1010.
 (pdftex.def)             Requested size: 198.0pt x 197.99875pt.
 
 
-[31 <./images/2m10Time Response R_ij for i=22 as a function of j at time index 0.png> <./images/2m10Transfer Entropy TE_ij for i=22 as a function of j at time index 0.png> <./images/2m10Multiple_time_resposne.png>]
-<images/2m10analyze_secondary_structure_transfer_entropy.png, id=377, 867.24pt x 722.7pt>
+[33 <./images/2m10Time Response R_ij for i=22 as a function of j at time index 0.png> <./images/2m10Transfer Entropy TE_ij for i=22 as a function of j at time index 0.png> <./images/2m10Multiple_time_resposne.png>]
+<images/2m10analyze_secondary_structure_transfer_entropy.png, id=397, 867.24pt x 722.7pt>
 File: images/2m10analyze_secondary_structure_transfer_entropy.png Graphic file (type png)
 <use images/2m10analyze_secondary_structure_transfer_entropy.png>
-Package pdftex.def Info: images/2m10analyze_secondary_structure_transfer_entropy.png  used on input line 954.
+Package pdftex.def Info: images/2m10analyze_secondary_structure_transfer_entropy.png  used on input line 1015.
 (pdftex.def)             Requested size: 198.0pt x 164.99344pt.
-<images/3LNXResidual Correlation C_ij for i=22 as a function of j at time index 0.png, id=378, 867.24pt x 578.16pt>
+<images/3LNXResidual Correlation C_ij for i=22 as a function of j at time index 0.png, id=398, 867.24pt x 578.16pt>
 File: images/3LNXResidual Correlation C_ij for i=22 as a function of j at time index 0.png Graphic file (type png)
 <use images/3LNXResidual Correlation C_ij for i=22 as a function of j at time index 0.png>
-Package pdftex.def Info: images/3LNXResidual Correlation C_ij for i=22 as a function of j at time index 0.png  used on input line 960.
+Package pdftex.def Info: images/3LNXResidual Correlation C_ij for i=22 as a function of j at time index 0.png  used on input line 1021.
 (pdftex.def)             Requested size: 198.0pt x 131.99475pt.
-<images/3LNXTime Response R_ij for i=22 as a function of j at time index 0.png, id=379, 867.24pt x 578.16pt>
+<images/3LNXTime Response R_ij for i=22 as a function of j at time index 0.png, id=399, 867.24pt x 578.16pt>
 File: images/3LNXTime Response R_ij for i=22 as a function of j at time index 0.png Graphic file (type png)
 <use images/3LNXTime Response R_ij for i=22 as a function of j at time index 0.png>
-Package pdftex.def Info: images/3LNXTime Response R_ij for i=22 as a function of j at time index 0.png  used on input line 965.
+Package pdftex.def Info: images/3LNXTime Response R_ij for i=22 as a function of j at time index 0.png  used on input line 1026.
 (pdftex.def)             Requested size: 198.0pt x 131.99475pt.
 
 
-[32 <./images/2m10Confronto tra Fattori B Reali e Predetti.png> <./images/2m10_Matrice di Kirchhoff della Proteina.png> <./images/2m10analyze_secondary_structure_transfer_entropy.png>]
-<images/3LNXTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png, id=390, 867.24pt x 578.16pt>
+[34 <./images/2m10Confronto tra Fattori B Reali e Predetti.png> <./images/2m10_Matrice di Kirchhoff della Proteina.png> <./images/2m10analyze_secondary_structure_transfer_entropy.png>]
+<images/3LNXTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png, id=410, 867.24pt x 578.16pt>
 File: images/3LNXTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png Graphic file (type png)
 <use images/3LNXTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png>
-Package pdftex.def Info: images/3LNXTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png  used on input line 971.
+Package pdftex.def Info: images/3LNXTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png  used on input line 1032.
 (pdftex.def)             Requested size: 198.0pt x 131.99475pt.
-<images/3LNXMultiple_time_resposne.png, id=391, 867.24pt x 578.16pt>
+<images/3LNXMultiple_time_resposne.png, id=411, 867.24pt x 578.16pt>
 File: images/3LNXMultiple_time_resposne.png Graphic file (type png)
 <use images/3LNXMultiple_time_resposne.png>
-Package pdftex.def Info: images/3LNXMultiple_time_resposne.png  used on input line 976.
+Package pdftex.def Info: images/3LNXMultiple_time_resposne.png  used on input line 1037.
 (pdftex.def)             Requested size: 198.0pt x 131.99475pt.
 
 
-[33 <./images/3LNXResidual Correlation C_ij for i=22 as a function of j at time index 0.png> <./images/3LNXTime Response R_ij for i=22 as a function of j at time index 0.png> <./images/3LNXTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png>]
-<images/3LNXConfronto tra Fattori B Reali e Predetti.png, id=403, 867.24pt x 433.62pt>
+[35 <./images/3LNXResidual Correlation C_ij for i=22 as a function of j at time index 0.png> <./images/3LNXTime Response R_ij for i=22 as a function of j at time index 0.png> <./images/3LNXTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png>]
+<images/3LNXConfronto tra Fattori B Reali e Predetti.png, id=423, 867.24pt x 433.62pt>
 File: images/3LNXConfronto tra Fattori B Reali e Predetti.png Graphic file (type png)
 <use images/3LNXConfronto tra Fattori B Reali e Predetti.png>
-Package pdftex.def Info: images/3LNXConfronto tra Fattori B Reali e Predetti.png  used on input line 982.
+Package pdftex.def Info: images/3LNXConfronto tra Fattori B Reali e Predetti.png  used on input line 1043.
 (pdftex.def)             Requested size: 198.0pt x 98.99606pt.
-<images/3LNX_Matrice di Kirchhoff della Proteina.png, id=404, 722.7pt x 722.7pt>
+<images/3LNX_Matrice di Kirchhoff della Proteina.png, id=424, 722.7pt x 722.7pt>
 File: images/3LNX_Matrice di Kirchhoff della Proteina.png Graphic file (type png)
 <use images/3LNX_Matrice di Kirchhoff della Proteina.png>
-Package pdftex.def Info: images/3LNX_Matrice di Kirchhoff della Proteina.png  used on input line 987.
+Package pdftex.def Info: images/3LNX_Matrice di Kirchhoff della Proteina.png  used on input line 1048.
 (pdftex.def)             Requested size: 198.0pt x 197.99875pt.
-<images/3LNXanalyze_secondary_structure_transfer_entropy.png, id=405, 867.24pt x 722.7pt>
+<images/3LNXanalyze_secondary_structure_transfer_entropy.png, id=425, 867.24pt x 722.7pt>
 File: images/3LNXanalyze_secondary_structure_transfer_entropy.png Graphic file (type png)
 <use images/3LNXanalyze_secondary_structure_transfer_entropy.png>
-Package pdftex.def Info: images/3LNXanalyze_secondary_structure_transfer_entropy.png  used on input line 992.
+Package pdftex.def Info: images/3LNXanalyze_secondary_structure_transfer_entropy.png  used on input line 1053.
 (pdftex.def)             Requested size: 198.0pt x 164.99344pt.
 
 
-[34 <./images/3LNXMultiple_time_resposne.png> <./images/3LNXConfronto tra Fattori B Reali e Predetti.png> <./images/3LNX_Matrice di Kirchhoff della Proteina.png>]
-<images/3LNYResidual Correlation C_ij for i=22 as a function of j at time index 0.png, id=417, 867.24pt x 578.16pt>
+[36 <./images/3LNXMultiple_time_resposne.png> <./images/3LNXConfronto tra Fattori B Reali e Predetti.png> <./images/3LNX_Matrice di Kirchhoff della Proteina.png>]
+<images/3LNYResidual Correlation C_ij for i=22 as a function of j at time index 0.png, id=436, 867.24pt x 578.16pt>
 File: images/3LNYResidual Correlation C_ij for i=22 as a function of j at time index 0.png Graphic file (type png)
 <use images/3LNYResidual Correlation C_ij for i=22 as a function of j at time index 0.png>
-Package pdftex.def Info: images/3LNYResidual Correlation C_ij for i=22 as a function of j at time index 0.png  used on input line 998.
+Package pdftex.def Info: images/3LNYResidual Correlation C_ij for i=22 as a function of j at time index 0.png  used on input line 1059.
 (pdftex.def)             Requested size: 198.0pt x 131.99475pt.
-<images/3LNYTime Response R_ij for i=22 as a function of j at time index 0.png, id=418, 867.24pt x 578.16pt>
+<images/3LNYTime Response R_ij for i=22 as a function of j at time index 0.png, id=437, 867.24pt x 578.16pt>
 File: images/3LNYTime Response R_ij for i=22 as a function of j at time index 0.png Graphic file (type png)
 <use images/3LNYTime Response R_ij for i=22 as a function of j at time index 0.png>
-Package pdftex.def Info: images/3LNYTime Response R_ij for i=22 as a function of j at time index 0.png  used on input line 1003.
+Package pdftex.def Info: images/3LNYTime Response R_ij for i=22 as a function of j at time index 0.png  used on input line 1064.
 (pdftex.def)             Requested size: 198.0pt x 131.99475pt.
-<images/3LNYTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png, id=419, 867.24pt x 578.16pt>
+<images/3LNYTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png, id=438, 867.24pt x 578.16pt>
 File: images/3LNYTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png Graphic file (type png)
 <use images/3LNYTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png>
-Package pdftex.def Info: images/3LNYTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png  used on input line 1009.
+Package pdftex.def Info: images/3LNYTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png  used on input line 1070.
 (pdftex.def)             Requested size: 198.0pt x 131.99475pt.
 
 
-[35 <./images/3LNXanalyze_secondary_structure_transfer_entropy.png> <./images/3LNYResidual Correlation C_ij for i=22 as a function of j at time index 0.png> <./images/3LNYTime Response R_ij for i=22 as a function of j at time index 0.png>]
-<images/3LNYMultiple_time_resposne.png, id=431, 867.24pt x 578.16pt>
+[37 <./images/3LNXanalyze_secondary_structure_transfer_entropy.png> <./images/3LNYResidual Correlation C_ij for i=22 as a function of j at time index 0.png> <./images/3LNYTime Response R_ij for i=22 as a function of j at time index 0.png>]
+<images/3LNYMultiple_time_resposne.png, id=451, 867.24pt x 578.16pt>
 File: images/3LNYMultiple_time_resposne.png Graphic file (type png)
 <use images/3LNYMultiple_time_resposne.png>
-Package pdftex.def Info: images/3LNYMultiple_time_resposne.png  used on input line 1016.
+Package pdftex.def Info: images/3LNYMultiple_time_resposne.png  used on input line 1077.
 (pdftex.def)             Requested size: 198.0pt x 131.99475pt.
-<images/3LNYConfronto tra Fattori B Reali e Predetti.png, id=432, 867.24pt x 433.62pt>
+<images/3LNYConfronto tra Fattori B Reali e Predetti.png, id=452, 867.24pt x 433.62pt>
 File: images/3LNYConfronto tra Fattori B Reali e Predetti.png Graphic file (type png)
 <use images/3LNYConfronto tra Fattori B Reali e Predetti.png>
-Package pdftex.def Info: images/3LNYConfronto tra Fattori B Reali e Predetti.png  used on input line 1022.
+Package pdftex.def Info: images/3LNYConfronto tra Fattori B Reali e Predetti.png  used on input line 1083.
 (pdftex.def)             Requested size: 198.0pt x 98.99606pt.
-<images/3LNY_Matrice di Kirchhoff della Proteina.png, id=433, 722.7pt x 722.7pt>
+<images/3LNY_Matrice di Kirchhoff della Proteina.png, id=453, 722.7pt x 722.7pt>
 File: images/3LNY_Matrice di Kirchhoff della Proteina.png Graphic file (type png)
 <use images/3LNY_Matrice di Kirchhoff della Proteina.png>
-Package pdftex.def Info: images/3LNY_Matrice di Kirchhoff della Proteina.png  used on input line 1027.
+Package pdftex.def Info: images/3LNY_Matrice di Kirchhoff della Proteina.png  used on input line 1088.
 (pdftex.def)             Requested size: 198.0pt x 197.99875pt.
 File: images/2m10analyze_secondary_structure_transfer_entropy.png Graphic file (type png)
 <use images/2m10analyze_secondary_structure_transfer_entropy.png>
-Package pdftex.def Info: images/2m10analyze_secondary_structure_transfer_entropy.png  used on input line 1032.
+Package pdftex.def Info: images/2m10analyze_secondary_structure_transfer_entropy.png  used on input line 1093.
 (pdftex.def)             Requested size: 198.0pt x 164.99344pt.
 
 
-[36 <./images/3LNYTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png> <./images/3LNYMultiple_time_resposne.png> <./images/3LNYConfronto tra Fattori B Reali e Predetti.png>]
-<images/2m10_Processo_stocastico.png, id=444, 867.24pt x 578.16pt>
+[38 <./images/3LNYTransfer Entropy TE_ij for i=22 as a function of j at time index 0.png> <./images/3LNYMultiple_time_resposne.png> <./images/3LNYConfronto tra Fattori B Reali e Predetti.png>]
+<images/2m10_Processo_stocastico.png, id=464, 867.24pt x 578.16pt>
 File: images/2m10_Processo_stocastico.png Graphic file (type png)
 <use images/2m10_Processo_stocastico.png>
-Package pdftex.def Info: images/2m10_Processo_stocastico.png  used on input line 1043.
+Package pdftex.def Info: images/2m10_Processo_stocastico.png  used on input line 1104.
 (pdftex.def)             Requested size: 198.0pt x 131.99475pt.
-<images/2m10_Stima beta factors.png, id=445, 867.24pt x 433.62pt>
+<images/2m10_Stima beta factors.png, id=465, 867.24pt x 433.62pt>
 File: images/2m10_Stima beta factors.png Graphic file (type png)
 <use images/2m10_Stima beta factors.png>
-Package pdftex.def Info: images/2m10_Stima beta factors.png  used on input line 1048.
+Package pdftex.def Info: images/2m10_Stima beta factors.png  used on input line 1109.
 (pdftex.def)             Requested size: 198.0pt x 98.99606pt.
 
 
-[37 <./images/3LNY_Matrice di Kirchhoff della Proteina.png>]
-/Users/enrico/PROTEINS/tesi/ciao.tex:1058: Missing delimiter (. inserted).
+[39 <./images/3LNY_Matrice di Kirchhoff della Proteina.png>]
+/Users/enrico/PROTEINS/tesi/ciao.tex:1119: Missing delimiter (. inserted).
 <to be read again> 
                    }
-l.1058     \sum_{u} \exp\left
+l.1119     \sum_{u} \exp\left
                              ( \sum_j K_{ij} u_j \right) \cdot \beta \cdot \...
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -2245,10 +2242,10 @@ braces don't get unbalanced. Otherwise just proceed.
 Acceptable delimiters are characters whose \delcode is
 nonnegative, or you can use `\delimiter <delimiter code>'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1058: Extra }, or forgotten \right.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1119: Extra }, or forgotten \right.
 <recently read> }
                  
-l.1058     \sum_{u} \exp\left
+l.1119     \sum_{u} \exp\left
                              ( \sum_j K_{ij} u_j \right) \cdot \beta \cdot \...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2256,10 +2253,10 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1058: Extra }, or forgotten \right.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1119: Extra }, or forgotten \right.
 <argument> ... \c_math_superscript_token {\left }}
                                                   {\__skmath_exp: \left (\le...
-l.1058     \sum_{u} \exp\left
+l.1119     \sum_{u} \exp\left
                              ( \sum_j K_{ij} u_j \right) \cdot \beta \cdot \...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2267,10 +2264,10 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1058: Missing delimiter (. inserted).
+/Users/enrico/PROTEINS/tesi/ciao.tex:1119: Missing delimiter (. inserted).
 <to be read again> 
                    \right 
-l.1058     \sum_{u} \exp\left
+l.1119     \sum_{u} \exp\left
                              ( \sum_j K_{ij} u_j \right) \cdot \beta \cdot \...
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -2279,10 +2276,10 @@ braces don't get unbalanced. Otherwise just proceed.
 Acceptable delimiters are characters whose \delcode is
 nonnegative, or you can use `\delimiter <delimiter code>'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1058: Extra }, or forgotten \right.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1119: Extra }, or forgotten \right.
 <argument> ...__skmath_exp: \left (\left \right )}
                                                   {\__skmath_exp: \left (\le...
-l.1058     \sum_{u} \exp\left
+l.1119     \sum_{u} \exp\left
                              ( \sum_j K_{ij} u_j \right) \cdot \beta \cdot \...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2290,10 +2287,10 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1058: Missing delimiter (. inserted).
+/Users/enrico/PROTEINS/tesi/ciao.tex:1119: Missing delimiter (. inserted).
 <to be read again> 
                    \right 
-l.1058     \sum_{u} \exp\left
+l.1119     \sum_{u} \exp\left
                              ( \sum_j K_{ij} u_j \right) \cdot \beta \cdot \...
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -2302,10 +2299,10 @@ braces don't get unbalanced. Otherwise just proceed.
 Acceptable delimiters are characters whose \delcode is
 nonnegative, or you can use `\delimiter <delimiter code>'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1058: Extra }, or forgotten \right.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1119: Extra }, or forgotten \right.
 <argument> ...__skmath_exp: \left (\left \right )}
                                                   {\__skmath_exp: \left (\le...
-l.1058     \sum_{u} \exp\left
+l.1119     \sum_{u} \exp\left
                              ( \sum_j K_{ij} u_j \right) \cdot \beta \cdot \...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2313,10 +2310,10 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1058: Missing delimiter (. inserted).
+/Users/enrico/PROTEINS/tesi/ciao.tex:1119: Missing delimiter (. inserted).
 <to be read again> 
                    \right 
-l.1058     \sum_{u} \exp\left
+l.1119     \sum_{u} \exp\left
                              ( \sum_j K_{ij} u_j \right) \cdot \beta \cdot \...
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -2325,10 +2322,10 @@ braces don't get unbalanced. Otherwise just proceed.
 Acceptable delimiters are characters whose \delcode is
 nonnegative, or you can use `\delimiter <delimiter code>'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1058: Extra }, or forgotten \right.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1119: Extra }, or forgotten \right.
 <argument> ...__skmath_exp: \left (\left \right )}
                                                   
-l.1058     \sum_{u} \exp\left
+l.1119     \sum_{u} \exp\left
                              ( \sum_j K_{ij} u_j \right) \cdot \beta \cdot \...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2336,10 +2333,10 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1058: Missing delimiter (. inserted).
+/Users/enrico/PROTEINS/tesi/ciao.tex:1119: Missing delimiter (. inserted).
 <to be read again> 
                    }
-l.1058 ...\beta \cdot \beta^{\top} \cdot \exp\left
+l.1119 ...\beta \cdot \beta^{\top} \cdot \exp\left
                                                   ( \sum_s K_{is} u_s \right)
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -2348,10 +2345,10 @@ braces don't get unbalanced. Otherwise just proceed.
 Acceptable delimiters are characters whose \delcode is
 nonnegative, or you can use `\delimiter <delimiter code>'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1058: Extra }, or forgotten \right.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1119: Extra }, or forgotten \right.
 <recently read> }
                  
-l.1058 ...\beta \cdot \beta^{\top} \cdot \exp\left
+l.1119 ...\beta \cdot \beta^{\top} \cdot \exp\left
                                                   ( \sum_s K_{is} u_s \right)
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2359,10 +2356,10 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1058: Extra }, or forgotten \right.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1119: Extra }, or forgotten \right.
 <argument> ... \c_math_superscript_token {\left }}
                                                   {\__skmath_exp: \left (\le...
-l.1058 ...\beta \cdot \beta^{\top} \cdot \exp\left
+l.1119 ...\beta \cdot \beta^{\top} \cdot \exp\left
                                                   ( \sum_s K_{is} u_s \right)
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2370,10 +2367,10 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1058: Missing delimiter (. inserted).
+/Users/enrico/PROTEINS/tesi/ciao.tex:1119: Missing delimiter (. inserted).
 <to be read again> 
                    \right 
-l.1058 ...\beta \cdot \beta^{\top} \cdot \exp\left
+l.1119 ...\beta \cdot \beta^{\top} \cdot \exp\left
                                                   ( \sum_s K_{is} u_s \right)
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -2382,10 +2379,10 @@ braces don't get unbalanced. Otherwise just proceed.
 Acceptable delimiters are characters whose \delcode is
 nonnegative, or you can use `\delimiter <delimiter code>'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1058: Extra }, or forgotten \right.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1119: Extra }, or forgotten \right.
 <argument> ...__skmath_exp: \left (\left \right )}
                                                   {\__skmath_exp: \left (\le...
-l.1058 ...\beta \cdot \beta^{\top} \cdot \exp\left
+l.1119 ...\beta \cdot \beta^{\top} \cdot \exp\left
                                                   ( \sum_s K_{is} u_s \right)
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2393,10 +2390,10 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1058: Missing delimiter (. inserted).
+/Users/enrico/PROTEINS/tesi/ciao.tex:1119: Missing delimiter (. inserted).
 <to be read again> 
                    \right 
-l.1058 ...\beta \cdot \beta^{\top} \cdot \exp\left
+l.1119 ...\beta \cdot \beta^{\top} \cdot \exp\left
                                                   ( \sum_s K_{is} u_s \right)
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -2405,10 +2402,10 @@ braces don't get unbalanced. Otherwise just proceed.
 Acceptable delimiters are characters whose \delcode is
 nonnegative, or you can use `\delimiter <delimiter code>'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1058: Extra }, or forgotten \right.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1119: Extra }, or forgotten \right.
 <argument> ...__skmath_exp: \left (\left \right )}
                                                   {\__skmath_exp: \left (\le...
-l.1058 ...\beta \cdot \beta^{\top} \cdot \exp\left
+l.1119 ...\beta \cdot \beta^{\top} \cdot \exp\left
                                                   ( \sum_s K_{is} u_s \right)
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2416,10 +2413,10 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1058: Missing delimiter (. inserted).
+/Users/enrico/PROTEINS/tesi/ciao.tex:1119: Missing delimiter (. inserted).
 <to be read again> 
                    \right 
-l.1058 ...\beta \cdot \beta^{\top} \cdot \exp\left
+l.1119 ...\beta \cdot \beta^{\top} \cdot \exp\left
                                                   ( \sum_s K_{is} u_s \right)
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -2428,10 +2425,10 @@ braces don't get unbalanced. Otherwise just proceed.
 Acceptable delimiters are characters whose \delcode is
 nonnegative, or you can use `\delimiter <delimiter code>'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1058: Extra }, or forgotten \right.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1119: Extra }, or forgotten \right.
 <argument> ...__skmath_exp: \left (\left \right )}
                                                   
-l.1058 ...\beta \cdot \beta^{\top} \cdot \exp\left
+l.1119 ...\beta \cdot \beta^{\top} \cdot \exp\left
                                                   ( \sum_s K_{is} u_s \right)
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2439,20 +2436,20 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1059: You can't use `\eqno' in math mode.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1120: You can't use `\eqno' in math mode.
 \veqno ->\@kernel@eqno 
                        \aftergroup \ignorespaces 
-l.1059     \end{equation}
+l.1120     \end{equation}
                          
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
 If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1059: Missing } inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1120: Missing } inserted.
 <inserted text> 
                 }
-l.1059     \end{equation}
+l.1120     \end{equation}
                          
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2460,10 +2457,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1059: Missing \right. inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1120: Missing \right. inserted.
 <inserted text> 
                 \right .
-l.1059     \end{equation}
+l.1120     \end{equation}
                          
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2471,10 +2468,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1059: Missing } inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1120: Missing } inserted.
 <inserted text> 
                 }
-l.1059     \end{equation}
+l.1120     \end{equation}
                          
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2482,10 +2479,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1059: Missing \right. inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1120: Missing \right. inserted.
 <inserted text> 
                 \right .
-l.1059     \end{equation}
+l.1120     \end{equation}
                          
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2493,10 +2490,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1059: Missing } inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1120: Missing } inserted.
 <inserted text> 
                 }
-l.1059     \end{equation}
+l.1120     \end{equation}
                          
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2504,10 +2501,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1059: Missing \right. inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1120: Missing \right. inserted.
 <inserted text> 
                 \right .
-l.1059     \end{equation}
+l.1120     \end{equation}
                          
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2515,10 +2512,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1059: Missing } inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1120: Missing } inserted.
 <inserted text> 
                 }
-l.1059     \end{equation}
+l.1120     \end{equation}
                          
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2526,10 +2523,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1059: Missing } inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1120: Missing } inserted.
 <inserted text> 
                 }
-l.1059     \end{equation}
+l.1120     \end{equation}
                          
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2537,20 +2534,20 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1059: Missing { inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1120: Missing { inserted.
 <to be read again> 
                    $
-l.1059     \end{equation}
+l.1120     \end{equation}
                          
 A left brace was mandatory here, so I've put one in.
 You might want to delete and/or insert some corrections
 so that I will find a matching right brace soon.
 (If you're confused by all this, try typing `I}' now.)
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1059: Missing } inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1120: Missing } inserted.
 <inserted text> 
                 }
-l.1059     \end{equation}
+l.1120     \end{equation}
                          
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2558,20 +2555,20 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1059: Missing { inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1120: Missing { inserted.
 <to be read again> 
                    $
-l.1059     \end{equation}
+l.1120     \end{equation}
                          
 A left brace was mandatory here, so I've put one in.
 You might want to delete and/or insert some corrections
 so that I will find a matching right brace soon.
 (If you're confused by all this, try typing `I}' now.)
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1059: Missing } inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1120: Missing } inserted.
 <inserted text> 
                 }
-l.1059     \end{equation}
+l.1120     \end{equation}
                          
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2579,20 +2576,20 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1059: Missing { inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1120: Missing { inserted.
 <to be read again> 
                    $
-l.1059     \end{equation}
+l.1120     \end{equation}
                          
 A left brace was mandatory here, so I've put one in.
 You might want to delete and/or insert some corrections
 so that I will find a matching right brace soon.
 (If you're confused by all this, try typing `I}' now.)
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1059: Missing } inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1120: Missing } inserted.
 <inserted text> 
                 }
-l.1059     \end{equation}
+l.1120     \end{equation}
                          
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2600,10 +2597,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1059: Missing } inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1120: Missing } inserted.
 <inserted text> 
                 }
-l.1059     \end{equation}
+l.1120     \end{equation}
                          
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2611,10 +2608,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1059: Missing \right. inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1120: Missing \right. inserted.
 <inserted text> 
                 \right .
-l.1059     \end{equation}
+l.1120     \end{equation}
                          
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2622,10 +2619,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1059: Missing } inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1120: Missing } inserted.
 <inserted text> 
                 }
-l.1059     \end{equation}
+l.1120     \end{equation}
                          
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2633,10 +2630,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1059: Missing \right. inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1120: Missing \right. inserted.
 <inserted text> 
                 \right .
-l.1059     \end{equation}
+l.1120     \end{equation}
                          
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2644,10 +2641,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1059: Missing } inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1120: Missing } inserted.
 <inserted text> 
                 }
-l.1059     \end{equation}
+l.1120     \end{equation}
                          
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2655,10 +2652,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1059: Missing \right. inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1120: Missing \right. inserted.
 <inserted text> 
                 \right .
-l.1059     \end{equation}
+l.1120     \end{equation}
                          
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2666,10 +2663,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1059: Missing } inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1120: Missing } inserted.
 <inserted text> 
                 }
-l.1059     \end{equation}
+l.1120     \end{equation}
                          
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2677,10 +2674,10 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1059: Missing } inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1120: Missing } inserted.
 <inserted text> 
                 }
-l.1059     \end{equation}
+l.1120     \end{equation}
                          
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2688,20 +2685,20 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1059: Missing { inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1120: Missing { inserted.
 <to be read again> 
                    $
-l.1059     \end{equation}
+l.1120     \end{equation}
                          
 A left brace was mandatory here, so I've put one in.
 You might want to delete and/or insert some corrections
 so that I will find a matching right brace soon.
 (If you're confused by all this, try typing `I}' now.)
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1059: Missing } inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1120: Missing } inserted.
 <inserted text> 
                 }
-l.1059     \end{equation}
+l.1120     \end{equation}
                          
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2709,20 +2706,20 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1059: Missing { inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1120: Missing { inserted.
 <to be read again> 
                    $
-l.1059     \end{equation}
+l.1120     \end{equation}
                          
 A left brace was mandatory here, so I've put one in.
 You might want to delete and/or insert some corrections
 so that I will find a matching right brace soon.
 (If you're confused by all this, try typing `I}' now.)
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1059: Missing } inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1120: Missing } inserted.
 <inserted text> 
                 }
-l.1059     \end{equation}
+l.1120     \end{equation}
                          
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2730,20 +2727,20 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1059: Missing { inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1120: Missing { inserted.
 <to be read again> 
                    $
-l.1059     \end{equation}
+l.1120     \end{equation}
                          
 A left brace was mandatory here, so I've put one in.
 You might want to delete and/or insert some corrections
 so that I will find a matching right brace soon.
 (If you're confused by all this, try typing `I}' now.)
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1059: Missing } inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1120: Missing } inserted.
 <inserted text> 
                 }
-l.1059     \end{equation}
+l.1120     \end{equation}
                          
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2751,72 +2748,72 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-<images/2m10_2_temperature_contact_cutoff.png, id=456, 867.24pt x 433.62pt>
+<images/2m10_2_temperature_contact_cutoff.png, id=475, 867.24pt x 433.62pt>
 File: images/2m10_2_temperature_contact_cutoff.png Graphic file (type png)
 <use images/2m10_2_temperature_contact_cutoff.png>
-Package pdftex.def Info: images/2m10_2_temperature_contact_cutoff.png  used on input line 1067.
+Package pdftex.def Info: images/2m10_2_temperature_contact_cutoff.png  used on input line 1128.
 (pdftex.def)             Requested size: 198.0pt x 98.99606pt.
-<images/2m10_2_temperature_correlation_cutoff.png, id=457, 722.7pt x 578.16pt>
+<images/2m10_2_temperature_correlation_cutoff.png, id=476, 722.7pt x 578.16pt>
 File: images/2m10_2_temperature_correlation_cutoff.png Graphic file (type png)
 <use images/2m10_2_temperature_correlation_cutoff.png>
-Package pdftex.def Info: images/2m10_2_temperature_correlation_cutoff.png  used on input line 1072.
+Package pdftex.def Info: images/2m10_2_temperature_correlation_cutoff.png  used on input line 1133.
 (pdftex.def)             Requested size: 198.0pt x 158.399pt.
 
 
-[38 <./images/2m10_Processo_stocastico.png> <./images/2m10_Stima beta factors.png>]
-<images/2m10_2_temperature_cutoff.png, id=471, 867.24pt x 433.62pt>
+[40 <./images/2m10_Processo_stocastico.png> <./images/2m10_Stima beta factors.png>]
+<images/2m10_2_temperature_cutoff.png, id=490, 867.24pt x 433.62pt>
 File: images/2m10_2_temperature_cutoff.png Graphic file (type png)
 <use images/2m10_2_temperature_cutoff.png>
-Package pdftex.def Info: images/2m10_2_temperature_cutoff.png  used on input line 1077.
+Package pdftex.def Info: images/2m10_2_temperature_cutoff.png  used on input line 1138.
 (pdftex.def)             Requested size: 198.0pt x 98.99606pt.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1082: Missing $ inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1143: Missing $ inserted.
 <inserted text> 
                 $
-l.1082 T(r)=T_
+l.1143 T(r)=T_
               0+(Tb-T0)/R*r
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1083: Missing $ inserted.
+/Users/enrico/PROTEINS/tesi/ciao.tex:1144: Missing $ inserted.
 <inserted text> 
                 $
-l.1083 
+l.1144 
        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-<images/2m10_2_temperature_sferic.png, id=472, 867.24pt x 433.62pt>
+<images/2m10_2_temperature_sferic.png, id=491, 867.24pt x 433.62pt>
 File: images/2m10_2_temperature_sferic.png Graphic file (type png)
 <use images/2m10_2_temperature_sferic.png>
-Package pdftex.def Info: images/2m10_2_temperature_sferic.png  used on input line 1086.
+Package pdftex.def Info: images/2m10_2_temperature_sferic.png  used on input line 1147.
 (pdftex.def)             Requested size: 198.0pt x 98.99606pt.
-<images/2m10_2_temperature_correlation_sferic.png, id=473, 722.7pt x 578.16pt>
+<images/2m10_2_temperature_correlation_sferic.png, id=492, 722.7pt x 578.16pt>
 File: images/2m10_2_temperature_correlation_sferic.png Graphic file (type png)
 <use images/2m10_2_temperature_correlation_sferic.png>
-Package pdftex.def Info: images/2m10_2_temperature_correlation_sferic.png  used on input line 1091.
+Package pdftex.def Info: images/2m10_2_temperature_correlation_sferic.png  used on input line 1152.
 (pdftex.def)             Requested size: 198.0pt x 158.399pt.
 
 
-[39 <./images/2m10_2_temperature_contact_cutoff.png> <./images/2m10_2_temperature_correlation_cutoff.png> <./images/2m10_2_temperature_cutoff.png>]
-/Users/enrico/PROTEINS/tesi/ciao.tex:1113: You can't use `macro parameter character #' in vertical mode.
-l.1113 #
+[41 <./images/2m10_2_temperature_contact_cutoff.png> <./images/2m10_2_temperature_correlation_cutoff.png> <./images/2m10_2_temperature_cutoff.png>]
+/Users/enrico/PROTEINS/tesi/ciao.tex:1174: You can't use `macro parameter character #' in vertical mode.
+l.1174 #
         ## Passaggio agli autovettori
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
 If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1113: You can't use `macro parameter character #' in vertical mode.
-l.1113 ##
+/Users/enrico/PROTEINS/tesi/ciao.tex:1174: You can't use `macro parameter character #' in vertical mode.
+l.1174 ##
          # Passaggio agli autovettori
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
 If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1113: You can't use `macro parameter character #' in vertical mode.
-l.1113 ###
+/Users/enrico/PROTEINS/tesi/ciao.tex:1174: You can't use `macro parameter character #' in vertical mode.
+l.1174 ###
            Passaggio agli autovettori
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -2825,137 +2822,137 @@ return to the right one by typing `I}' or `I$' or `I\par'.
 
 
 
-[40 <./images/2m10_2_temperature_sferic.png> <./images/2m10_2_temperature_correlation_sferic.png>]
-/Users/enrico/PROTEINS/tesi/ciao.tex:1132: You can't use `macro parameter character #' in vertical mode.
-l.1132 #
+[42 <./images/2m10_2_temperature_sferic.png> <./images/2m10_2_temperature_correlation_sferic.png>]
+/Users/enrico/PROTEINS/tesi/ciao.tex:1193: You can't use `macro parameter character #' in vertical mode.
+l.1193 #
         ## Soluzione dell'equazione differenziale per \( Q_k(t) \)
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
 If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1132: You can't use `macro parameter character #' in vertical mode.
-l.1132 ##
+/Users/enrico/PROTEINS/tesi/ciao.tex:1193: You can't use `macro parameter character #' in vertical mode.
+l.1193 ##
          # Soluzione dell'equazione differenziale per \( Q_k(t) \)
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
 If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1132: You can't use `macro parameter character #' in vertical mode.
-l.1132 ###
+/Users/enrico/PROTEINS/tesi/ciao.tex:1193: You can't use `macro parameter character #' in vertical mode.
+l.1193 ###
            Soluzione dell'equazione differenziale per \( Q_k(t) \)
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
 If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1152: You can't use `macro parameter character #' in vertical mode.
-l.1152    #
+/Users/enrico/PROTEINS/tesi/ciao.tex:1213: You can't use `macro parameter character #' in vertical mode.
+l.1213    #
            ## Calcolo della correlazione \(\langle x_i(t) x_j(s) \rangle\)
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
 If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1152: You can't use `macro parameter character #' in vertical mode.
-l.1152    ##
+/Users/enrico/PROTEINS/tesi/ciao.tex:1213: You can't use `macro parameter character #' in vertical mode.
+l.1213    ##
             # Calcolo della correlazione \(\langle x_i(t) x_j(s) \rangle\)
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
 If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1152: You can't use `macro parameter character #' in vertical mode.
-l.1152    ###
+/Users/enrico/PROTEINS/tesi/ciao.tex:1213: You can't use `macro parameter character #' in vertical mode.
+l.1213    ###
               Calcolo della correlazione \(\langle x_i(t) x_j(s) \rangle\)
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
 If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1166: You can't use `macro parameter character #' in vertical mode.
-l.1166    #
+/Users/enrico/PROTEINS/tesi/ciao.tex:1227: You can't use `macro parameter character #' in vertical mode.
+l.1227    #
            ### Contributo deterministico
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
 If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1166: You can't use `macro parameter character #' in vertical mode.
-l.1166    ##
+/Users/enrico/PROTEINS/tesi/ciao.tex:1227: You can't use `macro parameter character #' in vertical mode.
+l.1227    ##
             ## Contributo deterministico
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
 If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1166: You can't use `macro parameter character #' in vertical mode.
-l.1166    ###
+/Users/enrico/PROTEINS/tesi/ciao.tex:1227: You can't use `macro parameter character #' in vertical mode.
+l.1227    ###
              # Contributo deterministico
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
 If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1166: You can't use `macro parameter character #' in vertical mode.
-l.1166    ####
+/Users/enrico/PROTEINS/tesi/ciao.tex:1227: You can't use `macro parameter character #' in vertical mode.
+l.1227    ####
                Contributo deterministico
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
 If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1188: You can't use `macro parameter character #' in vertical mode.
-l.1188    #
+/Users/enrico/PROTEINS/tesi/ciao.tex:1249: You can't use `macro parameter character #' in vertical mode.
+l.1249    #
            ### Contributo stocastico
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
 If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1188: You can't use `macro parameter character #' in vertical mode.
-l.1188    ##
+/Users/enrico/PROTEINS/tesi/ciao.tex:1249: You can't use `macro parameter character #' in vertical mode.
+l.1249    ##
             ## Contributo stocastico
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
 If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1188: You can't use `macro parameter character #' in vertical mode.
-l.1188    ###
+/Users/enrico/PROTEINS/tesi/ciao.tex:1249: You can't use `macro parameter character #' in vertical mode.
+l.1249    ###
              # Contributo stocastico
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
 If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1188: You can't use `macro parameter character #' in vertical mode.
-l.1188    ####
+/Users/enrico/PROTEINS/tesi/ciao.tex:1249: You can't use `macro parameter character #' in vertical mode.
+l.1249    ####
                Contributo stocastico
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
 If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1196: You can't use `macro parameter character #' in vertical mode.
-l.1196    #
+/Users/enrico/PROTEINS/tesi/ciao.tex:1257: You can't use `macro parameter character #' in vertical mode.
+l.1257    #
            ## Risultato finale
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
 If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1196: You can't use `macro parameter character #' in vertical mode.
-l.1196    ##
+/Users/enrico/PROTEINS/tesi/ciao.tex:1257: You can't use `macro parameter character #' in vertical mode.
+l.1257    ##
             # Risultato finale
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
 If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
-/Users/enrico/PROTEINS/tesi/ciao.tex:1196: You can't use `macro parameter character #' in vertical mode.
-l.1196    ###
+/Users/enrico/PROTEINS/tesi/ciao.tex:1257: You can't use `macro parameter character #' in vertical mode.
+l.1257    ###
               Risultato finale
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -2964,48 +2961,48 @@ return to the right one by typing `I}' or `I$' or `I\par'.
 
 
 
-[41]
-Overfull \hbox (117.65947pt too wide) detected at line 1202
+[43]
+Overfull \hbox (117.65947pt too wide) detected at line 1263
 \OMS/lmsy/m/n/10.95 h\OML/lmm/m/it/10.95 x[]\OT1/lmr/m/n/10.95 (\OML/lmm/m/it/10.95 t\OT1/lmr/m/n/10.95 )\OML/lmm/m/it/10.95 x[]\OT1/lmr/m/n/10.95 (\OML/lmm/m/it/10.95 s\OT1/lmr/m/n/10.95 )\OMS/lmsy/m/n/10.95 i \OT1/lmr/m/n/10.95 = [] \OML/lmm/m/it/10.95 V[]V[] [] :
  []
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 1226.
+(Font)              <12> on input line 1287.
 
 
-[42]
-Overfull \hbox (366.2328pt too wide) detected at line 1263
+[44]
+Overfull \hbox (366.2328pt too wide) detected at line 1324
 \OML/lmm/m/it/10.95 S \OT1/lmr/m/n/10.95 = [] [] \OML/lmm/m/it/10.95 :
  []
 
 
 
-[43]
-Overfull \hbox (27.2pt too wide) detected at line 1340
+[45]
+Overfull \hbox (27.2pt too wide) detected at line 1401
 [] \OT1/lmr/m/n/10.95 = [][] [] \OML/lmm/m/it/10.95 e[] dx \OT1/lmr/m/n/10.95 + 0\OML/lmm/m/it/10.95 :\OT1/lmr/m/n/10.95 5 [][] [] \OML/lmm/m/it/10.95 e[] dx:
  []
 
 
 
-[44]
-
-[45]
-
 [46]
+
+[47]
+
+[48]
 Chapter 4.
 
 
-[47
+[49
 
 ]
 
-[48]
+[50]
 
-LaTeX Warning: Empty `thebibliography' environment on input line 1453.
+LaTeX Warning: Empty `thebibliography' environment on input line 1514.
 
 
 
-[49
+[51
 
 ] (./ciao.aux)
  ***********
@@ -3023,21 +3020,21 @@ Package rerunfilecheck Warning: File `ciao.out' has changed.
 
 Package rerunfilecheck Info: Checksums for `ciao.out':
 (rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  6819B0DDC4A032F60234850DEDD2C4DA;10746.
+(rerunfilecheck)             After:  5130B2D26891B2A12EFE0B2B32C50F2E;11748.
  ) 
 Here is how much of TeX's memory you used:
- 21557 strings out of 473579
- 381813 string characters out of 5728228
- 900920 words of memory out of 5000000
- 43416 multiletter control sequences out of 15000+600000
- 677005 words of font info for 275 fonts, out of 8000000 for 9000
+ 21569 strings out of 473579
+ 381926 string characters out of 5728228
+ 900929 words of memory out of 5000000
+ 43415 multiletter control sequences out of 15000+600000
+ 677099 words of font info for 276 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,19n,131p,1029b,582s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmib10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on ciao.pdf (55 pages, 3183816 bytes).
+Output written on ciao.pdf (57 pages, 3191594 bytes).
 PDF statistics:
- 713 PDF objects out of 1000 (max. 8388607)
- 538 compressed objects within 6 object streams
- 278 named destinations out of 1000 (max. 500000)
+ 735 PDF objects out of 1000 (max. 8388607)
+ 558 compressed objects within 6 object streams
+ 291 named destinations out of 1000 (max. 500000)
  82608 words of extra memory for PDF output out of 89155 (max. 10000000)
 

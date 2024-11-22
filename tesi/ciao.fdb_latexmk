@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1732208196.21779 "/Users/enrico/PROTEINS/tesi/ciao.tex" "ciao.pdf" "ciao" 1732208200.74411 2
-  "/Users/enrico/PROTEINS/tesi/ciao.tex" 1732208197.06896 81382 866a4ccb9e7625a69d3d54680fd162d4 ""
+["pdflatex"] 1732293005.30985 "/Users/enrico/PROTEINS/tesi/ciao.tex" "ciao.pdf" "ciao" 1732293009.60633 2
+  "/Users/enrico/PROTEINS/tesi/ciao.tex" 1732293000.24435 86549 869ad2f39c87c48a0bcae1bf9d07ecc6 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1202520719 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1202520719 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -227,10 +227,10 @@
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1726408977 3326102 fc5fbfcdbe0aa1dd5bd307e530fc51ef ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
   "allostericity_dynamics.png" 0 -1 0 ""
-  "ciao.aux" 1732208200.50035 15682 c614c0d9bfd276196c7e2bbe3f392f8f "pdflatex"
-  "ciao.out" 1732208200.50179 10746 6819b0ddc4a032f60234850dedd2c4da "pdflatex"
-  "ciao.tex" 1732208197.06896 81382 866a4ccb9e7625a69d3d54680fd162d4 ""
-  "ciao.toc" 1732208200.50206 6676 a212a6a20ab04b01d30739a2810b8bca "pdflatex"
+  "ciao.aux" 1732293009.36738 16462 58296d2f987578773ff7cdce15a11f10 "pdflatex"
+  "ciao.out" 1732293009.3691 11748 5130b2d26891b2a12efe0b2b32c50f2e "pdflatex"
+  "ciao.tex" 1732293000.24435 86549 869ad2f39c87c48a0bcae1bf9d07ecc6 ""
+  "ciao.toc" 1732293009.36936 7211 c88493d56e74cb7f0015ceb1c07d0a9d "pdflatex"
   "images/2m0zConfronto tra Fattori B Reali e Predetti.png" 1727597691.08301 101162 dd5379ee09c5badffc8e8f28a815be65 ""
   "images/2m0zMultiple_time_resposne.png" 1727597691.08624 44217 7e216f237794083076874cefc40eea03 ""
   "images/2m0zResidual Correlation C_ij for i=22 as a function of j at time index 0.png" 1727597691.08945 80468 a4b7f78e35b8ca5fbffb5ed345602e82 ""

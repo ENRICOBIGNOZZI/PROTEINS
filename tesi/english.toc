@@ -1,0 +1,34 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{Indice}{2}{chapter*.1}%
+\contentsline {chapter}{Indice}{2}{chapter*.1}%
+\contentsline {chapter}{Introduction}{7}{chapter*.3}%
+\contentsline {section}{\numberline {0.1}Structure of Amino Acids}{7}{section.0.1}%
+\contentsline {section}{Introduction}{7}{section.0.1}%
+\contentsline {subsection}{\numberline {0.1.1}Formation of Proteins}{8}{subsection.0.1.1}%
+\contentsline {subsection}{\numberline {0.1.2}Significance of Amino Acids in Proteins}{8}{subsection.0.1.2}%
+\contentsline {section}{\numberline {0.2}Protein structure}{9}{section.0.2}%
+\contentsline {subsection}{\numberline {0.2.1}Primary Structure}{9}{subsection.0.2.1}%
+\contentsline {subsection}{\numberline {0.2.2}Secondary Structure}{9}{subsection.0.2.2}%
+\contentsline {subsection}{\numberline {0.2.3}Tertiary Structure}{9}{subsection.0.2.3}%
+\contentsline {subsection}{\numberline {0.2.4}Quaternary Structure}{9}{subsection.0.2.4}%
+\contentsline {section}{\numberline {0.3}Allostericity}{10}{section.0.3}%
+\contentsline {section}{\numberline {0.4}Example of Allostericity in Hemoglobin and Red Blood Cells for Oxygen Transport}{11}{section.0.4}%
+\contentsline {subsection}{\numberline {0.4.1}Mechanism of Allostericity in Hemoglobin}{11}{subsection.0.4.1}%
+\contentsline {subsection}{\numberline {0.4.2}Practical Applications of Understanding Allostericity}{12}{subsection.0.4.2}%
+\contentsline {subsection}{\numberline {0.4.3}Summary of Potential Applications}{12}{subsection.0.4.3}%
+\contentsline {chapter}{\numberline {1}PDZ Domain}{13}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Modelization of the Interaction between Amino Acids: GNM}{15}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Interpretion of the Taylor Expansion: The Gaussian Network Model}{16}{section.2.1}%
+\contentsline {subsubsection}{Definition of a Graph}{16}{section*.12}%
+\contentsline {subsubsection}{Kirchhoff Matrix (Laplacian Matrix)}{17}{section*.14}%
+\contentsline {subsubsection}{Properties of the Degree Matrix}{17}{section*.15}%
+\contentsline {subsubsection}{Properties of the Adjacency Matrix}{18}{section*.16}%
+\contentsline {subsubsection}{Mathematical Properties of the Network}{18}{section*.17}%
+\contentsline {subsubsection}{Inverse of Weighted Laplacian (Pseudo-Inverse)}{18}{section*.18}%
+\contentsline {subsection}{\numberline {2.1.1}Gaussian Network Model (GNM)}{19}{subsection.2.1.1}%
+\contentsline {subsubsection}{Mean Position}{19}{section*.19}%
+\contentsline {subsubsection}{Covariance}{20}{section*.20}%
+\contentsline {section}{\numberline {2.2}Understanding and Causality of allosteric mechanisms in proteins}{24}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Rensponse Function}{26}{subsection.2.2.1}%
+\contentsline {chapter}{\numberline {3}Stochastic process}{30}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Conclusions}{34}{chapter.4}%

@@ -102,7 +102,7 @@
 %\versiondate{\today}
 \begin{document}
 \maketitle
-\tableofcontents\addcontentsline{toc}{chapter}{Indice}
+\tableofcontents
 \addcontentsline{toc}{chapter}{Indice}
 \tableofcontents
 
@@ -135,12 +135,12 @@
 \chapter*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
 \noindent
-Proteins are the constituents of life and the foundation of the functionality of living organisms . \cite{ref}
-They are constituted by a sequence of amino acids, a set of atoms, that fold into a three-dimensional structure that determines their function. 
+Proteins are essential components of life and key to the functionality of living organisms. \cite{ref}
+They are composed of a sequence of amino acids, a chain of amino acids, that fold into a three-dimensional structure that determines their function. 
 The study of proteins is crucial for understanding the molecular basis of life and for the development of new drugs.
 The determination of the three-dimensional structure of a protein is a fundamental step in the study of its function.
 
-Among the main functions of proteins are:
+Among the main functions of proteins are:\cite{ref}
 \begin{itemize}
     \item \textbf{Enzymatic catalysis}: Enzymatic proteins accelerate chemical reactions by reducing activation energy and regulating cellular metabolic processes.
     \item \textbf{Structural roles}: Some proteins, such as collagen or keratin, provide mechanical support and structural integrity to tissues.
@@ -151,11 +151,9 @@ Our goal is to study the interactions between the amino acids that compose the p
 in order to understand how they fold into a functional structure.
 
 
-
-
 \section{Structure of Amino Acids}
 \addcontentsline{toc}{section}{Introduction}
-Each amino acid consists of a central carbon atom (\(\alpha\)-carbon) bonded to four groups:
+Each amino acid consists of a central carbon atom (\(\alpha\)-carbon) bonded to four groups:\cite{ref2}
 \begin{itemize}
     \item \textbf{Amino Group (\(-NH_2\))}: A basic functional group.
     \item \textbf{Carboxyl Group (\(-COOH\))}: An acidic functional group.
@@ -166,7 +164,7 @@ Each amino acid consists of a central carbon atom (\(\alpha\)-carbon) bonded to 
 The \(R\)-group, or side chain, determines the chemical properties of the amino acid, such as whether it is hydrophilic, hydrophobic, acidic, or basic.
 
 \subsection{Formation of Proteins}
-Proteins are formed through a process called polymerization, where amino acids are linked together by peptide bonds. This process involves a condensation reaction, where the carboxyl group of one amino acid reacts with the amino group of another, releasing a molecule of water.
+Proteins are formed through a process called polymerization, where amino acids are linked together by peptide bonds. This process involves a condensation reaction, where the carboxyl group of one amino acid reacts with the amino group of another, releasing a molecule of water.\cite{ref3}
 
 \begin{itemize}
     \item \textbf{Primary Structure}: The linear sequence of amino acids, held together by peptide bonds.
@@ -183,14 +181,14 @@ Understanding how amino acids combine and fold into functional proteins is essen
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{"/Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/71225d815cafcc09102504abdf4e10927283be98.png"}
-    \caption{Seocndaria}
+    \caption{Secondary strucutre}
 \end{figure}
 
 
 
 \section{Protein structure}
 The scructure of the protein is important because it determines its function. 
-The structure of a protein is divided into four levels:
+The structure of a protein is divided into four levels:\cite{ref4}
 \subsection{Primary Structure}
 The primary structure refers to the linear sequence of amino acids in a protein chain, held together by peptide bonds. This sequence is unique for each protein and dictates the higher levels of structure.
 
@@ -212,13 +210,15 @@ This structure are due to the interactions between the amino acids that compose 
 Following we will see our model for the interaction between the amino acids.
 
 \section{Allostericity}
-Allostericity is the phenomen of the change of the protein structure by the trasmission of a signal from one site to another.
+Allostericity is the phenomenon of the change of the protein structure by the trasmission of a signal from one site to another.
 This avoid the protein to do various tasks in a regulated way.
-Allostericity, from the Greek \textit{allos} (other) and \textit{stereos} (structure), refers to a phenomenon in which the interaction of a molecule (effector) with a specific site of a protein, known as the allosteric site, induces a conformational change that influences the functional activity of another site, usually the active site. This process does not occur through direct interactions between the two sites but rather via changes in the network of intramolecular interactions that regulate the structure and dynamics of the protein.
+Allostericity, from the Greek \textit{allos} (other) and \textit{stereos} (structure), refers to a phenomenon in which the interaction of a molecule (effector) with a specific site of a protein, known as the allosteric site, induces a conformational change that influences the functional activity of another site, usually the active site. \cite{ref5}
+This process does not occur through direct interactions between the two sites but rather via changes in the network of intramolecular interactions that regulate the structure and dynamics of the protein.
 
-From a thermodynamic perspective, allostericity can be described as a modulation of the distribution of a protein's energy microstates. In other words, the interaction with an allosteric effector alters the set of available conformational states, facilitating or inhibiting access to functional configurations.
+From a thermodynamic perspective, allostericity can be described as a modulation of the distribution of a protein's energy microstates. 
+In other words, the interaction with an allosteric effector alters the set of available conformational states, facilitating or inhibiting access to functional configurations.\cite{ref6}
 
-Mathematically, the phenomenon can be represented as a variation in the population of microstates \(\{s_i\}\), described by a weighted Boltzmann distribution:
+Mathematically, the phenomenon can be represented as a variation in the population of microstates \(\{s_i\}\), described by a weighted Boltzmann distribution:\cite{ref6}
 
 \[
 P(s_i) = \frac{e^{-\Delta F(s_i)/k_BT}}{\sum_j e^{-\Delta F(s_j)/k_BT}}
@@ -226,7 +226,7 @@ P(s_i) = \frac{e^{-\Delta F(s_i)/k_BT}}{\sum_j e^{-\Delta F(s_j)/k_BT}}
 
 where \(\Delta F(s_i)\) represents the free energy associated with microstate \(s_i\), \(k_B\) is the Boltzmann constant, and \(T\) is the absolute temperature.
 
-The allosteric effect can also be quantified by considering the change in free energy associated with the effector interaction. For a protein with two principal states, \(R\) (relaxed) and \(T\) (tense), the allosteric equilibrium can be expressed in terms of an equilibrium constant:
+The allosteric effect can also be quantified by considering the change in free energy associated with the effector interaction. For a protein with two principal states, \(R\) (relaxed) and \(T\) (tense), the allosteric equilibrium can be expressed in terms of an equilibrium constant:\cite{ref6}
 
 \[
 L = \frac{[T]}{[R]}
@@ -238,7 +238,7 @@ where \([T]\) and \([R]\) represent the relative concentrations of the two confo
 
 Proteins are not rigid structures; instead, they are ensembles of conformational states that fluctuate over temporal and spatial scales. Allosteric effectors influence this dynamic network, remodeling energy pathways and connecting various functional states. Proteins can be represented as an ensemble of conformational states \(\{C_i\}\), where \(i\) denotes a specific conformational state. The distribution of populations across states is described by a partition function \(Z = \sum_i e^{-\beta E_i}\), where \(E_i\) is the energy associated with state \(C_i\) and \(\beta = \frac{1}{k_B T}\) is the thermodynamic factor.
 
-An allosteric effector can be represented as a perturbation that modifies the energy landscape of the conformational states \(\{E_i\}\), remodeling energy pathways and altering the probability \(P_i\) of each state, where:
+An allosteric effector can be represented as a perturbation that modifies the energy landscape of the conformational states \(\{E_i\}\), remodeling energy pathways and altering the probability \(P_i\) of each state, where:\cite{ref6}
 
 \[
 P_i = \frac{e^{-\beta E_i}}{Z}, \quad \text{with } Z = \sum_i e^{-\beta E_i}.
@@ -260,7 +260,7 @@ To study it we need to understand the causal mechanism and the propagation of th
 Hemoglobin, the oxygen-transporting protein within red blood cells, is a classic example of an allosteric protein. Its function is to bind oxygen in the lungs and release it efficiently in tissues where oxygen is needed. This process is regulated by its allosteric properties, which involve conformational changes and cooperative binding.
 
 \subsection{Mechanism of Allostericity in Hemoglobin}
-Hemoglobin exists in two main states:
+Hemoglobin exists in two main states:\cite{ref7}
 \begin{itemize}
     \item \textbf{T-state (Tense):} This state has a lower affinity for oxygen and is stabilized in tissues where oxygen levels are low.
     \item \textbf{R-state (Relaxed):} This state has a higher affinity for oxygen and is stabilized in the oxygen-rich environment of the lungs.
@@ -1357,6 +1357,12 @@ The dynamic interplay between the beta sheet and the helix is quantitatively evi
 \newpage
 
 \begin{thebibliography}{10}
-\bibitem{ref} NASA, \emph{"Dark Energy, Dark Matter"}.
+\bibitem{ref} \url{https://www.sciencelearn.org.nz/resources/209-role-of-proteins-in-the-body}
+\bibitem{ref2} University_of_California_Davis, Introductory_Biology \url{https://bio.libretexts.org/Courses/University_of_California_Davis/BIS_2A%3A_Introductory_Biology_%28Easlon%29/Readings/04.3%3A_Amino_Acids}
+\bibitem{ref3} University_of_California_Davis, Introductory_Biology \url{https://bio.libretexts.org/Courses/University_of_California_Davis/BIS_2A%3A_Introductory_Biology_%28Britt%29/01%3A_Readings/1.17%3A_Protein_Structure}
+\bibitem{ref4} Nature, \url{https://www.nature.com/scitable/topicpage/protein-structure-14122136/}
+\bibitem{ref5} Wikipedia, \url{https://en.wikipedia.org/wiki/Allosteric_regulation?utm_source=chatgpt.com}
+\bibitem{ref6} Statistical Mechanics of Allosteric Enzymes
+\bibitem{ref7} University_of_California_Davis, Introductory_Biology,  Hemoglobin and allosteric effects
 \end{thebibliography}
 \end{document}

@@ -1,6 +1,5 @@
 \babel@toc {english}{}\relax 
 \contentsline {chapter}{Indice}{2}{chapter*.1}%
-\contentsline {chapter}{Indice}{2}{chapter*.1}%
 \contentsline {chapter}{Introduction}{7}{chapter*.3}%
 \contentsline {section}{\numberline {0.1}Structure of Amino Acids}{7}{section.0.1}%
 \contentsline {section}{Introduction}{7}{section.0.1}%

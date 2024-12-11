@@ -29,10 +29,13 @@ df = df.loc[:,~df.T.duplicated()]
 df = concatenated_df.dropna().reset_index(drop=True)
 df = df.T.drop_duplicates().T
 visualizer = Visualize(df)
+print(df)
 
 #raggio=visualizer.calculate_and_print_average_distance()
-G = visualizer.create_and_print_graph(truncated=True, radius=raggio, plot=False, peso=20)  # Adjust radius as needed
+G = visualizer.create_and_print_graph(truncated=True, radius=raggio, plot=True, peso=20)  # Adjust radius as needed
+visualizer.plot_connections_vs_radius()
 analyzer = GraphMatrixAnalyzer(G)
+
 concatenated_df = pd.concat([df1['Secondary Structure'], df], axis=1)
 
 pseudo_inverse = analyzer.get_pseudo_inverse()

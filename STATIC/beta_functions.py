@@ -30,7 +30,13 @@ def compare_b_factors(actual_b_factors, predicted_b_factors,name):
 
     # Calcola la deviazione quadratica media (RMSD)
     rmsd = np.sqrt(np.mean((actual_b_factors - predicted_b_factors_scaled)**2))
+    from sklearn.metrics import mean_absolute_error, r2_score
 
+    # Calcola il MAE
+    mae = mean_absolute_error(actual_b_factors, predicted_b_factors_scaled)
+
+    # Calcola R^2
+    r2 = r2_score(actual_b_factors, predicted_b_factors_scaled)
     # Crea il plot
     fig, ax = plt.subplots(figsize=(12, 6))
 
@@ -60,6 +66,8 @@ def compare_b_factors(actual_b_factors, predicted_b_factors,name):
 
     print(f"Coefficiente di correlazione tra fattori B reali e predetti: {correlation:.4f}")
     print(f"Deviazione Quadratica Media (RMSD): {rmsd:.4f}")
+    print(f"MAE: {mae:.4f}")
+    print(f"R²: {r2:.4f}")
 
     return correlation, rmsd
 
@@ -74,6 +82,13 @@ def compare_b_factors_with_sec_structure(actual_b_factors, predicted_b_factors, 
 
     # Calcola la deviazione quadratica media (RMSD)
     rmsd = np.sqrt(np.mean((actual_b_factors - predicted_b_factors_scaled)**2))
+    from sklearn.metrics import mean_absolute_error, r2_score
+
+    # Calcola il MAE
+    mae = mean_absolute_error(actual_b_factors, predicted_b_factors_scaled)
+
+    # Calcola R^2
+    r2 = r2_score(actual_b_factors, predicted_b_factors_scaled)
 
     # Crea il plot
     fig, ax = plt.subplots(figsize=(12, 6))
@@ -146,6 +161,8 @@ def compare_b_factors_with_sec_structure(actual_b_factors, predicted_b_factors, 
 
     print(f"Coefficiente di correlazione tra fattori B reali e predetti: {correlation:.4f}")
     print(f"Deviazione Quadratica Media (RMSD): {rmsd:.4f}")
+    print(f"MAE: {mae:.4f}")
+    print(f"R²: {r2:.4f}")
 
     return correlation, rmsd
 

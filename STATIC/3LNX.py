@@ -10,7 +10,7 @@ from scipy.optimize import curve_fit
 import matplotlib.lines as mlines
 from beta_functions import analyze_b_factors
 from secondary_structure import analyze_secondary_structure_transfer_entropy
-from multiple_time_response import plot_time_response_multiple
+from multiple_time_response import plot_time_response_multiple, plot_time_correlation_multiple, plot_time_entropy_multiple
 raggio=8.0
 # Initialize PDBProcessor
 stringa="3LNX"
@@ -32,8 +32,8 @@ visualizer = Visualize(df)
 print(df)
 
 #raggio=visualizer.calculate_and_print_average_distance()
-G = visualizer.create_and_print_graph(truncated=True, radius=raggio, plot=True, peso=20)  # Adjust radius as needed
-visualizer.plot_connections_vs_radius()
+G = visualizer.create_and_print_graph(truncated=True, radius=raggio, plot=False, peso=20)  # Adjust radius as needed
+#visualizer.plot_connections_vs_radius()
 analyzer = GraphMatrixAnalyzer(G)
 
 concatenated_df = pd.concat([df1['Secondary Structure'], df], axis=1)
@@ -125,6 +125,8 @@ te_matrix, segments = analyze_secondary_structure_transfer_entropy(stringa, ragg
 residue_pairs = [(20, 24),(20, 30), (20, 60), (20, 75),(20,72),(24,72),(14,44)]
 t = np.linspace(0., 2, 300) 
 plot_time_response_multiple(time_response, residue_pairs, t, 'Time Response for Selected Residue Pairs',name=stringa)
+plot_time_correlation_multiple(time_correlation, residue_pairs, t, 'Time Correlation for Selected Residue Pairs',name=stringa)
+plot_time_entropy_multiple(transfer_entropy, residue_pairs, t, 'Time Transfer entropy TE_{i,j} for Selected Residue Pairs',name=stringa)
 
 
 residual_analysis.analyze_mfpt(adjacency_matrix,kirchhoff_matrix, secondary_structure )

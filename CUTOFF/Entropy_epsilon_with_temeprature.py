@@ -110,7 +110,7 @@ def main_plot(df, kirchhoff_matrix, contatti, t, s, time_idx, nome, lista):
 
     # Salvataggio del grafico
     plt.tight_layout()
-    plt.savefig(f'images/{nome}/2_temperature_cutoff/combined_entropy_temperature_plots.png')
+    plt.savefig(f'images/{nome}/2_temperature_cutoff/combined_entropy_temperature_20_plots.png')
     plt.show()
 
 def transfer_entropy(C,C_statica, i, j):
@@ -252,6 +252,6 @@ t=[tau_mean]
 s=[0,0,0]
 time_idx = 0
 
-lista = np.array([23])
+lista = np.array([75])
 main_plot(df, kirchhoff_matrix, contatti, t, s, time_idx, stringa,lista)
 

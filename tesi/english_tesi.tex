@@ -31,6 +31,8 @@
 \usepackage[makeroom]{cancel}
 \usepackage{verbatim}
 \usepackage{ gensymb }
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning}
 \usepackage{ longtable }
 \usepackage{geometry}
 \usepackage{eucal}
@@ -135,7 +137,7 @@
 
 
 
-\chapter*{Introduction}
+\chapter{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
 \noindent
 Proteins are essential components of life and key to the functionality of living organisms. \cite{ref} \\
@@ -286,7 +288,7 @@ Domains are essential because they serve as modular units that recur and combine
 Proteins often consist of multiple domains arranged in various combinations, creating multifunctional macromolecules capable of complex interactions. This domain architecture is essential for processes such as cell signaling, immune response, and metabolic regulation.\\
 Moreover domains are not just structural units; they are also functional hubs that dictate the interactions and roles of proteins in cellular environments. \cite{ref8}
 
-\subsection*{Definition of Domain}
+\subsection{Definition of Domain}
 \noindent A protein domain is generally defined by three key characteristics:\cite{ref8}
 \begin{enumerate}
     \item \textbf{A structurally independent unit}: It is a portion of the protein that can fold into a stable three-dimensional structure on its own. This stability ensures that the domain can function even if other parts of the protein are absent or denatured. \\
@@ -298,7 +300,7 @@ Moreover domains are not just structural units; they are also functional hubs th
 
 Domains are classified based on their structure, sequence, or function, with databases such as Pfam and SMART cataloging thousands of examples.\cite{pfam} These resources are invaluable for researchers aiming to predict protein function, identify evolutionary relationships, and design novel biomolecules with tailored functionalities. Structural studies and computational analyses continue to expand our understanding of domain architectures, revealing the intricate interplay between form and function in proteins.
 
-\subsection*{The PDZ Domain}
+\subsection{The PDZ Domain}
 \noindent The \textbf{PDZ domain} is a well-studied example of a protein domain. It is named after the three proteins in which it was first identified:\cite{ref8}
 \begin{itemize}
     \item \textbf{P}SD-95 (Postsynaptic density protein 95),
@@ -306,7 +308,7 @@ Domains are classified based on their structure, sequence, or function, with dat
     \item \textbf{Z}O-1 (Zona Occludens 1).
 \end{itemize}
 The PDZ domain exemplifies the modularity of protein domains, as it appears in a wide variety of proteins across eukaryotes, highlighting its evolutionary significance. PDZ domains organize and stabilize large multiprotein complexes. This prevalence underscores their critical role in maintaining cellular architecture and facilitating biochemical signaling pathways.
-\subsubsection*{Characteristics of the PDZ Domain}
+\subsubsection{Characteristics of the PDZ Domain}
 \begin{itemize}
     \item \textbf{Length}: Typically consists of 80--90 amino acids, making it a compact and efficient structural module. Despite its small size, the PDZ domain has remarkable functional versatility, binding to a diverse array of target peptides with high specificity.
     \item \textbf{Main Function}: Facilitates protein-protein interactions by recognizing specific peptide sequences, often located at the C-terminal region of target proteins. This ability to bind peptides with high specificity and affinity makes PDZ domains essential for organizing protein complexes. Such specificity arises from the conserved binding groove, which accommodates peptide motifs in a lock-and-key fashion.\cite{song1997}
@@ -318,7 +320,7 @@ The PDZ domain exemplifies the modularity of protein domains, as it appears in a
     \item \textbf{Structure}: The PDZ domain has a characteristic structure composed of an antiparallel beta-sheet and two alpha-helices. This conserved fold forms a groove that interacts with the target peptide, contributing to its specificity. The structural plasticity of PDZ domains allows them to adapt to various ligands, enhancing their functional diversity.\cite{harris2001}
 \end{itemize}
 
-\subsection*{The PDZ Domain in the 3LNX Protein}
+\subsection{The PDZ Domain in the 3LNX Protein}
 
 \noindent The 3LNX protein, on which we will work, provides a clear example of how a PDZ domain binds to a target peptide. This structure offers important insights into the functioning of these domains:
 
@@ -558,8 +560,8 @@ where \((\mathbf{K}^{-1})_{ij}\) represents the \((i,j)\)-th element of \(\mathb
 
 
 
-\subsection*{QUESTA PARTE IN CUI METTO LA DERIVAZIOEN DEI BETA FACTORS LA METTO? Referenza materia condensata sapienza}
-\subsection*{Derivation of diffraction intensity with atomic vibrations}
+\subsection{QUESTA PARTE IN CUI METTO LA DERIVAZIOEN DEI BETA FACTORS LA METTO? Referenza materia condensata sapienza}
+\subsection{Derivation of diffraction intensity with atomic vibrations}
 \noindent The diffraction intensity in crystallography is influenced by the atomic vibrations around their mean positions. These vibrations are characterized by the mean squared displacement, denoted as $\langle u^2 \rangle$. To derive the expression for intensity, we start with the electron density modulated by atomic displacement.
 
 Let the position of an atom be $\mathbf{r}$, with its displacement modeled as a Gaussian distribution around its mean position $\mathbf{r_0}$. The thermal motion leads to a modification of the scattering factor:
@@ -600,7 +602,7 @@ The factor $B = 8\pi^2 \langle u^2 \rangle$ emerges naturally, leading to:
 I(\mathbf{q}) \propto |F(\mathbf{q})|^2 e^{-B |\mathbf{q}|^2}.
 \]
 
-\subsection*{Evaluation of beta factors and model quality}
+\subsection{Evaluation of beta factors and model quality}
 \noindent In crystallography, the Beta factors (\(B\)) are an important metric to assess the quality of a structural model. The value of \(B\) is given by:
 \begin{equation}
     B = 8\pi^2 \langle u^2 \rangle = 8\pi^2 \frac{k_B T}{k_{\text{eff}}} \label{Kirchhoff}
@@ -615,30 +617,30 @@ Where:
 \end{itemize}
 
 
-\subsection*{Importance of the beta factor as a metric of model accuracy}
+\subsection{Importance of the beta factor as a metric of model accuracy}
 \noindent The beta factor ($B$) is a crucial metric in crystallographic modeling for several reasons:
 
-\subsubsection*{1. Representation of atomic dynamics}
+\subsubsection{1. Representation of atomic dynamics}
 The beta factor reflects the thermal vibrations and dynamic behavior of atoms within the crystal. High $B$ values indicate greater atomic mobility or disorder, while low $B$ values suggest rigidity.
 
-\subsubsection*{2. Assessment of structural flexibility}
+\subsubsection{2. Assessment of structural flexibility}
 Regions with elevated beta factors often correspond to flexible or disordered parts of the molecule, such as loops, termini, or unstructured regions. These provide insights into the functional dynamics of the macromolecule.
 
-\subsubsection*{3. Indicator of model quality}
+\subsubsection{3. Indicator of model quality}
 Unrealistically high or low beta factors across the structure can indicate modeling errors or issues with data quality, such as:
 \begin{itemize}
     \item Poor resolution of the diffraction data.
     \item Incorrect assignment of atomic positions.
     \item Misrepresentation of isotropic vs. anisotropic motion.
 \end{itemize}
-\subsubsection*{4. Validation of refinement}
+\subsubsection{4. Validation of refinement}
 \noindent During model refinement, the beta factors are optimized to fit the experimental data. If the refinement process yields consistent and reasonable beta factors, it supports the accuracy of the atomic model.
 \newpage
 
 
-\section*{Model Evaluation: RMSE and MAE    {QUESTA IDEM NON SO SE METTERLA O NO. SCELGO IN FUNZIONE SE METTO QUESTE METRICHE DI ERRORE NELLA TESI DOPO}
+\section{Model Evaluation: RMSE and MAE    {QUESTA IDEM NON SO SE METTERLA O NO. SCELGO IN FUNZIONE SE METTO QUESTE METRICHE DI ERRORE NELLA TESI DOPO}
 }\label{sec:Evaluation}
-\subsection*{RMSE: Root Mean Square Error}
+\subsection{RMSE: Root Mean Square Error}
 \noindent The formula for RMSE is:
 \[
 \text{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^n (y_i - \hat{y}_i)^2}
@@ -649,7 +651,7 @@ Where:
     \item \(\hat{y}_i\): predicted values,
     \item \(n\): total number of data points.
 \end{itemize}
-\subsection*{MAE: Mean Absolute Error}
+\subsection{MAE: Mean Absolute Error}
 \noindent The formula for MAE is:
 \[
 \text{MAE} = \frac{1}{n} \sum_{i=1}^n |y_i - \hat{y}_i|
@@ -686,21 +688,21 @@ where \( f \) describes how \( A \) and other factors jointly determine \( B \).
 
 Experimentally, causality is typically established through controlled interventions and the observation of resulting changes.
 \newpage
-\section*{Deterministic and Stochastic Causality}
+\section{Deterministic and Stochastic Causality}
 
 \noindent Causality can be classified into two main types: deterministic and stochastic.
 
-\subsection*{Deterministic Causality}
+\subsection{Deterministic Causality}
 
 \noindent Deterministic causality implies that a specific cause invariably leads to a specific effect. If an event \( A \) causes an event \( B \), then \( B \) always occurs whenever \( A \) occurs. This relationship can be expressed as \( A \implies B \), meaning \( A \) is both necessary and sufficient for \( B \). Deterministic causality is observed in systems governed by precise physical laws, such as classical mechanics, where given initial conditions and forces, trajectories are entirely predictable.
 
-\subsection*{Stochastic Causality}
+\subsection{Stochastic Causality}
 
 \noindent Stochastic causality acknowledges that many causal relationships are probabilistic rather than absolute. Here, the occurrence of \( A \) increases the likelihood of \( B \), but \( B \) does not always follow \( A \). This is expressed probabilistically as \( P(B|A) > P(B|\neg A) \), indicating that \( A \) raises the probability of \( B \). Stochastic causality is prevalent in complex systems like biology or social sciences, where multiple interacting factors and inherent randomness influence outcomes. For example, smoking increases the probability of lung cancer, though not all smokers develop the disease.
 
 Both deterministic and stochastic causality are critical for understanding natural phenomena. Deterministic causality offers precise predictive power, while stochastic causality is indispensable for modeling systems where randomness and variability play significant roles. Together, they provide a comprehensive framework for analyzing causal relationships.
 \newpage
-\section*{Geometric Perspective of Causality and Shannon Entropy (questa è la parte piu' da togliere fra tutte probabilmente)}
+\section{Geometric Perspective of Causality and Shannon Entropy (questa è la parte piu' da togliere fra tutte probabilmente)}
 
 \noindent When all dimensions or variables of a system are fully known, uncertainty about future states vanishes, transitioning the system into a deterministic regime. This idea relates to Shannon entropy, defined as:
 \[
@@ -714,7 +716,7 @@ Thus, while \( H(X) = 0 \) theoretically implies determinism, real-world complex
 
 To understand the causality of allosteric mechanisms in proteins, it is crucial to investigate the physical interactions and pathways that transmit signals between distant sites. For this reason, additional indicators are needed.
 \newpage
-\section*{Correlation}
+\section{Correlation}
 \subsection{Correlation Between Fluctuations}
 \noindent
 The correlation between two variables, such as the fluctuations in the positions of particles \( i \) and \( j \), provides insight into how these components of the system interact.\\
@@ -731,7 +733,7 @@ where:
 
 The correlation \( C_{ij} \) quantifies the degree to which the positions of particles \( i \) and \( j \) are linearly related at equilibrium.
 
-\subsection*{Physical Interpretation of Correlations}
+\subsection{Physical Interpretation of Correlations}
 
 \noindent The correlation \( C_{ij} \) reflects how strongly two particles are connected in the system:
 \begin{itemize}
@@ -740,7 +742,7 @@ The correlation \( C_{ij} \) quantifies the degree to which the positions of par
     \item \textbf{Zero correlation:} A correlation of \( C_{ij} = 0 \) indicates no linear relationship between the fluctuations, suggesting either independence or non-linear interactions.
 \end{itemize}
 
-\subsection*{Why Correlation Alone is Not Causation}
+\subsection{Why Correlation Alone is Not Causation}
 
 \noindent While correlations reveal interactions, they do not establish a causal relationship. The limitations include:
 \begin{itemize}
@@ -749,7 +751,7 @@ The correlation \( C_{ij} \) quantifies the degree to which the positions of par
     \item \textbf{Indirect interactions:} Correlation can reflect indirect interactions mediated by other components of the system, rather than a direct causal pathway.
 \end{itemize}
 
-\subsection*{Using Correlations to Infer Interaction Networks}
+\subsection{Using Correlations to Infer Interaction Networks}
 
 \noindent Despite its limitations, correlation is a powerful tool for mapping interaction networks in complex systems. For example:
 \begin{itemize}
@@ -772,7 +774,7 @@ where:
     \item $\langle \mathbf{r}_i \rangle$ is the average position of particle $i$.
 \end{itemize}
 
-\subsection*{Derivation and Relation to Correlations}
+\subsection{Derivation and Relation to Correlations}
 
 \noindent To derive the connection between the response and the correlations of position fluctuations, consider the Hamiltonian of the system under a small external perturbation:
 \begin{equation}
@@ -809,11 +811,11 @@ R_{ij} = \frac{\partial \langle \mathbf{r}_i \rangle}{\partial f_j} = \beta \lan
 
 \noindent This result shows that the response $R_{ij}$ is directly proportional to the equilibrium correlation between the fluctuations of the positions of particles $i$ and $j$, a manifestation of the fluctuation-dissipation theorem.
 
-\subsection*{Physical Interpretation}
+\subsection{Physical Interpretation}
 
 \noindent This result states that the linear response of the system to a perturbation is proportional to the thermal correlation between the fluctuations of the particles' positions. It reflects the connection between the equilibrium properties of the system and its dynamic response.
 
-\subsection*{Why is Linear Response an Indicator of Causality?}
+\subsection{Why is Linear Response an Indicator of Causality?}
 
 The linear response \(R_{ij}\) can be interpreted as an indicator of causality because it measures the direct influence of a change in parameter \(j\) (e.g., an external force) on variable \(i\) (e.g., position, velocity, or another observable). This connection arises for the following reasons:
 
@@ -825,9 +827,9 @@ The linear response \(R_{ij}\) can be interpreted as an indicator of causality b
 
 In summary, the linear response is a quantitative framework to understand how perturbations propagate through a system, reflecting causal influences between different components.
 \newpage
-\section*{Transfer Entropy: Formula, Proof, and Causality}
+\section{Transfer Entropy: Formula, Proof, and Causality}
 
-\subsection*{Definition of Transfer Entropy}
+\subsection{Definition of Transfer Entropy}
 \noindent The Transfer Entropy (TE) measures the directional flow of information from a source variable \(x_j\) to a target variable \(x_i\).\\
 It quantifies how much the knowledge of past states of \(x_j\) improves the prediction of future states of \(x_i\), beyond what is already provided by the past states of \(x_i\) itself. \\
 The TE is defined as:\cite{ref13}
@@ -843,7 +845,7 @@ Where:
     \item \(x_i(\tau), x_j(\tau)\): States of \(x_i\) and \(x_j\) at time \(\tau\).
 \end{itemize}
 
-\subsection*{Transfer Entropy for Gaussian Systems}
+\subsection{Transfer Entropy for Gaussian Systems}
 
 \noindent Transfer Entropy (TE) is a powerful measure of directed information transfer between stochastic processes. For stationary Gaussian processes, TE can be computed analytically using the covariance matrices of the processes involved. The TE from \(x_j\) to \(x_i\) at a time lag \(t\) is given by:\cite{ref13}
 
@@ -868,7 +870,7 @@ Here:
     \item \(C_{ij}(t)\) is the time-lagged cross-correlation between \(x_i\) and \(x_j\),
     \item \(C_{ii}(0)\) and \(C_{jj}(0)\) are the variances of \(x_i\) and \(x_j\), respectively.
 \end{itemize}
-\subsection*{Proof Sketch for Gaussian TE}
+\subsection{Proof Sketch for Gaussian TE}
 
 The derivation of Transfer Entropy (TE) for Gaussian systems leverages the fact that the entropy of a multivariate Gaussian distribution depends only on the determinant of its covariance matrix.\\
 This section provides a step-by-step explanation of the derivation for \( TE_{j \to i}(t) \).\cite{ref13}
@@ -982,7 +984,7 @@ The final expression reveals how the directed information transfer from \(x_j\) 
 
 This formula captures the influence of \(x_j\) on \(x_i\) while accounting for their shared history, providing a rigorous measure of causality.
 
-\subsection*{Causality and Transfer Entropy}
+\subsection{Causality and Transfer Entropy}
 
 \noindent Transfer Entropy is widely regarded as an indicator of causality because it quantifies directed information flow between variables. The key reasons include:
 
@@ -992,7 +994,7 @@ This formula captures the influence of \(x_j\) on \(x_i\) while accounting for t
     \item \textbf{Beyond correlation:} While correlation measures symmetric associations, TE captures the dynamic influence of \(x_j\) on \(x_i\), conditioned on their past states. This conditioning eliminates spurious correlations arising from common drivers or indirect interactions.
 \end{itemize}
 
-\subsection*{Relation to Correlation and Response Functions}
+\subsection{Relation to Correlation and Response Functions}
 
 \noindent The relationship between Transfer Entropy, correlation, and response functions highlights their complementary roles in understanding causality:
 \begin{itemize}
@@ -1003,7 +1005,7 @@ This formula captures the influence of \(x_j\) on \(x_i\) while accounting for t
 
 By combining these tools, one can construct a comprehensive picture of causality in complex systems, where TE provides a probabilistic and directional perspective, correlation identifies initial associations, and response functions reveal the underlying mechanisms.
 
-\subsection*{Comparison with Correlation}
+\subsection{Comparison with Correlation}
 \begin{itemize}
     \item \textbf{Symmetry:} Correlation is symmetric (\(C_{ij} = C_{ji}\)), whereas TE is directional.
     \item \textbf{Causal inference:} Correlation measures only association, which can be spurious. TE identifies directed influences and distinguishes cause from effect.
@@ -1022,7 +1024,7 @@ By combining these tools, one can construct a comprehensive picture of causality
 
 
 
-\chapter{Stochastic Processes}
+\chapter{Stochastic Processes}  \label{chap:stochastic_processes}
 A stochastic process is a mathematical framework used to describe systems that evolve over time in a probabilistic manner.\\
 By definition, a stochastic process associates a set of random variables \( \{X_t\}_{t \geq 0} \) to time \( t \), where each random variable \( X_t \) represents the state of the system at a specific time point. 
 
@@ -1030,7 +1032,7 @@ Such processes are essential in modeling phenomena in physics, biology, finance,
 \section{General Framework}
 \noindent The dynamics of a stochastic process are governed by probabilistic laws that combine deterministic and random components. In general, the evolution can be expressed as:
 \begin{equation}
-    \frac{dX_t}{dt} = -\nabla H(X_t) + \eta_t,
+    \gamma\frac{dX_t}{dt} = -\nabla H(X_t) + \sqrt{2 \gamma k_B T} \eta_t,
 \end{equation}
 where:
 \begin{itemize}
@@ -1038,7 +1040,17 @@ where:
     \item \( H(X_t) \) is the Hamiltonian function, which dictates the deterministic behavior,
     \item \( \nabla H(X_t) \) is the gradient of the Hamiltonian, the force, describing the deterministic direction of motion,
     \item \( \eta_t \) is a stochastic noise term, modeled as Gaussian white noise with zero mean and variance \( \sigma^2 \), i.e., \( \langle \eta_t \eta_{t'} \rangle = \sigma^2 \delta(t-t') \).
+    \item \( \gamma \) is the friction coefficient, which represents the dissipative interaction with the environment,
+    \item \( k_B \) is the Boltzmann constant, a fundamental physical constant relating temperature and energy,
+    \item \( T \) is the temperature of the surrounding environment, which determines the intensity of thermal fluctuations.
+
 \end{itemize}
+For simplicity, we set \( \gamma = 0.5 \, \text{s}^{-1} \), \( k_B = 1 \, \text{J/K} \), and \( T = 1 \, \text{K} \).
+So it becomes:
+\begin{equation}
+    \frac{dX_t}{dt} = -\nabla H(X_t) + \eta_t,
+\end{equation}
+This rescaling simplifies the equations and numerical implementation, as the physical constants no longer appear explicitly.
 \subsection{Dynamics in Vectorial Form}
 Substituting the gradient into the general stochastic equation, using \eqref{1.1}, the dynamics can be expressed in vectorial form as:
 \begin{equation}
@@ -1155,8 +1167,7 @@ where:
 - \( \boldsymbol{\eta}_t \) represents stochastic noise.
 \section{Solution of the Stochastic Equation}
 
-\subsection*{Transformation into the Eigenvector Basis}
-\subsection*{Diagonalizing \(\mathbf{K}\)}
+\subsection{Diagonalizing \(\mathbf{K}\)}
 
 Since \(\mathbf{K}\) is symmetric, it can be diagonalized:
 \[
@@ -1178,7 +1189,7 @@ the equation becomes:
 \]
 where \(\tilde{\boldsymbol{\eta}}(t) = \mathbf{U}^\dagger \boldsymbol{\eta}(t)\). Since the transformation is orthogonal, \(\tilde{\boldsymbol{\eta}}(t)\) remains Gaussian white noise with the same properties as \(\boldsymbol{\eta}(t)\).
 
-\subsection*{Decoupled Equation}
+\subsection{Decoupled Equation}
 
 The diagonalization decouples the system into independent equations for each mode \(k\):
 \[
@@ -1186,14 +1197,14 @@ The diagonalization decouples the system into independent equations for each mod
 \]
 where \(\tilde{r}_k(t)\) is the \(k\)-th component of \(\tilde{\mathbf{r}}(t)\), \(\lambda_k\) is the \(k\)-th eigenvalue, and \(\tilde{\eta}_k(t)\) is the \(k\)-th component of the transformed noise.
 
-\subsection*{Solution for Each Mode}
+\subsection{Solution for Each Mode}
 
 The solution to the Ornstein-Uhlenbeck equation for each mode is:
 \[
 \tilde{r}_k(t) = \tilde{r}_k(0) e^{-\lambda_k t} + \int_0^t e^{-\lambda_k (t-s)} \tilde{\eta}_k(s) \, ds.
 \]
 
-\subsection*{Transforming Back to Original Basis}
+\subsection{Transforming Back to Original Basis}
 
 Returning to the original variables:
 \[
@@ -1266,7 +1277,7 @@ Substitute the eigenbasis covariance:
 \mathbf{C}(t) = \mathbf{U} \left( e^{-\boldsymbol{\Lambda} t} \cdot \boldsymbol{\Lambda}^{-1} \cdot k_B T \right) \mathbf{U}^\top.
 \]
 
-### Step 4: Component form of \(\mathbf{C}(t)\)
+
 In components, the covariance matrix is:
 \[
 C_{ij}(t) = \sum_{k=1}^N u_{ik} u_{jk} \frac{k_B T}{\lambda_k} e^{-\lambda_k t},
@@ -1277,7 +1288,7 @@ where:
     \item \(\lambda_k\) is the \(k\)-th eigenvalue of \(\mathbf{K}\).
 \end{itemize}
 
-### Final Result
+
 The covariance matrix in component form is:
 \[
 C_{ij}(t) = \sum_{k=1}^N \frac{k_B T}{\lambda_k} u_{ik} u_{jk} e^{-\lambda_k t}.
@@ -1366,8 +1377,8 @@ TE_{j \to i}(t) = -\frac{1}{2} \ln{\left(1 - \frac{\frac{\left(\sum_{k=1}^N \fra
 \]
 
 
-\chapter*{Experimental Set-up and Results}
-\section*{Detailed Presentation of Dataset 3LNX}
+\chapter{Experimental Set-up and Results}
+\section{Detailed Presentation of Dataset 3LNX}
 
 \noindent The 3LNX corresponds to a photoswitchable PDZ domain engineered to undergo light-induced conformational changes.\\
 This protein system incorporates an azobenzene-based photoswitch, enabling a reversible transition between distinct conformational states upon specific illumination conditions. \\
@@ -1399,7 +1410,7 @@ Overall, the 3LNX dataset serves as a fundamental reference point for studying l
 \end{itemize}
 
 \newpage
-\section*{Connection Radius}
+\section{Connection Radius}\label{connection_radius}
 
 \noindent A critical aspect of analyzing 3LNX’s structural data is the choice of the connection radius when constructing the Kirchhoff matrix. 
 This matrix forms the basis of GNM and is widely used to probe the collective motions within proteins.
@@ -1420,7 +1431,7 @@ It is common in litterature to take a value for the connection radius $\tilde{x}
 
 
 \newpage
-\section*{Kirchhoff Matrix}
+\section{Kirchhoff Matrix}\label{Kirchhoff_paragraph}
 \noindent Applying \eqref{Kirchhoff} to the protein structure, we obtain the Kirchhoff matrix \(\mathbf{K}\) for the system. This matrix captures the connectivity between residues and provides insights into the protein's structural dynamics. 
 We choose to put the value of the link between two native pair (near neighbor), equal to 20, otherwise the link is equal to 1.
 So:
@@ -1459,18 +1470,28 @@ It is important to notice also that most of the links are between near residues,
 
 
 
-\section*{Correlation Matrix}
-\noindent The two figures below illustrate the correlation matrices obtained from the protein structure. The elements of the matrix represent correlations between residues \(i\) and \(j\), derived from the dynamics and structure of the system. Overlaying the secondary structure (Helices: red; Beta Sheets: blue) helps to contextualize the correlations within structural motifs. The Kirchhoff matrix was used to compute these correlations.
+\section{Correlation Matrix}
+\noindent The two figures illustrate the correlation matrices obtained from the protein structure. The elements of the matrix represent correlations between residues \(i\) and \(j\), derived from the dynamics and structure of the system. Overlaying the secondary structure (Helices: red; Beta Sheets: blue) helps to contextualize the correlations within structural motifs. The Kirchhoff matrix was used to compute these correlations.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Correlation_MatrixNan_False.png}\label{fig:correlation_negative}
+    \caption{Negative covariance between residues at time 0.}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Correlation_MatrixNan_True.png}\label{fig:correlation_positive}
+    \caption{Positive covariance between residues at time 0.}
+\end{figure}
 \paragraph{Figure Analysis:}
 \begin{itemize}
-    \item \textbf{First Plot: Correlation Matrix (NaNs handled as False):}
+    \item \textbf{First Plot \ref{fig:correlation_negative}: Correlation Matrix (NaNs handled as False):}
     \begin{itemize}
         \item The red box highlights a region of strong local correlations, likely associated with tightly coupled residues within a helix or beta sheet structure.
         \item The light background suggests weak or negligible correlations outside the main diagonal and the highlighted regions, reflecting weaker interactions or dynamic decoupling.
         \item The diagonal dominance indicates strong correlations between residues within the same structural domain.
     \end{itemize}
 
-    \item \textbf{Second Plot: Correlation Matrix (NaNs handled as True):}
+    \item \textbf{Second Plot \ref{fig:correlation_positive}: Correlation Matrix (NaNs handled as True):}
     \begin{itemize}
         \item The overall structure appears more diffuse, with non-local correlations extending further from the diagonal.
         \item The red box again highlights a region of strong correlations, consistent with a structural motif (helix or beta sheet).
@@ -1486,19 +1507,10 @@ The Kirchhoff matrix directly influences the correlation matrices by encoding th
     \item Weaker correlations in the off-diagonal regions are consistent with weaker weights (1) assigned to distant interactions in the Kirchhoff matrix.
 \end{itemize}
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Correlation_MatrixNan_False.png}
-    \caption{Negative covariance between residues at time 0.}
-\end{figure}
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Correlation_MatrixNan_True.png}
-    \caption{Positive covariance between residues at time 0.}
-\end{figure}
+
 
 \newpage
-\section*{Beta Factors}
+\section{Beta Factors}
 \noindent The plot above compares the experimental \( B \)-factors (blue curve), as we said in \eqref{beta} $B_i = 8\pi^2 C_{ii}$, with the predicted \( B \)-factors (red curve) along the residue index. The \( B \)-factors, which represent the atomic displacement or flexibility, are a critical measure of the dynamic behavior of the protein structure.
 \paragraph{Analysis:}
 \begin{itemize}
@@ -1559,20 +1571,20 @@ This analysis highlights the capability of the Kirchhoff matrix to predict prote
 
 
 \newpage
-\section*{Causal indicators in time}
-\subsection*{Correlation in time}
+\section{Causal indicators in time}
+\subsection{Correlation in time}
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/images/3LNX/Multiple_time_correlation/correlation.png}    
     \caption{Correlations in time.}
 \end{figure}
-\subsection*{Respones in time}
+\subsection{Respones in time}
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/images/3LNX/Multiple_time_resposne/risposte.png}    
     \caption{Responses in time.}
 \end{figure}
-\subsection*{Transfer entropy in time}
+\subsection{Transfer entropy in time}
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/images/3LNX/Multiple_time_correlation/entropy.png}    
@@ -1582,8 +1594,8 @@ This analysis highlights the capability of the Kirchhoff matrix to predict prote
 
 
 \newpage
-\section*{Causal indicators between residues}
-\subsection*{characteristic time determination}
+\section{Causal indicators between residues}
+\subsection{characteristic time determination}
 To analyze our system, it is essential to focus on timescales around the \textit{characteristic time} \(\tau\). 
 If the time \(t\) is too small, the dynamics of the system cannot be observed effectively. Conversely, if \(t\) is too large, the relaxation behavior of the system becomes indistinguishable.
 
@@ -1606,13 +1618,14 @@ We can determine the characteristic time \(\tau\) of the system using the follow
     \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/images/3LNX/Stima_tau/autocorrelation_fits.png}
     \caption{Fit of tau.}
 \end{figure}
+We estimated a time \(\tau\) of 0.1842 ns.
 All the following analysis will be done around the characteristic time \(\tau\), specifically at [\(\tau\)-0.5*\(\tau\),\(\tau\),\(\tau\)+0.5*\(\tau\)].
 
 \newpage
 
 
 
-\subsection*{Correlation between residues}
+\subsection{Correlation between residues}
 \noindent The dynamic interplay between the beta sheet and the helix is quantitatively evident across all figures. The beta sheet stabilizes the protein through localized rigidity and strong intra-regional dynamics, while the helix introduces flexibility and facilitates long-range communication. These complementary roles are essential for balancing the stability and functional adaptability of the protein structure.
 
 \begin{figure}[h!]
@@ -1628,7 +1641,7 @@ All the following analysis will be done around the characteristic time \(\tau\),
     \caption{Correlation perturbating 76-th residue.}
     \label{fig:corr76}
 \end{figure}
-\subsubsection*{Graphic analysis of correlation}
+\subsubsection{Graphic analysis of correlation}
 The figures provide a detailed view of the dynamic properties of the protein structure, focusing on the beta sheet around residue ~20 and the alpha helix near residue ~75. These secondary structures exhibit distinct dynamical behaviors, which are quantified using metrics such as inverse first mean time, correlation, response, and transfer entropy.
 \paragraph{Figure \ref{fig:corr21}: Correlation with Residue ~20}
 
@@ -1656,7 +1669,7 @@ The figures provide a detailed view of the dynamic properties of the protein str
 
 
 
-\subsection*{Response between residues}
+\subsection{Response between residues}
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/images/3LNX/Time_indicators/Time Response R_ij for i=20 as a function of j at time index 0.png}
@@ -1671,7 +1684,7 @@ The figures provide a detailed view of the dynamic properties of the protein str
     \caption{Response perturbating 76-th residue.}
     \label{fig:resp76}
 \end{figure}
-\subsubsection*{Graphic analysis of response}
+\subsubsection{Graphic analysis of response}
 \paragraph{Figure \ref{fig:resp21} : Response with Residue ~20}
 \begin{itemize}
     \item \textbf{Beta Sheet Region (Residue ~20):} The response values around residue 20 show a sharp peak, consistent with the beta sheet's stabilizing influence on the protein's dynamics. The high response values highlight the beta sheet’s role in shaping the local dynamic environment.
@@ -1699,7 +1712,7 @@ The figures provide a detailed view of the dynamic properties of the protein str
 
 
 
-\subsection*{Transfer entropy between residues}
+\subsection{Transfer entropy between residues}
 \begin{figure}[h!]
     \centering
     % Prima sottografia
@@ -1743,7 +1756,7 @@ The figures provide a detailed view of the dynamic properties of the protein str
 \end{figure}
 
 
-\subsubsection*{Graphic analysis of transfer entropy}
+\subsubsection{Graphic analysis of transfer entropy}
 \paragraph{Figure \ref{fig:TE_comparison_i_j}: Transfer Entropy with Residue ~20}
 \begin{itemize}
     \item \textbf{Beta Sheet Region (Residue ~20):} High transfer entropy values in the beta sheet reflect strong localized information flow, emphasizing the beta sheet's role in stabilizing and coordinating motions within its region.
@@ -1762,14 +1775,685 @@ The figures provide a detailed view of the dynamic properties of the protein str
 
 \newpage
 \newpage
-\chapter{Conclusions Statical aprt}
+
+
+
+
+
+
+\section{Conclusions of equlibrium stochastic process}
+The analysis of residue correlations, dynamic responses, and transfer entropy not only provides a detailed description of internal dynamic interactions but also highlights critical elements of allostericity and key residues that govern protein function. These observations shed light on the functional interplay between the main secondary structural regions: the beta sheet and the alpha helix.
+
+\subsection{Allostericity in the Protein}
+
+\textbf{Role of the beta sheet:} The beta sheet, centered around residue ~20, acts as a local allosteric hub. Its strong internal correlations and confined information flow suggest that this region stabilizes the global structure, while its communication with other regions, such as the alpha helix, remains limited. However, dynamic responses show that even local perturbations in the beta sheet can have attenuated effects on distant regions.
+
+\textbf{Role of the alpha helix:} The alpha helix, centered around residue ~75, functions as an allosteric mediator. High dynamic responses and transfer entropy indicate that this region is particularly effective in propagating dynamic signals across the protein, making it crucial for long-range communication.
+
+\subsection{Identification of Key Allosteric Regions}
+
+The analysis reveals how the beta sheet and alpha helix cooperate to modulate allosteric behavior:
+
+\textbf{Beta sheet (~residue 20):}
+\begin{itemize}
+    \item Strong, localized correlations.
+    \item High control of local dynamics, reducing signal transmission to other regions.
+    \item \textit{Key residues involved:} 18–22, which are the primary contributors to the stability of the beta sheet region.
+\end{itemize}
+
+\textbf{Alpha helix (~residue 75):}
+\begin{itemize}
+    \item High dynamic response to local perturbations.
+    \item Ability to propagate signals dynamically across the protein.
+    \item \textit{Key residues involved:} 72–78, which act as key mediators in dynamic communication processes.
+\end{itemize}
+
+\subsection{Allosteric Interactions Between Beta Sheet and Alpha Helix}
+
+The interplay between these secondary structures is a concrete example of allosteric mechanisms:
+
+\begin{itemize}
+    \item \textbf{Beta sheet as a static anchor:} Provides local rigidity and a stable reference point for protein dynamics.
+    \item \textbf{Alpha helix as a dynamic transmitter:} Amplifies dynamic signals and ensures the adaptability needed to respond to both local and global perturbations.
+    \item \textbf{Limited but significant connectivity:} Although the beta sheet and alpha helix are dynamically distinct, their allosteric interactions allow fundamental coordination for protein function.
+\end{itemize}
+
+\subsection{Functional Implications and Allosteric Role}
+
+\begin{itemize}
+    \item The cooperation between the beta sheet and the alpha helix balances the stability and flexibility required for effective biological function.
+    \item The beta sheet, with its rigid and localized behavior, preserves structural integrity, while the alpha helix facilitates dynamic transitions and responses to the surrounding environment.
+    \item This complementary dynamic is indicative of allosteric behavior, where local perturbations (e.g., ligand binding or conformational changes) can influence distant regions, enhancing functional control efficiency.
+\end{itemize}
+
+\subsection{General Conclusion}
+
+The analysis demonstrates that the beta sheet and alpha helix are not merely secondary structural components but complementary dynamic and functional elements that are fundamental to protein allostericity. The beta sheet serves as a stabilizing hub, while the alpha helix acts as a flexible transmitter, enabling the protein system to integrate stability and dynamism. This cooperation represents the core of the protein's allosteric behavior and provides valuable insights for understanding and modulating its function.
+\begin{center}
+    \begin{tikzpicture}[
+      node distance=1.5cm and 2.5cm,
+      box/.style={draw, rounded corners, text centered, minimum width=3cm, minimum height=1cm, font=\small, fill=blue!10},
+      arrow/.style={draw, -{Stealth[scale=1.2]}, thick}
+    ]
+    
+    % Nodes
+    \node[box] (beta) {Beta Sheet \\ (Stability)};
+    \node[box, right=of beta] (alpha) {Alpha Helix \\ (Flexibility)};
+    \node[box, below=of beta] (correlations) {Strong Local \\ Correlations};
+    \node[box, below=of correlations] (rigidity) {Structural Rigidity};
+    \node[box, below=of alpha] (communication) {Long-Range \\ Communication};
+    \node[box, below=of communication] (flexibility) {Dynamic Flexibility};
+    \node[box, below right=of rigidity, xshift=-1cm, yshift=0.5cm] (allosteric) {Allosteric Communication};
+    
+    % Arrows
+    \draw[arrow] (beta) -- (correlations);
+    \draw[arrow] (correlations) -- (rigidity);
+    \draw[arrow] (alpha) -- (communication);
+    \draw[arrow] (communication) -- (flexibility);
+    \draw[arrow] (rigidity) -- (allosteric);
+    \draw[arrow] (flexibility) -- (allosteric);
+    \draw[arrow] (beta) -- (alpha);
+    \draw[arrow] (alpha) -- (beta);
+    
+    \end{tikzpicture}
+    \end{center}
+
+
+\newpage
+\chapter{Out-of-Equilibrium Stochastic Processes Induced by Heat Gradients,tau_mean=0.1845}
+
+
+The study of protein dynamics under non-equilibrium conditions, such as those induced by a heat gradient, provides valuable insights into how biological systems respond to external perturbations. It also sheds light on their ability to preserve structural integrity and functionality under stress. Investigating protein behavior in non-equilibrium environments helps us understand the influence of thermal fluctuations on dynamic properties, such as flexibility and allosteric interactions.
+
+Allostery, a fundamental property of proteins that underpins their regulatory mechanisms, is often thought to emerge predominantly under non-equilibrium conditions. Therefore, analyzing protein dynamics within this framework is crucial for capturing the nuanced ways in which thermal and environmental gradients affect their function.
+\newpage
+\section{Stochastic Dynamics Under a Heat Gradient}
+
+In the equilibrium phase, as discussed in Chapter~\ref{chap:stochastic_processes}, the evolution of a system can be described by the stochastic differential equation:
+\begin{equation}
+    \gamma \frac{dX_t}{dt} = -\nabla H(X_t) + \sqrt{2 \gamma k_B T} \eta_t,
+\end{equation}
+where the terms are defined as follows:
+\begin{itemize}
+    \item \( X_t \): the state of the system at time \( t \),
+    \item \( H(X_t) \): the Hamiltonian function that governs the deterministic behavior of the system,
+    \item \( \nabla H(X_t) \): the gradient of the Hamiltonian, representing the deterministic forces acting on the system,
+    \item \( \eta_t \): a stochastic noise term modeled as Gaussian white noise with zero mean and variance \( \sigma^2 \), such that \( \langle \eta_t \eta_{t'} \rangle = \sigma^2 \delta(t-t') \),
+    \item \( \gamma \): the friction coefficient, which characterizes the dissipation of energy due to interactions with the environment,
+    \item \( k_B \): Boltzmann's constant, which links temperature and energy,
+    \item \( T \): the temperature of the environment, influencing the amplitude of thermal fluctuations.
+\end{itemize}
+
+In a system subjected to a heat gradient, the temperature varies spatially across the protein structure, with each residue experiencing a local temperature \( T(x) \) that depends on its position. This introduces a non-equilibrium condition driven by spatially dependent thermal fluctuations. Consequently, the motion equation is modified to account for this temperature gradient:
+\begin{equation}
+    \gamma \frac{dX_t}{dt} = -\nabla H(X_t) + B \eta_t, \label{out_eq}
+\end{equation}
+where \( B \) is a diagonal matrix that incorporates the temperature of each residue. Specifically, \( B = \sqrt{2 \gamma k_B T(x)} \), making the noise term position-dependent.
+
+For simplicity, let us assume the following parameter values:
+\begin{itemize}
+    \item \( \gamma = 0.5 \, \text{s}^{-1} \), 
+    \item \( k_B = 1 \, \text{J/K} \), 
+    \item \( T(x) \): takes only two discrete values, representing two distinct thermal states.
+\end{itemize}
+
+Under these assumptions, the equation simplifies to:
+\begin{equation}
+    \frac{dX_t}{dt} = -\mathbf{K} \mathbf{X}_t + B \eta_t,
+\end{equation}
+where \( B \) is further refined to account for the discrete temperature values by incorporating a Kronecker delta function. This function ensures that the temperature contributions to \( B \) are selected appropriately for each residue:
+\begin{equation}
+    B = \delta_{i,j} \cdot \sqrt{T(x)}.
+\end{equation}
+
+This model enables a detailed exploration of the stochastic dynamics of proteins under non-equilibrium conditions, offering a framework to quantify how spatial thermal gradients impact their structural and functional behavior.
+\newpage
+\section{Solution stochastic dynamics under a heat gradient}
+We start from the original equation:
+\[
+\frac{dX_t}{dt} = -K X_t + B \eta_t.
+\]
+
+Substituting \(X_t = U Q_t\), we obtain:
+\[
+\frac{d(U Q_t)}{dt} = -K (U Q_t) + B \eta_t.
+\]
+
+Expanding the left-hand side:
+\[
+\frac{d(U Q_t)}{dt} = U \frac{dQ_t}{dt},
+\]
+because \(U\) is constant.
+
+Substituting \(K = U \Lambda U^\top\), the term \(-K(U Q_t)\) becomes:
+\[
+-K(U Q_t) = -U \Lambda U^\top (U Q_t).
+\]
+Since \(U^\top U = I\) (orthogonality of \(U\)), the term simplifies to:
+\[
+- U \Lambda Q_t.
+\]
+
+The equation becomes:
+\[
+U \frac{dQ_t}{dt} = -U \Lambda Q_t + B \eta_t.
+\]
+Multiplying both sides by \(U^\top\) (to return to the eigenvector space):
+\[
+\frac{dQ_t}{dt} = -\Lambda Q_t + U^\top B \eta_t.
+\]
+
+We write this equation in components. For each component \(i\), we have:
+\[
+\frac{dQ_{i,t}}{dt} = -\lambda_i Q_{i,t} + \sum_j U_{ji}^\top B_{jj} \eta_{j,t}.
+\]
+The deterministic term \(-\lambda_i Q_{i,t}\) describes the evolution of the components \(Q_{i,t}\) under the influence of the eigenvalue \(\lambda_i\).
+
+The stochastic term \(\sum_j U_{ji}^\top B_{jj} \eta_{j,t}\) represents the effect of noise transformed in the eigenvector space, with residual couplings arising from \(B\) and \(U\).
+
+Now integrating both sides from \(-\infty\) to \(t\), we have:
+\[
+Q_{i,t} = \int_{-\infty}^t \left( -\lambda_i Q_{i,\tau} + \sum_j U_{ji}^\top B_{jj} \eta_{j,\tau} \right) d\tau.
+\]
+
+Using an integrating factor \(e^{\lambda_i t}\), the equation becomes:
+\[
+e^{\lambda_i t} Q_{i,t} = \int_{-\infty}^t e^{\lambda_i \tau} \sum_j U_{ji}^\top B_{jj} \eta_{j,\tau} \, d\tau.
+\]
+
+Simplifying, the solution is:
+\[
+Q_{i,t} = \int_{-\infty}^t e^{-\lambda_i (t - \tau)} \sum_j U_{ji}^\top B_{jj} \eta_{j,\tau} \, d\tau.
+\]
+
+We now compute the correlation:
+\[
+\langle Q_i(t) Q_j(s) \rangle = \left\langle \int_{-\infty}^t e^{-\lambda_i (t - \tau)} \sum_k U_{ki}^\top B_{kk} \eta_{k,\tau} \, d\tau \, \int_{-\infty}^s e^{-\lambda_j (s - \tau')} \sum_l U_{lj}^\top B_{ll} \eta_{l,\tau'} \, d\tau' \right\rangle.
+\]
+
+Expanding, we get:
+\[
+\langle Q_i(t) Q_j(s) \rangle = \int_{-\infty}^t \int_{-\infty}^s e^{-\lambda_i (t - \tau)} e^{-\lambda_j (s - \tau')} \sum_k \sum_l U_{ki}^\top B_{kk} U_{lj}^\top B_{ll} \langle \eta_{k,\tau} \eta_{l,\tau'} \rangle \, d\tau \, d\tau'.
+\]
+
+The noise term \(\langle \eta_{k,\tau} \eta_{l,\tau'} \rangle\) satisfies:
+\[
+\langle \eta_{k,\tau} \eta_{l,\tau'} \rangle = \delta_{kl} \delta(\tau - \tau'),
+\]
+which simplifies the double integral:
+\[
+\langle Q_i(t) Q_j(s) \rangle = \int_{-\infty}^{\min(t,s)} e^{-\lambda_i (t - \tau)} e^{-\lambda_j (s - \tau)} \sum_k (U_{ki}^\top B_{kk} U_{kj}^\top B_{kk}) \, d\tau.
+\]
+
+Factor out the exponential terms:
+\[
+\langle Q_i(t) Q_j(s) \rangle = \sum_k (U_{ki}^\top B_{kk}) (U_{kj}^\top B_{kk}) \int_{-\infty}^{\min(t,s)} e^{-\lambda_i (t - \tau)} e^{-\lambda_j (s - \tau)} \, d\tau.
+\]
+
+Simplify the exponential combination:
+\[
+e^{-\lambda_i (t - \tau)} e^{-\lambda_j (s - \tau)} = e^{-(\lambda_i t + \lambda_j s)} e^{(\lambda_i + \lambda_j) \tau}.
+\]
+
+The integral becomes:
+\[
+\int_{-\infty}^{\min(t,s)} e^{-(\lambda_i t + \lambda_j s)} e^{(\lambda_i + \lambda_j) \tau} \, d\tau.
+\]
+
+Evaluating the integral:
+\[
+\int_{-\infty}^{\min(t,s)} e^{-(\lambda_i t + \lambda_j s)} e^{(\lambda_i + \lambda_j) \tau} \, d\tau = \frac{e^{-(\lambda_i t + \lambda_j s)}}{\lambda_i + \lambda_j} \left[ e^{(\lambda_i + \lambda_j) \min(t,s)} \right].
+\]
+
+Substitute back:
+\[
+\langle Q_i(t) Q_j(s) \rangle = \sum_k \frac{(U_{ki}^\top B_{kk}) (U_{kj}^\top B_{kk})}{\lambda_i + \lambda_j} e^{-\lambda_i t - \lambda_j s} \left( e^{(\lambda_i + \lambda_j) \min(t,s)} \right).
+\]
+
+Simplify further:
+\[
+\langle Q_i(t) Q_j(s) \rangle = \sum_k \frac{(U_{ki}^\top B_{kk}) (U_{kj}^\top B_{kk})}{\lambda_i + \lambda_j} e^{-\lambda_i |t-s|}.
+\]
+
+So:
+\[
+\langle X_i(t) X_j^\top(s) \rangle = \sum_k \sum_p \sum_m \frac{U_{ik} U_{jp} (U_{mk}^\top B_{mm}^2 U_{mp}^\top)}{\lambda_k + \lambda_p} e^{-\lambda_k |t-s|}.
+\]
+
+The formula describes the temporal correlation between the components \( X_i(t) \) and \( X_j(s) \) in a stochastic system under the influence of noise. Each term in the formula has a specific role:
+
+\begin{itemize}
+    \item \textbf{Coupling through Eigenvectors (\( U_{ik} \) and \( U_{jp} \)):}
+    These terms project the system's dynamics into the eigenbasis of the matrix \( \mathbf{K} \), capturing how the eigenmodes contribute to the observed correlations between \( i \) and \( j \).
+
+    \item \textbf{Noise Contribution (\( B_{mm}^2 \)):}
+    The diagonal matrix \( B_{mm}^2 \) introduces temperature-dependent scaling of the stochastic noise. This reflects the local intensity of fluctuations at mode \( m \).
+
+    \item \textbf{Cross-mode Interaction (\( U_{mk}^\top B_{mm}^2 U_{mp}^\top \)):}
+    The product of \( U_{mk}^\top \) and \( U_{mp}^\top \) determines how noise from mode \( m \) couples different eigenmodes \( k \) and \( p \), weighted by the structure of the eigenvectors.
+
+    \item \textbf{Exponential Decay (\( e^{-\lambda_k |t-s|} \)):}
+    The term \( e^{-\lambda_k |t-s|} \) encapsulates the temporal decay of the correlation, governed by the eigenvalue \( \lambda_k \). Larger eigenvalues correspond to faster decay, indicating less persistent correlations over time.
+
+    \item \textbf{Denominator (\( \lambda_k + \lambda_p \)):}
+    The denominator ensures that the contributions from eigenmodes are properly weighted by their respective damping rates \( \lambda_k \) and \( \lambda_p \), balancing the dynamic interactions between modes.
+\end{itemize}
+
+
+
+
+\newpage
+\section{Temperature determination}
+In this study, we introduce a novel approach to investigate protein dynamics by setting two distinct temperature regimes. One temperature is fixed at \( T = 1 \), representing a high-energy state, while the other temperature varies between \( T = 0 \) and \( T = 1 \) for each experiment. This configuration allows us to drive the system out of equilibrium and study the allosteric behavior under non-equilibrium conditions.
+
+The temperature assigned to a given residue is determined based on its connectivity within the protein structure. Specifically, if a residue has five or more connections, it is assigned a temperature of \( T^* \) (varying temperature); otherwise, it is assigned \( T = 0 \). This methodology links the temperature directly to the residue's position and role within the protein network.
+
+Residues located near the center of the protein typically exhibit a higher number of connections due to their central role in maintaining structural integrity. These residues tend to fluctuate less and are therefore associated with lower effective temperatures. Conversely, residues with fewer connections, often found on the periphery, are more flexible and are assigned higher temperatures.
+
+By combining fixed and variable temperature conditions, this approach enables a deeper understanding of the relationship between protein topology, residue connectivity, and dynamic behavior under non-equilibrium states. The differential temperature settings also provide a framework to explore how structural positions influence allosteric signaling and energy distribution across the protein.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/images/3LNX/2_temperature_cutoff/temperatures.png}
+    \caption{Temperature vs residue number}
+\end{figure}
+\begin{itemize}
+    \item \textbf{Beta Sheet Regions:}
+    \begin{itemize}
+        \item In beta sheet regions (e.g., around residue 20), residues tend to have higher connectivity due to their compact and stabilizing arrangement in the protein's core.
+        \item These residues are more constrained dynamically and are therefore associated with lower temperatures (\(T = 0\)), as reflected in the graph.
+    \end{itemize}
+
+    \item \textbf{Alpha Helix Regions:}
+    \begin{itemize}
+        \item Alpha helix regions (e.g., around residue 75) typically exhibit intermediate levels of connectivity. However, their intrinsic flexibility and less rigid packing compared to beta sheets allow for more dynamic motion.
+        \item As a result, residues in these regions are more likely to be assigned the variable temperature \(T^* = 1\), reflecting their increased flexibility.
+    \end{itemize}
+
+    \item \textbf{Peripheral or Loop Regions:}
+    \begin{itemize}
+        \item Residues located in loops or on the protein's surface (e.g., around residues 40 and 60) generally have fewer connections, as these regions are more exposed and less structurally integrated.
+        \item This lower connectivity results in higher assigned temperatures (\(T^* = 1\)), indicating greater dynamic motion and adaptability in these regions.
+    \end{itemize}
+
+    \item \textbf{Transitions Between Structural Elements:}
+    \begin{itemize}
+        \item The abrupt changes in temperature assignments visible in the graph correspond to transitions between secondary structural elements, such as from beta sheets to loops or from helices to sheets.
+        \item These transitions highlight local differences in residue connectivity and dynamic behavior dictated by the structural topology.
+    \end{itemize}
+\end{itemize}
+
+\newpage
+\section{Correlation Matrix}
+\noindent For the connection radius and for the Kirchhoff matrix are valid the precedence arguments respectively in sections \ref{connection_radius} and \ref{Kirchhoff_paragraph}.\\
+The two figures illustrate the correlation matrices obtained from the protein structure. The elements of the matrix represent correlations between residues \(i\) and \(j\), derived from the dynamics and structure of the system. Overlaying the secondary structure (Helices: red; Beta Sheets: blue) helps to contextualize the correlations within structural motifs. The Kirchhoff matrix was used to compute these correlations.
+\begin{figure}[h!]
+    \centering
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{/Users/enrico/PROTEINS/images/3LNX/2_temperature_cutoff/Matrici_Correlazione/Correlation_MatrixNan_False_0.5.png}
+        \caption{Negative covariance between residues at time 0 with $max \Delta T = 0.5$.}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{/Users/enrico/PROTEINS/images/3LNX/2_temperature_cutoff/Matrici_Correlazione/Correlation_MatrixNan_False_1.png}
+        \caption{Negative covariance between residues at time 0 with $max \Delta T = 1$.}
+    \end{minipage}
+    \caption{Comparison of negative covariances between residues at time 0 for different $max \Delta T$ values.}
+    \label{fig:correlation_comparison_out}
+
+\end{figure}
+
+
+\begin{figure}[h!]
+    \centering
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{/Users/enrico/PROTEINS/images/3LNX/2_temperature_cutoff/Matrici_Correlazione/Correlation_MatrixNan_True_0.5.png}
+        \caption{Positive covariance between residues at time 0 with $max \Delta T = 0.5$.}
+        
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{/Users/enrico/PROTEINS/images/3LNX/2_temperature_cutoff/Matrici_Correlazione/Correlation_MatrixNan_True_1.png}
+        \caption{Positive covariance between residues at time 0 with $max \Delta T = 1$.}
+        
+    \end{minipage}
+    \caption{Comparison of positive covariances between residues at time 0 for different $max \Delta T$ values.}
+    \label{fig:correlation_positive_comparison_out}
+\end{figure}
+
+
+
+\paragraph{Figure Analysis:}
+
+\begin{itemize}
+    \item \textbf{Comparison between the two plots \ref{fig:correlation_comparison_out}:}
+    \begin{itemize}
+        \item The left matrix (\(max \Delta T = 0.5\)) shows finer structural detail with localized negative covariance patterns, particularly within the secondary structure regions.
+        \item The right matrix (\(max \Delta T = 1\)) exhibits smoother covariance patterns, possibly due to increased flexibility or averaging effects with a higher temperature range.
+        \item Differences between the two matrices emphasize how temperature cutoffs influence residue correlation patterns and reflect the sensitivity of structural motifs to dynamic conditions.
+    \end{itemize}
+\end{itemize}
+
+\begin{itemize}
+    \item \textbf{Comparison between the two Plots \ref{fig:correlation_positive_comparison_out}:}
+    \begin{itemize}
+        \item At \(max \Delta T = 0.5\), the correlation patterns are more localized, capturing finer structural detail and tighter residue coupling.
+        \item At \(max \Delta T = 1\), the correlations are more diffuse, suggesting increased flexibility or dynamic averaging effects.
+        \item The comparison highlights how increasing the temperature cutoff alters the correlation landscape, reflecting changes in the dynamic behavior of the protein.
+    \end{itemize}
+\end{itemize}
+\newpage
+\newpage
+
+
+
+
+\section{Beta Factors}
+\noindent The plot above compares the experimental \( B \)-factors (blue curve), as we said in \eqref{beta} $B_i = 8\pi^2 C_{ii}$, with the predicted \( B \)-factors (red curve) along the residue index. The \( B \)-factors, which represent the atomic displacement or flexibility, are a critical measure of the dynamic behavior of the protein structure.
+\paragraph{Analysis:}
+
+Using formula of section \ref{sec:Evaluation}, we can evaluate the model performance by calculating the Root Mean Squared Error (RMSE) and Mean Absolute Error (MAE) between the predicted and experimental \( B \)-factors. 
+These metrics provide a quantitative assessment of the model's accuracy in capturing the protein's dynamic behavior.
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        $\Delta T$ & MAE & RMSE \\ \hline
+        $T=1$ & 5.677571932129908 & 7.634906660279257 \\ \hline
+        $T=0.5$ & 5.945765531711077 & 8.000476544489148 \\ \hline
+    \end{tabular}
+    \caption{Errori MAE e RMSE per diversi valori di $\Delta T$}
+    \label{tab:mae_rmse}
+\end{table}
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/images/3LNX/2_temperature_cutoff/beta_factors/beta.png}
+    \caption{Beta factors with different $\Delta T$.}
+\end{figure}
+
+
+The results showcase how varying the applied temperature difference (\(\Delta T\)) affects the predictive accuracy of \( B \)-factors, which represent atomic displacement or flexibility of residues in the protein structure. By analyzing \(\Delta T = 1\) and \(\Delta T = 0.5\), we observe that the system driven out of equilibrium (\(\Delta T = 1\)) exhibits more predictable dynamics, resulting in lower error metrics and better alignment between predicted and experimental \( B \)-factors. Below is a detailed discussion of the results and their implications.
+
+\subsection{Quantitative Results: Error Metrics}
+The performance of the model is evaluated using MAE (Mean Absolute Error) and RMSE (Root Mean Squared Error):
+\begin{itemize}
+    \item For \(\Delta T = 1\):
+    \begin{itemize}
+        \item \textbf{MAE}: 5.6776
+        \item \textbf{RMSE}: 7.6349
+    \end{itemize}
+    These relatively low values indicate that the model performs better at higher temperature gradients. The system, being farther from equilibrium, exhibits more pronounced patterns of flexibility, making it easier for the model to align the predicted \( B \)-factors with the experimental values.
+    \item For \(\Delta T = 0.5\):
+    \begin{itemize}
+        \item \textbf{MAE}: 5.9458
+        \item \textbf{RMSE}: 8.0005
+    \end{itemize}
+    The higher error metrics suggest that the system closer to equilibrium exhibits subtler or more stochastic flexibility patterns, which are harder for the model to predict accurately.
+\end{itemize}
+
+\subsection{Graphical Interpretation}
+\textbf{Top Plot: Comparison of Experimental and Predicted \( B \)-Factors}\\
+The blue curve represents the experimental \( B \)-factors, and the red curve represents the predicted values:
+\begin{itemize}
+    \item \textbf{For \(\Delta T = 1\)}: The predicted \( B \)-factors align closely with the experimental values across much of the residue index, suggesting that the system's response to a larger temperature gradient is more structured and predictable.
+    \item \textbf{For \(\Delta T = 0.5\)}: There are noticeable deviations, particularly in regions with sharp peaks or valleys. This indicates that closer-to-equilibrium conditions result in more complex and localized flexibility patterns, which the model struggles to capture.
+\end{itemize}
+
+\textbf{Bottom Plot: Temperature Variations Across Residues}\\
+The second plot visualizes how different temperature gradients (\(\Delta T\)) influence residue dynamics:
+\begin{itemize}
+    \item \textbf{Higher \(\Delta T\)}: Amplifies the non-equilibrium effects, leading to larger structural displacements and more pronounced flexibility patterns.
+    \item \textbf{Lower \(\Delta T\)}: Reflects a system closer to equilibrium, where dynamic flexibility is subtler and dominated by local stochastic fluctuations.
+\end{itemize}
+
+\subsection{Implications of Non-Equilibrium Dynamics}
+The results suggest that driving the system out of equilibrium (\(\Delta T = 1\)) creates conditions that are easier to model:
+\begin{itemize}
+    \item \textbf{Non-Equilibrium as a Stabilizing Factor}: Larger \(\Delta T\) introduces structured, large-scale patterns of atomic displacement, which are easier to predict as they follow more deterministic trends caused by the temperature gradient. This is reflected in the lower MAE and RMSE values.
+    \item \textbf{Closer to Equilibrium (\(\Delta T = 0.5\))}: At smaller temperature gradients, the system exhibits subtler patterns of flexibility driven by stochastic fluctuations. These are inherently more difficult to model, resulting in higher errors.
+\end{itemize}
+
+
+
+\subsection{Broader Implications for Protein Dynamics}
+These findings highlight an important principle: \textit{systems driven out of equilibrium exhibit more structured and predictable behavior}. This has several implications:
+\begin{itemize}
+    \item \textbf{Dynamic Stability}: Non-equilibrium conditions (higher \(\Delta T\)) induce large-scale flexibility patterns, which are easier for computational models to capture.
+    \item \textbf{Model Calibration}: Models may require different calibration strategies for equilibrium (\(\Delta T = 0.5\)) versus non-equilibrium (\(\Delta T = 1\)) conditions.
+    \item \textbf{Experimental Design}: Non-equilibrium conditions could reveal broader structural dynamics, while equilibrium conditions may emphasize localized effects.
+\end{itemize}
+
+\newpage
+\section{Causal indicators in time}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/images/3LNX/2_temperature_cutoff/Time_correlations/correlation_combined.png}
+    \caption{Correlation in time $\Delta T = 1$.}
+\end{figure}
+\subsection{Cross-Correlation: Forward and Backward Dynamics}
+\begin{itemize}
+    \item \textbf{Peak Behavior:} Both forward and backward correlations exhibit distinct peaks around \(t = 0\), indicating strong interactions at this specific time lag. The strongest correlation is observed for residue pairs (20, 75) and (20, 38), with a more pronounced forward correlation compared to backward correlation.
+    \item \textbf{Asymmetric Dynamics:} Forward correlations (e.g., (20, 75)) are generally higher and exhibit sharper peaks than backward correlations, highlighting directional dependencies between residues. Backward correlations are smoother and less pronounced, suggesting weaker reverse interactions.
+    \item \textbf{Residue-Specific Effects:} Residue pair (20, 21) shows the smallest cross-correlation values, indicating less significant dynamic coupling compared to the other pairs.
+\end{itemize}
+
+\newpage
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/images/3LNX/2_temperature_cutoff/Time_correlations/entropies_combined.png}
+    \caption{Transfer entropy in time $\Delta T = 1$.}
+\end{figure}
+
+\subsection{Transfer Entropy: Forward and Backward Dynamics}
+\begin{itemize}
+    \item \textbf{Directional Influence:} Transfer entropy captures a clear forward bias, with forward interactions (e.g., (20, 75) and (20, 38)) showing significantly higher values compared to their backward counterparts. Peaks around \(t = 0\) are sharper and more localized than in cross-correlation, emphasizing the information-theoretic directional influence.
+    \item \textbf{Temporal Symmetry:} Forward transfer entropy decays rapidly after \(t > 0\), while backward transfer entropy remains negligible, reinforcing the idea of unidirectional information transfer.
+    \item \textbf{Residue Pair Hierarchy:} Pairs (20, 75) and (20, 38) exhibit the strongest transfer entropy, with (20, 75) having the highest peak. Residue pair (20, 21) again shows minimal transfer entropy, consistent with its weaker interaction.
+\end{itemize}
+
+
+
+
+
+
+\begin{itemize}
+    \item \textbf{Forward Dominance:} Both cross-correlation and transfer entropy highlight the dominance of forward dynamics over backward dynamics, reflecting stronger causal influences in the forward direction.
+    \item \textbf{Residue Pair Importance:} Residue pairs (20, 75) and (20, 38) are central to the dynamic interactions, while (20, 21) shows a marginal role.
+    \item \textbf{Quantitative Comparison:} Transfer entropy provides a more refined and directional measure of interaction, while cross-correlation gives a broader view of dynamic coupling.
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+\newpage
+\section{Causal indicators between residues}
+\subsection{characteristic time determination}
+To analyze our system, it is essential to focus on timescales around the \textit{characteristic time} \(\tau\). 
+If the time \(t\) is too small, the dynamics of the system cannot be observed effectively. Conversely, if \(t\) is too large, the relaxation behavior of the system becomes indistinguishable.
+
+We can determine the characteristic time \(\tau\) of the system using the following algorithm:
+\begin{enumerate}
+    \item Compute the autocorrelation function \(C_{i,i}(t)\) for all available times \(t\).
+    \item Identify, for each \(i\), the time \(t_i\) such that 
+    \[
+    C_{i,i}(t_i) = e^{-1} C_{i,i}(0),
+    \]
+    where \(C_{i,i}(0)\) represents the initial autocorrelation value.
+    \item Calculate the mean of all \(t_i\). This mean value represents the characteristic time \(\tau\) of the system:
+    \[
+    \tau = \frac{1}{N} \sum_{i=1}^{N} t_i.
+    \]
+\end{enumerate}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/images/3LNX/2_temperature_cutoff/Stima_tau/tau_histogram.png}
+    \caption{Hisotgram of \(t_i\).}
+\end{figure}
+We estimated a \(\tau\) of 0.1869 ns.
+All the following analysis will be done around the characteristic time \(\tau\), specifically at [\(\tau\)-0.5*\(\tau\),\(\tau\),\(\tau\)+0.5*\(\tau\)].
+
+\newpage
+
+
+
+\subsection{Correlation between residues}
+\noindent The dynamic interplay between the beta sheet and the helix is quantitatively evident across all figures. The beta sheet stabilizes the protein through localized rigidity and strong intra-regional dynamics, while the helix introduces flexibility and facilitates long-range communication. These complementary roles are essential for balancing the stability and functional adaptability of the protein structure.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/images/3LNX/2_temperature_cutoff/combined_correlation_20_temperature_plots.png}
+    \caption{Correlation perturbating 21-th residue.}
+    \label{fig:corr21_out}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/CUTOFF/images/3LNX/2_temperature_cutoff/combined_correlation_75_temperature_plots.png}
+    \caption{Correlation perturbating 76-th residue.}
+    \label{fig:corr76_out}
+\end{figure}
+\subsubsection{Graphic Analysis of Response}
+
+\paragraph{Figure \ref{fig:corr21_out}: Correlation and Temperature for Residue 75}
+\begin{itemize}
+    \item \textbf{High Temperature Dynamics:} At higher temperatures (e.g., \( T = 1.0 \)), the correlation pattern is broader and more dispersed, indicating increased flexibility and global communication across residues.
+    \item \textbf{Low Temperature Dynamics:} At lower temperatures (\( T = 0.0 \)), the correlation profile becomes sharper and more localized, reflecting more constrained structural dynamics.
+    \item \textbf{Residual Influence:} The correlation gradually decreases as the residue index moves away from 75, highlighting the diminishing dynamic influence of this residue on others.
+\end{itemize}
+
+\paragraph{Figure \ref{fig:corr76_out}: Correlation and Temperature for Residue 20}
+\begin{itemize}
+    \item \textbf{High Temperature Dynamics:} Similar to residue 75, high temperatures (\( T = 1.0 \)) result in a broader and more uniform correlation distribution.
+    \item \textbf{Low Temperature Dynamics:} At lower temperatures (\( T = 0.0 \)), the correlation is more localized, indicating reduced flexibility and tighter coupling between residues.
+    \item \textbf{Relative Influence:} The peak correlation values for residue 20 are slightly lower than those for residue 75, suggesting that residue 75 has a higher dynamic centrality in the structure.
+\end{itemize}
+
+\subsubsection{Temperature Variation and General Observations}
+\begin{itemize}
+    \item \textbf{Temperature Oscillations:} Both figures show regular oscillations in temperature, reflecting dynamic structural changes in the protein.
+    \item \textbf{Flexibility vs. Rigidity:} High temperatures (\( T = 1.0 \)) are associated with broader fluctuations and more dispersed correlation effects, while low temperatures (\( T = 0.0 \)) correspond to sharp, localized peaks, indicating more rigid and limited dynamic behavior.
+\end{itemize}
+
+\subsubsection{Conclusions}
+\begin{itemize}
+    \item The temperature significantly affects the flexibility and dynamics of residue correlations.
+    \item Residues 75 and 20 represent dynamically significant points in the protein structure, with residue 75 showing greater dynamic influence overall.
+    \item These results suggest that thermal regulation could be a critical mechanism for modulating the structural and functional dynamics of the protein.
+\end{itemize}
+
+
+
+
+
+
+
+
+
+\newpage
+\newpage
+
+
+\subsection{Transfer entropy between residues}
+\begin{figure}[h!]
+    \centering
+    % Prima sottografia
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{/Users/enrico/PROTEINS/CUTOFF/images/3LNX/2_temperature_cutoff/combined_entropy_temperature_20_plots.png}
+        \caption{Transfer Entropy (j->21) ($TE_{21,j}$) perturbating 21-th residue.}
+        \label{fig:TE21_i_j_out}
+    \end{subfigure}
+    \hfill
+    % Seconda sottografia
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{/Users/enrico/PROTEINS/images/3LNX/Time_indicators/Transfer Entropy TE_ij for i=75 as a function of j at time index 0.png}
+        \caption{Transfer Entropy (j->76) ($TE_{76,j}$) perturbating 76-th residue.}
+        \label{fig:TE76_i_j_out}
+    \end{subfigure}
+    \caption{Comparison of Transfer Entropy for different perturbated residues.}
+    \label{fig:TE_comparison_i_j_out}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    % Prima sottografia
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{/Users/enrico/PROTEINS/images/3LNX/Time_indicators/Transfer Entropy TE_ji for i=20 as a function of j at time index 0.png}
+        \caption{Transfer Entropy (21->j) ($TE_{j,21}$) perturbating 21-th residue.}
+        \label{fig:TE21_j_i}
+    \end{subfigure}
+    \hfill
+    % Seconda sottografia
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{/Users/enrico/PROTEINS/images/3LNX/Time_indicators/Transfer Entropy TE_ji for i=75 as a function of j at time index 0.png}
+        \caption{Transfer Entropy (76->j) ($TE_{j,76}$) perturbating 76-th residue.}
+        \label{fig:TE76_j_i}
+    \end{subfigure}
+    \caption{Comparison of Transfer Entropy for perturbations affecting different residues (j<-i).}
+    \label{fig:TE_comparison_j_i}
+\end{figure}
+
+
+\subsubsection{Graphic analysis of transfer entropy}
+\paragraph{Figure \ref{fig:TE_comparison_i_j}: Transfer Entropy with Residue ~20}
+\begin{itemize}
+    \item \textbf{Beta Sheet Region (Residue ~20):} High transfer entropy values in the beta sheet reflect strong localized information flow, emphasizing the beta sheet's role in stabilizing and coordinating motions within its region.
+    \item \textbf{Alpha Helix Region (Residue ~75):} The helix shows lower transfer entropy values, indicating that it is less dynamically influenced by residue 20. This highlights the beta sheet's role as a local stabilizer rather than a global signal mediator.
+    \item \textbf{Interpretation:} The beta sheet governs local dynamics through strong information flow, while the helix remains relatively decoupled in terms of direct influence.
+\end{itemize}
+
+\paragraph{Figure \ref{fig:TE_comparison_j_i}: Transfer Entropy with Residue ~75}
+\begin{itemize}
+    \item \textbf{Beta Sheet Region (Residue ~20):} Transfer entropy values indicate weak information flow from the helix to the beta sheet, consistent with the beta sheet's structural rigidity and localized dynamics.
+    \item \textbf{Alpha Helix Region (Residue ~75):} Strong peaks in transfer entropy around residue 75 highlight its role in propagating dynamic information across the protein, making it a key mediator of long-range communication.
+    \item \textbf{Interpretation:} The helix complements the beta sheet by actively facilitating dynamic interactions and communication throughout the protein.
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+\subsection{Conclusion}
+The analysis reveals that driving the system out of equilibrium (\(\Delta T = 1\)) results in lower MAE and RMSE values and better alignment between predicted and experimental \( B \)-factors. Non-equilibrium conditions create more structured and predictable dynamics, while closer-to-equilibrium systems (\(\Delta T = 0.5\)) exhibit subtler and more stochastic flexibility patterns. These findings underscore the stabilizing effect of non-equilibrium conditions on protein dynamics and highlight the critical role of temperature gradients in studying and modeling protein flexibility.
+
+
 
 
 \chapter{Conclusions}
 
 
 
-\subsection*{NON METTEERLO Mean First time passage}
+
+
+
+
+
+
+
+
+
+\subsection{NON METTEERLO Mean First time passage}
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/images/3LNX/first_time/Mean First Passage Time Matrix.png}
@@ -1788,6 +2472,9 @@ The figures provide a detailed view of the dynamic properties of the protein str
     \caption{Inverse first mean time perturbating 76-th residue.}
 \end{figure}
 
+
+
+
 \newpage
 \newpage
 
@@ -1796,34 +2483,6 @@ The figures provide a detailed view of the dynamic properties of the protein str
 
 
 
-\subsubsection*{Graphic Analysis of Secondary Structures}
-The figures provide a detailed view of the dynamic properties of the protein structure, focusing on the beta sheet around residue ~20 and the alpha helix near residue ~75. These secondary structures exhibit distinct dynamical behaviors, which are quantified using metrics such as inverse first mean time, correlation, response, and transfer entropy.
-
-
-\
-
-
-\paragraph{Figure 6: Transfer Entropy with Residue ~20}
-\begin{itemize}
-    \item \textbf{Beta Sheet Region (Residue ~20):} High transfer entropy values in the beta sheet reflect strong localized information flow, emphasizing the beta sheet's role in stabilizing and coordinating motions within its region.
-    \item \textbf{Alpha Helix Region (Residue ~75):} The helix shows lower transfer entropy values, indicating that it is less dynamically influenced by residue 20. This highlights the beta sheet's role as a local stabilizer rather than a global signal mediator.
-    \item \textbf{Interpretation:} The beta sheet governs local dynamics through strong information flow, while the helix remains relatively decoupled in terms of direct influence.
-\end{itemize}
-
-\paragraph{Figure 7: Transfer Entropy with Residue ~75}
-\begin{itemize}
-    \item \textbf{Beta Sheet Region (Residue ~20):} Transfer entropy values indicate weak information flow from the helix to the beta sheet, consistent with the beta sheet's structural rigidity and localized dynamics.
-    \item \textbf{Alpha Helix Region (Residue ~75):} Strong peaks in transfer entropy around residue 75 highlight its role in propagating dynamic information across the protein, making it a key mediator of long-range communication.
-    \item \textbf{Interpretation:} The helix complements the beta sheet by actively facilitating dynamic interactions and communication throughout the protein.
-\end{itemize}
-
-\paragraph{Figure 8: Transfer Entropy Across Residues}
-\begin{itemize}
-    \item \textbf{Beta Sheet Region (Residue ~20):} The beta sheet demonstrates strong localized information transfer, confirming its role as a stabilizing region within the protein.
-    \item \textbf{Alpha Helix Region (Residue ~75):} High transfer entropy values in the helix illustrate its central role in mediating long-range dynamic interactions, reinforcing its complementary function alongside the beta sheet.
-    \item \textbf{Interpretation:} This figure synthesizes the overall dynamic behavior, showcasing the beta sheet as a stabilizing anchor and the helix as a mediator of dynamic adaptability and communication.
-\end{itemize}
-\newpage
 
 \newpage
 \null
@@ -1846,7 +2505,7 @@ The figures provide a detailed view of the dynamic properties of the protein str
     Nature, \url{https://www.nature.com/scitable/topicpage/protein-structure-14122136/}
     
     \bibitem{ref5} 
-    Wikipedia, \url{https://en.wikipedia.org/wiki/Allosteric_regulation?utm_source=chatgpt.com}
+    Wikipedia, Allosteric regulation 
     
     \bibitem{ref6} 
     Statistical Mechanics of Allosteric Enzymes

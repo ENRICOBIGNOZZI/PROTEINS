@@ -11,6 +11,7 @@ import matplotlib.patches as patches
 import os
 import seaborn as sns
 import matplotlib.lines as mlines
+from sklearn.metrics import mean_absolute_error, mean_squared_error
 import matplotlib.patches as mpatches
 def plot_beta_factors(df, nome, Q, lambdaa, U, ax, label, color):
     correlation = np.zeros((len(lambdaa), len(lambdaa)))
@@ -31,6 +32,15 @@ def plot_beta_factors(df, nome, Q, lambdaa, U, ax, label, color):
     scale_factor = np.mean(actual_b_factors) / np.mean(diagonale) if np.mean(diagonale) != 0 else 1
     diagonale_scaled = diagonale * scale_factor
 
+   
+    mae = mean_absolute_error(actual_b_factors, diagonale_scaled)
+
+    # Calcolo del RMSE
+    rmse = np.sqrt(mean_squared_error(actual_b_factors, diagonale_scaled))
+
+    # Stampa dei risultati
+    print(f"MAE: {mae}")
+    print(f"RMSE: {rmse}")
     # Traccia i beta factors predetti scalati
     ax.plot(diagonale_scaled, label=label, color=color)
 
@@ -91,7 +101,7 @@ def main_plot(df, kirchhoff_matrix, contatti, t, s, time_idx, nome, lista):
         temperatura = np.where(contatti >= 5, epsilon, 1)
         B = np.sqrt(temperatura)
         B = np.diag(B)
-
+        print("temperatura",temperatura)
         lambdaa, U = np.linalg.eig(kirchhoff_matrix)
         BBT = B @ B.T
         Q = U @ BBT @ U.T

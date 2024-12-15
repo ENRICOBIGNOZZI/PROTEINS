@@ -34,7 +34,24 @@ def plot_residual_correlation_vs_j(df, i, t, s, time_idx, nome, Q, lambdaa, U, c
             correlation_i[j] = sum_result
 
     ax.plot(range(len(correlation_i)), correlation_i, marker='o', linestyle='-', alpha=0.7, color=color, label=label)
+def plot_residual_response_vs_j(df, i, t, s, time_idx, nome, Q, lambdaa, U, color, label=None, ax=None):
+    correlation_i = np.zeros((len(lambdaa)))
+    z = np.array(t) - np.array(s)
 
+    for tau in z:
+        for j in range(len(lambdaa)):
+            sum_result = 0.0
+            for k in range(1, len(lambdaa)):
+                for p in range(1, len(lambdaa)):
+                    term = (U[i, k] * Q[k, p] * U[j, p]) / (lambdaa[k] + lambdaa[p])
+                    if tau > 0:
+                        term *= np.exp(-lambdaa[k] * tau)
+                    else:
+                        term *= np.exp(lambdaa[p] * tau)
+                    sum_result += term
+            correlation_i[j] = sum_result/term
+
+    ax.plot(range(len(correlation_i)), correlation_i, marker='o', linestyle='-', alpha=0.7, color=color, label=label)
 def _plot_secondary_structure(sec_struct_data, ax):
     sec_struct_info = sec_struct_data['Secondary Structure']
     residue_ids = sec_struct_data['Residue ID'].astype(int)
@@ -87,7 +104,7 @@ def main_plot(df, kirchhoff_matrix, contatti, t, s, time_idx, nome, lista):
     # Configurazione del primo sottomodulo
     ax1.legend(handles=legend_handles, title='Legenda Epsilon', loc='upper right')
     ax1.set_xlabel('Residue Index')
-    ax1.set_ylabel('Correlation')
+    ax1.set_ylabel('Correlation between 75 and other residues')
     ax1.set_title('Correlazioni Residue')
     ax1.grid(True)
 
@@ -107,12 +124,19 @@ def main_plot(df, kirchhoff_matrix, contatti, t, s, time_idx, nome, lista):
 
     # Plot della struttura secondaria
     _plot_secondary_structure(df, ax1)
+    import os
 
+    # Define the folder structure based on the provided path
+    folder_path = f'images/{nome}/2_temperature_cutoff/'
+
+    # Check if the folder exists, and if not, create it
+    if not os.path.exists(folder_path):
+        os.makedirs(folder_path)
+        print(f"Folder '{folder_path}' created successfully.")
     # Salvataggio del grafico
     plt.tight_layout()
-    plt.savefig(f'images/{nome}/2_temperature_cutoff/combined_correlation_temperature_plots.png')
+    plt.savefig(f'images/{nome}/2_temperature_cutoff/combined_correlation_75_temperature_plots.png')
     plt.show()
-
 
 
 
@@ -148,7 +172,7 @@ contatti_somma_righe = kirchhoff_matrix.sum(axis=1)
 contatti = contatti_diagonale/2
 
 
-temperatura = np.where(contatti >= 5, 0.9, 1)
+temperatura = np.where(contatti >= 5, 0.5, 1)
 G = visualizer.create_and_print_graph(truncated=True, radius=8.0, plot=False, peso=20)  # Adjust radius as needed
 analyzer = GraphMatrixAnalyzer(G)
 kirchhoff_matrix = analyzer.get_kirchhoff_matrix()
@@ -163,6 +187,7 @@ t=[tau_mean]
 s=[0,0,0]
 time_idx = 0
 
-lista = np.array([23])
+lista = np.array([75])
 main_plot(df, kirchhoff_matrix, contatti, t, s, time_idx, stringa,lista)
+#response_plot(df, kirchhoff_matrix, contatti, t, s, time_idx, stringa,lista)
 

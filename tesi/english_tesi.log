@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.15)  13 DEC 2024 16:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.15)  15 DEC 2024 16:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1147,24 +1147,195 @@ Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks43
 \verbatim@line=\toks44
 \verbatim@in@stream=\read4
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+Package: pgf 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
+\pgf@x=\dimen280
+\pgf@y=\dimen281
+\pgf@xa=\dimen282
+\pgf@ya=\dimen283
+\pgf@xb=\dimen284
+\pgf@yb=\dimen285
+\pgf@xc=\dimen286
+\pgf@yc=\dimen287
+\pgf@xd=\dimen288
+\pgf@yd=\dimen289
+\w@pgf@writea=\write4
+\r@pgf@reada=\read5
+\c@pgf@counta=\count345
+\c@pgf@countb=\count346
+\c@pgf@countc=\count347
+\c@pgf@countd=\count348
+\t@pgf@toka=\toks45
+\t@pgf@tokb=\toks46
+\t@pgf@tokc=\toks47
+\pgf@sys@id@count=\count349
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
+)
+Driver file for pgf: pgfsys-pdftex.def
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
+File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
+))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfsyssoftpath@smallbuffer@items=\count350
+\pgfsyssoftpath@bigbuffer@items=\count351
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen290
+\pgfmath@count=\count352
+\pgfmath@box=\box74
+\pgfmath@toks=\toks48
+\pgfmath@stack@operand=\toks49
+\pgfmath@stack@operation=\toks50
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count353
+)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
+File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@picminx=\dimen291
+\pgf@picmaxx=\dimen292
+\pgf@picminy=\dimen293
+\pgf@picmaxy=\dimen294
+\pgf@pathminx=\dimen295
+\pgf@pathmaxx=\dimen296
+\pgf@pathminy=\dimen297
+\pgf@pathmaxy=\dimen298
+\pgf@xx=\dimen299
+\pgf@xy=\dimen300
+\pgf@yx=\dimen301
+\pgf@yy=\dimen302
+\pgf@zx=\dimen303
+\pgf@zy=\dimen304
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@path@lastx=\dimen305
+\pgf@path@lasty=\dimen306
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
+File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@shorten@end@additional=\dimen307
+\pgf@shorten@start@additional=\dimen308
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
+File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfpic=\box75
+\pgf@hbox=\box76
+\pgf@layerbox@main=\box77
+\pgf@picture@serial@count=\count354
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgflinewidth=\dimen309
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
+File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@pt@x=\dimen310
+\pgf@pt@y=\dimen311
+\pgf@pt@temp=\dimen312
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowsep=\dimen313
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@max=\dimen314
+\pgf@sys@shading@range@num=\count355
+\pgf@shadingcount=\count356
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfexternal@startupbox=\box78
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
+File: pgfcorelayers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
+File: pgfcoretransparency.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfnodeparttextbox=\box79
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
+\pgf@nodesepstart=\dimen315
+\pgf@nodesepend=\dimen316
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
+)) (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/math/pgfmath.sty (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
+\pgffor@iter=\dimen317
+\pgffor@skip=\dimen318
+\pgffor@stack=\toks51
+\pgffor@toks=\toks52
+)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+Package: tikz 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@plot@mark@count=\count357
+\pgfplotmarksize=\dimen319
+)
+\tikz@lastx=\dimen320
+\tikz@lasty=\dimen321
+\tikz@lastxsaved=\dimen322
+\tikz@lastysaved=\dimen323
+\tikz@lastmovetox=\dimen324
+\tikz@lastmovetoy=\dimen325
+\tikzleveldistance=\dimen326
+\tikzsiblingdistance=\dimen327
+\tikz@figbox=\box80
+\tikz@figbox@bg=\box81
+\tikz@tempbox=\box82
+\tikz@tempbox@bg=\box83
+\tikztreelevel=\count358
+\tikznumberofchildren=\count359
+\tikznumberofcurrentchild=\count360
+\tikz@fig@count=\count361
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfmatrixcurrentrow=\count362
+\pgfmatrixcurrentcolumn=\count363
+\pgf@matrix@numberofcolumns=\count364
+)
+\tikz@expandcount=\count365
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowinset=\dimen328
+\pgfarrowlength=\dimen329
+\pgfarrowwidth=\dimen330
+\pgfarrowlinewidth=\dimen331
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2024-04-26 v4.20 Multi-page Table package (DPC)
 \LTleft=\skip77
 \LTright=\skip78
 \LTpre=\skip79
 \LTpost=\skip80
-\LTchunksize=\count345
-\LTcapwidth=\dimen280
-\LT@head=\box74
-\LT@firsthead=\box75
-\LT@foot=\box76
-\LT@lastfoot=\box77
-\LT@gbox=\box78
-\LT@cols=\count346
-\LT@rows=\count347
-\c@LT@tables=\count348
-\c@LT@chunks=\count349
-\LT@p@ftn=\toks45
+\LTchunksize=\count366
+\LTcapwidth=\dimen332
+\LT@head=\box84
+\LT@firsthead=\box85
+\LT@foot=\box86
+\LT@lastfoot=\box87
+\LT@gbox=\box88
+\LT@cols=\count367
+\LT@rows=\count368
+\c@LT@tables=\count369
+\c@LT@chunks=\count370
+\LT@p@ftn=\toks53
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/eucal.sty
 Package: eucal 2009/06/22 v3.00 Euler Script fonts
 LaTeX Font Info:    Overwriting math alphabet `\EuScript' in version `bold'
@@ -1174,13 +1345,13 @@ Package: bbold 1994/04/06 Bbold symbol package
 LaTeX Font Info:    Redeclaring math alphabet \mathbb on input line 42.
 )
 
-/Users/enrico/PROTEINS/tesi/english_tesi.tex:41: LaTeX Error: Option clash for package hyperref.
+/Users/enrico/PROTEINS/tesi/english_tesi.tex:43: LaTeX Error: Option clash for package hyperref.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.41 \usepackage
+l.43 \usepackage
                 {indentfirst}
 The package hyperref has already been loaded with options:
   []
@@ -1260,18 +1431,18 @@ or  <return>  to continue without it.
 )
 
 Package hyperref Warning: Option `hyperfootnotes' has already been used,
-(hyperref)                setting the option has no effect on input line 78.
+(hyperref)                setting the option has no effect on input line 80.
 
 
 Package hyperref Warning: Option `bookmarks' has already been used,
-(hyperref)                setting the option has no effect on input line 78.
+(hyperref)                setting the option has no effect on input line 80.
 
-Package hyperref Info: Option `colorlinks' set `true' on input line 78.
+Package hyperref Info: Option `colorlinks' set `true' on input line 80.
 (/usr/local/texlive/2024/texmf-dist/tex/latex/lipsum/lipsum.sty
 Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
-\g__lipsum_par_int=\count350
-\l__lipsum_a_int=\count351
-\l__lipsum_b_int=\count352
+\g__lipsum_par_int=\count371
+\l__lipsum_a_int=\count372
+\l__lipsum_b_int=\count373
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex)) (/usr/local/texlive/2024/texmf-dist/tex/latex/curve2e/curve2e.sty
 Package: curve2e 2023-07-04 v.2.3.1 Extension package for pict2e
  (/usr/local/texlive/2024/texmf-dist/tex/latex/pict2e/pict2e.sty
@@ -1284,30 +1455,30 @@ Package pict2e Info: Driver file for pict2e: p2e-pdftex.def on input line 114.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/pict2e/p2e-pdftex.def
 File: p2e-pdftex.def 2016/02/05 v0.1u Driver-dependant file (RN,HjG,JT)
 )
-\pIIe@GRAPH=\toks46
-\@arclen=\dimen281
-\@arcrad=\dimen282
-\pIIe@tempdima=\dimen283
-\pIIe@tempdimb=\dimen284
-\pIIe@tempdimc=\dimen285
-\pIIe@tempdimd=\dimen286
-\pIIe@tempdime=\dimen287
-\pIIe@tempdimf=\dimen288
+\pIIe@GRAPH=\toks54
+\@arclen=\dimen333
+\@arcrad=\dimen334
+\pIIe@tempdima=\dimen335
+\pIIe@tempdimb=\dimen336
+\pIIe@tempdimc=\dimen337
+\pIIe@tempdimd=\dimen338
+\pIIe@tempdime=\dimen339
+\pIIe@tempdimf=\dimen340
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/l3packages/xfp/xfp.sty
 Package: xfp 2024-08-16 L3 Floating point unit
 )
-\@tdA=\dimen289
-\@tdB=\dimen290
-\@tdC=\dimen291
-\@tdD=\dimen292
-\@tdE=\dimen293
-\@tdF=\dimen294
-\defaultlinewidth=\dimen295
+\@tdA=\dimen341
+\@tdB=\dimen342
+\@tdC=\dimen343
+\@tdD=\dimen344
+\@tdE=\dimen345
+\@tdF=\dimen346
+\defaultlinewidth=\dimen347
 \PbDim=\skip115
-\legendbox=\box79
-\MV@C=\count353
+\legendbox=\box89
+\MV@C=\count374
 )
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 106.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 108.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1319,27 +1490,36 @@ LaTeX Warning: Unused global option(s):
 
 LaTeX Warning: Label `Kirchhoff' multiply defined.
 
+
+LaTeX Warning: Label `fig:TE21_j_i' multiply defined.
+
+
+LaTeX Warning: Label `fig:TE76_j_i' multiply defined.
+
+
+LaTeX Warning: Label `fig:TE_comparison_j_i' multiply defined.
+
 )
 \openout1 = `english_tesi.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1389,37 +1569,37 @@ Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
  (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count354
-\scratchdimen=\dimen296
-\scratchbox=\box80
-\nofMPsegments=\count355
-\nofMParguments=\count356
-\everyMPshowfont=\toks47
-\MPscratchCnt=\count357
-\MPscratchDim=\dimen297
-\MPnumerator=\count358
-\makeMPintoPDFobject=\count359
-\everyMPtoPDFconversion=\toks48
+\scratchcounter=\count375
+\scratchdimen=\dimen348
+\scratchbox=\box90
+\nofMPsegments=\count376
+\nofMParguments=\count377
+\everyMPshowfont=\toks55
+\MPscratchCnt=\count378
+\MPscratchDim=\dimen349
+\MPnumerator=\count379
+\makeMPintoPDFobject=\count380
+\everyMPtoPDFconversion=\toks56
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Info: Redefining \textsubscript on input line 106.
-LaTeX Info: Redefining \microtypecontext on input line 106.
-Package microtype Info: Applying patch `item' on input line 106.
-Package microtype Info: Applying patch `toc' on input line 106.
-Package microtype Info: Applying patch `eqnum' on input line 106.
-Package microtype Info: Applying patch `footnote' on input line 106.
-Package microtype Info: Applying patch `verbatim' on input line 106.
+LaTeX Info: Redefining \textsubscript on input line 108.
+LaTeX Info: Redefining \microtypecontext on input line 108.
+Package microtype Info: Applying patch `item' on input line 108.
+Package microtype Info: Applying patch `toc' on input line 108.
+Package microtype Info: Applying patch `eqnum' on input line 108.
+Package microtype Info: Applying patch `footnote' on input line 108.
+Package microtype Info: Applying patch `verbatim' on input line 108.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 106.
+LaTeX Info: Redefining \showhyphens on input line 108.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1444,39 +1624,39 @@ Package: ragged2e 2023/06/22 v3.6 ragged2e Package
 )
 \symgns@font=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `gns@font' in version `bold'
-(Font)                  TS1/lmr/m/n --> TS1/lmr/b/n on input line 106.
-Package gensymb Info: Math companion symbols declared on input line 106.
-LaTeX Info: Redefining \degree on input line 106.
-LaTeX Info: Redefining \celsius on input line 106.
-Package gensymb Info: Using text companion symbols for \degree, \celsius and \perthousand on input line 106.
-LaTeX Info: Redefining \ohm on input line 106.
-Package gensymb Info: Using \textohm for \ohm on input line 106.
-LaTeX Info: Redefining \micro on input line 106.
-Package gensymb Info: Using \textmu for \micro on input line 106.
+(Font)                  TS1/lmr/m/n --> TS1/lmr/b/n on input line 108.
+Package gensymb Info: Math companion symbols declared on input line 108.
+LaTeX Info: Redefining \degree on input line 108.
+LaTeX Info: Redefining \celsius on input line 108.
+Package gensymb Info: Using text companion symbols for \degree, \celsius and \perthousand on input line 108.
+LaTeX Info: Redefining \ohm on input line 108.
+Package gensymb Info: Using \textohm for \ohm on input line 108.
+LaTeX Info: Redefining \micro on input line 108.
+Package gensymb Info: Using \textmu for \micro on input line 108.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 106.
-Package hyperref Info: Link coloring ON on input line 106.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 108.
+Package hyperref Info: Link coloring ON on input line 108.
  (./english_tesi.out) (./english_tesi.out)
-\@outlinefile=\write4
-\openout4 = `english_tesi.out'.
+\@outlinefile=\write5
+\openout5 = `english_tesi.out'.
 
 
 
-/Users/enrico/PROTEINS/tesi/english_tesi.tex:108: Class sapthesis Error: You must specify the copyright year.
+/Users/enrico/PROTEINS/tesi/english_tesi.tex:110: Class sapthesis Error: You must specify the copyright year.
 
 See the sapthesis class documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.108 
+l.110 
       
 Example: \copyyear{2012}
 
 \SAP@parboxindent=\skip130
 \SAP@parboxwidth=\skip131
-LaTeX Font Info:    Trying to load font information for T1+lmss on input line 108.
+LaTeX Font Info:    Trying to load font information for T1+lmss on input line 110.
 (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1484,13 +1664,13 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmss' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<sapienzalogo.pdf, id=140, 288.07625pt x 89.33376pt>
+<sapienzalogo.pdf, id=432, 288.07625pt x 89.33376pt>
 File: sapienzalogo.pdf Graphic file (type pdf)
 <use sapienzalogo.pdf>
-Package pdftex.def Info: sapienzalogo.pdf  used on input line 108.
+Package pdftex.def Info: sapienzalogo.pdf  used on input line 110.
 (pdftex.def)             Requested size: 142.26378pt x 44.11742pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 108--108
+Underfull \hbox (badness 10000) in paragraph at lines 110--110
 
  []
 
@@ -1500,49 +1680,49 @@ Underfull \hbox (badness 10000) in paragraph at lines 108--108
 
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc} </usr/local/texlive/2024/texmf-dist/tex/latex/sapthesis/sapienzalogo.pdf>]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 108.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 110.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Underfull \hbox (badness 10000) in paragraph at lines 108--108
+Underfull \hbox (badness 10000) in paragraph at lines 110--110
 
  []
 
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 108.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 110.
 (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 108.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 110.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 108.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 110.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 108.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 110.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 108.
+(Font)              <10> on input line 110.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 108.
+(Font)              <7> on input line 110.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 108.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 108.
+(Font)              <5> on input line 110.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 110.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 108.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 110.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-Underfull \hbox (badness 10000) in paragraph at lines 108--108
+Underfull \hbox (badness 10000) in paragraph at lines 110--110
 
  []
 
@@ -1552,7 +1732,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 108--108
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.108 
+l.110 
        [1
 
 {/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}] (./english_tesi.toc
@@ -1567,51 +1747,138 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 [2
 
 
-])
-\tf@toc=\write5
-\openout5 = `english_tesi.toc'.
-
-
-
-[3]
-
-[4
-
 ]
 
-[5]
+[3{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
+./english_tesi.toc:117: Missing $ inserted.
+<inserted text> 
+                $
+l.117 ...Gradients,tau_mean=0.1845}{71}{chapter.6}
+                                                  %
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./english_tesi.toc:117: Extra }, or forgotten $.
+<argument> ...d by Heat Gradients,tau_mean=0.1845}
+                                                  
+l.117 ...Gradients,tau_mean=0.1845}{71}{chapter.6}
+                                                  %
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./english_tesi.toc:117: Extra }, or forgotten $.
+\l@chapter ... \hskip -\leftskip {\cftchapfont #1}
+                                                  \nobreak \cftchapfillnum {...
+l.117 ...Gradients,tau_mean=0.1845}{71}{chapter.6}
+                                                  %
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+
+./english_tesi.toc:117: LaTeX Error: Command \bfseries invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.117 ...Gradients,tau_mean=0.1845}{71}{chapter.6}
+                                                  %
+Please use the math alphabet \mathbf instead of the \bfseries command. 
+
+./english_tesi.toc:117: Missing $ inserted.
+<inserted text> 
+                $
+l.117 ...Gradients,tau_mean=0.1845}{71}{chapter.6}
+                                                  %
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Overfull \hbox (67.8066pt too wide) in paragraph at lines 117--117
+ [][] []\T1/lmr/bx/n/10.95 (-20) Out-of-Equilibrium Stochas-tic Pro-cesses In-duced by Heat Gradients,tau$[]\OML/lmm/m/it/10.95 ean \OT1/lmr/m/n/10.95 (-20) = 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 117--117
+ \OT1/lmr/m/n/10.95 (+20) 0\OML/lmm/m/it/10.95 :\OT1/lmr/m/n/10.95 (+20) 1845[][]$  
+ []
+
+)
+\tf@toc=\write6
+\openout6 = `english_tesi.toc'.
+
+
+/Users/enrico/PROTEINS/tesi/english_tesi.tex:112: Missing } inserted.
+<inserted text> 
+                }
+l.112 \tableofcontents
+                      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/enrico/PROTEINS/tesi/english_tesi.tex:112: Missing } inserted.
+<inserted text> 
+                }
+l.112 \tableofcontents
+                      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+
+[4{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
+
+[5
+
+]
 
 [6]
 
-[7
+[7]
+Chapter 1.
+
+
+[8
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 157--158
+Underfull \hbox (badness 10000) in paragraph at lines 159--160
 
  []
 
-</Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/ammino.png, id=227, 1003.75pt x 646.415pt>
+</Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/ammino.png, id=599, 1003.75pt x 646.415pt>
 File: /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/ammino.png Graphic file (type png)
 <use /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/ammino.png>
-Package pdftex.def Info: /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/ammino.png  used on input line 168.
+Package pdftex.def Info: /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/ammino.png  used on input line 170.
 (pdftex.def)             Requested size: 396.0pt x 255.03029pt.
 
 
-[8{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc} </Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/ammino.png>]
-</Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/71225d815cafcc09102504abdf4e10927283be98.png, id=238, 602.25pt x 766.865pt>
+[9{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc} </Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/ammino.png>]
+</Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/71225d815cafcc09102504abdf4e10927283be98.png, id=609, 602.25pt x 766.865pt>
 File: /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/71225d815cafcc09102504abdf4e10927283be98.png Graphic file (type png)
 <use /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/71225d815cafcc09102504abdf4e10927283be98.png>
-Package pdftex.def Info: /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/71225d815cafcc09102504abdf4e10927283be98.png  used on input line 188.
+Package pdftex.def Info: /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/71225d815cafcc09102504abdf4e10927283be98.png  used on input line 190.
 (pdftex.def)             Requested size: 198.0pt x 252.11842pt.
 
 
-[9]
+[10]
 
-[10 </Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/71225d815cafcc09102504abdf4e10927283be98.png>]
-</Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/1-s2.0-S0959440X23002117-gr1.jpg, id=256, 411.87505pt x 162.44762pt>
+[11 </Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/71225d815cafcc09102504abdf4e10927283be98.png>]
+</Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/1-s2.0-S0959440X23002117-gr1.jpg, id=627, 411.87505pt x 162.44762pt>
 File: /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/1-s2.0-S0959440X23002117-gr1.jpg Graphic file (type jpg)
 <use /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/1-s2.0-S0959440X23002117-gr1.jpg>
-Package pdftex.def Info: /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/1-s2.0-S0959440X23002117-gr1.jpg  used on input line 227.
+Package pdftex.def Info: /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/1-s2.0-S0959440X23002117-gr1.jpg  used on input line 229.
 (pdftex.def)             Requested size: 396.0pt x 156.1958pt.
 
 
@@ -1619,54 +1886,54 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
-[11{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
+[12{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
 
-[12 </Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/1-s2.0-S0959440X23002117-gr1.jpg>]
-
-[13]
+[13 </Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/1-s2.0-S0959440X23002117-gr1.jpg>]
 
 [14]
 
-LaTeX Warning: Citation `pfam' on page 15 undefined on input line 299.
-
-
-
 [15]
 
-LaTeX Warning: Citation `song1997' on page 16 undefined on input line 312.
-
-
-LaTeX Warning: Citation `harris2001' on page 16 undefined on input line 318.
+LaTeX Warning: Citation `pfam' on page 16 undefined on input line 301.
 
 
 
 [16]
 
+LaTeX Warning: Citation `song1997' on page 17 undefined on input line 314.
+
+
+LaTeX Warning: Citation `harris2001' on page 17 undefined on input line 320.
+
+
+
 [17]
-Chapter 1.
+
+[18]
+Chapter 2.
 
 
-[18
+[19
 
 ]
 
-[19]
-</Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/small_undirected_network_labeled-2.png, id=335, 202.356pt x 182.1204pt>
+[20]
+</Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/small_undirected_network_labeled-2.png, id=700, 202.356pt x 182.1204pt>
 File: /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/small_undirected_network_labeled-2.png Graphic file (type png)
 <use /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/small_undirected_network_labeled-2.png>
-Package pdftex.def Info: /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/small_undirected_network_labeled-2.png  used on input line 411.
+Package pdftex.def Info: /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/small_undirected_network_labeled-2.png  used on input line 413.
 (pdftex.def)             Requested size: 396.0pt x 356.41998pt.
 
 
-[20 </Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/small_undirected_network_labeled-2.png>]
-
-[21]
+[21 </Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/small_undirected_network_labeled-2.png>]
 
 [22]
 
 [23]
-/Users/enrico/PROTEINS/tesi/english_tesi.tex:552: Undefined control sequence.
-l.552     \bm
+
+[24]
+/Users/enrico/PROTEINS/tesi/english_tesi.tex:554: Undefined control sequence.
+l.554     \bm
              {\Sigma} = \beta^{-1} \mathbf{K}^{-1} = \langle r_i r_j \rangle,
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1676,48 +1943,56 @@ and I'll forget about whatever was undefined.
 
 
 
-[24]
-
 [25]
 
 [26]
 
 [27]
-Chapter 2.
-</Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/corrCause1.png, id=425, 436.96584pt x 316.85042pt>
+Overfull \hbox (5.00742pt too wide) in paragraph at lines 642--642
+[]\T1/lmr/bx/n/14.4 (-20) Model Eval-u-a-tion: RMSE and MAE QUESTA IDEM
+ []
+
+
+
+
+Overfull \hbox (553.55408pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10.95 2.3.  MODEL EVALUATION: RMSE AND MAE QUESTA IDEM NON SO SE METTERLA O NO. SCELGO IN FUNZIONE SE METTO QUESTE METRICHE DI ERRORE NELLA TESI DOPO  \T1/lmr/m/n/10.95 28
+ []
+
+[28]
+Chapter 3.
+</Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/corrCause1.png, id=784, 436.96584pt x 316.85042pt>
 File: /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/corrCause1.png Graphic file (type png)
 <use /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/corrCause1.png>
-Package pdftex.def Info: /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/corrCause1.png  used on input line 672.
+Package pdftex.def Info: /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/corrCause1.png  used on input line 674.
 (pdftex.def)             Requested size: 396.0pt x 287.15948pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
-[28
+[29
 
 ]
 
-[29 </Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/corrCause1.png>]
-
-[30]
+[30 </Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/corrCause1.png>]
 
 [31]
 
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 718.
 
-
+Overfull \hbox (417.51956pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10.95 3.2.  GEOMETRIC PERSPECTIVE OF CAUSALITY AND SHANNON ENTROPY (QUESTA È LA PARTE PIU' DA TOGLIERE FRA TUTTE PROBABILMENTE) \T1/lmr/m/n/10.95 32
+ []
 
 [32]
-LaTeX Font Info:    Trying to load font information for U+eus on input line 779.
+
+[33]
+LaTeX Font Info:    Trying to load font information for U+eus on input line 781.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/ueus.fd
 File: ueus.fd 2013/01/14 v3.01 Euler Script
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/microtype/mt-eus.cfg
 File: mt-eus.cfg 2006/07/28 v1.2 microtype config. file: AMS Euler Script (RS)
 )
-
-[33]
 
 [34]
 
@@ -1726,213 +2001,171 @@ File: mt-eus.cfg 2006/07/28 v1.2 microtype config. file: AMS Euler Script (RS)
 [36]
 
 [37]
-Underfull \hbox (badness 10000) in paragraph at lines 977--982
-
- []
-
-
 
 [38]
+Underfull \hbox (badness 10000) in paragraph at lines 979--984
+
+ []
+
+
 
 [39]
-Chapter 3.
+
+[40]
+Chapter 4.
 
 
-[40
+[41
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1057--1060
+Underfull \hbox (badness 10000) in paragraph at lines 1069--1072
 
  []
 
 
-
-[41]
-
-
-Overfull \hbox (125.30273pt too wide) has occurred while \output is active
-\T1/lmr/m/sl/10.95 3.2.  INTRODUCTION TO NORMAL MODES AND THEIR PHYSICAL SIGNIFICANCE IN PROTEINS \T1/lmr/m/n/10.95 42
- []
 
 [42]
 
 
 Overfull \hbox (125.30273pt too wide) has occurred while \output is active
-\T1/lmr/m/sl/10.95 3.2.  INTRODUCTION TO NORMAL MODES AND THEIR PHYSICAL SIGNIFICANCE IN PROTEINS \T1/lmr/m/n/10.95 43
+\T1/lmr/m/sl/10.95 4.2.  INTRODUCTION TO NORMAL MODES AND THEIR PHYSICAL SIGNIFICANCE IN PROTEINS \T1/lmr/m/n/10.95 43
  []
 
 [43]
+
+
+Overfull \hbox (125.30273pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10.95 4.2.  INTRODUCTION TO NORMAL MODES AND THEIR PHYSICAL SIGNIFICANCE IN PROTEINS \T1/lmr/m/n/10.95 44
+ []
+
+[44]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 1159.
+(Font)              <12> on input line 1170.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1170.
+
 
 
 
 Overfull \hbox (49.03688pt too wide) has occurred while \output is active
-\T1/lmr/m/sl/10.95 3.3.  ANALYTICAL SOLUTION OF STOCHASTIC PROCESS WITH NORMAL MODES \T1/lmr/m/n/10.95 44
+\T1/lmr/m/sl/10.95 4.3.  ANALYTICAL SOLUTION OF STOCHASTIC PROCESS WITH NORMAL MODES \T1/lmr/m/n/10.95 45
  []
 
-[44]
-
 [45]
-/Users/enrico/PROTEINS/tesi/english_tesi.tex:1269: You can't use `macro parameter character #' in vertical mode.
-l.1269 #
-        ## Step 4: Component form of \(\mathbf{C}(t)\)
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-/Users/enrico/PROTEINS/tesi/english_tesi.tex:1269: You can't use `macro parameter character #' in vertical mode.
-l.1269 ##
-         # Step 4: Component form of \(\mathbf{C}(t)\)
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-/Users/enrico/PROTEINS/tesi/english_tesi.tex:1269: You can't use `macro parameter character #' in vertical mode.
-l.1269 ###
-           Step 4: Component form of \(\mathbf{C}(t)\)
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-/Users/enrico/PROTEINS/tesi/english_tesi.tex:1280: You can't use `macro parameter character #' in vertical mode.
-l.1280 #
-        ## Final Result
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-/Users/enrico/PROTEINS/tesi/english_tesi.tex:1280: You can't use `macro parameter character #' in vertical mode.
-l.1280 ##
-         # Final Result
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-/Users/enrico/PROTEINS/tesi/english_tesi.tex:1280: You can't use `macro parameter character #' in vertical mode.
-l.1280 ###
-           Final Result
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-
 
 [46]
 
 [47]
 
 [48]
-</Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-11 at 12.00.12.png, id=580, 801.99625pt x 197.73875pt>
+
+[49]
+Chapter 5.
+</Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-11 at 12.00.12.png, id=916, 801.99625pt x 197.73875pt>
 File: /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-11 at 12.00.12.png Graphic file (type png)
 <use /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-11 at 12.00.12.png>
-Package pdftex.def Info: /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-11 at 12.00.12.png  used on input line 1385.
+Package pdftex.def Info: /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-11 at 12.00.12.png  used on input line 1396.
 (pdftex.def)             Requested size: 316.80121pt x 78.11047pt.
-</Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-05 at 15.56.16.png, id=581, 550.055pt x 489.83pt>
+</Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-05 at 15.56.16.png, id=917, 550.055pt x 489.83pt>
 File: /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-05 at 15.56.16.png Graphic file (type png)
 <use /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-05 at 15.56.16.png>
-Package pdftex.def Info: /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-05 at 15.56.16.png  used on input line 1390.
+Package pdftex.def Info: /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-05 at 15.56.16.png  used on input line 1401.
 (pdftex.def)             Requested size: 316.80121pt x 282.12093pt.
-
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 
-[49
+[50
 
  </Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-11 at 12.00.12.png>]
 
-[50 </Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-05 at 15.56.16.png>]
-</Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-08 at 11.54.32.png, id=596, 1295.84125pt x 807.015pt>
+[51 </Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-05 at 15.56.16.png>]
+</Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-08 at 11.54.32.png, id=930, 1295.84125pt x 807.015pt>
 File: /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-08 at 11.54.32.png Graphic file (type png)
 <use /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-08 at 11.54.32.png>
-Package pdftex.def Info: /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-08 at 11.54.32.png  used on input line 1410.
+Package pdftex.def Info: /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-08 at 11.54.32.png  used on input line 1421.
 (pdftex.def)             Requested size: 316.80121pt x 197.29556pt.
-</Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-11 at 11.59.21.png, id=597, 1253.68375pt x 777.90625pt>
+</Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-11 at 11.59.21.png, id=931, 1253.68375pt x 777.90625pt>
 File: /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-11 at 11.59.21.png Graphic file (type png)
 <use /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-11 at 11.59.21.png>
-Package pdftex.def Info: /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-11 at 11.59.21.png  used on input line 1417.
+Package pdftex.def Info: /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-11 at 11.59.21.png  used on input line 1428.
 (pdftex.def)             Requested size: 316.80121pt x 196.57704pt.
 
 
-[51 </Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-08 at 11.54.32.png> </Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-11 at 11.59.21.png>]
+[52 </Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-08 at 11.54.32.png> </Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-11 at 11.59.21.png>]
 
-/Users/enrico/PROTEINS/tesi/english_tesi.tex:1439: LaTeX Error: There's no line here to end.
+/Users/enrico/PROTEINS/tesi/english_tesi.tex:1450: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1439 \textbf
+l.1450 \textbf
               {Physical Basis:} Near neighbors are typically connected by st...
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1439--1440
+Underfull \hbox (badness 10000) in paragraph at lines 1450--1451
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1441--1442
+Underfull \hbox (badness 10000) in paragraph at lines 1452--1453
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1443--1445
+Underfull \hbox (badness 10000) in paragraph at lines 1454--1456
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1443--1445
+Underfull \hbox (badness 10000) in paragraph at lines 1454--1456
 
  []
 
-</Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Matrice di Kirchhoff della Proteina.png, id=608, 722.7pt x 722.7pt>
+</Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Matrice di Kirchhoff della Proteina.png, id=941, 722.7pt x 722.7pt>
 File: /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Matrice di Kirchhoff della Proteina.png Graphic file (type png)
 <use /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Matrice di Kirchhoff della Proteina.png>
-Package pdftex.def Info: /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Matrice di Kirchhoff della Proteina.png  used on input line 1451.
+Package pdftex.def Info: /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Matrice di Kirchhoff della Proteina.png  used on input line 1462.
 (pdftex.def)             Requested size: 316.80121pt x 316.798pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1448--1455
+Underfull \hbox (badness 10000) in paragraph at lines 1459--1466
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1448--1455
+Underfull \hbox (badness 10000) in paragraph at lines 1459--1466
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1448--1455
+Underfull \hbox (badness 10000) in paragraph at lines 1459--1466
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1448--1455
+Underfull \hbox (badness 10000) in paragraph at lines 1459--1466
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1448--1455
+Underfull \hbox (badness 10000) in paragraph at lines 1459--1466
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1448--1455
+Underfull \hbox (badness 10000) in paragraph at lines 1459--1466
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1448--1455
+Underfull \hbox (badness 10000) in paragraph at lines 1459--1466
 
  []
 
@@ -1941,6 +2174,15 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 
-[52]
+[53]
 
-[53 </Users/enrico/PROTEINS/tesi/immagini_tesi_i
+[54 </Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Matrice di Kirchhoff della Proteina.png>]
+</Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Correlation_MatrixNan_False.png, id=955, 722.7pt x 722.7pt>
+File: /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Correlation_MatrixNan_False.png Graphic file (type png)
+<use /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Correlation_MatrixNan_False.png>
+Package pdftex.def Info: /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Correlation_MatrixNan_False.png  used on input line 1477.
+(pdftex.def)             Requested size: 316.80121pt x 316.798pt.
+</Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Correlation_MatrixNan_True.png, id=956, 722.7pt x 722.7pt>
+File: /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Correlation_MatrixNan_True.png Graphic file (type png)
+<use /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Correlation_MatrixNan_True.png>
+Package pdftex.def Info: /Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Correlation_MatrixNan_True.png  used on inp

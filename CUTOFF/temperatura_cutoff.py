@@ -39,6 +39,26 @@ class TimeCorrelation(BaseCorrelationAnalysis):
                 C_ij_t[a] = sum_result
             a+=1
         return C_ij_t
+    def time_response(self, i, j, t):
+        # No changes made here
+        C_ij_t = np.zeros(len(t))
+        C_ij_0 = np.zeros(len(t))
+        a=0
+        for tau in t:
+            sum_result = 0.0
+            for k in range(1, len(self.lambdas)):
+                for p in range(1,len(lambdaa)):
+                    term= (self.u[i, k] * self.Q[k, p] * self.u[j, p]) / (self.lambdas[k] + self.lambdas[p])
+                    if tau > 0:
+                        term *= np.exp(-lambdaa[p] * tau)
+                    else:
+                        term *= np.exp(lambdaa[k] * tau)
+                    sum_result += term
+                C_ij_t[a] = sum_result/(term)
+               
+            a+=1
+        return C_ij_t
+    
     def normalize_autocorrelations(self, C_ii_t):
         C_ii_0 = C_ii_t[0]  # Primo valore di C_ii_t
         return C_ii_t / C_ii_0
@@ -414,7 +434,7 @@ contatti_somma_righe = kirchhoff_matrix.sum(axis=1)
 contatti = contatti_diagonale/2
 
 
-temperatura = np.where(contatti >= 5, 0.01, 1)
+temperatura = np.where(contatti >= 5, 0.5, 1)
 G = visualizer.create_and_print_graph(truncated=True, radius=8.0, plot=False, peso=20)  # Adjust radius as needed
 analyzer = GraphMatrixAnalyzer(G)
 kirchhoff_matrix = analyzer.get_kirchhoff_matrix()
@@ -476,9 +496,9 @@ for idx, (i, j) in enumerate(indices):
              color=color_forward[idx], marker=marker_forward, markevery=30)
 
 # Aggiungi titoli e etichette
-plt.title('Autocorrelazione Forward e Backward per diversi indici')
-plt.xlabel('Tempo')
-plt.ylabel('Autocorrelazione')
+plt.title('Cross-correlation Forward e Backward')
+plt.xlabel('Time')
+plt.ylabel('Cross-correlation')
 plt.legend()
 plt.grid(True)
 
@@ -492,6 +512,100 @@ plt.savefig(f'{output_dir}/correlation_combined.png')
 
 # Chiudi il grafico
 plt.close()
+
+
+t_back = np.linspace(-1.5, 0, 300)  # Time points per autocorrelazione back
+t_forward = np.linspace(0., 1.5, 300)  # Time points per autocorrelazione forward
+
+# Inizializza la figura
+plt.figure(figsize=(12, 6))
+
+# Colori e stili
+color_back = ['#1f77b4', '#ff7f0e', '#2ca02c']  # Colori per autocorrelazioni back
+color_forward = ['#d62728', '#9467bd', '#8c564b']  # Colori per autocorrelazioni forward
+linestyle_back = '-'  # Stile per autocorrelazione backward
+linestyle_forward = '--'  # Stile per autocorrelazione forward
+marker_back = 'o'  # Marker per autocorrelazione backward
+marker_forward = 'x'  # Marker per autocorrelazione forward
+
+# Calcola e plottare le autocorrelazioni per ogni coppia di indici
+for idx, (i, j) in enumerate(indices):
+    # Calcola le autocorrelazioni back e forward
+    time_correlation_back = TimeCorrelation(u=U, lambdas=lambdaa, mu=0, sec_struct_data=df, stringa=stringa, Q=Q)
+    autocorrelations_back = time_correlation_back.time_response(i, j, t_back)
+
+    time_correlation_forward = TimeCorrelation(u=U, lambdas=lambdaa, mu=0, sec_struct_data=df, stringa=stringa, Q=Q)
+    autocorrelations_forward = time_correlation_forward.time_response(i, j, t_forward)
+
+    # Plottiamo le autocorrelazioni
+    plt.plot(t_back, autocorrelations_back, label=f'Backward ({i}, {j})', linestyle=linestyle_back,
+             color=color_back[idx], marker=marker_back, markevery=30)
+    plt.plot(t_forward, autocorrelations_forward, label=f'Forward ({i}, {j})', linestyle=linestyle_forward,
+             color=color_forward[idx], marker=marker_forward, markevery=30)
+
+# Aggiungi titoli e etichette
+plt.title('Response Forward e Backward')
+plt.xlabel('Time')
+plt.ylabel('Response')
+plt.legend()
+plt.grid(True)
+
+# Creazione della directory se non esiste
+output_dir = f'images/{stringa}/2_temperature_cutoff/Time_correlations/'
+if not os.path.exists(output_dir):
+    os.makedirs(output_dir)
+
+# Salva il grafico
+plt.savefig(f'{output_dir}/responses_combined.png')
+
+# Chiudi il grafico
+plt.close()
+
+t_back = np.linspace(-2, 0, 300)  # Time points per autocorrelazione back
+t_forward = np.linspace(0., 2, 300)  # Time points per autocorrelazione forward
+
+plt.figure(figsize=(12, 6))
+# Colori e stili
+color_back = ['#1f77b4', '#ff7f0e', '#2ca02c']  # Colori per autocorrelazioni back
+color_forward = ['#d62728', '#9467bd', '#8c564b']  # Colori per autocorrelazioni forward
+linestyle_back = '-'  # Stile per autocorrelazione backward
+linestyle_forward = '--'  # Stile per autocorrelazione forward
+marker_back = 'o'  # Marker per autocorrelazione backward
+marker_forward = 'x'  # Marker per autocorrelazione forward
+
+# Calcola e plottare le autocorrelazioni per ogni coppia di indici
+for idx, (i, j) in enumerate(indices):
+    # Calcola le autocorrelazioni back e forward
+    time_correlation_back = TimeCorrelation(u=U, lambdas=lambdaa, mu=0, sec_struct_data=df, stringa=stringa, Q=Q)
+    autocorrelations_back = time_correlation_back.transfer_entropy(i, j, t_back)
+
+    time_correlation_forward = TimeCorrelation(u=U, lambdas=lambdaa, mu=0, sec_struct_data=df, stringa=stringa, Q=Q)
+    autocorrelations_forward = time_correlation_forward.transfer_entropy(i, j, t_forward)
+
+    # Plottiamo le autocorrelazioni
+    plt.plot(t_back, autocorrelations_back, label=f'Backward ({i}, {j})', linestyle=linestyle_back,
+             color=color_back[idx], marker=marker_back, markevery=30)
+    plt.plot(t_forward, autocorrelations_forward, label=f'Forward ({i}, {j})', linestyle=linestyle_forward,
+             color=color_forward[idx], marker=marker_forward, markevery=30)
+
+# Aggiungi titoli e etichette
+plt.title('Transfer Entropy Forward e Backward')
+plt.xlabel('Time')
+plt.ylabel('Transfer Entropy')
+plt.legend()
+plt.grid(True)
+
+# Creazione della directory se non esiste
+output_dir = f'images/{stringa}/2_temperature_cutoff/Time_correlations/'
+if not os.path.exists(output_dir):
+    os.makedirs(output_dir)
+
+# Salva il grafico
+plt.savefig(f'{output_dir}/entropies_combined.png')
+
+# Chiudi il grafico
+plt.close()
+
 
 t = np.linspace(0., 2, 300)  # Time points
 time_correlation = TimeCorrelation(u = U, lambdas=lambdaa, mu=0, sec_struct_data=df,stringa=stringa,Q=Q)
@@ -509,6 +623,8 @@ for i in range(94):
     C_ii_t = time_correlation.time_correlation(i, i, t)
     normalized_autocorrelations[i, :] = time_correlation.normalize_autocorrelations(C_ii_t)
 tau_mean, taus = time_correlation.estimate_tau_2(t, normalized_autocorrelations)
+
+
 print(f"Tempo caratteristico medio: {tau_mean:.4f}")
 time_correlation.plot_tau_histogram( t, normalized_autocorrelations)
 time_correlation.plot_autocorrelation_fits(t, normalized_autocorrelations)

@@ -34,6 +34,71 @@ print(df)
 #raggio=visualizer.calculate_and_print_average_distance()
 G = visualizer.create_and_print_graph(truncated=True, radius=raggio, plot=False, peso=20)  # Adjust radius as needed
 #visualizer.plot_connections_vs_radius()
+
+
+
+
+'''import matplotlib.pyplot as plt
+import matplotlib.cm as cm
+import matplotlib.colors as mcolors
+import pandas as pd
+
+# Calcolo della betweenness centrality
+betweenness = nx.betweenness_centrality(G, normalized=True, weight='weight')
+
+# Creazione di un DataFrame ordinato
+betweenness_df = pd.DataFrame(list(betweenness.items()), columns=["Node", "Betweenness Centrality"])
+betweenness_df = betweenness_df.sort_values(by="Betweenness Centrality", ascending=False)[0:20]
+
+# Creazione della colormap 'plasma'
+cmap = cm.get_cmap('plasma')
+norm = mcolors.Normalize(vmin=betweenness_df["Betweenness Centrality"].min(), 
+                         vmax=betweenness_df["Betweenness Centrality"].max())
+colors = [cmap(norm(value)) for value in betweenness_df["Betweenness Centrality"]]
+
+# Plot ordinato della betweenness centrality
+plt.figure(figsize=(12, 6))
+plt.bar(betweenness_df["Node"].astype(str), betweenness_df["Betweenness Centrality"], color=colors)
+plt.xlabel("Residue (Node)")
+plt.ylabel("Betweenness Centrality")
+plt.title("Nodes Ordered by Betweenness Centrality")
+plt.xticks(rotation=90)  # Ru
+
+# Calcolo della betweenness centrality
+betweenness = nx.betweenness_centrality(G, normalized=True, weight='weight')
+
+# Creazione di un mapping per il colore
+node_sizes = [betweenness[node] * 1000 for node in G.nodes()]
+node_colors = [betweenness[node] for node in G.nodes()]
+
+# Creazione della mappa dei colori
+cmap = plt.cm.plasma
+norm = mcolors.Normalize(vmin=min(node_colors), vmax=max(node_colors))
+sm = cm.ScalarMappable(cmap=cmap, norm=norm)
+
+# Creazione della figura e dell'Axes
+fig, ax = plt.subplots(figsize=(12, 8))
+
+# Disegno del grafo
+pos = nx.spring_layout(G, seed=42)
+nx.draw(
+    G, pos, with_labels=True, node_size=node_sizes, node_color=node_colors,
+    cmap=cmap, edge_color='gray', font_weight='bold', ax=ax
+)
+
+# Aggiunta della colorbar esplicita all'Axes
+cbar = plt.colorbar(sm, ax=ax)
+cbar.set_label("Betweenness Centrality")
+
+# Titolo e visualizzazione finale
+plt.title("Betweenness Centrality in the Protein Graph")
+plt.show()'''
+
+
+
+
+
+
 analyzer = GraphMatrixAnalyzer(G)
 
 concatenated_df = pd.concat([df1['Secondary Structure'], df], axis=1)
@@ -54,7 +119,7 @@ mu = 1  # Time scaling factor
 t = np.linspace(0., 2, 300)  # Time points
 time_correlation = TimeCorrelation(u=autovettori, lambdas=autovalori, mu=mu, sec_struct_data=df,stringa=stringa)
 autocorrelations = time_correlation.time_correlation(0, 1, t)  # Example indices
-time_correlation.plot_time_correlation(0, 1, t)
+#time_correlation.plot_time_correlation(0, 1, t)
 normalized_autocorrelations = autocorrelations / autocorrelations[0]  # Normalize example
 normalized_autocorrelations = np.zeros((94, len(t)))
 for i in range(94):
@@ -64,31 +129,37 @@ for i in range(94):
 # Calcola e stampa i tempi caratteristici
 tau_mean, taus = time_correlation.estimate_tau_2(t, normalized_autocorrelations)
 print(f"Tempo caratteristico medio: {tau_mean:.4f}")
-time_correlation.plot_tau_histogram( t, normalized_autocorrelations)
-time_correlation.plot_autocorrelation_fits(t, normalized_autocorrelations)
+#time_correlation.plot_tau_histogram( t, normalized_autocorrelations)
+#time_correlation.plot_autocorrelation_fits(t, normalized_autocorrelations)
 
 transfer_entropy = TransferEntropy(u=autovettori, lambdas=autovalori, mu=mu, sec_struct_data=df,stringa=stringa)
-TE_ij = transfer_entropy.transfer_entropy(0, 1, t)  # Example indices
-transfer_entropy.plot_transfer_entropy(1, 20, t)
+#TE_ij = transfer_entropy.transfer_entropy(0, 1, t)  # Example indices
+#transfer_entropy.plot_transfer_entropy(1, 20, t)
 
 time_response = TimeResponse(u=autovettori, lambdas=autovalori, mu=mu, sec_struct_data=df,stringa=stringa)
-R_ij_t = time_response.time_response(0, 1, t)  # Example indices
-time_response.plot_time_response(0, 1, t)
+#R_ij_t = time_response.time_response(0, 1, t)  # Example indices
+#time_response.plot_time_response(0, 1, t)
 
 matrix_operations = CorrelationMatrixOperations(u=autovettori, lambdas=autovalori, mu=mu, sec_struct_data=df,stringa=stringa)
 
 correlation_matrix = matrix_operations.compute_static_correlation_matrix()
 positive_matrix, negative_matrix = matrix_operations.split_correlation_matrix(correlation_matrix)
 
-matrix_operations.plot_correlation_matrix_nan(correlation_matrix, kirchhoff_matrix,secondary_structure, positive_only=False)
-matrix_operations.plot_correlation_matrix_nan(correlation_matrix,kirchhoff_matrix, secondary_structure, positive_only=True)
+#matrix_operations.plot_correlation_matrix_nan(correlation_matrix, kirchhoff_matrix,secondary_structure, positive_only=False)
+#matrix_operations.plot_correlation_matrix_nan(correlation_matrix,kirchhoff_matrix, secondary_structure, positive_only=True)
 #matrix_operations.plot_correlation_matrix(kirchhoff_matrix, title='Correlation Matrix')
 #matrix_operations.plot_correlation_matrix_nan(kirchhoff_matrix, title='Correlation Matrix', positive_only=False)
 
 residual_analysis = ResidualAnalysis(u=autovettori, lambdas=autovalori, mu=mu, sec_struct_data=df,stringa=stringa)
-residual_analysis.analyze_mfpt(adjacency_matrix,kirchhoff_matrix, secondary_structure )
+#residual_analysis.analyze_mfpt(adjacency_matrix,kirchhoff_matrix, secondary_structure )
 
-lista = np.array([20,21,22, 23, 24])
+#lista = np.array([20,21,22, 23, 24])
+
+lista=[]
+# Loop da 0 a 94 prendendo uno ogni 3
+for i in range(0, 95, 3):  # i va da 0 a 94 con step di 3
+    # Selezioniamo l'indice modulo della lunghezza della lista
+    lista.append(i)
 t=[tau_mean-1/2*tau_mean,tau_mean,tau_mean+1/2*tau_mean]
 time_idx = 0
 for i in range(len(lista)):
@@ -102,10 +173,10 @@ for i in range(len(lista)):
 
 
 #residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'correlation')#'correlation','linear_response','entropy'
-residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'linear_response')
+#residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'linear_response')
 #residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'entropy')
 
-lista = np.array([71, 72, 73, 74, 75, 76, 77, 78, 79])
+'''lista = np.array([71, 72, 73, 74, 75, 76, 77, 78, 79])
 t=[tau_mean-1/2*tau_mean,tau_mean,tau_mean+1/2*tau_mean]
 time_idx = 0
 for i in range(len(lista)):
@@ -129,6 +200,6 @@ plot_time_correlation_multiple(time_correlation, residue_pairs, t, 'Time Correla
 plot_time_entropy_multiple(transfer_entropy, residue_pairs, t, 'Time Transfer entropy TE_{i,j} for Selected Residue Pairs',name=stringa)
 
 
-residual_analysis.analyze_mfpt(adjacency_matrix,kirchhoff_matrix, secondary_structure )
+residual_analysis.analyze_mfpt(adjacency_matrix,kirchhoff_matrix, secondary_structure )'''
 
  

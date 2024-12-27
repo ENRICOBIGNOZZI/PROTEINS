@@ -84,34 +84,34 @@ def main_plot(df, kirchhoff_matrix, contatti, t, s, time_idx, nome, lista):
             if label not in [h.get_label() for h in legend_handles]:
                 legend_handles.append(plt.Line2D([0], [0], marker='o', color='w', markerfacecolor=color, label=label))
 
-    # Configurazione del primo sottomodulo
-    ax1.legend(handles=legend_handles, title='Legenda Epsilon', loc='upper right')
-    ax1.set_xlabel('Residue Index')
-    ax1.set_ylabel('Transfer entropy')
-    ax1.set_title('Trasnfer Entropy')
-    ax1.grid(True)
+        # Configurazione del primo sottomodulo
+        ax1.legend(handles=legend_handles, title='Legenda Epsilon', loc='upper right')
+        ax1.set_xlabel('Residue Index')
+        ax1.set_ylabel('Transfer entropy')
+        ax1.set_title('Trasnfer Entropy')
+        ax1.grid(True)
 
-    # Tracciare le temperature nel secondo sottomodulo
-    for epsilon in [1.,0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 0.0]:
-        temperatura = np.where(contatti >= 5, epsilon, 1)
-        # Usa un colore diverso per ogni epsilon
-        color = plt.cm.viridis((epsilon + 0.1) / 1.0)
-        ax2.plot(range(len(contatti)), temperatura, linestyle='-', alpha=0.7, color=color, label=f'Temperatura ={epsilon}')
+        # Tracciare le temperature nel secondo sottomodulo
+        for epsilon in [1.,0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 0.0]:
+            temperatura = np.where(contatti >= 5, epsilon, 1)
+            # Usa un colore diverso per ogni epsilon
+            color = plt.cm.viridis((epsilon + 0.1) / 1.0)
+            ax2.plot(range(len(contatti)), temperatura, linestyle='-', alpha=0.7, color=color, label=f'Temperatura ={epsilon}')
 
-    # Configurazione del secondo sottomodulo
-    ax2.set_xlabel('Residue Index')
-    ax2.set_ylabel('Temperatura')
-    ax2.set_title('Variazione della Temperatura')
-    ax2.grid(True)
-    ax2.legend(title='Temperature', loc='upper right')
+        # Configurazione del secondo sottomodulo
+        ax2.set_xlabel('Residue Index')
+        ax2.set_ylabel('Temperatura')
+        ax2.set_title('Variazione della Temperatura')
+        ax2.grid(True)
+        ax2.legend(title='Temperature', loc='upper right')
 
-    # Plot della struttura secondaria
-    _plot_secondary_structure(df, ax1)
+        # Plot della struttura secondaria
+        _plot_secondary_structure(df, ax1)
 
-    # Salvataggio del grafico
-    plt.tight_layout()
-    plt.savefig(f'images/{nome}/2_temperature_cutoff/combined_entropy_temperature_20_plots.png')
-    plt.show()
+        # Salvataggio del grafico
+        plt.tight_layout()
+        plt.savefig(f'images/{nome}/2_temperature_cutoff/combined_entropy_temperature_{i}_plots.png')
+        plt.close()
 
 def transfer_entropy(C,C_statica, i, j):
     C_ii_0 = C_statica[i, i]
@@ -123,8 +123,10 @@ def transfer_entropy(C,C_statica, i, j):
     beta_ij_t = (C_ii_0 * C_jj_0-(C_ij_0**2)) * (C_ii_0**2- C_ii_t ** 2)
     ratio = np.clip(alpha_ij_t / beta_ij_t, 0, 1 - 1e-10)
     return -0.5 * np.log(1 - ratio)
+
 def plot_residual_transfer_entropy_vs_j_accettore(df, i, t, s, time_idx, nome, Q, lambdaa, U, color, label=None, ax=None):
     correlation_i = np.zeros((len(lambdaa),len(lambdaa)))
+    lista=i
     correlation_i_zero = np.zeros((len(lambdaa),len(lambdaa)))
     z = np.array(t) - np.array(s)
     
@@ -152,7 +154,7 @@ def plot_residual_transfer_entropy_vs_j_accettore(df, i, t, s, time_idx, nome, Q
                         sum_result += term
                 correlation_i_zero[i][j] = sum_result
 
-    i=24
+    i=lista
     transfer_entropy_matrix =  np.zeros(len(lambdaa))
     for j in range(len(lambdaa)):
         if j==i:
@@ -193,7 +195,7 @@ def plot_residual_transfer_entropy_vs_j_donatore(df, i, t, s, time_idx, nome, Q,
                     sum_result += term
             correlation_i_zero[j] = sum_result
 
-    i=24
+    i=20
     transfer_entropy_matrix =  np.zeros(len(lambdaa))
     for j in range(len(lambdaa)):
         if j==i:
@@ -252,6 +254,10 @@ t=[tau_mean]
 s=[0,0,0]
 time_idx = 0
 
-lista = np.array([75])
+lista=[]
+# Loop da 0 a 94 prendendo uno ogni 3
+for i in range(0, 95, 3):  # i va da 0 a 94 con step di 3
+    # Selezioniamo l'indice modulo della lunghezza della lista
+    lista.append(i)
 main_plot(df, kirchhoff_matrix, contatti, t, s, time_idx, stringa,lista)
 

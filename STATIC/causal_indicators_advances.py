@@ -219,10 +219,10 @@ class CorrelationMatrixOperations(BaseCorrelationAnalysis):
         plt.scatter(cols, rows, color='black', alpha=0.4, s=10, zorder=2)
 
         # Aggiungi rettangoli o patch (esempio)
-        rectangle1 = mpatches.Rectangle((19, 71), 5, 9, linewidth=2, edgecolor='r', facecolor='none')
-        rectangle2 = mpatches.Rectangle((71, 19), 9, 5, linewidth=2, edgecolor='r', facecolor='none')
-        plt.gca().add_patch(rectangle1)
-        plt.gca().add_patch(rectangle2)
+        #rectangle1 = mpatches.Rectangle((19, 71), 5, 9, linewidth=2, edgecolor='r', facecolor='none')
+        #rectangle2 = mpatches.Rectangle((71, 19), 9, 5, linewidth=2, edgecolor='r', facecolor='none')
+        #plt.gca().add_patch(rectangle1)
+        #plt.gca().add_patch(rectangle2)
 
         # Segnamenti su assi x e y basati sulla struttura secondaria
         start = 0
@@ -289,6 +289,7 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
                 T[i, j] = 0.5 * np.sum(degrees * (R[i, j] + R[:, j] - R[i, :]))
         
         return T
+    
     def compute_mean_first_passage_time_matrix_accettore(self,adjacency_matrix):
         n = self.u.shape[0]
         T = np.zeros((n, n))

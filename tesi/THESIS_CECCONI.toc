@@ -1,0 +1,92 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{Index}{2}{Doc-Start}%
+\contentsline {chapter}{\numberline {1}Introduction}{7}{chapter.1}%
+\contentsline {subsection}{\numberline {1.0.1}Thesis Structure}{8}{subsection.1.0.1}%
+\contentsline {paragraph}{Chapter 1: Protein Structure}{8}{section*.3}%
+\contentsline {paragraph}{Chapter 2: Relation structure-function-dynamic in proteins}{8}{section*.4}%
+\contentsline {paragraph}{Chapter 3: Relation structure-function-dynamic in proteins}{8}{section*.5}%
+\contentsline {paragraph}{Chapter 4: Causality indicators}{9}{section*.6}%
+\contentsline {paragraph}{Chapter 5: Causality indicators}{9}{section*.7}%
+\contentsline {chapter}{\numberline {2}Proteins}{10}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Structure of amino acids}{11}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Protein structure}{12}{section.2.2}%
+\contentsline {chapter}{\numberline {3}Structure-Function-Dynamic Relationship in Proteins}{13}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Relation structure-function-dynamic in proteins}{13}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Allostery}{14}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Conformational Allostery}{14}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Dynamic Allostery}{15}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Causal Allostery: The Mechanisms of Signal Transmission}{15}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Practical Example of Allostery: HIV Protease}{16}{subsection.3.2.4}%
+\contentsline {section}{\numberline {3.3}PDZ Domain}{17}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}The PDZ Domain}{17}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}The PDZ Domain in the 3LNX Protein and its structure}{17}{subsection.3.3.2}%
+\contentsline {chapter}{\numberline {4}Normal and functional mode Analysis}{19}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Introduction}{19}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Structure--Function--Dynamics Relationship}{19}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Introduction to Normal Modes and Their Physical Significance in Proteins}{19}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Gaussian Network Model}{21}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Interpretation of the Taylor Expansion}{23}{section.4.5}%
+\contentsline {subsubsection}{Definition of a Graph}{23}{section*.13}%
+\contentsline {subsubsection}{Kirchhoff Matrix (Laplacian Matrix)}{24}{section*.15}%
+\contentsline {section}{\numberline {4.6}Gaussian Network Model (GNM)}{25}{section.4.6}%
+\contentsline {subsubsection}{Mean displacement}{25}{section*.16}%
+\contentsline {subsubsection}{Covariance}{26}{section*.17}%
+\contentsline {subsection}{\numberline {4.6.1}Derivation of diffraction intensity with atomic vibrations}{26}{subsection.4.6.1}%
+\contentsline {section}{\numberline {4.7}Model Evaluation: RMSE and MAE }{27}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}RMSE: Root Mean Square Error}{27}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.2}MAE: Mean Absolute Error}{27}{subsection.4.7.2}%
+\contentsline {section}{\numberline {4.8}Stochastic Processes}{28}{section.4.8}%
+\contentsline {chapter}{\numberline {5}Introduction to causality and causality in allosteric mechanisms of proteins}{30}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Deterministic and Stochastic Causality}{31}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Deterministic Causality}{31}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Stochastic Causality}{31}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Causality and the Shannon Entropy}{32}{subsection.5.1.3}%
+\contentsline {section}{\numberline {5.2}Correlation}{33}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Correlation Between Fluctuations}{33}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Why Correlation Alone is Not Causation}{33}{subsection.5.2.2}%
+\contentsline {section}{\numberline {5.3}Linear Response Theorem}{33}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Derivation and Relation to Correlations}{33}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Why is Linear Response an Indicator of Causality?}{34}{subsection.5.3.2}%
+\contentsline {section}{\numberline {5.4}Transfer Entropy: Formula, Proof, and Causality}{35}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Definition of Transfer Entropy for gaussian systems}{35}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Derivation of transfer entropy for Gaussian system}{35}{subsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.4.3}Causality and Transfer Entropy}{37}{subsection.5.4.3}%
+\contentsline {subsection}{\numberline {5.4.4}Relation of Transfer Entropy to Correlation and Response Functions and Correlation}{37}{subsection.5.4.4}%
+\contentsline {section}{\numberline {5.5}Causality indicators in the stochastic process}{37}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Covariance}{37}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Response Function}{39}{subsection.5.5.2}%
+\contentsline {subsection}{\numberline {5.5.3}Transfer Entropy}{39}{subsection.5.5.3}%
+\contentsline {chapter}{\numberline {6}Experimental Set-up and Results}{41}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Detailed Presentation of Dataset 3LNX}{41}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Connection Radius}{42}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Kirchhoff Matrix}{43}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Covariance Matrix}{45}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Beta Factors}{47}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Causal indicators in time}{48}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}Correlation in time}{48}{subsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.6.2}Response in time}{48}{subsection.6.6.2}%
+\contentsline {subsection}{\numberline {6.6.3}Transfer entropy in time}{49}{subsection.6.6.3}%
+\contentsline {section}{\numberline {6.7}Causal indicators between residues}{50}{section.6.7}%
+\contentsline {subsection}{\numberline {6.7.1}Introduction}{50}{subsection.6.7.1}%
+\contentsline {subsection}{\numberline {6.7.2}characteristic time determination}{50}{subsection.6.7.2}%
+\contentsline {subsection}{\numberline {6.7.3}Correlation between residues}{52}{subsection.6.7.3}%
+\contentsline {subsubsection}{Results and Discussion}{52}{section*.34}%
+\contentsline {subsection}{\numberline {6.7.4}Response between residues}{53}{subsection.6.7.4}%
+\contentsline {subsection}{\numberline {6.7.5}Active Transfer entropies between residues}{56}{subsection.6.7.5}%
+\contentsline {subsection}{\numberline {6.7.6}Passive Transfer entropies between residues }{57}{subsection.6.7.6}%
+\contentsline {section}{\numberline {6.8}Conclusions of equlibrium stochastic process}{58}{section.6.8}%
+\contentsline {chapter}{\numberline {7}Out-of-Equilibrium Stochastic Processes Induced by Heat Gradients}{59}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Stochastic Dynamics Under a Heat Gradient}{60}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Solution stochastic dynamics under a heat gradient}{61}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Temperature determination}{64}{section.7.3}%
+\contentsline {chapter}{\numberline {8}Experimental results non equilibrium dynamic}{66}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Correlation Matrix}{66}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Beta Factors}{68}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Causal indicators in time}{69}{section.8.3}%
+\contentsline {subsection}{\numberline {8.3.1}Cross covariance in time}{69}{subsection.8.3.1}%
+\contentsline {subsection}{\numberline {8.3.2}Transfer Entropy: Forward and Backward Dynamics}{70}{subsection.8.3.2}%
+\contentsline {section}{\numberline {8.4}Causal indicators between residues}{71}{section.8.4}%
+\contentsline {subsection}{\numberline {8.4.1}Correlation between residues}{72}{subsection.8.4.1}%
+\contentsline {subsubsection}{Temperature Variation and General Observations}{72}{section*.50}%
+\contentsline {subsubsection}{Conclusions}{73}{section*.51}%
+\contentsline {subsection}{\numberline {8.4.2}Conclusion}{74}{subsection.8.4.2}%

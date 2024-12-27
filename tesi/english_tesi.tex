@@ -19,6 +19,10 @@
 \usepackage[utf8]{inputenx}
 \usepackage{indentfirst}
 \usepackage{microtype}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}   % Per includere immagini
+\usepackage{subcaption} % Per creare sottografie
+\usepackage{amsmath}    % Per formule matematiche, se necessario
 \usepackage[italian]{babel}
 \usepackage{siunitx}
 \DeclareMathOperator\erf{erf}
@@ -45,7 +49,9 @@
 \usepackage{amsmath}
 \usepackage{siunitx}
 \usepackage{hyperref}
-
+\usepackage{subcaption} % per subfigure
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning}
 \usepackage[titles]{tocloft}
 
 
@@ -140,6 +146,24 @@
 \chapter{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
 \noindent
+APPUNTI:
+
+
+....
+\vspace{1cm}
+\noindent \textbf{Nota Bene}: Il lavoro deve essere esposto con attenzione, specialmente nella sintesi dei risultati finali e nella loro interpretazione critica.
+
+
+
+
+
+
+
+
+\end{document}
+
+
+
 Proteins are essential components of life and key to the functionality of living organisms. \cite{ref} \\
 They are composed of a sequence of amino acids, a chain of amino acids, that fold into a three-dimensional structure that determines their function. 
 The study of proteins is crucial for understanding the molecular basis of life and for the development of new drugs.\\
@@ -171,6 +195,87 @@ The \(R\)-group, or side chain, determines the chemical properties of the amino 
     \caption{Amino Acids}
 \end{figure}
 \newpage
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{/Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-17 at 08.59.09.png}
+    \caption{Amino Acids}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{/Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-17 at 10.57.30.png}
+    \caption{Amino Acids}
+\end{figure}
+\section*{Strutture Secondarie con Siti Allosterici}
+Per studiare l'allostericità nella proteina PDZ, le perturbazioni devono essere applicate nei seguenti siti allosterici identificati sperimentalmente e computazionalmente:
+
+\begin{itemize}
+    \item \textbf{Elica $\alpha$A (αA-helix)}:  
+    \begin{itemize}
+        \item Residui chiave: \textbf{Valina 40 (V40), Alanina 46 (A46)}.  
+        \item Funzione: Coinvolta nella \textit{propagazione allosterica} verso la tasca di legame.
+    \end{itemize}
+
+    \item \textbf{Elica $\alpha$B (lower-loop incluso)}:  
+    \begin{itemize}
+        \item Residui chiave: \textbf{Valina 61 (V61), Leucina 66 (L66), Alanina 69 (A69), Treonina 81 (T81)}.  
+        \item Funzione: Connette dinamicamente il core $\beta$ con il sito di legame.
+    \end{itemize}
+
+    \item \textbf{Elica $\alpha$C (αC-helix)}:  
+    \begin{itemize}
+        \item Residui chiave: \textbf{Tirosina 397 (Y397), Glutammato 401 (E401), Alanina 402 (A402)}.  
+        \item Funzione: Regolatore allosterico che modula la conformazione della proteina.
+    \end{itemize}
+\end{itemize}
+
+\section*{Risposte Attese alle Perturbazioni}
+Applicando perturbazioni nei siti allosterici sopra indicati, ci si aspetta di osservare una risposta specifica nelle seguenti regioni funzionali:
+
+\begin{enumerate}
+    \item \textbf{Tasca di legame}:  
+    \begin{itemize}
+        \item Strutture secondarie coinvolte:  
+        \begin{itemize}
+            \item \textbf{Elica $\alpha$1 (α1-helix)}.  
+            \item \textbf{Foglietto $\beta$2 (β2-strand)}.  
+            \item \textbf{Carboxylate-Binding Loop (CBL)}.  
+        \end{itemize}
+        \item Risposta attesa: Cambiamenti nelle distanze tra i residui chiave e variazioni dinamiche locali.
+    \end{itemize}
+
+    \item \textbf{Core $\beta$ della proteina}:  
+    \begin{itemize}
+        \item Strutture coinvolte: \textbf{Foglietti $\beta$2, $\beta$3 e $\beta$4}.  
+        \item Risposta attesa: Variazioni nella rigidità e flessibilità della rete $\beta$.
+    \end{itemize}
+
+    \item \textbf{Regioni elicoidali distanti}:  
+    \begin{itemize}
+        \item Struttura coinvolta: \textbf{Elica $\alpha$A (αA-helix)}.  
+        \item Risposta attesa: Movimenti dinamici sincronizzati con le perturbazioni applicate in $\alpha$B o $\alpha$C.
+    \end{itemize}
+\end{enumerate}
+
+\section*{Schema delle Perturbazioni e Risposte}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{schema_allosteric.png}
+    \caption{Schema delle perturbazioni nei siti allosterici ($\alpha$A, $\alpha$B, $\alpha$C) e le risposte nelle regioni funzionali (tasca di legame e core $\beta$).}
+    \label{fig:allosteric_schema}
+\end{figure}
+
+\section*{Conclusioni}
+Per dimostrare l'allostericità nella proteina PDZ, è necessario applicare perturbazioni nelle seguenti eliche:
+\begin{itemize}
+    \item $\alpha$A-helix (V40, A46).  
+    \item $\alpha$B lower-loop (V61, L66, A69, T81).  
+    \item $\alpha$C-helix (Y397, E401, A402).  
+\end{itemize}
+
+Le risposte dinamiche e strutturali attese si manifesteranno principalmente nella **tasca di legame** (α1-helix, β2-strand, CBL), nel **core $\beta$** e nelle altre regioni elicoidali. Questo approccio permette di evidenziare la \textit{rete allosterica funzionale} e separare i segnali allosterici da risposte spurie.
+
+
 \section{Protein structure}
 \noindent The scructure of the protein is important because it determines its function. 
 The structure of a protein is divided into four levels:\cite{ref4}
@@ -317,7 +422,7 @@ The PDZ domain exemplifies the modularity of protein domains, as it appears in a
         \item Assembling protein complexes at cellular membranes. For instance, PDZ domains play a pivotal role in assembling synaptic proteins, ensuring efficient signal transduction in neurons.
         \item Cellular signaling, particularly in pathways regulating cell growth and differentiation. PDZ-mediated interactions are involved in key signaling cascades, including those controlled by receptor tyrosine kinases and G-protein-coupled receptors.
     \end{itemize}
-    \item \textbf{Structure}: The PDZ domain has a characteristic structure composed of an antiparallel beta-sheet and two alpha-helices. This conserved fold forms a groove that interacts with the target peptide, contributing to its specificity. The structural plasticity of PDZ domains allows them to adapt to various ligands, enhancing their functional diversity.\cite{harris2001}
+    \item \textbf{Structure}: The PDZ domain has a characteristic structure composed of an antiparallel beta-sheet and two alpha-helices. This conserved fold forms a groove that interacts with the target peptide, contributing to its specificity. The structural plasticity of PDZ domains allows them to adapt to various ligands, enhancing their functional diversity.
 \end{itemize}
 
 \subsection{The PDZ Domain in the 3LNX Protein}
@@ -844,6 +949,82 @@ Where:
     \item \(x_i(t + \tau)\): State of \(x_i\) at time \(t + \tau\).
     \item \(x_i(\tau), x_j(\tau)\): States of \(x_i\) and \(x_j\) at time \(\tau\).
 \end{itemize}
+\subsubsection*{Shannon Entropy}
+Transfer Entropy is based on \textbf{Shannon entropy}, which measures the uncertainty of a probability distribution. For a variable \( X \) with distribution \( P(x) \), the entropy is:
+
+\[
+H(X) = - \sum_{x} P(x) \log P(x).
+\]
+
+For a conditional distribution \( P(x | y) \), the \textbf{conditional entropy} is:
+
+\[
+H(X | Y) = - \sum_{x, y} P(x, y) \log P(x | y).
+\]
+
+Thus, Transfer Entropy measures the reduction in uncertainty of \( x_2(t + \tau) \) when considering \( x_1 \) as an additional source of information.
+
+---
+
+\subsection*{Example: Predicting Temperature with Humidity and Pressure}
+
+Let us consider a system where we want to predict the \textbf{temperature} \( T \) using two variables:
+\begin{itemize}
+    \item \( H \): Humidity (e.g., relative humidity in percentage),
+    \item \( P \): Atmospheric pressure (e.g., in hPa).
+\end{itemize}
+
+\subsubsection*{Case 1: Using Humidity \( H \) Alone}
+We divide the \textbf{phase space} of \( H \) into bins \( B_k \) (e.g., \( [30\%-40\%], [40\%-50\%], \ldots \)).  
+The conditional probability distribution of the temperature \( T \) is \( P(T | H \in B_k) \), and the conditional Shannon entropy is:
+
+\[
+H(T | H) = - \sum_{k} P(B_k) \sum_{T} P(T | H \in B_k) \log P(T | H \in B_k).
+\]
+
+In this case, the uncertainty about \( T \) remains high because \( H \) alone may not fully explain the temperature.
+
+\subsubsection*{Case 2: Using Both Humidity \( H \) and Pressure \( P \)}
+We now divide the phase space into **squares** \( Q_{kl} \), combining intervals of \( H \) and \( P \), where:
+
+\[
+Q_{kl} = \{ H \in B_k, P \in C_l \},
+\]
+with \( B_k \) being intervals of \( H \) and \( C_l \) intervals of \( P \).
+
+The conditional probability distribution of \( T \) is now \( P(T | H \in B_k, P \in C_l) \), and the conditional Shannon entropy becomes:
+
+\[
+H(T | H, P) = - \sum_{k, l} P(Q_{kl}) \sum_{T} P(T | H \in B_k, P \in C_l) \log P(T | H \in B_k, P \in C_l).
+\]
+
+\subsubsection*{Calculation of Transfer Entropy}
+The Transfer Entropy measures the informational contribution of \( P \) to predicting \( T \), beyond what is provided by \( H \) alone:
+
+\[
+TE_{P \to T} = H(T | H) - H(T | H, P).
+\]
+
+If pressure \( P \) provides significant additional information:
+\[
+H(T | H, P) < H(T | H),
+\]
+and the \textbf{Transfer Entropy} is positive:
+
+\[
+TE_{P \to T} > 0.
+\]
+
+---
+
+\subsection*{Interpretation}
+\begin{itemize}
+    \item When using only humidity \( H \), the distribution of \( T \) has a high variance and the entropy is large.
+    \item Adding pressure \( P \) reduces the variance of the temperature distribution, as the combined information from \( H \) and \( P \) explains \( T \) more accurately.
+    \item Consequently, the conditional entropy decreases, and the Transfer Entropy quantifies this reduction in uncertainty.
+\end{itemize}
+
+
 
 \subsection{Transfer Entropy for Gaussian Systems}
 
@@ -1474,24 +1655,27 @@ It is important to notice also that most of the links are between near residues,
 \noindent The two figures illustrate the correlation matrices obtained from the protein structure. The elements of the matrix represent correlations between residues \(i\) and \(j\), derived from the dynamics and structure of the system. Overlaying the secondary structure (Helices: red; Beta Sheets: blue) helps to contextualize the correlations within structural motifs. The Kirchhoff matrix was used to compute these correlations.
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Correlation_MatrixNan_False.png}\label{fig:correlation_negative}
+    \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Correlation_MatrixNan_False.png}
     \caption{Negative covariance between residues at time 0.}
+    \label{fig:correlation_negative_figo}
 \end{figure}
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Correlation_MatrixNan_True.png}\label{fig:correlation_positive}
+    \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Correlation_MatrixNan_True.png}
     \caption{Positive covariance between residues at time 0.}
+    \label{fig:correlation_positive_figo}
 \end{figure}
+
 \paragraph{Figure Analysis:}
 \begin{itemize}
-    \item \textbf{First Plot \ref{fig:correlation_negative}: Correlation Matrix (NaNs handled as False):}
+    \item \textbf{First Plot \ref{fig:correlation_negative_figo}: Correlation Matrix:}
     \begin{itemize}
         \item The red box highlights a region of strong local correlations, likely associated with tightly coupled residues within a helix or beta sheet structure.
         \item The light background suggests weak or negligible correlations outside the main diagonal and the highlighted regions, reflecting weaker interactions or dynamic decoupling.
         \item The diagonal dominance indicates strong correlations between residues within the same structural domain.
     \end{itemize}
 
-    \item \textbf{Second Plot \ref{fig:correlation_positive}: Correlation Matrix (NaNs handled as True):}
+    \item \textbf{Second Plot \ref{fig:correlation_positive_figo}: Correlation Matrix:}
     \begin{itemize}
         \item The overall structure appears more diffuse, with non-local correlations extending further from the diagonal.
         \item The red box again highlights a region of strong correlations, consistent with a structural motif (helix or beta sheet).
@@ -1591,6 +1775,67 @@ This analysis highlights the capability of the Kirchhoff matrix to predict prote
     \caption{Transfer entropy  in time.}
 \end{figure}
 
+\subsection{Analysis of the Time-Dependent Graphs}
+
+\paragraph{Graph 1: Correlation in Time}
+\begin{itemize}
+    \item \textbf{Overview:} This graph presents the time-dependent correlation for selected residue pairs.
+    \item \textbf{Key Observations:}
+    \begin{itemize}
+        \item The correlations decay over time, indicating a loss of direct dynamic influence as time progresses.
+        \item The initial correlation values vary significantly between residue pairs, reflecting differences in their initial dynamic coupling.
+        \item Residue pairs closer in space (e.g., neighboring residues) tend to show higher initial correlations compared to more distant pairs.
+    \end{itemize}
+    \item \textbf{Dynamic Implications:} The decay patterns suggest that short-range interactions dominate in the initial time steps, while longer timescales reflect broader structural dynamics.
+\end{itemize}
+
+\paragraph{Graph 2: Responses in Time}
+\begin{itemize}
+    \item \textbf{Overview:} This graph illustrates the time response of the selected residue pairs following a perturbation.
+    \item \textbf{Key Observations:}
+    \begin{itemize}
+        \item The responses exhibit a sharp rise initially, which is then followed by a gradual decay.
+        \item Residue pairs closer to the source of perturbation (likely spatially proximal) show a more pronounced and faster response.
+        \item The decay rate varies across residue pairs, with some exhibiting sustained responses while others rapidly stabilize.
+    \end{itemize}
+    \item \textbf{Dynamic Implications:} This graph highlights the role of structural topology in dictating the propagation and dissipation of dynamic signals within the protein.
+\end{itemize}
+
+\paragraph{Graph 3: Transfer Entropy in Time}
+\begin{itemize}
+    \item \textbf{Overview:} This graph captures the transfer entropy as a function of time, quantifying the directional information transfer between residue pairs.
+    \item \textbf{Key Observations:}
+    \begin{itemize}
+        \item A peak is observed at an intermediate time point for most residue pairs, indicating a time of maximum information transfer.
+        \item The magnitude of transfer entropy varies, reflecting differences in the strength of directional coupling between pairs.
+        \item Residue pairs with high initial connectivity (likely closer in the protein structure) exhibit stronger peaks compared to those that are more distant.
+    \end{itemize}
+    \item \textbf{Dynamic Implications:} The transfer entropy peak provides a measure of the optimal timescale for information flow within the protein. Residue pairs with sustained directional coupling are likely critical for allosteric communication.
+\end{itemize}
+
+\subsubsection{General Insights Across All Graphs}
+\begin{itemize}
+    \item \textbf{Timescales:}
+    \begin{itemize}
+        \item All graphs suggest that the dynamics occur on a defined timescale, with initial fast responses followed by slower decay.
+        \item The transfer entropy peak highlights a characteristic time of maximum coupling.
+    \end{itemize}
+    \item \textbf{Structural Dependence:}
+    \begin{itemize}
+        \item Residue pairs' dynamic interactions are heavily influenced by their spatial arrangement and secondary structure (e.g., beta sheets and helices).
+        \item Close proximity pairs exhibit stronger correlations, faster responses, and higher transfer entropy.
+    \end{itemize}
+    \item \textbf{Dynamic Coupling:}
+    \begin{itemize}
+        \item These graphs collectively provide insights into how residues interact and communicate over time.
+        \item Correlation and response reflect undirected dynamics, while transfer entropy captures directional interactions, crucial for understanding allostery.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Conclusion}
+The combination of correlation, response, and transfer entropy analyses provides a comprehensive understanding of protein dynamics. Together, these graphs highlight the importance of timescale, spatial proximity, and structural topology in determining the dynamic behavior of residue pairs.
+
+
 
 
 \newpage
@@ -1634,37 +1879,229 @@ All the following analysis will be done around the characteristic time \(\tau\),
     \caption{Correlation perturbating 21-th residue.}
     \label{fig:corr21}
 \end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/STATIC/images/3LNX/Time_indicators/Residual Correlation C_ij for i=39 as a function of j at time index 0.png
+    }
+    \caption{Correlation perturbating 40-th residue.}
+    \label{fig:corr40}
+\end{figure}
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/images/3LNX/Time_indicators/Residual Correlation C_ij for i=56 as a function of j at time index 0.png    }
+    \caption{Correlation perturbating 57-th residue.}
+    \label{fig:corr57}
+\end{figure}
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/images/3LNX/Time_indicators/Residual Correlation C_ij for i=75 as a function of j at time index 0.png}
     \caption{Correlation perturbating 76-th residue.}
     \label{fig:corr76}
 \end{figure}
+
+
 \subsubsection{Graphic analysis of correlation}
-The figures provide a detailed view of the dynamic properties of the protein structure, focusing on the beta sheet around residue ~20 and the alpha helix near residue ~75. These secondary structures exhibit distinct dynamical behaviors, which are quantified using metrics such as inverse first mean time, correlation, response, and transfer entropy.
-\paragraph{Figure \ref{fig:corr21}: Correlation with Residue ~20}
+The figures provide a detailed view of the dynamic properties of the protein structure, focusing on the beta sheet around residue ~21 and the alpha helix near residue ~76. These secondary structures exhibit distinct dynamical behaviors, which are quantified using metrics such as inverse first mean time, correlation, response, and transfer entropy.
+\paragraph{Figure \ref{fig:corr21}: Correlation with Residue ~21}
 
 \begin{itemize}
-    \item \textbf{Beta Sheet Region (Residue ~20):} Strong correlation values are observed in this region, reflecting the tightly coupled dynamics among the residues in the beta sheet. These high correlations are a direct consequence of the stabilizing hydrogen bonds that link the beta strands, enforcing collective motion within this region.
-    \item \textbf{Alpha Helix Region (Residue ~75):} Moderate correlation values in the helix region suggest that residues near residue 75 are influenced by, but less directly connected to, the beta sheet. The helix's intrinsic flexibility reduces the strength of its correlation with the beta sheet residues.
+    \item \textbf{Beta Sheet Region (Residue ~21):} Strong correlation values are observed in this region, reflecting the tightly coupled dynamics among the residues in the beta sheet. These high correlations are a direct consequence of the stabilizing hydrogen bonds that link the beta strands, enforcing collective motion within this region.
+    \item \textbf{Alpha Helix Region (Residue ~76):} Moderate correlation values in the helix region suggest that residues near residue 76 are influenced by, but less directly connected to, the beta sheet. The helix's intrinsic flexibility reduces the strength of its correlation with the beta sheet residues.
     \item \textbf{Interpretation:} This figure emphasizes the beta sheet's role as a hub of strong dynamic interactions, anchoring the protein’s motion. The helix, while dynamically active, plays a more peripheral role in interacting with the beta sheet.
 \end{itemize}
+\paragraph{Figure \ref{fig:corr40}: Correlation with Residue ~40}
 
-\paragraph{Figure \ref{fig:corr76}: Correlation with Residue ~75}
 \begin{itemize}
-    \item \textbf{Beta Sheet Region (Residue ~20):} Lower correlation values between the beta sheet and residue 75 indicate that the beta sheet's rigidity limits its dynamic communication with the helix. This suggests that the beta sheet’s motion is more self-contained, reducing its coupling to distant regions like the helix.
-    \item \textbf{Alpha Helix Region (Residue ~75):} High correlation values around residue 75 highlight the helix's central role in propagating dynamic signals within the protein. These correlations reflect the helix’s ability to communicate dynamically with both nearby residues and more distant regions.
+    \item \textbf{Beta Sheet Region (Residue ~21):} Strong correlation values are observed in this region, reflecting the tightly coupled dynamics among the residues in the beta sheet. These high correlations are a direct consequence of the stabilizing hydrogen bonds that link the beta strands, enforcing collective motion within this region.
+    \item \textbf{Beta Sheet Region (Residue ~40):} Strong correlation values are observed in this region, reflecting the tightly coupled dynamics among the residues in the beta sheet. These high correlations are a direct consequence of the stabilizing hydrogen bonds that link the beta strands, enforcing collective motion within this region.
+    \item \textbf{Alpha Helix Region (Residue ~76):} Strong correlation values in the helix region suggest that residues near residue 76 are influenced by, but less directly connected to, the beta sheet. The helix's intrinsic flexibility reduces the strength of its correlation with the beta sheet residues.
+    \item \textbf{Interpretation:} This figure emphasizes the beta sheet's role as a hub of strong dynamic interactions, anchoring the protein’s motion. The helix, while dynamically active, plays a more peripheral role in interacting with the beta sheet.
+\end{itemize}
+\paragraph{Figure \ref{fig:corr76}: Correlation with Residue ~76}
+\begin{itemize}
+    \item \textbf{Beta Sheet Region (Residue ~21):} Lower correlation values between the beta sheet and residue 76 indicate that the beta sheet's rigidity limits its dynamic communication with the helix. This suggests that the beta sheet’s motion is more self-contained, reducing its coupling to distant regions like the helix.
+    \item \textbf{Alpha Helix Region (Residue ~76):} High correlation values around residue 76 highlight the helix's central role in propagating dynamic signals within the protein. These correlations reflect the helix’s ability to communicate dynamically with both nearby residues and more distant regions.
     \item \textbf{Interpretation:} The helix serves as a dynamic mediator, interacting more strongly with distant residues compared to the beta sheet. This figure underscores the helix’s flexibility and its role in bridging different structural regions of the protein.
 \end{itemize}
+\subsubsection{Conclusion}
+\begin{itemize}
+    \item \textbf{Correlation and Response Patterns:} Perturbations at residue 21 lead to noticeable correlations and dynamic responses in the regions surrounding residues 38, 43, and 76. This suggests that the signal propagates through a structured network of residues.
+    \item \textbf{Transfer Entropy:} The directional flow of dynamic information, as seen in the transfer entropy plots, reveals significant communication: 
+    \[
+    \text{Beta sheet (21)} \rightarrow \text{Intermediate residues (38, 43)} \rightarrow \text{Alpha helix (76)}.
+    \]
+    Additionally, there is evidence of bidirectional transfer, indicating that these regions are dynamically coupled.
+\end{itemize}
 
+The observed communication supports a plausible \textit{allosteric mechanism}:
+\begin{itemize}
+    \item The \textbf{beta sheet near residue 21} may act as an \textit{allosteric trigger}, initiating perturbations or signals due to its rigid and stable structure.
+    \item The residues between the \textbf{beta sheet (38)} and the \textbf{alpha helix (43)} serve as \textit{transmission pathways}, efficiently relaying signals.
+    \item The \textbf{alpha helix near residue 76}, due to its flexibility, can amplify and propagate the signal over longer distances, potentially influencing distant functional regions.
+\end{itemize}
+
+This dynamic interplay between beta sheets and alpha helices highlights a hierarchical communication process that balances \textbf{stability} and \textbf{flexibility}. Such mechanisms are essential for:
+\begin{itemize}
+    \item Enabling long-range signal propagation within the protein,
+    \item Facilitating \textbf{allosteric regulation}, where local perturbations influence distant functional sites,
+    \item Supporting structural adaptability critical for \textbf{ligand binding}, \textbf{signal transduction}, or \textbf{enzymatic activity}.
+\end{itemize}
+
+
+
+\subsection*{Betweenness Centrality and Bridge Residues}
+
+Betweenness centrality is a fundamental measure in graph theory that quantifies the importance of a node in terms of its ability to act as a ``bridge'' for communication between other nodes in a network. Mathematically, the betweenness centrality \( C_B(v) \) of a node \( v \) is defined as:
+
+\[
+C_B(v) = \sum_{s \neq v \neq t} \frac{\sigma_{st}(v)}{\sigma_{st}},
+\]
+where \( \sigma_{st} \) is the total number of shortest paths between nodes \( s \) and \( t \), and \( \sigma_{st}(v) \) is the number of those paths that pass through node \( v \).
+
+In the context of protein structure, residues are represented as nodes in a graph, and edges represent interactions or dynamic correlations between residues. Nodes (residues) with high betweenness centrality lie on a large fraction of the shortest paths connecting other residues and are critical for **mediating communication** between different regions of the protein.
+
+To compute \( \sigma_{st} \) and \( \sigma_{st}(v) \), we use the **Brandes algorithm**, which is the most efficient method for calculating betweenness centrality. The algorithm operates as follows:
+\begin{enumerate}
+    \item For each node \( s \) in the graph, compute the number of shortest paths \( \sigma_{st} \) from \( s \) to all other nodes \( t \) using a **Breadth-First Search (BFS)** for unweighted graphs or **Dijkstra's algorithm** for weighted graphs.
+    \item Backtrack from the destination nodes to the source node to identify which intermediate nodes contribute to the shortest paths and accumulate the number of paths \( \sigma_{st}(v) \) that pass through each node \( v \).
+    \item Aggregate the contributions of all source nodes \( s \) to compute the final betweenness centrality \( C_B(v) \) for each node \( v \).
+\end{enumerate}
+
+The **Brandes algorithm** has a time complexity of \( O(VE) \) for unweighted graphs and \( O(VE + V^2 \log V) \) for weighted graphs, where \( V \) is the number of nodes and \( E \) is the number of edges. This efficiency makes it feasible to apply the algorithm to large protein graphs.
+
+High betweenness centrality values indicate that a residue acts as a **dynamic bridge** or connector, facilitating the flow of information or perturbations between structurally or functionally distinct regions of the protein. For example, residues with high centrality might connect beta sheets and alpha helices, enabling the propagation of signals across the protein. This property is particularly significant in the study of **allosteric mechanisms**, where perturbations at one site influence distant functional regions. In such cases, residues with high betweenness centrality serve as key intermediaries for signal transmission, linking otherwise distant parts of the protein network.
+
+Thus, betweenness centrality provides a powerful computational tool for uncovering residues that play central roles in the **structural dynamics** and **functional communication** of proteins.
+
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-16 at 14.33.06.png}
+    \caption{Betweenness Centrality Graph.}
+    \label{fig:BetweenCentralityGraph}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/tesi/immagini_tesi_ingelse/Screenshot 2024-12-16 at 14.37.04.png}
+    \caption{Most greater 10 residues for Betweenness Centrality .}
+    \label{fig:top_between}
+\end{figure}
 \newpage
 \newpage
 
 
+\begin{tikzpicture}[
+    node distance=2cm and 3cm,
+    every node/.style={draw, rectangle, minimum width=2.5cm, minimum height=1cm, align=center},
+    every edge/.style={draw, -{Latex[length=3mm]}},
+]
+
+% Nodes
+\node (beta2) {Beta 2};
+\node (loop_beta3) [below left=of beta2] {Loop \\ + Beta 3};
+\node (beta4_beta5_loop) [below right=of beta2] {Beta 4 \\ + Beta 5 \\ + Loop};
+\node (alpha3) [below=of loop_beta3] {Alpha 3};
+
+% Edges for Beta 2
+\draw[->] (beta2) -- (loop_beta3); % Beta 2 -> (Loop + Beta 3)
+\draw[->] (beta2) -- (beta4_beta5_loop); % Beta 2 -> (Beta 4 + Beta 5 + Loop)
+
+% Edges for Loop + Beta 3
+\draw[->] (loop_beta3) -- (beta2); % Loop + Beta 3 -> Beta 2
+\draw[->] (loop_beta3) -- (beta4_beta5_loop); % Loop + Beta 3 -> (Beta 4 + Beta 5 + Loop)
+\draw[->] (loop_beta3) -- (alpha3); % Loop + Beta 3 -> Alpha 3
+
+% Edges for Beta 4 + Beta 5 + Loop
+\draw[->] (beta4_beta5_loop) -- (alpha3); % (Beta 4 + Beta 5 + Loop) -> Alpha 3
+
+\end{tikzpicture}
+
+As e said before correlation is only a necessary condition for causation but not sufficient. So we will search futher to indentified causation.
+Now i can ipotize this mesasge passing along the protein.
 
 
 
+
+
+
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/images/3LNX/Time_indicators/Residual Correlation C_ij for i=33 as a function of j at time index 0.png}
+    \caption{Correlation perturbating 21-th residue.}
+    \label{fig:resp21}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/images/3LNX/Time_indicators/Residual Correlation C_ij for i=45 as a function of j at time index 0.png}
+    \caption{Correlation perturbating 21-th residue.}
+    \label{fig:resp21}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/images/3LNX/Time_indicators/Residual Correlation C_ij for i=72 as a function of j at time index 0.png}
+    \caption{Correlation perturbating 21-th residue.}
+    \label{fig:resp21}
+\end{figure}
+
+
+
+\section*{Introduzione}
+L'obiettivo dello studio era analizzare le **correlazioni dinamiche** tra i residui della proteina PDZ, identificando connessioni funzionali tra diverse strutture secondarie. L'analisi si concentra su specifici residui chiave:
+\begin{itemize}
+    \item \textbf{i=33}: situato nella \textit{\ensuremath{\alpha}A-helix}.
+    \item \textbf{i=45}: situato nella \textit{\ensuremath{\alpha}A-helix} e core \ensuremath{\beta}.
+    \item \textbf{i=72}: situato nella \textit{\ensuremath{\alpha}B-helix}.
+\end{itemize}
+Le correlazioni sono state analizzate rispetto a tutte le altre regioni della proteina, con un focus sulle risposte nelle seguenti aree funzionali:
+\begin{itemize}
+    \item La **tasca di legame**: \ensuremath{\beta2}-strand, \ensuremath{\alpha1}-helix e CBL.
+    \item Il **core \ensuremath{\beta}**: foglietti \ensuremath{\beta2}, \ensuremath{\beta3} e \ensuremath{\beta4}.
+\end{itemize}
+
+\section*{Risultati e Discussione}
+
+\subsection*{1. Correlazione con i=33 (\ensuremath{\alpha}A-helix)}
+\begin{itemize}
+    \item \textbf{Correlazione osservata}: Picco netto di correlazione locale intorno al residuo **i=33** (\ensuremath{\alpha}A-helix).
+    \item \textbf{Correlazioni secondarie}: Si osservano risposte moderate nei foglietti \ensuremath{\beta2} e nella regione \ensuremath{\alpha}B-helix.
+    \item \textbf{Cosa funziona}: Le correlazioni mostrano una connessione dinamica locale e una trasmissione parziale al core \ensuremath{\beta}.
+    \item \textbf{Cosa manca}: Le correlazioni verso la **tasca di legame** (\ensuremath{\alpha1}-helix e \ensuremath{\beta2}-strand) sono deboli e meno pronunciate rispetto alle attese.
+\end{itemize}
+
+\subsection*{2. Correlazione con i=45 (\ensuremath{\alpha}A-helix e core \ensuremath{\beta})}
+\begin{itemize}
+    \item \textbf{Correlazione osservata}: Picco significativo nella regione **i=45** (\ensuremath{\alpha}A-helix e core \ensuremath{\beta}).
+    \item \textbf{Correlazioni secondarie}: Si osservano picchi di correlazione nelle regioni \ensuremath{\beta2}-strand e \ensuremath{\alpha}B-helix.
+    \item \textbf{Cosa funziona}: La connessione tra **\ensuremath{\alpha}A-helix** e il core \ensuremath{\beta} \`e evidente, con una parziale propagazione verso la tasca di legame.
+    \item \textbf{Cosa manca}: Le correlazioni nella **\ensuremath{\alpha1}-helix** rimangono limitate, suggerendo una trasmissione incompleta alla tasca di legame.
+\end{itemize}
+
+\subsection*{3. Correlazione con i=72 (\ensuremath{\alpha}B-helix)}
+\begin{itemize}
+    \item \textbf{Correlazione osservata}: Picco netto di correlazione intorno a **i=72** (\ensuremath{\alpha}B-helix).
+    \item \textbf{Correlazioni secondarie}: Risposte evidenti nelle regioni della **tasca di legame** (\ensuremath{\beta2}-strand e \ensuremath{\alpha1}-helix).
+    \item \textbf{Cosa funziona}: La connessione dinamica tra la \ensuremath{\alpha}B-helix e la tasca di legame \`e ben evidenziata, con correlazioni significative e coerenti.
+    \item \textbf{Cosa manca}: Correlazioni deboli nel core \ensuremath{\beta} (foglietti \ensuremath{\beta3} e \ensuremath{\beta4}), suggerendo una trasmissione parziale.
+\end{itemize}
+
+\section*{Conclusioni}
+\begin{enumerate}
+    \item Le correlazioni con **i=72** (\ensuremath{\alpha}B-helix) mostrano la connessione pi\`u forte con la **tasca di legame**, confermando la sua importanza allosterica.
+    \item Le correlazioni con **i=33** e **i=45** (\ensuremath{\alpha}A-helix) evidenziano risposte locali e parziali nel core \ensuremath{\beta}, ma sono meno pronunciate nelle regioni periferiche.
+    \item La **tasca di legame** (\ensuremath{\beta2}-strand e \ensuremath{\alpha1}-helix) risponde chiaramente alle correlazioni con \ensuremath{\alpha}B-helix, ma mostra correlazioni deboli con \ensuremath{\alpha}A-helix.
+\end{enumerate}
+
+\section*{Prospettive future}
+\begin{itemize}
+    \item Approfondire le **correlazioni dinamiche** con metodi a risoluzione temporale pi\`u alta per chiarire la trasmissione nel core \ensuremath{\beta}.
+    \item Analizzare ulteriormente la **\ensuremath{\alpha}C-helix** per verificare il suo potenziale ruolo nella propagazione delle correlazioni.
+    \item Studiare interazioni residue-residue specifiche per identificare nodi chiave nella rete allosterica.
+\end{itemize}
 
 
 
@@ -1680,25 +2117,276 @@ The figures provide a detailed view of the dynamic properties of the protein str
 
 \begin{figure}[h!]
     \centering
+    \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/STATIC/images/3LNX/Time_indicators/Time Response R_ij for i=39 as a function of j at time index 0.png}
+    \caption{Response perturbating 40-th residue.}
+    \label{fig:resp40}
+\end{figure}
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/images/3LNX/Time_indicators/Time Response R_ij for i=56 as a function of j at time index 0.png}
+    \caption{Response perturbating 57-th residue.}
+    \label{fig:resp57}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
     \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/images/3LNX/Time_indicators/Time Response R_ij for i=75 as a function of j at time index 0.png}
     \caption{Response perturbating 76-th residue.}
     \label{fig:resp76}
 \end{figure}
-\subsubsection{Graphic analysis of response}
-\paragraph{Figure \ref{fig:resp21} : Response with Residue ~20}
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/images/3LNX/Time_indicators/Time Response R_ij for i=30 as a function of j at time index 0.png}
+    \caption{Response perturbating 31-th residue.}
+    \label{fig:resp31}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/images/3LNX/Time_indicators/Time Response R_ij for i=45 as a function of j at time index 0.png}
+    \caption{Response perturbating 46-th residue.}
+    \label{fig:resp46}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/images/3LNX/Time_indicators/Time Response R_ij for i=73 as a function of j at time index 0.png}
+    \caption{Response perturbating 74-th residue.}
+    \label{fig:resp76}
+\end{figure}
+
+
+\section*{Schemi delle Perturbazioni e Risposte}
+\begin{figure}[h!]
+    \centering
+    \begin{tikzpicture}[node distance=2.5cm, auto]
+        % Perturbazione 1 (i=30)
+        \node[rectangle, draw, align=center] (perturb1) {\textbf{Perturbazione i=30}\\(\ensuremath{\alpha}A-helix)};
+        \node[right of=perturb1, node distance=4cm] (expected1) {\textbf{Atteso:} Risposta in \ensuremath{\beta2}, tasca di legame};
+        \node[right of=expected1, node distance=4cm] (observed1) {\textbf{Osservato:} Risposta locale, limitata};
+        \draw[->] (perturb1) -- (expected1);
+        \draw[->] (expected1) -- (observed1);
+        
+        % Perturbazione 2 (i=45)
+        \node[rectangle, draw, below of=perturb1, node distance=2.5cm] (perturb2) {\textbf{Perturbazione i=45}\\(\ensuremath{\alpha}A-helix e core \ensuremath{\beta})};
+        \node[right of=perturb2, node distance=4cm] (expected2) {\textbf{Atteso:} Risposta in core \ensuremath{\beta}, tasca di legame};
+        \node[right of=expected2, node distance=4cm] (observed2) {\textbf{Osservato:} Core \ensuremath{\beta} attivo, tasca debole};
+        \draw[->] (perturb2) -- (expected2);
+        \draw[->] (expected2) -- (observed2);
+        
+        % Perturbazione 3 (i=73)
+        \node[rectangle, draw, below of=perturb2, node distance=2.5cm] (perturb3) {\textbf{Perturbazione i=73}\\(\ensuremath{\alpha}B-helix)};
+        \node[right of=perturb3, node distance=4cm] (expected3) {\textbf{Atteso:} Risposta in tasca di legame (\ensuremath{\beta2}, \ensuremath{\alpha1})};
+        \node[right of=expected3, node distance=4cm] (observed3) {\textbf{Osservato:} Risposta forte nella tasca};
+        \draw[->] (perturb3) -- (expected3);
+        \draw[->] (expected3) -- (observed3);
+    \end{tikzpicture}
+    \caption{Schemi delle perturbazioni nei siti allosterici (i=30, i=45, i=73) con risposte attese e osservate.}
+    \label{fig:perturb_schemi}
+\end{figure}
+
+
+
+
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/images/3LNX/Time_indicators/Transfer Entropy TE_ij for i=30 as a function of j at time index 0.png}
+    \caption{Transfer Entropy 31-st residue.}
+    \label{fig:TE31}
+\end{figure}
+
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/images/3LNX/Time_indicators/Transfer Entropy TE_ij for i=45 as a function of j at time index 0.png}
+    \caption{Transfer Entropy 45-th residue.}
+    \label{fig:TE31}
+\end{figure}
+
+
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/images/3LNX/Time_indicators/Transfer Entropy TE_ij for i=74 as a function of j at time index 0.png}
+    \caption{Transfer Entropy 45-th residue.}
+    \label{fig:TE31}
+\end{figure}
+\section*{Introduzione}
+L'obiettivo dello studio era verificare l'\textbf{allostericita'} della proteina PDZ perturbando specifici siti allosterici, osservando la risposta in altre strutture secondarie funzionalmente connesse. Le perturbazioni sono state applicate nei seguenti residui chiave:
 \begin{itemize}
-    \item \textbf{Beta Sheet Region (Residue ~20):} The response values around residue 20 show a sharp peak, consistent with the beta sheet's stabilizing influence on the protein's dynamics. The high response values highlight the beta sheet’s role in shaping the local dynamic environment.
-    \item \textbf{Alpha Helix Region (Residue ~75):} In the helix region, the response to residue 20 is weaker, indicating that the helix dynamics are less directly influenced by the beta sheet. The helix's intrinsic flexibility decouples it from the rigid motions of the beta sheet.
+    \item \textbf{i=30}: nella \textit{\textbf{\ensuremath{\alpha}A-helix}}.
+    \item \textbf{i=45}: nella \textit{\textbf{\ensuremath{\alpha}A-helix}} e core \textbf{\ensuremath{\beta}}.
+    \item \textbf{i=73}: nella \textit{\textbf{\ensuremath{\alpha}B-helix}}.
+\end{itemize}
+Le risposte sono state misurate nelle regioni **attese**: la \textit{tasca di legame} (\ensuremath{\beta2}-strand, \ensuremath{\alpha1}-helix e CBL) e il \textit{core \ensuremath{\beta}}.
+
+\section*{Schemi delle Perturbazioni e Risposte}
+\begin{figure}[h!]
+    \centering
+    \begin{tikzpicture}[node distance=2.5cm, auto]
+        % Perturbazione 1 (i=30)
+        \node[rectangle, draw, align=center] (perturb1) {\textbf{Perturbazione i=30}\\(\ensuremath{\alpha}A-helix)};
+        \node[right of=perturb1, node distance=4cm] (expected1) {\textbf{Atteso:} Risposta in \ensuremath{\beta2}, tasca di legame};
+        \node[right of=expected1, node distance=4cm] (observed1) {\textbf{Osservato:} Risposta locale, limitata};
+        \draw[->] (perturb1) -- (expected1);
+        \draw[->] (expected1) -- (observed1);
+        
+        % Perturbazione 2 (i=45)
+        \node[rectangle, draw, below of=perturb1, node distance=2.5cm] (perturb2) {\textbf{Perturbazione i=45}\\(\ensuremath{\alpha}A-helix e core \ensuremath{\beta})};
+        \node[right of=perturb2, node distance=4cm] (expected2) {\textbf{Atteso:} Risposta in core \ensuremath{\beta}, tasca di legame};
+        \node[right of=expected2, node distance=4cm] (observed2) {\textbf{Osservato:} Core \ensuremath{\beta} attivo, tasca debole};
+        \draw[->] (perturb2) -- (expected2);
+        \draw[->] (expected2) -- (observed2);
+        
+        % Perturbazione 3 (i=73)
+        \node[rectangle, draw, below of=perturb2, node distance=2.5cm] (perturb3) {\textbf{Perturbazione i=73}\\(\ensuremath{\alpha}B-helix)};
+        \node[right of=perturb3, node distance=4cm] (expected3) {\textbf{Atteso:} Risposta in tasca di legame (\ensuremath{\beta2}, \ensuremath{\alpha1})};
+        \node[right of=expected3, node distance=4cm] (observed3) {\textbf{Osservato:} Risposta forte nella tasca};
+        \draw[->] (perturb3) -- (expected3);
+        \draw[->] (expected3) -- (observed3);
+    \end{tikzpicture}
+    \caption{Schemi delle perturbazioni nei siti allosterici (i=30, i=45, i=73) con risposte attese e osservate.}
+    \label{fig:perturb_schemi}
+\end{figure}
+
+\section*{Risultati e Discussione}
+
+\subsection*{1. Perturbazione in i=30 (\ensuremath{\alpha}A-helix)}
+\begin{itemize}
+    \item \textbf{Risposta osservata}: Picco netto di risposta nella regione locale (\ensuremath{\alpha}A-helix, intorno al residuo 30).
+    \item \textbf{Risposta secondaria}: Risposte deboli si osservano nelle regioni \ensuremath{\beta2}-strand (core \ensuremath{\beta}) e nell'area \ensuremath{\alpha}B-helix.
+    \item \textbf{Cosa \`e andato bene}: La propagazione allosterica locale \`e evidente nella regione perturbata.
+    \item \textbf{Cosa manca}: Interazione debole con la \textit{tasca di legame}, nessuna risposta marcata nella regione \ensuremath{\alpha1}-helix e \ensuremath{\beta2}-strand.
+    \item \textbf{Interpretazione}: La propagazione allosterica \`e parziale e non raggiunge le aree periferiche attese.
+\end{itemize}
+
+\subsection*{2. Perturbazione in i=45 (\ensuremath{\alpha}A-helix e core \ensuremath{\beta})}
+\begin{itemize}
+    \item \textbf{Risposta osservata}: Picco evidente nella \ensuremath{\alpha}A-helix e risposta secondaria nel core \ensuremath{\beta}.
+    \item \textbf{Risposta secondaria}: Picchi di risposta nelle regioni \ensuremath{\beta2}-strand e \ensuremath{\alpha}B-helix, seppur meno pronunciati.
+    \item \textbf{Cosa \`e andato bene}: Il core \ensuremath{\beta} partecipa attivamente alla propagazione del segnale, con risposte coerenti nei foglietti \ensuremath{\beta}.
+    \item \textbf{Cosa manca}: La trasmissione verso la \textit{tasca di legame} rimane debole, con bassa intensit\`a nella \ensuremath{\alpha1}-helix e \ensuremath{\beta2}-strand.
+    \item \textbf{Interpretazione}: Sebbene il core \ensuremath{\beta} mostri una risposta allosterica, l'effetto globale appare attenuato nelle regioni distanti.
+\end{itemize}
+
+\subsection*{3. Perturbazione in i=73 (\ensuremath{\alpha}B-helix)}
+\begin{itemize}
+    \item \textbf{Risposta osservata}: Picco netto nella \ensuremath{\alpha}B-helix (regione perturbata).
+    \item \textbf{Risposta secondaria}: Chiare risposte nella \ensuremath{\beta2}-strand e \ensuremath{\alpha1}-helix (parte della tasca di legame).
+    \item \textbf{Cosa \`e andato bene}: La connessione dinamica tra \ensuremath{\alpha}B-helix e la tasca di legame \`e ben evidenziata, con risposte significative e coerenti.
+    \item \textbf{Cosa manca}: Trasmissione ridotta verso il core \ensuremath{\beta}, con interazioni deboli nei foglietti \ensuremath{\beta3} e \ensuremath{\beta4}.
+    \item \textbf{Interpretazione}: Questa \`e la risposta pi\`u coerente con le attese, dimostrando una chiara propagazione allosterica verso la tasca di legame.
+\end{itemize}
+
+\section*{Conclusioni}
+\begin{enumerate}
+    \item La perturbazione nella **\ensuremath{\alpha}B-helix** (residuo i=73) ha mostrato la **risposta pi\`u significativa** nella \textbf{tasca di legame} (\ensuremath{\beta2}-strand e \ensuremath{\alpha1}-helix), confermando l'\textbf{allostericita'} attesa.
+    \item Le perturbazioni nella **\ensuremath{\alpha}A-helix** (i=30 e i=45) hanno prodotto risposte principalmente locali, con effetti secondari meno evidenti nelle regioni distanti.
+    \item La propagazione del segnale \`e stata pi\`u chiara nelle regioni **locali e core \ensuremath{\beta}**, mentre la risposta nelle regioni periferiche \`e risultata meno marcata.
+\end{enumerate}
+
+\section*{Prospettive future}
+\begin{itemize}
+    \item Applicare perturbazioni pi\`u intense nei residui chiave della **\ensuremath{\alpha}C-helix** per verificare il suo ruolo nella propagazione allosterica.
+    \item Analizzare in dettaglio le **correlazioni dinamiche** tra regioni distanti utilizzando analisi strutturali pi\`u approfondite.
+    \item Esplorare ulteriormente le interazioni mancanti con il core \ensuremath{\beta} e la tasca di legame per ottimizzare la mappatura della rete allosterica.
+\end{itemize}
+
+
+\section*{Introduzione}
+L'obiettivo dello studio era verificare l'\textbf{allostericita'} della proteina PDZ perturbando specifici siti allosterici, osservando la risposta in altre strutture secondarie funzionalmente connesse. Le perturbazioni sono state applicate nei seguenti residui chiave:
+\begin{itemize}
+    \item \textbf{i=30}: nella 	extit{	extbf{\ensuremath{\alpha}A-helix}}.
+    \item \textbf{i=45}: nella 	extit{	extbf{\ensuremath{\alpha}A-helix}} e core 	extbf{\ensuremath{\beta}}.
+    \item \textbf{i=73}: nella 	extit{	extbf{\ensuremath{\alpha}B-helix}}.
+\end{itemize}
+Le risposte sono state misurate nelle regioni **attese**: la 	extit{tasca di legame} (\ensuremath{\beta2}-strand, \ensuremath{\alpha1}-helix e CBL) e il 	extit{core \ensuremath{\beta}}.
+
+\section*{Risultati e Discussione}
+
+\subsection*{1. Perturbazione in i=30 (\ensuremath{\alpha}A-helix)}
+\begin{itemize}
+    \item \textbf{Risposta osservata}: Picco netto di risposta nella regione locale (\ensuremath{\alpha}A-helix, intorno al residuo 30).
+    \item \textbf{Risposta secondaria}: Risposte deboli si osservano nelle regioni \ensuremath{\beta2}-strand (core \ensuremath{\beta}) e nell'area \ensuremath{\alpha}B-helix.
+    \item \textbf{Cosa \`e andato bene}: La propagazione allosterica locale \`e evidente nella regione perturbata.
+    \item \textbf{Cosa manca}: La risposta nelle regioni distanti, come la tasca di legame, risulta limitata e meno marcata.
+    \item \textbf{Interpretazione}: La propagazione allosterica \`e parziale e non raggiunge le aree periferiche attese.
+\end{itemize}
+
+\subsection*{2. Perturbazione in i=45 (\ensuremath{\alpha}A-helix e core \ensuremath{\beta})}
+\begin{itemize}
+    \item \textbf{Risposta osservata}: Picco evidente nella \ensuremath{\alpha}A-helix e risposta secondaria nel core \ensuremath{\beta}.
+    \item \textbf{Risposta secondaria}: Picchi di risposta nelle regioni \ensuremath{\beta2}-strand e \ensuremath{\alpha}B-helix, seppur meno pronunciati.
+    \item \textbf{Cosa \`e andato bene}: Il core \ensuremath{\beta} partecipa attivamente alla propagazione del segnale, con risposte coerenti nei foglietti \ensuremath{\beta}.
+    \item \textbf{Cosa manca}: La propagazione verso la tasca di legame \`e meno chiara rispetto alle aspettative.
+    \item \textbf{Interpretazione}: Sebbene il core \ensuremath{\beta} mostri una risposta allosterica, l'effetto globale appare attenuato nelle regioni distanti.
+\end{itemize}
+
+\subsection*{3. Perturbazione in i=73 (\ensuremath{\alpha}B-helix)}
+\begin{itemize}
+    \item \textbf{Risposta osservata}: Picco netto nella \ensuremath{\alpha}B-helix (regione perturbata).
+    \item \textbf{Risposta secondaria}: Chiare risposte nella \ensuremath{\beta2}-strand e \ensuremath{\alpha1}-helix (parte della tasca di legame).
+    \item \textbf{Cosa \`e andato bene}: La connessione dinamica tra \ensuremath{\alpha}B-helix e la tasca di legame \`e ben evidenziata, con risposte significative e coerenti.
+    \item \textbf{Cosa manca}: La risposta nel core \ensuremath{\beta} \`e meno pronunciata rispetto alle aspettative.
+    \item \textbf{Interpretazione}: Questa \`e la risposta pi\`u coerente con le attese, dimostrando una chiara propagazione allosterica verso la tasca di legame.
+\end{itemize}
+
+\section*{Conclusioni}
+\begin{enumerate}
+    \item La perturbazione nella **\ensuremath{\alpha}B-helix** (residuo i=73) ha mostrato la **risposta pi\`u significativa** nella 	extbf{tasca di legame} (\ensuremath{\beta2}-strand e \ensuremath{\alpha1}-helix), confermando l'\textbf{allostericita'} attesa.
+    \item Le perturbazioni nella **\ensuremath{\alpha}A-helix** (i=30 e i=45) hanno prodotto risposte principalmente locali, con effetti secondari meno evidenti nelle regioni distanti.
+    \item La propagazione del segnale \`e stata pi\`u chiara nelle regioni **locali e core \ensuremath{\beta}**, mentre la risposta nelle regioni periferiche \`e risultata meno marcata.
+\end{enumerate}
+
+\section*{Prospettive future}
+\begin{itemize}
+    \item Applicare perturbazioni pi\`u intense nei residui chiave della **\ensuremath{\alpha}C-helix** per verificare il suo ruolo nella propagazione allosterica.
+    \item Analizzare in dettaglio le **correlazioni dinamiche** tra regioni distanti utilizzando analisi strutturali pi\`u approfondite.
+\end{itemize}
+
+
+
+\subsubsection{Graphic analysis of response}
+\paragraph{Figure \ref{fig:resp21} : Response with Residue ~21
+}
+\begin{itemize}
+    \item \textbf{Beta Sheet Region (Residue ~21):} The response values around residue 21 show a sharp peak, consistent with the beta sheet's stabilizing influence on the protein's dynamics. The high response values highlight the beta sheet’s role in shaping the local dynamic environment.
+    \item \textbf{Alpha Helix Region (Residue ~76):} In the helix region, the response to residue 21 is weaker, indicating that the helix dynamics are less directly influenced by the beta sheet. The helix's intrinsic flexibility decouples it from the rigid motions of the beta sheet.
     \item \textbf{Interpretation:} The beta sheet acts as a localized stabilizing force, with its influence tapering off in regions like the helix. This behavior supports the protein's need for both localized rigidity and broader adaptability.
 \end{itemize}
 
-\paragraph{Figure \ref{fig:resp76}: Response with Residue ~75}
+\paragraph{Figure \ref{fig:resp76}: Response with Residue ~76}
 \begin{itemize}
-    \item \textbf{Beta Sheet Region (Residue ~20):} A weak response is observed in the beta sheet, consistent with its rigidity and lower susceptibility to dynamic signals originating from the helix.
-    \item \textbf{Alpha Helix Region (Residue ~75):} A strong response peak near residue 75 reflects the helix's active role in facilitating dynamic transitions and responding to perturbations.
+    \item \textbf{Beta Sheet Region (Residue ~21):} A weak response is observed in the beta sheet, consistent with its rigidity and lower susceptibility to dynamic signals originating from the helix.
+    \item \textbf{Alpha Helix Region (Residue ~76):} A strong response peak near residue 76 reflects the helix's active role in facilitating dynamic transitions and responding to perturbations.
     \item \textbf{Interpretation:} The helix is a key dynamic element, complementing the beta sheet's rigidity by enabling dynamic adaptability and communication across the protein.
 \end{itemize}
 
+\begin{tikzpicture}[
+    node distance=2cm and 3cm,
+    every node/.style={draw, rectangle, minimum width=2.5cm, minimum height=1cm, align=center},
+    every edge/.style={draw, -{Latex[length=3mm]}},
+]
+
+% Nodes
+\node (beta2) {Beta 2};
+\node (beta3) [below=of beta2] {Beta 3};
+\node (beta4) [left=of beta3] {Beta 4};
+\node (alpha3) [below left=of beta2] {Alpha 3};
+
+% Edges
+\draw[->] (beta2) -- (beta3); % Beta 2 -> Beta 3
+\draw[->] (beta3) -- (beta2); % Beta 3 -> Beta 2
+\draw[->] (beta4) -- (beta3); % Beta 4 -> Beta 3
+\draw[->] (alpha3) -- (beta2); % Alpha 3 -> Beta 2
+
+\end{tikzpicture}
 
 
 \newpage
@@ -1716,7 +2404,7 @@ The figures provide a detailed view of the dynamic properties of the protein str
 \begin{figure}[h!]
     \centering
     % Prima sottografia
-    \begin{subfigure}[t]{0.48\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{/Users/enrico/PROTEINS/images/3LNX/Time_indicators/Transfer Entropy TE_ij for i=20 as a function of j at time index 0.png}
         \caption{Transfer Entropy (j->21) ($TE_{21,j}$) perturbating 21-th residue.}
@@ -1724,7 +2412,7 @@ The figures provide a detailed view of the dynamic properties of the protein str
     \end{subfigure}
     \hfill
     % Seconda sottografia
-    \begin{subfigure}[t]{0.48\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{/Users/enrico/PROTEINS/images/3LNX/Time_indicators/Transfer Entropy TE_ij for i=75 as a function of j at time index 0.png}
         \caption{Transfer Entropy (j->76) ($TE_{76,j}$) perturbating 76-th residue.}
@@ -1734,10 +2422,64 @@ The figures provide a detailed view of the dynamic properties of the protein str
     \label{fig:TE_comparison_i_j}
 \end{figure}
 
+
 \begin{figure}[h!]
     \centering
     % Prima sottografia
-    \begin{subfigure}[t]{0.48\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{/Users/enrico/PROTEINS/STATIC/images/3LNX/Time_indicators/Transfer Entropy TE_ij for i=39 as a function of j at time index 0.png}
+        \caption{Transfer Entropy (j->40) ($TE_{40,j}$) perturbating 40-th residue.}
+        \label{fig:TE40_i_j}
+    \end{subfigure}
+    \hfill
+    % Seconda sottografia
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{/Users/enrico/PROTEINS/images/3LNX/Time_indicators/Transfer Entropy TE_ij for i=56 as a function of j at time index 0.png}
+        \caption{Transfer Entropy (j->76) ($TE_{57,j}$) perturbating 57-th residue.}
+        \label{fig:TE76_i_j}
+    \end{subfigure}
+    \caption{Comparison of Transfer Entropy for different perturbated residues.}
+    \label{fig:TE_comparison_i_j}
+\end{figure}
+\begin{tikzpicture}[
+    node distance=2cm and 3cm,
+    every node/.style={draw, rectangle, minimum width=2.5cm, minimum height=1cm, align=center},
+    every edge/.style={draw, -{Latex[length=3mm]}},
+]
+
+% Nodes
+\node (beta2) {Beta 2};
+\node (beta3) [below=of beta2] {Beta 3};
+\node (beta4) [left=of beta3] {Beta 4};
+\node (alpha3) [below=of beta4] {Alpha 3};
+
+% Edges
+\draw[->] (beta2) -- (beta3); % Beta 2 -> Beta 3
+\draw[->] (beta3) -- (beta2); % Beta 3 -> Beta 2
+\draw[->] (beta4) -- (alpha3); % Beta 4 -> Alpha 3
+
+\end{tikzpicture}
+
+
+
+
+
+\paragraph{Figure \ref{fig:TE_comparison_i_j}: Transfer Entropy with Residue ~21}
+\begin{itemize}
+    \item \textbf{Beta Sheet Region (Residue ~21):} High transfer entropy values in the beta sheet reflect strong localized information flow, emphasizing the beta sheet's role in stabilizing and coordinating motions within its region.
+    \item \textbf{Alpha Helix Region (Residue ~76):} The helix shows lower transfer entropy values, indicating that it is less dynamically influenced by residue 21. This highlights the beta sheet's role as a local stabilizer rather than a global signal mediator.
+    \item \textbf{Interpretation:} The beta sheet governs local dynamics through strong information flow, while the helix remains relatively decoupled in terms of direct influence.
+\end{itemize}
+
+
+\newpage
+\newpage
+\begin{figure}[h!]
+    \centering
+    % Prima sottografia
+    \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{/Users/enrico/PROTEINS/images/3LNX/Time_indicators/Transfer Entropy TE_ji for i=20 as a function of j at time index 0.png}
         \caption{Transfer Entropy (21->j) ($TE_{j,21}$) perturbating 21-th residue.}
@@ -1745,7 +2487,7 @@ The figures provide a detailed view of the dynamic properties of the protein str
     \end{subfigure}
     \hfill
     % Seconda sottografia
-    \begin{subfigure}[t]{0.48\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{/Users/enrico/PROTEINS/images/3LNX/Time_indicators/Transfer Entropy TE_ji for i=75 as a function of j at time index 0.png}
         \caption{Transfer Entropy (76->j) ($TE_{j,76}$) perturbating 76-th residue.}
@@ -1756,18 +2498,34 @@ The figures provide a detailed view of the dynamic properties of the protein str
 \end{figure}
 
 
-\subsubsection{Graphic analysis of transfer entropy}
-\paragraph{Figure \ref{fig:TE_comparison_i_j}: Transfer Entropy with Residue ~20}
-\begin{itemize}
-    \item \textbf{Beta Sheet Region (Residue ~20):} High transfer entropy values in the beta sheet reflect strong localized information flow, emphasizing the beta sheet's role in stabilizing and coordinating motions within its region.
-    \item \textbf{Alpha Helix Region (Residue ~75):} The helix shows lower transfer entropy values, indicating that it is less dynamically influenced by residue 20. This highlights the beta sheet's role as a local stabilizer rather than a global signal mediator.
-    \item \textbf{Interpretation:} The beta sheet governs local dynamics through strong information flow, while the helix remains relatively decoupled in terms of direct influence.
-\end{itemize}
 
-\paragraph{Figure \ref{fig:TE_comparison_j_i}: Transfer Entropy with Residue ~75}
+
+\begin{figure}[h!]
+    \centering
+    % Prima sottografia
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{/Users/enrico/PROTEINS/STATIC/images/3LNX/Time_indicators/Transfer Entropy TE_ji for i=39 as a function of j at time index 0.png}
+        \caption{Transfer Entropy (40->j) ($TE_{j,40}$) perturbating 40-th residue.}
+        \label{fig:TE40_j_i}
+    \end{subfigure}
+    \hfill
+    % Seconda sottografia
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{/Users/enrico/PROTEINS/images/3LNX/Time_indicators/Transfer Entropy TE_ji for i=56 as a function of j at time index 0.png}
+        \caption{Transfer Entropy (57->j) ($TE_{j,57}$) perturbating 57-th residue.}
+        \label{fig:TE57_j_i}
+    \end{subfigure}
+    \caption{Comparison of Transfer Entropy for perturbations affecting different residues (j<-i).}
+    \label{fig:TE_comparison_j_i_2}
+\end{figure}
+
+
+\paragraph{Figure \ref{fig:TE_comparison_j_i}: Transfer Entropy with Residue ~76}
 \begin{itemize}
-    \item \textbf{Beta Sheet Region (Residue ~20):} Transfer entropy values indicate weak information flow from the helix to the beta sheet, consistent with the beta sheet's structural rigidity and localized dynamics.
-    \item \textbf{Alpha Helix Region (Residue ~75):} Strong peaks in transfer entropy around residue 75 highlight its role in propagating dynamic information across the protein, making it a key mediator of long-range communication.
+    \item \textbf{Beta Sheet Region (Residue ~21):} Transfer entropy values indicate weak information flow from the helix to the beta sheet, consistent with the beta sheet's structural rigidity and localized dynamics.
+    \item \textbf{Alpha Helix Region (Residue ~76):} Strong peaks in transfer entropy around residue 76 highlight its role in propagating dynamic information across the protein, making it a key mediator of long-range communication.
     \item \textbf{Interpretation:} The helix complements the beta sheet by actively facilitating dynamic interactions and communication throughout the protein.
 \end{itemize}
 
@@ -1777,8 +2535,21 @@ The figures provide a detailed view of the dynamic properties of the protein str
 \newpage
 
 
+\section*{Role of Protein Secondary Structures in Stability and Communication}
+
+Protein secondary structures, such as beta sheets and alpha helices, play distinct and complementary roles in maintaining structural integrity and facilitating communication within the protein. Their unique features contribute to the balance between stability and flexibility, which is essential for proper protein function.
+
+Beta sheets, characterized by their planar and extended conformation, are known to stabilize the protein structure. This stability arises from the strong hydrogen bonding networks between adjacent beta strands, which result in pronounced local correlations. These correlations create a tightly packed and rigid framework, enabling efficient intraregional communication. Furthermore, the acute responses observed in beta sheets suggest that this rigidity supports precise local adaptations to environmental or structural changes without compromising the overall integrity of the protein. As a result, beta sheets are crucial for maintaining localized stability and ensuring robust communication within their immediate surroundings.
+
+On the other hand, alpha helices are distinguished by their helical structure, which is stabilized by intramolecular hydrogen bonds between residues that are spaced four amino acids apart. Unlike beta sheets, alpha helices introduce a greater degree of dynamic flexibility into the protein structure. This flexibility enables the protein to adapt to conformational changes and to transmit information over longer distances. The correlations and responses observed in alpha helices are less concentrated compared to those in beta sheets, reflecting their role in facilitating long-range communication rather than localized stability. This property is particularly important in regions of the protein where dynamic interactions with other molecules or conformational shifts are required for functional activity.
+
+An analysis based on transfer entropy further emphasizes the contrasting roles of these secondary structures. Perturbations introduced within beta sheet regions tend to have highly localized effects, primarily influencing nearby residues due to their rigid and tightly packed arrangement. In contrast, perturbations in alpha helices exhibit a broader impact, propagating signals to more distant residues. This suggests that alpha helices act as conduits for information transfer across different regions of the protein, thereby supporting long-range coordination and dynamic responses to environmental stimuli.
+
+In summary, beta sheets and alpha helices exhibit complementary roles in protein function. While beta sheets contribute to structural rigidity, local stability, and precise intraregional communication, alpha helices provide the necessary flexibility and facilitate the transmission of information across larger distances. Together, these secondary structures enable proteins to maintain a delicate balance between stability and adaptability, which is essential for their diverse biological functions.
 
 
+\newpage
+\newpage
 
 
 \section{Conclusions of equlibrium stochastic process}
@@ -1786,22 +2557,22 @@ The analysis of residue correlations, dynamic responses, and transfer entropy no
 
 \subsection{Allostericity in the Protein}
 
-\textbf{Role of the beta sheet:} The beta sheet, centered around residue ~20, acts as a local allosteric hub. Its strong internal correlations and confined information flow suggest that this region stabilizes the global structure, while its communication with other regions, such as the alpha helix, remains limited. However, dynamic responses show that even local perturbations in the beta sheet can have attenuated effects on distant regions.
+\textbf{Role of the beta sheet:} The beta sheet, centered around residue ~21, acts as a local allosteric hub. Its strong internal correlations and confined information flow suggest that this region stabilizes the global structure, while its communication with other regions, such as the alpha helix, remains limited. However, dynamic responses show that even local perturbations in the beta sheet can have attenuated effects on distant regions.
 
-\textbf{Role of the alpha helix:} The alpha helix, centered around residue ~75, functions as an allosteric mediator. High dynamic responses and transfer entropy indicate that this region is particularly effective in propagating dynamic signals across the protein, making it crucial for long-range communication.
+\textbf{Role of the alpha helix:} The alpha helix, centered around residue ~76, functions as an allosteric mediator. High dynamic responses and transfer entropy indicate that this region is particularly effective in propagating dynamic signals across the protein, making it crucial for long-range communication.
 
 \subsection{Identification of Key Allosteric Regions}
 
 The analysis reveals how the beta sheet and alpha helix cooperate to modulate allosteric behavior:
 
-\textbf{Beta sheet (~residue 20):}
+\textbf{Beta sheet (~residue 21):}
 \begin{itemize}
     \item Strong, localized correlations.
     \item High control of local dynamics, reducing signal transmission to other regions.
     \item \textit{Key residues involved:} 18–22, which are the primary contributors to the stability of the beta sheet region.
 \end{itemize}
 
-\textbf{Alpha helix (~residue 75):}
+\textbf{Alpha helix (~residue 76):}
 \begin{itemize}
     \item High dynamic response to local perturbations.
     \item Ability to propagate signals dynamically across the protein.
@@ -1860,7 +2631,7 @@ The analysis demonstrates that the beta sheet and alpha helix are not merely sec
 
 
 \newpage
-\chapter{Out-of-Equilibrium Stochastic Processes Induced by Heat Gradients,tau_mean=0.1845}
+\chapter{Out-of-Equilibrium Stochastic Processes Induced by Heat Gradients}
 
 
 The study of protein dynamics under non-equilibrium conditions, such as those induced by a heat gradient, provides valuable insights into how biological systems respond to external perturbations. It also sheds light on their ability to preserve structural integrity and functionality under stress. Investigating protein behavior in non-equilibrium environments helps us understand the influence of thermal fluctuations on dynamic properties, such as flexibility and allosteric interactions.
@@ -2039,7 +2810,7 @@ The formula describes the temporal correlation between the components \( X_i(t) 
     The denominator ensures that the contributions from eigenmodes are properly weighted by their respective damping rates \( \lambda_k \) and \( \lambda_p \), balancing the dynamic interactions between modes.
 \end{itemize}
 
-
+As before the transfer entropy it is completely determined by the correlation.
 
 
 \newpage
@@ -2059,13 +2830,13 @@ By combining fixed and variable temperature conditions, this approach enables a 
 \begin{itemize}
     \item \textbf{Beta Sheet Regions:}
     \begin{itemize}
-        \item In beta sheet regions (e.g., around residue 20), residues tend to have higher connectivity due to their compact and stabilizing arrangement in the protein's core.
+        \item In beta sheet regions (e.g., around residue 21), residues tend to have higher connectivity due to their compact and stabilizing arrangement in the protein's core.
         \item These residues are more constrained dynamically and are therefore associated with lower temperatures (\(T = 0\)), as reflected in the graph.
     \end{itemize}
 
     \item \textbf{Alpha Helix Regions:}
     \begin{itemize}
-        \item Alpha helix regions (e.g., around residue 75) typically exhibit intermediate levels of connectivity. However, their intrinsic flexibility and less rigid packing compared to beta sheets allow for more dynamic motion.
+        \item Alpha helix regions (e.g., around residue 76) typically exhibit intermediate levels of connectivity. However, their intrinsic flexibility and less rigid packing compared to beta sheets allow for more dynamic motion.
         \item As a result, residues in these regions are more likely to be assigned the variable temperature \(T^* = 1\), reflecting their increased flexibility.
     \end{itemize}
 
@@ -2238,9 +3009,9 @@ These findings highlight an important principle: \textit{systems driven out of e
 \end{figure}
 \subsection{Cross-Correlation: Forward and Backward Dynamics}
 \begin{itemize}
-    \item \textbf{Peak Behavior:} Both forward and backward correlations exhibit distinct peaks around \(t = 0\), indicating strong interactions at this specific time lag. The strongest correlation is observed for residue pairs (20, 75) and (20, 38), with a more pronounced forward correlation compared to backward correlation.
-    \item \textbf{Asymmetric Dynamics:} Forward correlations (e.g., (20, 75)) are generally higher and exhibit sharper peaks than backward correlations, highlighting directional dependencies between residues. Backward correlations are smoother and less pronounced, suggesting weaker reverse interactions.
-    \item \textbf{Residue-Specific Effects:} Residue pair (20, 21) shows the smallest cross-correlation values, indicating less significant dynamic coupling compared to the other pairs.
+    \item \textbf{Peak Behavior:} Both forward and backward correlations exhibit distinct peaks around \(t = 0\), indicating strong interactions at this specific time lag. The strongest correlation is observed for residue pairs (21, 76) and (21, 39), with a more pronounced forward correlation compared to backward correlation.
+    \item \textbf{Asymmetric Dynamics:} Forward correlations (e.g., (21, 76)) are generally higher and exhibit sharper peaks than backward correlations, highlighting directional dependencies between residues. Backward correlations are smoother and less pronounced, suggesting weaker reverse interactions.
+    \item \textbf{Residue-Specific Effects:} Residue pair (21, 22) shows the smallest cross-correlation values, indicating less significant dynamic coupling compared to the other pairs.
 \end{itemize}
 
 \newpage
@@ -2253,9 +3024,9 @@ These findings highlight an important principle: \textit{systems driven out of e
 
 \subsection{Transfer Entropy: Forward and Backward Dynamics}
 \begin{itemize}
-    \item \textbf{Directional Influence:} Transfer entropy captures a clear forward bias, with forward interactions (e.g., (20, 75) and (20, 38)) showing significantly higher values compared to their backward counterparts. Peaks around \(t = 0\) are sharper and more localized than in cross-correlation, emphasizing the information-theoretic directional influence.
+    \item \textbf{Directional Influence:} Transfer entropy captures a clear forward bias, with forward interactions (e.g., (21, 76) and (21, 39)) showing significantly higher values compared to their backward counterparts. Peaks around \(t = 0\) are sharper and more localized than in cross-correlation, emphasizing the information-theoretic directional influence.
     \item \textbf{Temporal Symmetry:} Forward transfer entropy decays rapidly after \(t > 0\), while backward transfer entropy remains negligible, reinforcing the idea of unidirectional information transfer.
-    \item \textbf{Residue Pair Hierarchy:} Pairs (20, 75) and (20, 38) exhibit the strongest transfer entropy, with (20, 75) having the highest peak. Residue pair (20, 21) again shows minimal transfer entropy, consistent with its weaker interaction.
+    \item \textbf{Residue Pair Hierarchy:} Pairs (21, 76) and (21, 39) exhibit the strongest transfer entropy, with (21, 76) having the highest peak. Residue pair (21, 22) again shows minimal transfer entropy, consistent with its weaker interaction.
 \end{itemize}
 
 
@@ -2265,10 +3036,9 @@ These findings highlight an important principle: \textit{systems driven out of e
 
 \begin{itemize}
     \item \textbf{Forward Dominance:} Both cross-correlation and transfer entropy highlight the dominance of forward dynamics over backward dynamics, reflecting stronger causal influences in the forward direction.
-    \item \textbf{Residue Pair Importance:} Residue pairs (20, 75) and (20, 38) are central to the dynamic interactions, while (20, 21) shows a marginal role.
+    \item \textbf{Residue Pair Importance:} Residue pairs (21, 76) and (21, 39) are central to the dynamic interactions, while (21, 22) shows a marginal role.
     \item \textbf{Quantitative Comparison:} Transfer entropy provides a more refined and directional measure of interaction, while cross-correlation gives a broader view of dynamic coupling.
 \end{itemize}
-
 
 
 
@@ -2302,7 +3072,8 @@ We can determine the characteristic time \(\tau\) of the system using the follow
     \centering
     \includegraphics[width=0.8\textwidth]{/Users/enrico/PROTEINS/images/3LNX/2_temperature_cutoff/Stima_tau/tau_histogram.png}
     \caption{Hisotgram of \(t_i\).}
-\end{figure}
+\end{figure} 
+
 We estimated a \(\tau\) of 0.1869 ns.
 All the following analysis will be done around the characteristic time \(\tau\), specifically at [\(\tau\)-0.5*\(\tau\),\(\tau\),\(\tau\)+0.5*\(\tau\)].
 
@@ -2327,18 +3098,18 @@ All the following analysis will be done around the characteristic time \(\tau\),
 \end{figure}
 \subsubsection{Graphic Analysis of Response}
 
-\paragraph{Figure \ref{fig:corr21_out}: Correlation and Temperature for Residue 75}
+\paragraph{Figure \ref{fig:corr21_out}: Correlation and Temperature for Residue 76}
 \begin{itemize}
     \item \textbf{High Temperature Dynamics:} At higher temperatures (e.g., \( T = 1.0 \)), the correlation pattern is broader and more dispersed, indicating increased flexibility and global communication across residues.
     \item \textbf{Low Temperature Dynamics:} At lower temperatures (\( T = 0.0 \)), the correlation profile becomes sharper and more localized, reflecting more constrained structural dynamics.
-    \item \textbf{Residual Influence:} The correlation gradually decreases as the residue index moves away from 75, highlighting the diminishing dynamic influence of this residue on others.
+    \item \textbf{Residual Influence:} The correlation gradually decreases as the residue index moves away from 76, highlighting the diminishing dynamic influence of this residue on others.
 \end{itemize}
 
-\paragraph{Figure \ref{fig:corr76_out}: Correlation and Temperature for Residue 20}
+\paragraph{Figure \ref{fig:corr76_out}: Correlation and Temperature for Residue 21}
 \begin{itemize}
-    \item \textbf{High Temperature Dynamics:} Similar to residue 75, high temperatures (\( T = 1.0 \)) result in a broader and more uniform correlation distribution.
+    \item \textbf{High Temperature Dynamics:} Similar to residue 76, high temperatures (\( T = 1.0 \)) result in a broader and more uniform correlation distribution.
     \item \textbf{Low Temperature Dynamics:} At lower temperatures (\( T = 0.0 \)), the correlation is more localized, indicating reduced flexibility and tighter coupling between residues.
-    \item \textbf{Relative Influence:} The peak correlation values for residue 20 are slightly lower than those for residue 75, suggesting that residue 75 has a higher dynamic centrality in the structure.
+    \item \textbf{Relative Influence:} The peak correlation values for residue 21 are slightly lower than those for residue 76, suggesting that residue 76 has a higher dynamic centrality in the structure.
 \end{itemize}
 
 \subsubsection{Temperature Variation and General Observations}
@@ -2350,7 +3121,7 @@ All the following analysis will be done around the characteristic time \(\tau\),
 \subsubsection{Conclusions}
 \begin{itemize}
     \item The temperature significantly affects the flexibility and dynamics of residue correlations.
-    \item Residues 75 and 20 represent dynamically significant points in the protein structure, with residue 75 showing greater dynamic influence overall.
+    \item Residues 76 and 21 represent dynamically significant points in the protein structure, with residue 76 showing greater dynamic influence overall.
     \item These results suggest that thermal regulation could be a critical mechanism for modulating the structural and functional dynamics of the protein.
 \end{itemize}
 
@@ -2366,76 +3137,374 @@ All the following analysis will be done around the characteristic time \(\tau\),
 \newpage
 
 
-\subsection{Transfer entropy between residues}
-\begin{figure}[h!]
+\begin{figure}[htbp]
     \centering
     % Prima sottografia
-    \begin{subfigure}[t]{0.48\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{/Users/enrico/PROTEINS/CUTOFF/images/3LNX/2_temperature_cutoff/combined_entropy_temperature_20_plots.png}
-        \caption{Transfer Entropy (j->21) ($TE_{21,j}$) perturbating 21-th residue.}
+        \caption{Transfer Entropy ($TE_{21,j}$) perturbating the 21st residue.}
         \label{fig:TE21_i_j_out}
     \end{subfigure}
     \hfill
     % Seconda sottografia
-    \begin{subfigure}[t]{0.48\textwidth}
+    \begin{subfigure}[t]{0.45\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{/Users/enrico/PROTEINS/images/3LNX/Time_indicators/Transfer Entropy TE_ij for i=75 as a function of j at time index 0.png}
-        \caption{Transfer Entropy (j->76) ($TE_{76,j}$) perturbating 76-th residue.}
+        \includegraphics[width=\textwidth]{/Users/enrico/PROTEINS/CUTOFF/images/3LNX/2_temperature_cutoff/combined_entropy_temperature_75_plots.png}
+        \caption{Transfer Entropy ($TE_{76,j}$) perturbating the 76th residue.}
         \label{fig:TE76_i_j_out}
     \end{subfigure}
-    \caption{Comparison of Transfer Entropy for different perturbated residues.}
+    % Didascalia principale
+    \caption{Comparison of Transfer Entropy for different perturbed residues.}
     \label{fig:TE_comparison_i_j_out}
 \end{figure}
-
-\begin{figure}[h!]
-    \centering
-    % Prima sottografia
-    \begin{subfigure}[t]{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{/Users/enrico/PROTEINS/images/3LNX/Time_indicators/Transfer Entropy TE_ji for i=20 as a function of j at time index 0.png}
-        \caption{Transfer Entropy (21->j) ($TE_{j,21}$) perturbating 21-th residue.}
-        \label{fig:TE21_j_i}
-    \end{subfigure}
-    \hfill
-    % Seconda sottografia
-    \begin{subfigure}[t]{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{/Users/enrico/PROTEINS/images/3LNX/Time_indicators/Transfer Entropy TE_ji for i=75 as a function of j at time index 0.png}
-        \caption{Transfer Entropy (76->j) ($TE_{j,76}$) perturbating 76-th residue.}
-        \label{fig:TE76_j_i}
-    \end{subfigure}
-    \caption{Comparison of Transfer Entropy for perturbations affecting different residues (j<-i).}
-    \label{fig:TE_comparison_j_i}
-\end{figure}
-
-
-\subsubsection{Graphic analysis of transfer entropy}
-\paragraph{Figure \ref{fig:TE_comparison_i_j}: Transfer Entropy with Residue ~20}
-\begin{itemize}
-    \item \textbf{Beta Sheet Region (Residue ~20):} High transfer entropy values in the beta sheet reflect strong localized information flow, emphasizing the beta sheet's role in stabilizing and coordinating motions within its region.
-    \item \textbf{Alpha Helix Region (Residue ~75):} The helix shows lower transfer entropy values, indicating that it is less dynamically influenced by residue 20. This highlights the beta sheet's role as a local stabilizer rather than a global signal mediator.
-    \item \textbf{Interpretation:} The beta sheet governs local dynamics through strong information flow, while the helix remains relatively decoupled in terms of direct influence.
-\end{itemize}
-
-\paragraph{Figure \ref{fig:TE_comparison_j_i}: Transfer Entropy with Residue ~75}
-\begin{itemize}
-    \item \textbf{Beta Sheet Region (Residue ~20):} Transfer entropy values indicate weak information flow from the helix to the beta sheet, consistent with the beta sheet's structural rigidity and localized dynamics.
-    \item \textbf{Alpha Helix Region (Residue ~75):} Strong peaks in transfer entropy around residue 75 highlight its role in propagating dynamic information across the protein, making it a key mediator of long-range communication.
-    \item \textbf{Interpretation:} The helix complements the beta sheet by actively facilitating dynamic interactions and communication throughout the protein.
-\end{itemize}
-
-
-
-
-
-
-
-
 
 
 \subsection{Conclusion}
 The analysis reveals that driving the system out of equilibrium (\(\Delta T = 1\)) results in lower MAE and RMSE values and better alignment between predicted and experimental \( B \)-factors. Non-equilibrium conditions create more structured and predictable dynamics, while closer-to-equilibrium systems (\(\Delta T = 0.5\)) exhibit subtler and more stochastic flexibility patterns. These findings underscore the stabilizing effect of non-equilibrium conditions on protein dynamics and highlight the critical role of temperature gradients in studying and modeling protein flexibility.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\chapter{Introduction}
+The aim of this thesis is to analyze the entropy rate of a stochastic process driven by a Langevin dynamic equation. Using a Kirchhoff matrix derived from structural data, we simulate the dynamics of a system and compare the theoretical entropy rate with experimental results from numerical simulations. The foundational concepts and methods follow the approach described in the referenced article. Discrepancies between theory and experiment are explored to refine the model.
+
+\chapter{Mathematical Framework}
+
+\section{Langevin Dynamics}
+The system evolves according to the Langevin equation:
+\begin{equation}
+\frac{d\mathbf{X}_t}{dt} = \mathbf{A} \mathbf{X}_t + \mathbf{B} \boldsymbol{\eta}_t,
+\end{equation}
+where:
+\begin{itemize}
+    \item \( \mathbf{X}_t \): The state vector of the system at time \( t \),
+    \item \( \mathbf{A} = -\frac{\mathbf{K}}{\gamma} \): System matrix derived from the Kirchhoff matrix \( \mathbf{K} \) and the friction coefficient \( \gamma \),
+    \item \( \mathbf{B} \): Noise matrix, encoding the effect of thermal fluctuations,
+    \item \( \boldsymbol{\eta}_t \): Gaussian white noise with zero mean and unit variance.
+\end{itemize}
+The noise term satisfies the fluctuation-dissipation theorem:
+\begin{equation}
+\langle \boldsymbol{\eta}_t \boldsymbol{\eta}_{t'}^T \rangle = \delta(t - t') \mathbf{I},
+\end{equation}
+where \( \mathbf{I} \) is the identity matrix.
+
+\section{Covariance Dynamics}
+Let \( \mathbf{\Sigma} \) be the covariance matrix of \( \mathbf{X}_t \):
+\begin{equation}
+\mathbf{\Sigma} = \langle \mathbf{X}_t \mathbf{X}_t^T \rangle.
+\end{equation}
+Differentiating \( \mathbf{\Sigma} \) with respect to time and using the Langevin equation, we get:
+\begin{align}
+\frac{d\mathbf{\Sigma}}{dt} &= \langle \frac{d\mathbf{X}_t}{dt} \mathbf{X}_t^T \rangle + \langle \mathbf{X}_t \frac{d\mathbf{X}_t^T}{dt} \rangle \\
+&= \mathbf{A} \mathbf{\Sigma} + \mathbf{\Sigma} \mathbf{A}^T + \mathbf{B} \mathbf{B}^T.
+\end{align}
+At equilibrium, \( \frac{d\mathbf{\Sigma}}{dt} = 0 \), leading to the Lyapunov equation:
+\begin{equation}
+\mathbf{A} \mathbf{\Sigma} + \mathbf{\Sigma} \mathbf{A}^T + \mathbf{B} \mathbf{B}^T = 0.
+\end{equation}
+
+\section{Entropy Rate Derivation}
+The entropy rate for a Gaussian process is given by:
+\begin{equation}
+\dot{S} = \frac{1}{2} \text{Tr}\left( \mathbf{A}^T \mathbf{\Sigma}^{-1} \mathbf{A} \mathbf{\Sigma} + \mathbf{\Sigma}^{-1} \mathbf{B} \mathbf{B}^T \right) - \frac{1}{2} \text{Tr}(\mathbf{A}).
+\end{equation}
+This formula arises from the differential entropy of a Gaussian distribution and the dynamics of the covariance matrix. Each term corresponds to:
+\begin{itemize}
+    \item \( \text{Tr}(\mathbf{A}^T \mathbf{\Sigma}^{-1} \mathbf{A} \mathbf{\Sigma}) \): Contribution from deterministic dynamics,
+    \item \( \text{Tr}(\mathbf{\Sigma}^{-1} \mathbf{B} \mathbf{B}^T) \): Contribution from stochastic noise,
+    \item \( \text{Tr}(\mathbf{A}) \): Dissipation.
+\end{itemize}
+
+\chapter{Methods}
+
+\section{Simulation Setup}
+The Kirchhoff matrix \( \mathbf{K} \) is constructed to represent residue interactions in a biological structure. Thermal fluctuations are incorporated through a position-dependent noise matrix \( \mathbf{B} \). The Langevin dynamics are simulated using the Euler-Maruyama method with parameters:
+\begin{itemize}
+    \item \( \gamma = 1 \), friction coefficient,
+    \item \( k_B = 1 \), Boltzmann constant,
+    \item \( dt = 0.0005 \), time step,
+    \item \( T = 1000 \), total simulation time.
+\end{itemize}
+
+\section{Numerical Implementation}
+The system evolution is calculated iteratively:
+\begin{equation}
+\mathbf{X}_{t+1} = \mathbf{X}_t + dt \cdot \mathbf{A} \mathbf{X}_t + \mathbf{B} \boldsymbol{\eta}_t,
+\end{equation}
+where \( \boldsymbol{\eta}_t \sim \mathcal{N}(0, \sqrt{dt}) \).
+
+\chapter{Results}
+
+\section{Entropy Rate}
+The theoretical and experimental entropy rates are compared. The experimental entropy rate is estimated using the covariance of increments:
+\begin{equation}
+\dot{S}_{\text{experimental}} = \frac{1}{2} \text{Tr}\left( \mathbf{\Sigma}^{-1} \mathbf{\Sigma}_{\Delta t} \right),
+\end{equation}
+where \( \mathbf{\Sigma}_{\Delta t} \) is the covariance of the increments \( \Delta \mathbf{X} \).
+
+\section{Equilibrium Distribution}
+The equilibrium distribution of the first residue \( X[0] \) is visualized to confirm stationarity:
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{equilibrium_distribution.png}
+    \caption{Equilibrium distribution of \( X[0] \).}
+    \label{fig:equilibrium}
+\end{figure}
+
+\chapter{Discussion}
+
+\section{Discrepancies}
+Theoretical entropy rates are higher than experimental values due to potential numerical instabilities in the covariance inversion or incorrect scaling of noise terms.
+
+\section{Refinements}
+Future improvements include:
+\begin{itemize}
+    \item Improved conditioning of \( \mathbf{\Sigma} \),
+    \item Verification of \( \mathbf{B} \)'s scaling against physical parameters,
+    \item Larger time steps and longer simulations for better sampling.
+\end{itemize}
+
+\chapter{Conclusion}
+This work highlights the importance of numerical stability in entropy rate estimation for stochastic processes. The presented framework provides a foundation for further exploration of Langevin dynamics in complex systems.
+
+
+
+
+
+
+
+
+
+
+
+
+\section*{Model Definition}
+The stochastic process under consideration is described by the differential equation:
+\begin{equation} \label{eq:stochastic}
+\frac{dx_i}{dt} = -K x_i + \epsilon \cdot (1 - \cos(\omega t))(\delta_{i,a} - \delta_{i,b}) + \eta(t),
+\end{equation}
+where:
+\begin{itemize}
+    \item $x_i$ represents the relative position of each residue;
+    \item $K$ is the Kirchhoff matrix, which governs the interactions between residues;
+    \item $\epsilon$ is a parameter describing the intensity of the oscillatory term;
+    \item $\omega$ is the angular frequency of the oscillation;
+    \item $\delta_{i,a}$ and $\delta_{i,b}$ are Kronecker delta functions that select specific residues $a$ and $b$;
+    \item $\eta(t)$ represents a stochastic term describing white noise.
+\end{itemize}
+
+\section*{Interpretation of the Terms}
+The equation \eqref{eq:stochastic} can be interpreted as follows:
+\begin{itemize}
+    \item \textbf{Dissipative Term:} $-K x_i$ represents the dissipative force proportional to the position $x_i$, with the matrix $K$ characterizing the interactions between residues.
+    \item \textbf{Oscillatory Term:} $\epsilon \cdot (1 - \cos(\omega t))(\delta_{i,a} - \delta_{i,b})$ introduces a periodic acceleration between residues $a$ and $b$ with an amplitude modulated by the function $1 - \cos(\omega t)$.
+    \item \textbf{Stochastic Term:} $\eta(t)$ represents the contribution of white noise, often modeled as a Gaussian process with zero mean and constant variance $\sigma^2$.
+\end{itemize}
+
+\section*{Formal Solution}
+To solve equation \eqref{eq:stochastic}, we can separate the deterministic and stochastic contributions. The solution is written as the sum:
+\begin{equation}
+    x_i(t) = x_i^{(d)}(t) + x_i^{(s)}(t),
+\end{equation}
+where:
+\begin{itemize}
+    \item $x_i^{(d)}(t)$ is the solution of the deterministic part;
+    \item $x_i^{(s)}(t)$ is the solution of the stochastic part.
+\end{itemize}
+
+\subsection*{Deterministic Solution}
+The deterministic part of the equation is:
+\begin{equation}
+    \frac{dx_i^{(d)}}{dt} = -K x_i^{(d)} + \epsilon \cdot (1 - \cos(\omega t))(\delta_{i,a} - \delta_{i,b}).
+\end{equation}
+The general solution can be written as:
+\begin{equation}
+    x_i^{(d)}(t) = e^{-Kt} x_i^{(d)}(0) + \int_0^t e^{-K(t-s)} \epsilon \cdot (1 - \cos(\omega s))(\delta_{i,a} - \delta_{i,b}) ds.
+\end{equation}
+
+\subsection*{Stochastic Solution}
+The stochastic part is governed by the equation:
+\begin{equation}
+    \frac{dx_i^{(s)}}{dt} = \eta(t).
+\end{equation}
+Assuming $\eta(t)$ is a Gaussian process, direct integration gives:
+\begin{equation}
+    x_i^{(s)}(t) = \int_0^t \eta(s) ds,
+\end{equation}
+where $x_i^{(s)}(t)$ is a Wiener process.
+
+\section*{Kirchhoff Matrix}
+The matrix $K$ is defined as:
+\begin{equation}
+    K_{ij} = \begin{cases}
+        -k_{ij} & \text{if } i \neq j, \\
+        \sum_{k \neq i} k_{ik} & \text{if } i = j.
+    \end{cases}
+\end{equation}
+This structure ensures that the matrix $K$ has non-negative eigenvalues, with one zero corresponding to the center of mass motion.
+
+
+
+
+
+
+
+\section*{Conclusions}
+Equation \eqref{eq:stochastic} describes a complex system combining dissipation, oscillations, and stochastic noise. The analysis of its properties strongly depends on the structure of the matrix $K$, the frequency $\omega$, and the intensity of the noise $\eta(t)$. The formal solution presented can serve as a starting point for further numerical or perturbative analyses.
+\section*{Model Definition}
+The stochastic process under consideration is described by the differential equation:
+\begin{equation} \label{eq:stochastic}
+\frac{dx_i}{dt} = -K x_i + \epsilon \cdot (1 - \cos(\omega t))(\delta_{i,a} - \delta_{i,b}) + \eta_i(t),
+\end{equation}
+where:
+\begin{itemize}
+    \item $x_i$ represents the relative position of each residue;
+    \item $K$ is the Kirchhoff matrix, which governs the interactions between residues;
+    \item $\epsilon$ is a parameter describing the intensity of the oscillatory term;
+    \item $\omega$ is the angular frequency of the oscillation;
+    \item $\delta_{i,a}$ and $\delta_{i,b}$ are Kronecker delta functions that select specific residues $a$ and $b$;
+    \item $\eta_i(t)$ represents a stochastic term describing white noise.
+\end{itemize}
+
+\section*{Reformulation in Terms of Eigenvectors}
+The Kirchhoff matrix $K$ can be diagonalized as:
+\begin{equation}
+K = V \Lambda V^{-1},
+\end{equation}
+where:
+\begin{itemize}
+    \item $V$ is the matrix whose columns are the eigenvectors of $K$;
+    \item $\Lambda$ is a diagonal matrix containing the eigenvalues of $K$.
+\end{itemize}
+Substituting $x_i = V y$ into equation \eqref{eq:stochastic}, we get:
+\begin{equation}
+\frac{d}{dt}(V y) = -V \Lambda V^{-1}(V y) + \epsilon \cdot (1 - \cos(\omega t))(\delta_{i,a} - \delta_{i,b}) + \eta_i(t).
+\end{equation}
+Multiplying through by $V^{-1}$, we obtain:
+\begin{equation} \label{eq:projected}
+\frac{dy}{dt} = -\Lambda y + V^{-1} \left[ \epsilon \cdot (1 - \cos(\omega t))(\delta_{i,a} - \delta_{i,b}) + \eta_i(t) \right].
+\end{equation}
+
+\section*{Component-Wise Expansion}
+Expanding equation \eqref{eq:projected} for each component $y_k$ (corresponding to the $k$-th eigenvalue $\lambda_k$), we get:
+\begin{equation} \label{eq:yk}
+\frac{dy_k}{dt} = -\lambda_k y_k + \epsilon \cdot (1 - \cos(\omega t)) \langle v_k, (\delta_{i,a} - \delta_{i,b}) \rangle + \langle v_k, \eta_i(t) \rangle,
+\end{equation}
+where $v_k$ is the $k$-th eigenvector of $K$, and:
+\begin{itemize}
+    \item $\langle v_k, (\delta_{i,a} - \delta_{i,b}) \rangle = v_k(a) - v_k(b)$;
+    \item $\langle v_k, \eta_i(t) \rangle = \sum_i v_k(i) \eta_i(t)$.
+\end{itemize}
+
+\subsection*{Simplification of Terms}
+Using the Kronecker delta property:
+\begin{equation}
+\langle v_k, (\delta_{i,a} - \delta_{i,b}) \rangle = v_k(a) - v_k(b),
+\end{equation}
+and defining:
+\begin{equation}
+\eta_k(t) = \langle v_k, \eta_i(t) \rangle = \sum_i v_k(i) \eta_i(t),
+\end{equation}
+equation \eqref{eq:yk} simplifies to:
+\begin{equation}
+\frac{dy_k}{dt} = -\lambda_k y_k + \epsilon \cdot (1 - \cos(\omega t))(v_k(a) - v_k(b)) + \eta_k(t).
+\end{equation}
+
+\section*{Formal Solution}
+The solution for each $y_k(t)$ is given by:
+\begin{equation}
+\begin{aligned}
+    y_k(t) &= y_k(0) e^{-\lambda_k t} + \int_0^t e^{-\lambda_k (t-s)} \left[ \epsilon \cdot (1 - \cos(\omega s))(v_k(a) - v_k(b)) + \eta_k(s) \right] ds.
+\end{aligned}
+\end{equation}
+
+\subsection*{Explicit Calculation of the Oscillatory Term}
+We compute the oscillatory integral:
+\begin{equation}
+I = \int_0^t e^{-\lambda_k (t-s)} \cos(\omega s) \, ds.
+\end{equation}
+Using substitution and trigonometric identities, we find:
+\begin{equation}
+I = \cos(\omega t) \left( \frac{e^{-\lambda_k t} (\lambda_k \cos(\omega t) + \omega \sin(\omega t))}{\lambda_k^2 + \omega^2} - \frac{\lambda_k}{\lambda_k^2 + \omega^2} \right) + \sin(\omega t) \frac{e^{-\lambda_k t} (\omega \cos(\omega t) - \lambda_k \sin(\omega t))}{\lambda_k^2 + \omega^2}.
+\end{equation}
+This result provides the explicit form of the oscillatory term in terms of $\omega$ and $\lambda_k$.
+
+\section*{Reconstruction of $x_i(t)$}
+To reconstruct $x_i(t)$ in the original space, we combine the contributions from all eigenvectors:
+\begin{equation}
+    x_i(t) = \sum_{k=1}^n v_k y_k(t).
+\end{equation}
+\section*{Correlation Function}
+The correlation function for $x_i(t)$ and $x_j(s)$ is given by:
+\begin{equation}
+\langle x_i(t)x_j(s) \rangle = \sum_{k,q} V_{ik} V_{jq} \langle y_k(t)y_q(s) \rangle,
+\end{equation}
+where $V_{ik}$ are the components of the eigenvectors of the Kirchhoff matrix $K$, and $y_k(t)$ represents the $k$-th mode in the eigenvector basis.
+
+\subsection*{Correlation of $y_k(t)$ and $y_q(s)$}
+The correlation of $y_k(t)$ and $y_q(s)$ includes contributions from:
+\begin{itemize}
+    \item The initial conditions;
+    \item The oscillatory term;
+    \item The stochastic noise term.
+\end{itemize}
+We write:
+\begin{equation}
+\langle y_k(t)y_q(s) \rangle = \underbrace{\langle y_k(0)y_q(0) \rangle e^{-\lambda_k t} e^{-\lambda_q s}}_{\text{Initial condition term}} + \underbrace{\langle I_k(t) I_q(s) \rangle}_{\text{Oscillatory term}} + \underbrace{\langle N_k(t) N_q(s) \rangle}_{\text{Noise term}},
+\end{equation}
+where $I_k(t)$ represents the oscillatory contribution and $N_k(t)$ the stochastic noise.
+
+\subsection*{Oscillatory Term}
+The oscillatory term is given by:
+\begin{equation}
+I_k(t) = \epsilon (v_k(a) - v_k(b)) \left[ \frac{1 - e^{-\lambda_k t}}{\lambda_k} - \left( \frac{\lambda_k \cos(\omega t) + \omega \sin(\omega t)}{\lambda_k^2 + \omega^2} e^{-\lambda_k t} - \frac{\lambda_k}{\lambda_k^2 + \omega^2} \right) \right].
+\end{equation}
+For the correlation of $I_k(t)$ and $I_q(s)$, we focus on the dominant case $k = q$:
+\begin{equation}
+\langle I_k(t) I_k(s) \rangle = \epsilon^2 (v_k(a) - v_k(b))^2 \langle J_k(t) J_k(s) \rangle,
+\end{equation}
+where:
+\begin{equation}
+J_k(t) = \int_0^t e^{-\lambda_k (t-\tau)} (1 - \cos(\omega \tau)) \, d\tau.
+\end{equation}
+
+Expanding $J_k(t)$:
+\begin{equation}
+J_k(t) = \frac{1}{\lambda_k} - \frac{\lambda_k}{\lambda_k^2 + \omega^2} - e^{-\lambda_k t} \left[ \frac{1}{\lambda_k} - \frac{\lambda_k \cos(\omega t) + \omega \sin(\omega t)}{\lambda_k^2 + \omega^2} \right].
+\end{equation}
+
+The oscillatory correlation is then:
+\begin{equation}
+\langle I_k(t) I_k(s) \rangle = \epsilon^2 (v_k(a) - v_k(b))^2 \frac{\cos(\omega t) \cos(\omega s) + \sin(\omega t) \sin(\omega s)}{\lambda_k^2 + \omega^2} e^{-\lambda_k (t+s)}.
+\end{equation}
+
+\subsection*{Final Correlation Function}
+Combining the oscillatory contribution with the full expression for $\langle y_k(t)y_q(s) \rangle$, the correlation function becomes:
+\begin{equation}
+\langle x_i(t)x_j(s) \rangle = \sum_k V_{ik} V_{jk} \left[ \frac{C_k}{\lambda_k^2} e^{-\lambda_k(t+s)} + \epsilon^2 \frac{(v_k(a) - v_k(b))^2}{\lambda_k^2 + \omega^2} \cos(\omega t - \omega s) e^{-\lambda_k (t+s)} \right].
+\end{equation}
+Here, $C_k$ depends on the initial conditions, while the second term explicitly includes the oscillatory contribution.
+
+
+
+
+
+
+
+
 
 
 

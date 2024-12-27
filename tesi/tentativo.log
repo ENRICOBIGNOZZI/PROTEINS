@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.15)  9 NOV 2024 11:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.15)  18 DEC 2024 09:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/enrico/PROTEINS/STATIC/tesi/tentativo.tex
-(/Users/enrico/PROTEINS/STATIC/tesi/tentativo.tex
+**/Users/enrico/PROTEINS/tesi/tentativo
+(/Users/enrico/PROTEINS/tesi/tentativo.tex
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
 (/usr/local/texlive/2024/texmf-dist/tex/latex/base/report.cls
@@ -168,69 +168,25 @@ Chapter 1.
 
 [2
 
-]
-
-[3]
-Chapter 2.
-
-
-[4
-
-]
-
-[5]
-Chapter 3.
-
-LaTeX Warning: Reference `fig:correlation' on page 6 undefined on input line 100.
-
-
-LaTeX Warning: Reference `tab:response_entropy' on page 6 undefined on input line 113.
-
-
-LaTeX Warning: Reference `fig:transfer_entropy' on page 6 undefined on input line 135.
-
-
-
-[6
-
-]
-
-[7]
-Chapter 4.
-
-
-[8
-
-]
-Chapter 5.
-No file tentativo.bbl.
-
-
-[9
-
 ] (./tentativo.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
  ) 
 Here is how much of TeX's memory you used:
- 2212 strings out of 473579
- 33545 string characters out of 5728228
+ 2196 strings out of 473579
+ 33191 string characters out of 5728228
  423915 words of memory out of 5000000
- 25118 multiletter control sequences out of 15000+600000
- 564700 words of font info for 59 fonts, out of 8000000 for 9000
+ 25103 multiletter control sequences out of 15000+600000
+ 563631 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,16n,65p,635b,210s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on tentativo.pdf (10 pages, 144635 bytes).
+ 57i,6n,65p,514b,189s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on tentativo.pdf (3 pages, 68048 bytes).
 PDF statistics:
- 98 PDF objects out of 1000 (max. 8388607)
- 61 compressed objects within 1 object stream
+ 40 PDF objects out of 1000 (max. 8388607)
+ 24 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

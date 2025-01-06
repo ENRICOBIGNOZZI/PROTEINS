@@ -1,17 +1,10 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import matplotlib.patches as mpatches
-import numpy as np
-import matplotlib.pyplot as plt
 from Downlaod_data import PDBProcessor
 from Visualize import Visualize
 from matrix import GraphMatrixAnalyzer
 import pandas as pd
-import matplotlib.patches as patches
-import os
-import seaborn as sns
-import matplotlib.lines as mlines
-import matplotlib.patches as mpatches
+
 
 
 
@@ -30,24 +23,7 @@ def plot_residual_correlation_vs_j(df, i, t, s, time_idx, nome, Q, lambdaa, U, c
             correlation_i[j] = sum_result
 
     ax.plot(range(len(correlation_i)), correlation_i, marker='o', linestyle='-', alpha=0.7, color=color, label=label)
-'''def plot_residual_response_vs_j(df, i, t, s, time_idx, nome, Q, lambdaa, U, color, label=None, ax=None):
-    correlation_i = np.zeros((len(lambdaa)))
-    z = np.array(t) - np.array(s)
 
-    for tau in z:
-        for j in range(len(lambdaa)):
-            sum_result = 0.0
-            for k in range(1, len(lambdaa)):
-                for p in range(1, len(lambdaa)):
-                    term = (U[i, k] * Q[k, p] * U[j, p]) / (lambdaa[k] + lambdaa[p])
-                    if tau > 0:
-                        term *= np.exp(-lambdaa[k] * tau)
-                    else:
-                        term *= np.exp(lambdaa[p] * tau)
-                    sum_result += term
-            correlation_i[j] = sum_result#/term
-
-    ax.plot(range(len(correlation_i)), correlation_i, marker='o', linestyle='-', alpha=0.7, color=color, label=label)'''
 def _plot_secondary_structure(sec_struct_data, ax):
     sec_struct_info = sec_struct_data['Secondary Structure']
     residue_ids = sec_struct_data['Residue ID'].astype(int)

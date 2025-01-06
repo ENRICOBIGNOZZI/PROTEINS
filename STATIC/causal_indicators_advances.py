@@ -3,11 +3,8 @@ import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 import matplotlib.lines as mlines
 import os
-import matplotlib.pyplot as plt
-import matplotlib.lines as mlines
 import matplotlib.patches as mpatches
-import matplotlib.lines as mlines
-import matplotlib.patches as mpatches
+
 class BaseCorrelationAnalysis:
     def __init__(self, u, lambdas, mu, sec_struct_data,stringa):
         self.u = u  # Ensure u is at least 2D
@@ -801,3 +798,77 @@ class ResidualAnalysis(TimeCorrelation, TransferEntropy, TimeResponse, Correlati
         plt.savefig(f'images/{self.name}/Time_indicators/{title}.png')
 
         
+def plot_time_response_multiple(time_response, residue_pairs, t, title,name):
+    plt.figure(figsize=(12, 8))
+    for i, j in residue_pairs:
+        R_ij_t = time_response.time_response(i, j, t)
+        plt.plot(t, R_ij_t, label=f'R({i},{j})')
+    
+    plt.xlabel('Time')
+    plt.ylabel('Response')
+    plt.title(title)
+    plt.legend()
+    plt.grid(True)
+    if not os.path.exists(f'images/{name}/Multiple_time_response/'):
+        os.makedirs(f'images/{name}/Multiple_time_response/')
+
+    # Save the figure in the 'images' directory
+    plt.savefig(f'images/{name}/Multiple_time_response/risposte.png')
+
+
+def plot_time_correlation_multiple(time_response, residue_pairs, t, title,name):
+    plt.figure(figsize=(12, 8))
+    for i, j in residue_pairs:
+        R_ij_t = time_response.time_correlation(i, j, t)
+        plt.plot(t, R_ij_t, label=f'C({i},{j})')
+    
+    plt.xlabel('Time')
+    plt.ylabel('correlation')
+    plt.title(title)
+    plt.legend()
+    plt.grid(True)
+    if not os.path.exists(f'images/{name}/Multiple_time_correlation/'):
+        os.makedirs(f'images/{name}/Multiple_time_correlation/')
+
+    # Save the figure in the 'images' directory
+    plt.savefig(f'images/{name}/Multiple_time_correlation/correlation.png')
+def plot_time_entropy_multiple(time_response, residue_pairs, t, title,name):
+    plt.figure(figsize=(12, 8))
+    for i, j in residue_pairs:
+        R_ij_t = time_response.transfer_entropy(i, j, t)
+        plt.plot(t, R_ij_t, label=f'TE({i},{j})')
+    
+    plt.xlabel('Time')
+    plt.ylabel('Transfer entropy')
+    plt.title(title)
+    plt.legend()
+    plt.grid(True)
+    if not os.path.exists(f'images/{name}/Multiple_time_correlation/'):
+        os.makedirs(f'images/{name}/Multiple_time_correlation/')
+
+    # Save the figure in the 'images' directory
+    plt.savefig(f'images/{name}/Multiple_time_correlation/entropy.png')
+def plot_3d_correlation(t, num_residues,residual_analysis):
+    z_axis = []
+    x_axis = []
+    y_axis = []
+
+    for i in range(num_residues):
+        for j in range(num_residues):
+            correlations, _ = residual_analysis._calculate_correlation_cost(i, j, t)
+            z_axis.extend(correlations)
+            x_axis.extend([i] * len(t))
+            y_axis.extend(t)
+
+    # Create 3D plot
+    fig = plt.figure(figsize=(10, 7))
+    ax = fig.add_subplot(111, projection='3d')
+    ax.scatter(x_axis, y_axis, z_axis, c=z_axis, cmap='viridis', marker='o')
+
+    ax.set_xlabel("alpha carbon Index")
+    ax.set_ylabel("Time")
+    ax.set_zlabel("Covariance")
+    ax.set_title("3D CovarianceAnalysis Over Residues and Time")
+    plt.savefig("/Users/enrico/PROTEINS/images/3LNX/3D_covariance_plot.png.png")
+    plt.close()
+    return 

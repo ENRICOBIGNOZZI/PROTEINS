@@ -26,9 +26,11 @@ class Visualize:
         plt.ylabel('Numero di connessioni')
         plt.title('Numero di connessioni al variare del raggio')
         plt.grid(True)
-        plt.show()
+        
         output_file = os.path.join(output_dir, 'numero_connessioni_vs_raggio.png')
-        plt.savefig(output_file)
+        if not os.path.exists('images/3LNX/'):
+            os.makedirs('images/3LNX/')
+        plt.savefig('images/3LNX/connection_vs_radius.png')
 
     def calculate_and_print_average_distance(self):
         positions = self.df.loc[:, ['X', 'Y', 'Z']].values

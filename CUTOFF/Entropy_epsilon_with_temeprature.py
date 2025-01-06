@@ -16,24 +16,6 @@ import matplotlib.patches as mpatches
 
 
 
-def plot_residual_correlation_vs_j(df, i, t, s, time_idx, nome, Q, lambdaa, U, color, label=None, ax=None):
-    correlation_i = np.zeros((len(lambdaa)))
-    z = np.array(t) - np.array(s)
-
-    for tau in z:
-        for j in range(len(lambdaa)):
-            sum_result = 0.0
-            for k in range(1, len(lambdaa)):
-                for p in range(1, len(lambdaa)):
-                    term = (U[i, k] * Q[k, p] * U[j, p]) / (lambdaa[k] + lambdaa[p])
-                    if tau > 0:
-                        term *= np.exp(-lambdaa[k] * tau)
-                    else:
-                        term *= np.exp(lambdaa[p] * tau)
-                    sum_result += term
-            correlation_i[j] = sum_result
-
-    ax.plot(range(len(correlation_i)), correlation_i, marker='o', linestyle='-', alpha=0.7, color=color, label=label)
 
 def _plot_secondary_structure(sec_struct_data, ax):
     sec_struct_info = sec_struct_data['Secondary Structure']
@@ -62,33 +44,34 @@ def _plot_secondary_structure(sec_struct_data, ax):
     return colors
 
 def main_plot(df, kirchhoff_matrix, contatti, t, s, time_idx, nome, lista):
-    fig, (ax1, ax2) = plt.subplots(nrows=2, figsize=(12, 12))
+    for i in lista:
+        fig, (ax1, ax2) = plt.subplots(nrows=2, figsize=(12, 12))
 
-    legend_handles = []
+        legend_handles = []
 
-    # Tracciare i grafici nel primo sottomodulo
-    for epsilon in [1,0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 0.0]:
-        temperatura = np.where(contatti >= 5, epsilon, 1)
-        B = np.sqrt(temperatura)
-        B = np.diag(B)
+        # Tracciare i grafici nel primo sottomodulo
+        for epsilon in [1,0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 0.0]:
+            temperatura = np.where(contatti >= 5, epsilon, 1)
+            B = np.sqrt(2*temperatura)
+            B = np.diag(B)
 
-        lambdaa, U = np.linalg.eig(kirchhoff_matrix)
-        BBT = B @ B.T
-        Q = U @ BBT @ U.T
+            lambdaa, U = np.linalg.eig(kirchhoff_matrix)
+            BBT = B @ B.T
+            Q = U @ BBT @ U.T
 
-        for i in lista:
+            
             color = plt.cm.viridis((epsilon + 0.1) / 1.0)
             label = f'Temperature = {epsilon}'
-            plot_residual_transfer_entropy_vs_j_accettore(df, i, t, s, time_idx, nome, Q, lambdaa, U, color=color, label=label, ax=ax1)
+            plot_residual_transfer_entropy_vs_j_donatore(df, i, t, s, time_idx, nome, Q, lambdaa, U, color=color, label=label,ax=ax1)
 
             if label not in [h.get_label() for h in legend_handles]:
                 legend_handles.append(plt.Line2D([0], [0], marker='o', color='w', markerfacecolor=color, label=label))
 
         # Configurazione del primo sottomodulo
         ax1.legend(handles=legend_handles, title='Legenda Epsilon', loc='upper right')
-        ax1.set_xlabel('Residue Index')
-        ax1.set_ylabel('Transfer entropy')
-        ax1.set_title('Trasnfer Entropy')
+        ax1.set_xlabel("Residue Index")
+        ax1.set_ylabel(f'Transfer entropy {i}')
+        ax1.set_title(f'Transfer entropy {i}')
         ax1.grid(True)
 
         # Tracciare le temperature nel secondo sottomodulo
@@ -110,7 +93,8 @@ def main_plot(df, kirchhoff_matrix, contatti, t, s, time_idx, nome, lista):
 
         # Salvataggio del grafico
         plt.tight_layout()
-        plt.savefig(f'images/{nome}/2_temperature_cutoff/combined_entropy_temperature_{i}_plots.png')
+        plt.savefig(f'images/{nome}/2_temperature_cutoff/combined_entropy_temperature_donatore_{i}_plots.png')
+        plt.show()
         plt.close()
 
 def transfer_entropy(C,C_statica, i, j):
@@ -134,26 +118,19 @@ def plot_residual_transfer_entropy_vs_j_accettore(df, i, t, s, time_idx, nome, Q
         for i in range(len(lambdaa)):
             for j in range(len(lambdaa)):
                 sum_result = 0.0
+                sum_result2 = 0.0
                 for k in range(1, len(lambdaa)):
                     for p in range(1, len(lambdaa)):
                         term = (U[i, k] * Q[k, p] * U[j, p]) / (lambdaa[k] + lambdaa[p])
-                        if tau > 0:
-                            term *= np.exp(-lambdaa[k] * tau)
-                        else:
-                            term *= np.exp(lambdaa[p] * tau)
-                        sum_result += term
-                correlation_i[i][j] = sum_result
-    for tau in z:
-        for i in range(len(lambdaa)):
-            for j in range(len(lambdaa)):
-                sum_result = 0.0
-                for k in range(1, len(lambdaa)):
-                    for p in range(1, len(lambdaa)):
-                        term = (U[i, k] * Q[k, p] * U[j, p]) / (lambdaa[k] + lambdaa[p])
+                        term2=term
+                        term *= np.exp(-lambdaa[k] * tau)
                         
                         sum_result += term
-                correlation_i_zero[i][j] = sum_result
-
+                        sum_result2+=term2
+                correlation_i[i][j] = sum_result
+                correlation_i_zero[i][j] = sum_result2
+    
+                
     i=lista
     transfer_entropy_matrix =  np.zeros(len(lambdaa))
     for j in range(len(lambdaa)):
@@ -167,35 +144,33 @@ def plot_residual_transfer_entropy_vs_j_accettore(df, i, t, s, time_idx, nome, Q
     ax.plot(range(len(transfer_entropy_matrix)), transfer_entropy_matrix, marker='o', linestyle='-', alpha=0.7, color=color, label=label)
     
     # Call the secondary structure plotting function
-    
-def plot_residual_transfer_entropy_vs_j_donatore(df, i, t, s, time_idx, nome, Q, lambdaa, U, color, label=None):
-    correlation_i = np.zeros((len(lambdaa)))
-    correlation_i_zero = np.zeros((len(lambdaa)))
+
+
+
+def plot_residual_transfer_entropy_vs_j_donatore(df, i, t, s, time_idx, nome, Q, lambdaa, U, color, label=None, ax=None):
+    correlation_i = np.zeros((len(lambdaa),len(lambdaa)))
+    lista=i
+    correlation_i_zero = np.zeros((len(lambdaa),len(lambdaa)))
     z = np.array(t) - np.array(s)
     
     for tau in z:
-        for j in range(len(lambdaa)):
-            sum_result = 0.0
-            for k in range(1, len(lambdaa)):
-                for p in range(1, len(lambdaa)):
-                    term = (U[i, k] * Q[k, p] * U[j, p]) / (lambdaa[k] + lambdaa[p])
-                    if tau > 0:
+        for i in range(len(lambdaa)):
+            for j in range(len(lambdaa)):
+                sum_result = 0.0
+                sum_result2 = 0.0
+                for k in range(1, len(lambdaa)):
+                    for p in range(1, len(lambdaa)):
+                        term = (U[i, k] * Q[k, p] * U[j, p]) / (lambdaa[k] + lambdaa[p])
+                        term2=term
                         term *= np.exp(-lambdaa[k] * tau)
-                    else:
-                        term *= np.exp(lambdaa[p] * tau)
-                    sum_result += term
-            correlation_i[j] = sum_result
-    for tau in z:
-        for j in range(len(lambdaa)):
-            sum_result = 0.0
-            for k in range(1, len(lambdaa)):
-                for p in range(1, len(lambdaa)):
-                    term = (U[i, k] * Q[k, p] * U[j, p]) / (lambdaa[k] + lambdaa[p])
-                    
-                    sum_result += term
-            correlation_i_zero[j] = sum_result
-
-    i=20
+                        
+                        sum_result += term
+                        sum_result2+=term2
+                correlation_i[i][j] = sum_result
+                correlation_i_zero[i][j] = sum_result2
+    
+                
+    i=lista
     transfer_entropy_matrix =  np.zeros(len(lambdaa))
     for j in range(len(lambdaa)):
         if j==i:
@@ -205,10 +180,52 @@ def plot_residual_transfer_entropy_vs_j_donatore(df, i, t, s, time_idx, nome, Q,
 
     
     # Plot the main matrix with the specified label
-    plt.plot(range(len(transfer_entropy_matrix)), transfer_entropy_matrix, marker='o', linestyle='-', alpha=0.7, color=color, label=label)
+    ax.plot(range(len(transfer_entropy_matrix)), transfer_entropy_matrix, marker='o', linestyle='-', alpha=0.7, color=color, label=label)
     
+import numpy as np
 
+'''def transfer_entropy(C, C_statica, i, j):
+    C_ii_0 = C_statica[i, i]
+    C_jj_0 = C_statica[j, j]
+    C_ii_t = C[i, i]
+    C_ij_0 = C_statica[i, j]
+    C_ij_t = C[i, j]
+    alpha_ij_t = (C_ii_0 * C_ij_t - C_ij_0 * C_ii_t) ** 2
+    beta_ij_t = (C_ii_0 * C_jj_0 - (C_ij_0 ** 2)) * (C_ii_0 ** 2 - C_ii_t ** 2)
+    ratio = np.clip(alpha_ij_t / beta_ij_t, 0, 1 - 1e-10)
+    return -0.5 * np.log(1 - ratio)
 
+def plot_residual_transfer_entropy_vs_j_accettore(df, i, t, s, time_idx, nome, Q, lambdaa, U, color, label=None, ax=None):
+    n = len(lambdaa)
+    correlation_i = np.zeros((n, n))
+    correlation_i_zero = np.zeros((n, n))
+    z = np.array(t) - np.array(s)
+    
+    # Precompute U[i, k] * Q[k, p] * U[j, p] for all i, j, k, p
+    UQ = np.einsum('ik,kp,jp->ijkp', U, Q, U)
+    
+    # Precompute lambdaa[k] + lambdaa[p] for all k, p
+    lambda_sum = lambdaa[:, None] + lambdaa[None, :]
+    
+    # Precompute the term (U[i, k] * Q[k, p] * U[j, p]) / (lambdaa[k] + lambdaa[p])
+    term = UQ / lambda_sum[None, None, :, :]
+    
+    for tau in z:
+        # Compute the exponential term for all k
+        exp_term = np.exp(-lambdaa * tau)  # Shape: (n,)
+        
+        # Multiply by the exponential term and sum over k and p
+        correlation_i += np.sum(term * exp_term[None, None, :, None], axis=(2, 3))
+        correlation_i_zero += np.sum(term, axis=(2, 3))
+    
+    transfer_entropy_matrix = np.zeros(n)
+    for j in range(n):
+        if j != i:
+            transfer_entropy_matrix[j] = transfer_entropy(correlation_i, correlation_i_zero, i, j)
+            print(transfer_entropy_matrix[j])
+    # Plot the main matrix with the specified label
+    ax.plot(range(len(transfer_entropy_matrix)), transfer_entropy_matrix, marker='o', linestyle='-', alpha=0.7, color=color, label=label)
+'''
 stringa="3LNX"
 pdb_processor = PDBProcessor(pdb_id="3LNX")#2m07
 pdb_processor.download_pdb()
@@ -245,7 +262,7 @@ analyzer = GraphMatrixAnalyzer(G)
 kirchhoff_matrix = analyzer.get_kirchhoff_matrix()
 
 
-t = np.linspace(0., 2, 300)  # Time points
+
 
 tau_mean=0.1845
 
@@ -254,10 +271,10 @@ t=[tau_mean]
 s=[0,0,0]
 time_idx = 0
 
-lista=[]
+lista=[30,72]
 # Loop da 0 a 94 prendendo uno ogni 3
-for i in range(0, 95, 3):  # i va da 0 a 94 con step di 3
-    # Selezioniamo l'indice modulo della lunghezza della lista
-    lista.append(i)
+#for i in range(0, 95, 3):  # i va da 0 a 94 con step di 3
+#   # Selezioniamo l'indice modulo della lunghezza della lista
+#   lista.append(i)
 main_plot(df, kirchhoff_matrix, contatti, t, s, time_idx, stringa,lista)
 

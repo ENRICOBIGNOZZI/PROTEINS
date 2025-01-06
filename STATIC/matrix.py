@@ -88,8 +88,8 @@ class GraphMatrixAnalyzer:
         # Add rectangles
         rectangle1 = patches.Rectangle((19, 71), 5, 9, linewidth=2, edgecolor='r', facecolor='none')
         rectangle2 = patches.Rectangle((71, 19), 9, 5, linewidth=2, edgecolor='r', facecolor='none')
-        ax.add_patch(rectangle1)
-        ax.add_patch(rectangle2)
+        #ax.add_patch(rectangle1)
+        #ax.add_patch(rectangle2)
         
         # Create segments on x and y axes based on secondary structure
         start = 0

@@ -145,8 +145,8 @@ matrix_operations = CorrelationMatrixOperations(u=autovettori, lambdas=autovalor
 correlation_matrix = matrix_operations.compute_static_correlation_matrix()
 positive_matrix, negative_matrix = matrix_operations.split_correlation_matrix(correlation_matrix)
 
-#matrix_operations.plot_correlation_matrix_nan(correlation_matrix, kirchhoff_matrix,secondary_structure, positive_only=False)
-#matrix_operations.plot_correlation_matrix_nan(correlation_matrix,kirchhoff_matrix, secondary_structure, positive_only=True)
+matrix_operations.plot_correlation_matrix_nan(correlation_matrix, kirchhoff_matrix,secondary_structure, positive_only=False)
+matrix_operations.plot_correlation_matrix_nan(correlation_matrix,kirchhoff_matrix, secondary_structure, positive_only=True)
 #matrix_operations.plot_correlation_matrix(kirchhoff_matrix, title='Correlation Matrix')
 #matrix_operations.plot_correlation_matrix_nan(kirchhoff_matrix, title='Correlation Matrix', positive_only=False)
 
@@ -154,13 +154,49 @@ residual_analysis = ResidualAnalysis(u=autovettori, lambdas=autovalori, mu=mu, s
 #residual_analysis.analyze_mfpt(adjacency_matrix,kirchhoff_matrix, secondary_structure )
 
 #lista = np.array([20,21,22, 23, 24])
+# Prepare data for 3D plot
+from mpl_toolkits.mplot3d import Axes3D
+t = np.linspace(0., 2, 300) 
+num_residues=len(autovalori)
+z_axis = []
+x_axis = []
+y_axis = []
 
-lista=[]
+for i in range(num_residues):
+    for j in range(num_residues):
+        correlations, _ = residual_analysis._calculate_correlation_cost(i, j, t)
+        z_axis.extend(correlations)
+        x_axis.extend([i] * len(t))
+        y_axis.extend(t)
+
+# Create 3D plot
+fig = plt.figure(figsize=(10, 7))
+ax = fig.add_subplot(111, projection='3d')
+ax.scatter(x_axis, y_axis, z_axis, c=z_axis, cmap='viridis', marker='o')
+
+ax.set_xlabel("alpha carbon Index")
+ax.set_ylabel("Time")
+ax.set_zlabel("Covariance")
+ax.set_title("3D CovarianceAnalysis Over Residues and Time")
+plt.savefig("3D_plot.png")
+plt.close()
+'''lista=[]
 # Loop da 0 a 94 prendendo uno ogni 3
 for i in range(0, 95, 3):  # i va da 0 a 94 con step di 3
     # Selezioniamo l'indice modulo della lunghezza della lista
     lista.append(i)
+
 t=[tau_mean-1/2*tau_mean,tau_mean,tau_mean+1/2*tau_mean]
+residue_pairs = [(20, 30), (20, 75),(20,72),(24,72),(14,44),(28,30),(30,72),(27,30),(27,72)]
+t = np.linspace(0., 2, 300) 
+plot_time_response_multiple(time_response, residue_pairs, t, 'Time Response for Selected Residue Pairs',name=stringa)
+plot_time_correlation_multiple(time_correlation, residue_pairs, t, 'Time Correlation for Selected Residue Pairs',name=stringa)
+plot_time_entropy_multiple(transfer_entropy, residue_pairs, t, 'Time Transfer entropy TE_{i,j} for Selected Residue Pairs',name=stringa)
+
+
+residual_analysis.analyze_mfpt(adjacency_matrix,kirchhoff_matrix, secondary_structure )
+
+ 
 time_idx = 0
 for i in range(len(lista)):
     residual_analysis.plot_residual_correlation_vs_j(i=lista[i], t=t, time_idx=time_idx)
@@ -174,7 +210,7 @@ for i in range(len(lista)):
 
 #residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'correlation')#'correlation','linear_response','entropy'
 #residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'linear_response')
-#residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'entropy')
+#residual_analysis.plot_mean_quantity_over_segment(lista, t, time_idx,'entropy')'''
 
 '''lista = np.array([71, 72, 73, 74, 75, 76, 77, 78, 79])
 t=[tau_mean-1/2*tau_mean,tau_mean,tau_mean+1/2*tau_mean]

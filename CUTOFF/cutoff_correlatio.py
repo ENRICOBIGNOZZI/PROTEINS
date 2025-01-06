@@ -59,8 +59,8 @@ class CorrelationMatrixOperations(BaseCorrelationAnalysis):
         # Aggiungi rettangoli o patch (esempio)
         rectangle1 = mpatches.Rectangle((19, 71), 5, 9, linewidth=2, edgecolor='r', facecolor='none')
         rectangle2 = mpatches.Rectangle((71, 19), 9, 5, linewidth=2, edgecolor='r', facecolor='none')
-        plt.gca().add_patch(rectangle1)
-        plt.gca().add_patch(rectangle2)
+        #plt.gca().add_patch(rectangle1)
+        #plt.gca().add_patch(rectangle2)
 
         # Segnamenti su assi x e y basati sulla struttura secondaria
         start = 0
